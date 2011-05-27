@@ -8,7 +8,7 @@ typedef JFFAsyncDataLoader (*MergeTwoLoadersPtr)( JFFAsyncDataLoader, JFFAsyncDa
 
 static JFFAsyncDataLoader createEmptyLoaderBlock()
 {
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_, JFFCancelHandler cancel_callback_, JFFDidFinishAsyncOperationHandler done_callback_ )
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_, JFFCancelHandler cancel_callback_, JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       done_callback_( [ NSNull null ], nil );
       return [ [ ^() { /*do nothing*/ } copy ] autorelease ];
@@ -44,7 +44,7 @@ static JFFAsyncDataLoader loaderBlockWithBlocksSequencePair( JFFAsyncDataLoader 
    if ( second_loader_ == nil )
       return first_loader_;
 
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_
                 , JFFCancelHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
@@ -107,7 +107,7 @@ static JFFAsyncDataLoader loaderBlockWithBlocksTrySequencePair( JFFAsyncDataLoad
    if ( second_loader_ == nil )
       return first_loader_;
 
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_
                 , JFFCancelHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
@@ -162,7 +162,7 @@ static JFFAsyncDataLoader loaderBlockWithBlocksGroupPair( JFFAsyncDataLoader fir
    if ( second_loader_ == nil )
       return first_loader_;
 
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_
                 , JFFCancelHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
@@ -264,7 +264,7 @@ static JFFAsyncDataLoader loaderBlockFailOnFirstErrorWithBlocksGroupPair( JFFAsy
    if ( second_loader_ == nil )
       return first_loader_;
 
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_
                 , JFFCancelHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
@@ -367,7 +367,7 @@ JFFAsyncDataLoader loaderBlockWithDoneCallbackBlock( JFFAsyncDataLoader loader_
 {
    done_callback_block_ = [ [ done_callback_block_ copy ] autorelease ];
    loader_ = [ [ loader_ copy ] autorelease ];
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_
                 , JFFCancelHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
@@ -386,7 +386,7 @@ JFFAsyncDataLoader loaderBlockWithDoneHookBlock( JFFAsyncDataLoader loader_
 {
    done_callback_hook_ = [ [ done_callback_hook_ copy ] autorelease ];
    loader_ = [ [ loader_ copy ] autorelease ];
-   return [ [ ^( JFFLoadDataProgressHandler progress_callback_
+   return [ [ ^( JFFSyncOperationProgressHandler progress_callback_
                 , JFFCancelHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {

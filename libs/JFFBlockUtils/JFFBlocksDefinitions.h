@@ -4,11 +4,11 @@ typedef void (^JFFSimpleBlock)( void );
 
 typedef id (^JFFDataGetter)( void );
 
-typedef void (^JFFLoadDataProgressHandler)( id progress_info_ );
+typedef void (^JFFSyncOperationProgressHandler)( id progress_info_ );
 
 typedef id (^JFFSyncOperation)( NSError** error_ );
 typedef id (^JFFSyncOperationWithProgress)( NSError** error_
-                                           , JFFLoadDataProgressHandler progress_callback_ );
+                                           , JFFSyncOperationProgressHandler progress_callback_ );
 
 typedef void (^JFFDidFinishAsyncOperationHandler)( id result_, NSError* error_ );
 
@@ -18,7 +18,7 @@ typedef JFFSimpleBlock JFFCancelHandler;
 //@@ progress_callback_ -- nil | valid block
 //@@ cancel_callback_   -- nil | valid block
 //@@ done_callback_     -- nil | valid block
-typedef JFFCancelAsyncOpration (^JFFAsyncDataLoader)( JFFLoadDataProgressHandler progress_callback_
+typedef JFFCancelAsyncOpration (^JFFAsyncDataLoader)( JFFSyncOperationProgressHandler progress_callback_
                                                      , JFFCancelHandler cancel_callback_
                                                      , JFFDidFinishAsyncOperationHandler done_callback_ );
 
