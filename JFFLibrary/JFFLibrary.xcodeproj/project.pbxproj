@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		651BE0A01390494300DD6890 /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 651BE09D1390493400DD6890 /* libJFFUtils.a */; };
+		651BE1171390571900DD6890 /* libJFFScheduler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 651BE1141390570700DD6890 /* libJFFScheduler.a */; };
 		AA747D9F0F9514B9006C5449 /* JFFLibrary_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFLibrary_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -27,10 +28,25 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D /* JFFUtils */;
 			remoteInfo = JFFUtils;
 		};
+		651BE1131390570700DD6890 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 651BE10F1390570700DD6890 /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libJFFScheduler.a */;
+			remoteInfo = JFFScheduler;
+		};
+		651BE1151390571000DD6890 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 651BE10F1390570700DD6890 /* JFFScheduler.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* JFFScheduler */;
+			remoteInfo = JFFScheduler;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		651BE0981390493400DD6890 /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../libs/JFFUtils/JFFUtils.xcodeproj; sourceTree = SOURCE_ROOT; };
+		651BE10F1390570700DD6890 /* JFFScheduler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFScheduler.xcodeproj; path = ../libs/JFFScheduler/JFFScheduler.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AA747D9E0F9514B9006C5449 /* JFFLibrary_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFLibrary_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				651BE0A01390494300DD6890 /* libJFFUtils.a in Frameworks */,
+				651BE1171390571900DD6890 /* libJFFScheduler.a in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +77,7 @@
 		0867D691FE84028FC02AAC07 /* JFFLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				651BE10F1390570700DD6890 /* JFFScheduler.xcodeproj */,
 				651BE0981390493400DD6890 /* JFFUtils.xcodeproj */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -100,6 +118,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		651BE1101390570700DD6890 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				651BE1141390570700DD6890 /* libJFFScheduler.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -126,6 +152,7 @@
 			);
 			dependencies = (
 				651BE09F1390493D00DD6890 /* PBXTargetDependency */,
+				651BE1161390571000DD6890 /* PBXTargetDependency */,
 			);
 			name = JFFLibrary;
 			productName = JFFLibrary;
@@ -152,6 +179,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 651BE1101390570700DD6890 /* Products */;
+					ProjectRef = 651BE10F1390570700DD6890 /* JFFScheduler.xcodeproj */;
+				},
+				{
 					ProductGroup = 651BE0991390493400DD6890 /* Products */;
 					ProjectRef = 651BE0981390493400DD6890 /* JFFUtils.xcodeproj */;
 				},
@@ -171,6 +202,13 @@
 			remoteRef = 651BE09C1390493400DD6890 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		651BE1141390570700DD6890 /* libJFFScheduler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFScheduler.a;
+			remoteRef = 651BE1131390570700DD6890 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -188,6 +226,11 @@
 			isa = PBXTargetDependency;
 			name = JFFUtils;
 			targetProxy = 651BE09E1390493D00DD6890 /* PBXContainerItemProxy */;
+		};
+		651BE1161390571000DD6890 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFScheduler;
+			targetProxy = 651BE1151390571000DD6890 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
