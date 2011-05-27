@@ -1,0 +1,269 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		651BDDE1138FAE5E00DD6890 /* JFFBlocksDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BDDD4138FAE5E00DD6890 /* JFFBlocksDefinitions.h */; };
+		651BDDE2138FAE5E00DD6890 /* JFFBlocksFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BDDD5138FAE5E00DD6890 /* JFFBlocksFunctions.h */; };
+		651BDDE3138FAE5E00DD6890 /* JFFBlocksFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BDDD6138FAE5E00DD6890 /* JFFBlocksFunctions.m */; };
+		651BDDE4138FAE5E00DD6890 /* JFFSimpleBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BDDD7138FAE5E00DD6890 /* JFFSimpleBlockHolder.h */; };
+		651BDDE5138FAE5E00DD6890 /* JFFSimpleBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BDDD8138FAE5E00DD6890 /* JFFSimpleBlockHolder.m */; };
+		651BDDE6138FAE5E00DD6890 /* NSArray+BlocksAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BDDD9138FAE5E00DD6890 /* NSArray+BlocksAdditions.h */; };
+		651BDDE7138FAE5E00DD6890 /* NSArray+BlocksAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BDDDA138FAE5E00DD6890 /* NSArray+BlocksAdditions.m */; };
+		651BDDEA138FAE5E00DD6890 /* UITableView+BlocksAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BDDDD138FAE5E00DD6890 /* UITableView+BlocksAdditions.h */; };
+		651BDDEB138FAE5E00DD6890 /* UITableView+BlocksAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BDDDE138FAE5E00DD6890 /* UITableView+BlocksAdditions.m */; };
+		651BDDEC138FAE5E00DD6890 /* UIView+BlocksAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BDDDF138FAE5E00DD6890 /* UIView+BlocksAdditions.h */; };
+		651BDDED138FAE5E00DD6890 /* UIView+BlocksAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BDDE0138FAE5E00DD6890 /* UIView+BlocksAdditions.m */; };
+		AA747D9F0F9514B9006C5449 /* JFFBlockUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFBlockUtils_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		651BDDD4138FAE5E00DD6890 /* JFFBlocksDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlocksDefinitions.h; sourceTree = "<group>"; };
+		651BDDD5138FAE5E00DD6890 /* JFFBlocksFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlocksFunctions.h; sourceTree = "<group>"; };
+		651BDDD6138FAE5E00DD6890 /* JFFBlocksFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFBlocksFunctions.m; sourceTree = "<group>"; };
+		651BDDD7138FAE5E00DD6890 /* JFFSimpleBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFSimpleBlockHolder.h; sourceTree = "<group>"; };
+		651BDDD8138FAE5E00DD6890 /* JFFSimpleBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolder.m; sourceTree = "<group>"; };
+		651BDDD9138FAE5E00DD6890 /* NSArray+BlocksAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BlocksAdditions.h"; sourceTree = "<group>"; };
+		651BDDDA138FAE5E00DD6890 /* NSArray+BlocksAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BlocksAdditions.m"; sourceTree = "<group>"; };
+		651BDDDD138FAE5E00DD6890 /* UITableView+BlocksAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BlocksAdditions.h"; sourceTree = "<group>"; };
+		651BDDDE138FAE5E00DD6890 /* UITableView+BlocksAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BlocksAdditions.m"; sourceTree = "<group>"; };
+		651BDDDF138FAE5E00DD6890 /* UIView+BlocksAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlocksAdditions.h"; sourceTree = "<group>"; };
+		651BDDE0138FAE5E00DD6890 /* UIView+BlocksAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BlocksAdditions.m"; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* JFFBlockUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlockUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libJFFBlockUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFBlockUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libJFFBlockUtils.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* JFFBlockUtils */ = {
+			isa = PBXGroup;
+			children = (
+				651BDDD3138FAE4F00DD6890 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = JFFBlockUtils;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* JFFBlockUtils_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		651BDDD3138FAE4F00DD6890 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				651BDDD4138FAE5E00DD6890 /* JFFBlocksDefinitions.h */,
+				651BDDD5138FAE5E00DD6890 /* JFFBlocksFunctions.h */,
+				651BDDD6138FAE5E00DD6890 /* JFFBlocksFunctions.m */,
+				651BDDD7138FAE5E00DD6890 /* JFFSimpleBlockHolder.h */,
+				651BDDD8138FAE5E00DD6890 /* JFFSimpleBlockHolder.m */,
+				651BDDD9138FAE5E00DD6890 /* NSArray+BlocksAdditions.h */,
+				651BDDDA138FAE5E00DD6890 /* NSArray+BlocksAdditions.m */,
+				651BDDDD138FAE5E00DD6890 /* UITableView+BlocksAdditions.h */,
+				651BDDDE138FAE5E00DD6890 /* UITableView+BlocksAdditions.m */,
+				651BDDDF138FAE5E00DD6890 /* UIView+BlocksAdditions.h */,
+				651BDDE0138FAE5E00DD6890 /* UIView+BlocksAdditions.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* JFFBlockUtils_Prefix.pch in Headers */,
+				651BDDE1138FAE5E00DD6890 /* JFFBlocksDefinitions.h in Headers */,
+				651BDDE2138FAE5E00DD6890 /* JFFBlocksFunctions.h in Headers */,
+				651BDDE4138FAE5E00DD6890 /* JFFSimpleBlockHolder.h in Headers */,
+				651BDDE6138FAE5E00DD6890 /* NSArray+BlocksAdditions.h in Headers */,
+				651BDDEA138FAE5E00DD6890 /* UITableView+BlocksAdditions.h in Headers */,
+				651BDDEC138FAE5E00DD6890 /* UIView+BlocksAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* JFFBlockUtils */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFBlockUtils" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFFBlockUtils;
+			productName = JFFBlockUtils;
+			productReference = D2AAC07E0554694100DB518D /* libJFFBlockUtils.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFBlockUtils" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* JFFBlockUtils */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* JFFBlockUtils */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				651BDDE3138FAE5E00DD6890 /* JFFBlocksFunctions.m in Sources */,
+				651BDDE5138FAE5E00DD6890 /* JFFSimpleBlockHolder.m in Sources */,
+				651BDDE7138FAE5E00DD6890 /* NSArray+BlocksAdditions.m in Sources */,
+				651BDDEB138FAE5E00DD6890 /* UITableView+BlocksAdditions.m in Sources */,
+				651BDDED138FAE5E00DD6890 /* UIView+BlocksAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JFFBlockUtils.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFBlockUtils_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JFFBlockUtils;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/JFFBlockUtils.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFBlockUtils_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JFFBlockUtils;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFBlockUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFBlockUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
