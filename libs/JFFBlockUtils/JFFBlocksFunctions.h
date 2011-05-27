@@ -2,17 +2,24 @@
 
 @class NSArray;
 
+/////////////////////////////////// SEQUENCE ///////////////////////////////////
+
 JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                             , JFFAsyncOperation second_loader_, ... );
 
 JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* blocks_ );
 
+/////////////////////////////////// TRY SEQUENCE ///////////////////////////////////
+
 JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                                , JFFAsyncOperation second_loader_, ... );
 
-JFFAsyncOperation loaderBlockWithBlocksGroup( JFFAsyncOperation first_loader_
-                                             , JFFAsyncOperation second_loader_, ... );
-JFFAsyncOperation loaderBlockWithBlocksGroupArray( NSArray* blocks_ );
+/////////////////////////////////// GROUP ///////////////////////////////////
+
+JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation first_loader_
+                                         , JFFAsyncOperation second_loader_, ... );
+
+JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* blocks_ );
 
 JFFAsyncOperation loaderBlockFailOnFirstErrorWithBlocksGroup( JFFAsyncOperation first_loader_
                                                              , JFFAsyncOperation second_loader_, ... );
