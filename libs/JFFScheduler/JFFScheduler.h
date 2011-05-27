@@ -15,6 +15,6 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
 
 -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_ duration:( NSTimeInterval )duration_;
 
--(void)cancelScheduledOperations;
+-(void)cancelAllScheduledOperations;
 
 @end

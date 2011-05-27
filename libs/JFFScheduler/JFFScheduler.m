@@ -36,7 +36,7 @@
 
 -(void)dealloc
 {
-   [ self cancelScheduledOperations ];
+   [ self cancelAllScheduledOperations ];
 
    [ _cancel_blocks release ];
 
@@ -78,7 +78,7 @@
    return cancel_block_;
 }
 
--(void)cancelScheduledOperations
+-(void)cancelAllScheduledOperations
 {
    NSMutableSet* cancel_blocks_ = [ self.cancelBlocks copy ];
    self.cancelBlocks = nil;
