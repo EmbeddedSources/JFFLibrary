@@ -2,7 +2,7 @@
 
 @class NSArray;
 
-/////////////////////////////////// SEQUENCE ///////////////////////////////////
+///////////////////////////////////// SEQUENCE /////////////////////////////////////
 
 JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                             , JFFAsyncOperation second_loader_, ... );
@@ -14,16 +14,19 @@ JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* blocks_ );
 JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                                , JFFAsyncOperation second_loader_, ... );
 
-/////////////////////////////////// GROUP ///////////////////////////////////
+/////////////////////////////////////// GROUP //////////////////////////////////////
 
 JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation first_loader_
                                          , JFFAsyncOperation second_loader_, ... );
 
 JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* blocks_ );
 
-JFFAsyncOperation loaderBlockFailOnFirstErrorWithBlocksGroup( JFFAsyncOperation first_loader_
-                                                             , JFFAsyncOperation second_loader_, ... );
-JFFAsyncOperation loaderBlockFailOnFirstErrorWithBlocksGroupArray( NSArray* blocks_ );
+///////////////////////////// FAIL ON FIRST ERROR GROUP ////////////////////////////
+
+JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation first_loader_
+                                                         , JFFAsyncOperation second_loader_, ... );
+
+JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* blocks_ );
 
 JFFAsyncOperation loaderBlockWithDoneCallbackBlock( JFFAsyncOperation loader_
                                                    , JFFDidFinishAsyncOperationHandler done_callback_block_ );
