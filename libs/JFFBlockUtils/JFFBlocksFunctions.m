@@ -33,7 +33,7 @@ static JFFAsyncOperation MergeLoaders( MergeTwoLoadersPtr merger_, NSArray* bloc
    return first_block_;
 }
 
-static JFFAsyncOperation loaderBlockWithBlocksSequencePair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
+static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
 {
    if ( first_loader_ == nil )
       return createEmptyLoaderBlock();
@@ -76,7 +76,7 @@ static JFFAsyncOperation loaderBlockWithBlocksSequencePair( JFFAsyncOperation fi
    } copy ] autorelease ];
 }
 
-JFFAsyncOperation loaderBlockWithBlocksSequence( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
+JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
 {
    JFFAsyncOperation first_block_ = first_loader_;
 
@@ -84,19 +84,19 @@ JFFAsyncOperation loaderBlockWithBlocksSequence( JFFAsyncOperation first_loader_
    va_start( args, second_loader_ );
    for ( JFFAsyncOperation second_block_ = second_loader_; second_block_ != nil; second_block_ = va_arg( args, JFFAsyncOperation ) )
    {
-      first_block_ = loaderBlockWithBlocksSequencePair( first_block_, second_block_ );
+      first_block_ = sequenceOfAsyncOperationsPair( first_block_, second_block_ );
    }
    va_end( args );
 
    return first_block_;
 }
 
-JFFAsyncOperation loaderBlockWithBlocksSequenceArray( NSArray* blocks_ )
+JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* blocks_ )
 {
-   return MergeLoaders( loaderBlockWithBlocksSequencePair, blocks_ );
+   return MergeLoaders( sequenceOfAsyncOperationsPair, blocks_ );
 }
 
-static JFFAsyncOperation loaderBlockWithBlocksTrySequencePair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
+static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
 {
    if ( first_loader_ == nil )
       return createEmptyLoaderBlock();
@@ -136,7 +136,7 @@ static JFFAsyncOperation loaderBlockWithBlocksTrySequencePair( JFFAsyncOperation
    } copy ] autorelease ];
 }
 
-JFFAsyncOperation loaderBlockWithBlocksTrySequence( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
+JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
 {
    JFFAsyncOperation first_block_ = first_loader_;
 
@@ -144,7 +144,7 @@ JFFAsyncOperation loaderBlockWithBlocksTrySequence( JFFAsyncOperation first_load
    va_start( args, second_loader_ );
    for ( JFFAsyncOperation second_block_ = second_loader_; second_block_ != nil; second_block_ = va_arg( args, JFFAsyncOperation ) )
    {
-      first_block_ = loaderBlockWithBlocksTrySequencePair( first_block_, second_block_ );
+      first_block_ = trySequenceOfAsyncOperationsPair( first_block_, second_block_ );
    }
    va_end( args );
 
