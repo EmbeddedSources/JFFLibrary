@@ -2,22 +2,22 @@
 
 @class NSArray;
 
-JFFAsyncDataLoader loaderBlockWithBlocksSequence( JFFAsyncDataLoader first_loader_
-                                                , JFFAsyncDataLoader second_loader_, ... );
-JFFAsyncDataLoader loaderBlockWithBlocksSequenceArray( NSArray* blocks_ );
+JFFAsyncOperation loaderBlockWithBlocksSequence( JFFAsyncOperation first_loader_
+                                                    , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation loaderBlockWithBlocksSequenceArray( NSArray* blocks_ );
 
-JFFAsyncDataLoader loaderBlockWithBlocksTrySequence( JFFAsyncDataLoader first_loader_
-                                                   , JFFAsyncDataLoader second_loader_, ... );
+JFFAsyncOperation loaderBlockWithBlocksTrySequence( JFFAsyncOperation first_loader_
+                                                       , JFFAsyncOperation second_loader_, ... );
 
-JFFAsyncDataLoader loaderBlockWithBlocksGroup( JFFAsyncDataLoader first_loader_
-                                             , JFFAsyncDataLoader second_loader_, ... );
-JFFAsyncDataLoader loaderBlockWithBlocksGroupArray( NSArray* blocks_ );
+JFFAsyncOperation loaderBlockWithBlocksGroup( JFFAsyncOperation first_loader_
+                                             , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation loaderBlockWithBlocksGroupArray( NSArray* blocks_ );
 
-JFFAsyncDataLoader loaderBlockFailOnFirstErrorWithBlocksGroup( JFFAsyncDataLoader first_loader_
-                                                             , JFFAsyncDataLoader second_loader_, ... );
-JFFAsyncDataLoader loaderBlockFailOnFirstErrorWithBlocksGroupArray( NSArray* blocks_ );
+JFFAsyncOperation loaderBlockFailOnFirstErrorWithBlocksGroup( JFFAsyncOperation first_loader_
+                                                             , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation loaderBlockFailOnFirstErrorWithBlocksGroupArray( NSArray* blocks_ );
 
-JFFAsyncDataLoader loaderBlockWithDoneCallbackBlock( JFFAsyncDataLoader loader_
+JFFAsyncOperation loaderBlockWithDoneCallbackBlock( JFFAsyncOperation loader_
                                                    , JFFDidFinishAsyncOperationHandler done_callback_block_ );
-JFFAsyncDataLoader loaderBlockWithDoneHookBlock( JFFAsyncDataLoader loader_
+JFFAsyncOperation loaderBlockWithDoneHookBlock( JFFAsyncOperation loader_
                                                , JFFDidFinishAsyncOperationHook done_callback_hook_ );
