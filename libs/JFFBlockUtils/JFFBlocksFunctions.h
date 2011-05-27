@@ -28,7 +28,10 @@ JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation firs
 
 JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* blocks_ );
 
-JFFAsyncOperation loaderBlockWithDoneCallbackBlock( JFFAsyncOperation loader_
-                                                   , JFFDidFinishAsyncOperationHandler done_callback_block_ );
-JFFAsyncOperation loaderBlockWithDoneHookBlock( JFFAsyncOperation loader_
-                                               , JFFDidFinishAsyncOperationHook done_callback_hook_ );
+///////////////////////// ADD OBSERVERS OF ASYNC OP. RESULT ////////////////////////
+
+JFFAsyncOperation asyncOperationWithDoneCallbackBlock( JFFAsyncOperation loader_
+                                                      , JFFDidFinishAsyncOperationHandler done_callback_block_ );
+
+JFFAsyncOperation asyncOperationWithDoneHookBlock( JFFAsyncOperation loader_
+                                                  , JFFDidFinishAsyncOperationHook done_callback_hook_ );

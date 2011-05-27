@@ -363,8 +363,8 @@ JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* blocks_ 
    return MergeLoaders( failOnFirstErrorGroupOfAsyncOperationsPair, blocks_ );
 }
 
-JFFAsyncOperation loaderBlockWithDoneCallbackBlock( JFFAsyncOperation loader_
-                                                   , JFFDidFinishAsyncOperationHandler done_callback_block_ )
+JFFAsyncOperation asyncOperationWithDoneCallbackBlock( JFFAsyncOperation loader_
+                                                      , JFFDidFinishAsyncOperationHandler done_callback_block_ )
 {
    done_callback_block_ = [ [ done_callback_block_ copy ] autorelease ];
    loader_ = [ [ loader_ copy ] autorelease ];
@@ -382,8 +382,8 @@ JFFAsyncOperation loaderBlockWithDoneCallbackBlock( JFFAsyncOperation loader_
    } copy ] autorelease ];
 }
 
-JFFAsyncOperation loaderBlockWithDoneHookBlock( JFFAsyncOperation loader_
-                                               , JFFDidFinishAsyncOperationHook done_callback_hook_ )
+JFFAsyncOperation asyncOperationWithDoneHookBlock( JFFAsyncOperation loader_
+                                                  , JFFDidFinishAsyncOperationHook done_callback_hook_ )
 {
    done_callback_hook_ = [ [ done_callback_hook_ copy ] autorelease ];
    loader_ = [ [ loader_ copy ] autorelease ];
