@@ -41,7 +41,7 @@
 }
 
 +(id)arrayWithSize:( NSUInteger )size_
-          producer:( id (^)( NSUInteger index_ ) )block_
+          producer:( ProducerBlock )block_
 {
    NSMutableArray* result_ = [ NSMutableArray arrayWithCapacity: size_ ];
 
@@ -62,7 +62,7 @@
    return count_;
 }
 
--(id)firstMatch:( BOOL (^)( id object_ ) )predicate_
+-(id)firstMatch:( PredicateBlock )predicate_
 {
    for ( id object_ in self )
    {
