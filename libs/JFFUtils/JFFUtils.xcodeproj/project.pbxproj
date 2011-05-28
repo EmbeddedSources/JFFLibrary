@@ -20,6 +20,10 @@
 		651BE11E1391041400DD6890 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */; };
 		651BE139139107EA00DD6890 /* NSObject+Ownerships.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE137139107EA00DD6890 /* NSObject+Ownerships.h */; };
 		651BE13A139107EA00DD6890 /* NSObject+Ownerships.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE138139107EA00DD6890 /* NSObject+Ownerships.m */; };
+		651BE19D1391969A00DD6890 /* NSString+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE19B1391969A00DD6890 /* NSString+Search.h */; };
+		651BE19E1391969A00DD6890 /* NSString+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE19C1391969A00DD6890 /* NSString+Search.m */; };
+		651BE1C31391A25500DD6890 /* JFFOnDeallocBlockOwner.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1C11391A25500DD6890 /* JFFOnDeallocBlockOwner.h */; };
+		651BE1C41391A25500DD6890 /* JFFOnDeallocBlockOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1C21391A25500DD6890 /* JFFOnDeallocBlockOwner.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +42,10 @@
 		651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		651BE137139107EA00DD6890 /* NSObject+Ownerships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ownerships.h"; sourceTree = "<group>"; };
 		651BE138139107EA00DD6890 /* NSObject+Ownerships.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Ownerships.m"; sourceTree = "<group>"; };
+		651BE19B1391969A00DD6890 /* NSString+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Search.h"; sourceTree = "<group>"; };
+		651BE19C1391969A00DD6890 /* NSString+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Search.m"; sourceTree = "<group>"; };
+		651BE1C11391A25500DD6890 /* JFFOnDeallocBlockOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFOnDeallocBlockOwner.h; sourceTree = "<group>"; };
+		651BE1C21391A25500DD6890 /* JFFOnDeallocBlockOwner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFOnDeallocBlockOwner.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +104,8 @@
 				651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */,
 				651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */,
 				651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */,
+				651BE1C11391A25500DD6890 /* JFFOnDeallocBlockOwner.h */,
+				651BE1C21391A25500DD6890 /* JFFOnDeallocBlockOwner.m */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -142,12 +152,22 @@
 			isa = PBXGroup;
 			children = (
 				651BE0A41390496200DD6890 /* Blocks */,
+				651BE19A1391969300DD6890 /* NSString */,
 				651BE0AA1390496200DD6890 /* NSArray */,
 				651BE0AD1390496200DD6890 /* NSObject */,
 				651BE0AE1390496200DD6890 /* UITableView */,
 				651BE0B11390496200DD6890 /* UIView */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		651BE19A1391969300DD6890 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				651BE19B1391969A00DD6890 /* NSString+Search.h */,
+				651BE19C1391969A00DD6890 /* NSString+Search.m */,
+			);
+			path = NSString;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +185,8 @@
 				651BE0BD1390496200DD6890 /* UIView+BlocksAdditions.h in Headers */,
 				651BE11D1391041400DD6890 /* NSObject+PerformBlock.h in Headers */,
 				651BE139139107EA00DD6890 /* NSObject+Ownerships.h in Headers */,
+				651BE19D1391969A00DD6890 /* NSString+Search.h in Headers */,
+				651BE1C31391A25500DD6890 /* JFFOnDeallocBlockOwner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +246,8 @@
 				651BE0BE1390496200DD6890 /* UIView+BlocksAdditions.m in Sources */,
 				651BE11E1391041400DD6890 /* NSObject+PerformBlock.m in Sources */,
 				651BE13A139107EA00DD6890 /* NSObject+Ownerships.m in Sources */,
+				651BE19E1391969A00DD6890 /* NSString+Search.m in Sources */,
+				651BE1C41391A25500DD6890 /* JFFOnDeallocBlockOwner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
