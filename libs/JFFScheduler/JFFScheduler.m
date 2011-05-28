@@ -54,11 +54,11 @@
       block_( cancel_block_ );
    } copy ] autorelease ];
 
-   __block NSTimer* refresh_timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
-                                                                       target: schedule_block_
-                                                                     selector: @selector( performBlock )
-                                                                     userInfo: nil
-                                                                      repeats: YES ];
+   __block NSTimer* timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
+                                                               target: schedule_block_
+                                                             selector: @selector( performBlock )
+                                                             userInfo: nil
+                                                              repeats: YES ];
 
    __block JFFScheduler* scheduler_ = self;
 
@@ -66,7 +66,7 @@
    {
       if ( scheduler_ )
       {
-         [ refresh_timer_ invalidate ];
+         [ timer_ invalidate ];
          [ scheduler_.cancelBlocks removeObject: cancel_block_ ];
          scheduler_ = nil;
       }
