@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		651BE1051390559900DD6890 /* JFFScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1031390559900DD6890 /* JFFScheduler.h */; };
 		651BE1061390559900DD6890 /* JFFScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1041390559900DD6890 /* JFFScheduler.m */; };
+		651BE198139195E500DD6890 /* NSObject+Scheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE196139195E500DD6890 /* NSObject+Scheduler.h */; };
+		651BE199139195E500DD6890 /* NSObject+Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE197139195E500DD6890 /* NSObject+Scheduler.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFScheduler_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFScheduler_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -16,6 +18,8 @@
 /* Begin PBXFileReference section */
 		651BE1031390559900DD6890 /* JFFScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFScheduler.h; sourceTree = "<group>"; };
 		651BE1041390559900DD6890 /* JFFScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFScheduler.m; sourceTree = "<group>"; };
+		651BE196139195E500DD6890 /* NSObject+Scheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Scheduler.h"; sourceTree = "<group>"; };
+		651BE197139195E500DD6890 /* NSObject+Scheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Scheduler.m"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFScheduler_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFScheduler_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFScheduler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFScheduler.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,8 @@
 			children = (
 				651BE1031390559900DD6890 /* JFFScheduler.h */,
 				651BE1041390559900DD6890 /* JFFScheduler.m */,
+				651BE196139195E500DD6890 /* NSObject+Scheduler.h */,
+				651BE197139195E500DD6890 /* NSObject+Scheduler.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -86,6 +92,7 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* JFFScheduler_Prefix.pch in Headers */,
 				651BE1051390559900DD6890 /* JFFScheduler.h in Headers */,
+				651BE198139195E500DD6890 /* NSObject+Scheduler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				651BE1061390559900DD6890 /* JFFScheduler.m in Sources */,
+				651BE199139195E500DD6890 /* NSObject+Scheduler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +167,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFScheduler_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = JFFScheduler;
 			};
