@@ -1,6 +1,6 @@
 #import "NSObject+PerformBlock.h"
 
-#import "JFFBlocksDefinitions.h"
+#include "JFFUtilsBlockDefinitions.h"
 
 @implementation NSObject (PerformBlock)
 

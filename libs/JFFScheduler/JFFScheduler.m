@@ -60,7 +60,6 @@
                                                                      userInfo: nil
                                                                       repeats: YES ];
 
-   __block NSObject* cancel_ptr_ = nil;
    __block JFFScheduler* scheduler_ = self;
 
    cancel_block_ = [ [ ^

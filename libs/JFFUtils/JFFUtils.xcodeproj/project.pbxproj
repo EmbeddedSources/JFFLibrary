@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		651BE0B41390496200DD6890 /* JFFBlocksDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A51390496200DD6890 /* JFFBlocksDefinitions.h */; };
-		651BE0B51390496200DD6890 /* JFFBlocksFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A61390496200DD6890 /* JFFBlocksFunctions.h */; };
-		651BE0B61390496200DD6890 /* JFFBlocksFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0A71390496200DD6890 /* JFFBlocksFunctions.m */; };
+		651BE0B41390496200DD6890 /* JFFUtilsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */; };
 		651BE0B71390496200DD6890 /* JFFSimpleBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */; };
 		651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */; };
 		651BE0B91390496200DD6890 /* NSArray+BlocksAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0AB1390496200DD6890 /* NSArray+BlocksAdditions.h */; };
@@ -27,9 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		651BE0A51390496200DD6890 /* JFFBlocksDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlocksDefinitions.h; sourceTree = "<group>"; };
-		651BE0A61390496200DD6890 /* JFFBlocksFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlocksFunctions.h; sourceTree = "<group>"; };
-		651BE0A71390496200DD6890 /* JFFBlocksFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFBlocksFunctions.m; sourceTree = "<group>"; };
+		651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtilsBlockDefinitions.h; sourceTree = "<group>"; };
 		651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFSimpleBlockHolder.h; sourceTree = "<group>"; };
 		651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolder.m; sourceTree = "<group>"; };
 		651BE0AB1390496200DD6890 /* NSArray+BlocksAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BlocksAdditions.h"; sourceTree = "<group>"; };
@@ -97,9 +93,7 @@
 		651BE0A41390496200DD6890 /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				651BE0A51390496200DD6890 /* JFFBlocksDefinitions.h */,
-				651BE0A61390496200DD6890 /* JFFBlocksFunctions.h */,
-				651BE0A71390496200DD6890 /* JFFBlocksFunctions.m */,
+				651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */,
 				651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */,
 				651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */,
 			);
@@ -164,8 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */,
-				651BE0B41390496200DD6890 /* JFFBlocksDefinitions.h in Headers */,
-				651BE0B51390496200DD6890 /* JFFBlocksFunctions.h in Headers */,
+				651BE0B41390496200DD6890 /* JFFUtilsBlockDefinitions.h in Headers */,
 				651BE0B71390496200DD6890 /* JFFSimpleBlockHolder.h in Headers */,
 				651BE0B91390496200DD6890 /* NSArray+BlocksAdditions.h in Headers */,
 				651BE0BB1390496200DD6890 /* UITableView+BlocksAdditions.h in Headers */,
@@ -225,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				651BE0B61390496200DD6890 /* JFFBlocksFunctions.m in Sources */,
 				651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */,
 				651BE0BA1390496200DD6890 /* NSArray+BlocksAdditions.m in Sources */,
 				651BE0BC1390496200DD6890 /* UITableView+BlocksAdditions.m in Sources */,

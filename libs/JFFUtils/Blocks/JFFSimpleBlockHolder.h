@@ -1,4 +1,4 @@
-#import <JFFUtils/Blocks/JFFBlocksDefinitions.h>
+#include <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 
 #import <Foundation/Foundation.h>
 
