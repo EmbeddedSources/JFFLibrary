@@ -1,9 +1,9 @@
-#import "UIView+BlocksAdditions.h"
+#import "UIView+AnimationWithBlocks.h"
 
 static NSTimeInterval default_animation_duration_ = 0.2;
 static NSTimeInterval default_animation_delay_ = 0.0;
 
-@implementation UIView (BlocksAdditions)
+@implementation UIView (AnimationWithBlocks)
 
 +(void)animateWithAnimations:( void (^)( void ) )animations_
 {

@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface UITableView (BlocksAdditions)
+@interface UITableView (WithinUpdates)
 
 -(void)withinUpdates:( void (^)( void ) )block_;
 

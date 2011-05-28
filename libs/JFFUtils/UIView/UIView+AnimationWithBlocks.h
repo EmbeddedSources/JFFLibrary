@@ -1,6 +1,6 @@
 #import <UIKit/UIView.h>
 
-@interface UIView (BlocksAdditions)
+@interface UIView (AnimationWithBlocks)
 
 +(void)animateWithAnimations:( void (^)( void ) )animations_;
 

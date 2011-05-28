@@ -1,6 +1,6 @@
-#import "UITableView+BlocksAdditions.h"
+#import "UITableView+WithinUpdates.h"
 
-@implementation UITableView (BlocksAdditions)
+@implementation UITableView (WithinUpdates)
 
 -(void)withinUpdates:( void (^)( void ) )block_
 {
