@@ -56,7 +56,7 @@
 
    __block NSTimer* refresh_timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
                                                                        target: schedule_block_
-                                                                     selector: @selector( perform )
+                                                                     selector: @selector( performBlock )
                                                                      userInfo: nil
                                                                       repeats: YES ];
 
