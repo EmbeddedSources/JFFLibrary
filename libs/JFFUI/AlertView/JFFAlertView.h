@@ -6,7 +6,7 @@
 
 @property ( nonatomic, assign ) BOOL dismissBeforeEnterBackground;
 
-//cancelButtonTitle, otherButtonTitles - pass NSString or ESAlertButton
+//cancelButtonTitle, otherButtonTitles - pass NSString or JFFAlertButton
 +(id)alertWithTitle:( NSString* )title_
             message:( NSString* )message_
   cancelButtonTitle:( id )cancel_button_title_

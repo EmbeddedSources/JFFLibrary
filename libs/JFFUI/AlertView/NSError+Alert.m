@@ -7,13 +7,13 @@
 -(void)showAlertWithTitle:( NSString* )title_
 {
    [ self writeErrorToNSLog ];
-   [ ESAlertView showAlertWithTitle: title_ description: [ self localizedDescription ] ];
+   [ JFFAlertView showAlertWithTitle: title_ description: [ self localizedDescription ] ];
 }
 
 -(void)showErrorAlert
 {
    [ self writeErrorToNSLog ];
-   [ ESAlertView showErrorWithDescription: [ self localizedDescription ] ];
+   [ JFFAlertView showErrorWithDescription: [ self localizedDescription ] ];
 }
 
 -(void)writeErrorToNSLog

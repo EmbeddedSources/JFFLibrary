@@ -6,13 +6,13 @@
 
 static NSMutableArray* active_alerts_ = nil;
 
-@interface NSObject (ESAlertView)
+@interface NSObject (JFFAlertView)
 
 -(JFFAlertButton*)toAlertButton;
 
 @end
 
-@implementation NSObject (ESAlertView)
+@implementation NSObject (JFFAlertView)
 
 -(JFFAlertButton*)toAlertButton
 {
@@ -22,7 +22,7 @@ static NSMutableArray* active_alerts_ = nil;
 
 @end
 
-@implementation NSString (ESAlertView)
+@implementation NSString (JFFAlertView)
 
 -(JFFAlertButton*)toAlertButton
 {
@@ -31,7 +31,7 @@ static NSMutableArray* active_alerts_ = nil;
 
 @end
 
-@implementation JFFAlertButton (ESAlertView)
+@implementation JFFAlertButton (JFFAlertView)
 
 -(JFFAlertButton*)toAlertButton
 {
@@ -93,7 +93,7 @@ static NSMutableArray* active_alerts_ = nil;
 
    NSArray* temporary_active_alerts_ = [ [ NSArray alloc ] initWithArray: active_alerts_ ];
 
-   for ( ESAlertView* alert_view_ in temporary_active_alerts_ )
+   for ( JFFAlertView* alert_view_ in temporary_active_alerts_ )
    {
       [ alert_view_ forceDismiss ];
    }
@@ -107,7 +107,7 @@ static NSMutableArray* active_alerts_ = nil;
 +(void)showAlertWithTitle:( NSString* )title_
               description:( NSString* )description_
 {
-   ESAlertView* alert_ = [ ESAlertView alertWithTitle: title_
+   JFFAlertView* alert_ = [ JFFAlertView alertWithTitle: title_
                                               message: description_
                                     cancelButtonTitle: NSLocalizedString( @"OK", nil )
                                     otherButtonTitles: nil ];
@@ -163,7 +163,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(NSInteger)addAlertButtonWithIndex:( id )alert_button_id_
 {
-   ESAlertButton* alert_button_ = [ alert_button_id_ toAlertButton ];
+   JFFAlertButton* alert_button_ = [ alert_button_id_ toAlertButton ];
    NSInteger index_ = [ super addButtonWithTitle: alert_button_.title ];
    [ self.alertButtons insertObject: alert_button_ atIndex: index_ ];
    return index_;
@@ -207,10 +207,10 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
    if ( cancel_alert_button_title_ )
       [ other_alert_buttons_ insertObject: cancel_alert_button_title_ atIndex: 0 ];
 
-   ESAlertView* alert_view_ = [ [ [ self alloc ] initWithTitle: title_
-                                                       message: message_
-                                             cancelButtonTitle: cancel_button_title_
-                                        otherButtonTitlesArray: other_alert_string_titles_ ] autorelease ];
+   JFFAlertView* alert_view_ = [ [ [ self alloc ] initWithTitle: title_
+                                                        message: message_
+                                              cancelButtonTitle: cancel_button_title_
+                                         otherButtonTitlesArray: other_alert_string_titles_ ] autorelease ];
 
    alert_view_.alertButtons = other_alert_buttons_;
 
@@ -219,7 +219,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)show
 {
-   [ ESAlertView activeAlertsAddAlert: self ];
+   [ JFFAlertView activeAlertsAddAlert: self ];
 
    [ super show ];
 }
@@ -254,7 +254,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_
 {
-   [ ESAlertView activeAlertsRemoveAlert: self ];
+   [ JFFAlertView activeAlertsRemoveAlert: self ];
 }
 
 @end
