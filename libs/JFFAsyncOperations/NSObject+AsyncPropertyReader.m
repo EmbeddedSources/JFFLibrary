@@ -48,7 +48,7 @@ static JFFCancelAsyncOpration cancelBlock( JFFPropertyExtractor* property_extrac
    } copy ] autorelease ];
 }
 
-JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor* property_extractor_ )
+static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor* property_extractor_ )
 {
    return [ [ ^( id result_, NSError* error_ )
    {
