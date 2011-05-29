@@ -11,14 +11,14 @@
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )property_name_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
-                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_load_data_block_;
+                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                                        asyncOperation:( JFFAsyncOperation )async_operation_;
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
-                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_load_data_block_;
+                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
 
 -(BOOL)isLoadingPropertyForPropertyName:( NSString* )name_;
 
