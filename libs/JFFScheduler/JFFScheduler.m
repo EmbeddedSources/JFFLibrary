@@ -67,8 +67,10 @@
       if ( scheduler_ )
       {
          [ timer_ invalidate ];
+         [ cancel_block_ retain ];
          [ scheduler_.cancelBlocks removeObject: cancel_block_ ];
          scheduler_ = nil;
+         [ cancel_block_ release ];
       }
    } copy ] autorelease ];
 
