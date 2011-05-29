@@ -1,6 +1,6 @@
 #import "NSError+Alert.h"
 
-#import "ESAlertView.h"
+#import "JFFAlertView.h"
 
 @implementation NSError (Alert)
 

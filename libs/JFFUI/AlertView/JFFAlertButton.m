@@ -1,6 +1,6 @@
-#import "ESAlertButton.h"
+#import "JFFAlertButton.h"
 
-@implementation ESAlertButton
+@implementation JFFAlertButton
 
 @synthesize title = _title;
 @synthesize action = _action;

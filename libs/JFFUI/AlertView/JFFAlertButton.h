@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ESAlertButton : NSObject
+@interface JFFAlertButton : NSObject
 
 @property ( nonatomic, retain ) NSString* title;
 @property ( nonatomic, copy ) JFFSimpleBlock action;

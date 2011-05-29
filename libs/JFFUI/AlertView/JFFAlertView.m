@@ -1,6 +1,6 @@
-#import "ESAlertView.h"
+#import "JFFAlertView.h"
 
-#import "ESAlertButton.h"
+#import "JFFAlertButton.h"
 
 #define UI_APPLICATION_DID_ENTER_BACKGROUND_NOTIFICATION @"UIApplicationDidEnterBackgroundNotification"
 
@@ -8,13 +8,13 @@ static NSMutableArray* active_alerts_ = nil;
 
 @interface NSObject (ESAlertView)
 
--(ESAlertButton*)toAlertButton;
+-(JFFAlertButton*)toAlertButton;
 
 @end
 
 @implementation NSObject (ESAlertView)
 
--(ESAlertButton*)toAlertButton
+-(JFFAlertButton*)toAlertButton
 {
    [ self doesNotRecognizeSelector: _cmd ];
    return nil;
@@ -24,23 +24,23 @@ static NSMutableArray* active_alerts_ = nil;
 
 @implementation NSString (ESAlertView)
 
--(ESAlertButton*)toAlertButton
+-(JFFAlertButton*)toAlertButton
 {
-   return [ ESAlertButton alertButton: self action: (JFFSimpleBlock)^(){} ];
+   return [ JFFAlertButton alertButton: self action: (JFFSimpleBlock)^(){} ];
 }
 
 @end
 
-@implementation ESAlertButton (ESAlertView)
+@implementation JFFAlertButton (ESAlertView)
 
--(ESAlertButton*)toAlertButton
+-(JFFAlertButton*)toAlertButton
 {
    return self;
 }
 
 @end
 
-@interface ESAlertView ()
+@interface JFFAlertView ()
 
 @property ( nonatomic, assign ) BOOL exclusive;
 @property ( nonatomic, retain ) NSMutableArray* alertButtons;
@@ -50,7 +50,7 @@ static NSMutableArray* active_alerts_ = nil;
 
 @end
 
-@implementation ESAlertView
+@implementation JFFAlertView
 
 @synthesize dismissBeforeEnterBackground = _dismiss_before_enter_background;
 @synthesize exclusive = _exclusive;
@@ -176,7 +176,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)addAlertButtonWithTitle:( NSString* )title_ ation:( JFFSimpleBlock )action_
 {
-   [ self addAlertButton: [ ESAlertButton alertButton: title_ action: action_ ] ];
+   [ self addAlertButton: [ JFFAlertButton alertButton: title_ action: action_ ] ];
 }
 
 -(NSInteger)addButtonWithTitle:( NSString* )title_
@@ -189,7 +189,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
   cancelButtonTitle:( id )cancel_button_title_
   otherButtonTitles:( id )other_button_titles_, ...
 {
-   ESAlertButton* cancel_alert_button_title_ = [ cancel_button_title_ toAlertButton ];
+   JFFAlertButton* cancel_alert_button_title_ = [ cancel_button_title_ toAlertButton ];
 
    NSMutableArray* other_alert_buttons_ = [ NSMutableArray array ];
    NSMutableArray* other_alert_string_titles_ = [ NSMutableArray array ];
@@ -198,7 +198,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
    va_start( args, other_button_titles_ );
    for ( NSString* button_title_ = other_button_titles_; button_title_ != nil; button_title_ = va_arg( args, NSString* ) )
    {
-      ESAlertButton* alert_button_ = [ button_title_ toAlertButton ];
+      JFFAlertButton* alert_button_ = [ button_title_ toAlertButton ];
       [ other_alert_buttons_ addObject: alert_button_ ];
       [ other_alert_string_titles_ addObject: alert_button_.title ];
    }
@@ -247,7 +247,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)alertView:( UIAlertView* )alert_view_ clickedButtonAtIndex:( NSInteger )button_index_
 {
-   ESAlertButton* alert_button_ = [ self.alertButtons objectAtIndex: button_index_ ];
+   JFFAlertButton* alert_button_ = [ self.alertButtons objectAtIndex: button_index_ ];
    if ( alert_button_ )
       alert_button_.action();
 }

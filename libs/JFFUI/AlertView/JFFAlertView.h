@@ -2,7 +2,7 @@
 
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 
-@interface ESAlertView : UIAlertView
+@interface JFFAlertView : UIAlertView
 
 @property ( nonatomic, assign ) BOOL dismissBeforeEnterBackground;
 
