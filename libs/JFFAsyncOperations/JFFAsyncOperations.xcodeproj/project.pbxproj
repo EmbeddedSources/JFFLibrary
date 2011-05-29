@@ -20,6 +20,8 @@
 		65648B8013923F17001E163C /* JFFPropertyExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648AFB13923C50001E163C /* JFFPropertyExtractor.m */; };
 		65648BAF1392407F001E163C /* JFFCallbacksBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BAD1392407F001E163C /* JFFCallbacksBlocks.h */; };
 		65648BB01392407F001E163C /* JFFCallbacksBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BAE1392407F001E163C /* JFFCallbacksBlocks.m */; };
+		65648BB513924134001E163C /* JFFOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BB313924134001E163C /* JFFOperationQueue.h */; };
+		65648BB613924134001E163C /* JFFOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BB413924134001E163C /* JFFOperationQueue.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		65648B6213923E3C001E163C /* NSObject+PropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyExtractor.m"; sourceTree = "<group>"; };
 		65648BAD1392407F001E163C /* JFFCallbacksBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFCallbacksBlocks.h; sourceTree = "<group>"; };
 		65648BAE1392407F001E163C /* JFFCallbacksBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFCallbacksBlocks.m; sourceTree = "<group>"; };
+		65648BB313924134001E163C /* JFFOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFOperationQueue.h; sourceTree = "<group>"; };
+		65648BB413924134001E163C /* JFFOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFOperationQueue.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFAsyncOperations.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFAsyncOperations.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +91,8 @@
 			children = (
 				65648AF913923C47001E163C /* Detail */,
 				651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */,
+				65648BB313924134001E163C /* JFFOperationQueue.h */,
+				65648BB413924134001E163C /* JFFOperationQueue.m */,
 				65648B4613923D34001E163C /* JFFPropertyPath.h */,
 				65648B4713923D34001E163C /* JFFPropertyPath.m */,
 				651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */,
@@ -133,6 +139,7 @@
 				65648B5B13923D8D001E163C /* JFFObjectRelatedPropertyData.h in Headers */,
 				65648B6313923E3C001E163C /* NSObject+PropertyExtractor.h in Headers */,
 				65648BAF1392407F001E163C /* JFFCallbacksBlocks.h in Headers */,
+				65648BB513924134001E163C /* JFFOperationQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +199,7 @@
 				65648B6413923E3C001E163C /* NSObject+PropertyExtractor.m in Sources */,
 				65648B8013923F17001E163C /* JFFPropertyExtractor.m in Sources */,
 				65648BB01392407F001E163C /* JFFCallbacksBlocks.m in Sources */,
+				65648BB613924134001E163C /* JFFOperationQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
