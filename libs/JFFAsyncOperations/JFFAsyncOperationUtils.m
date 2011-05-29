@@ -1,4 +1,4 @@
-#include "JFFBlockOperationUtils.h"
+#include "JFFAsyncOperationUtils.h"
 
 #import "JFFBlockOperation.h"
 
@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-JFFAsyncOperation asyncLoaderWithLoadBlock( JFFSyncOperation load_data_block_ )
+JFFAsyncOperation asyncOperationWithSyncOperation( JFFSyncOperation load_data_block_ )
 {
    load_data_block_ = [ [ load_data_block_ copy ] autorelease ];
    return [ [ ^( JFFAsyncOperationProgressHandler pregress_info_callback_
@@ -20,7 +20,7 @@ JFFAsyncOperation asyncLoaderWithLoadBlock( JFFSyncOperation load_data_block_ )
    } copy ] autorelease ];
 }
 
-JFFAsyncOperation asyncLoaderWithLoadWithProgressBlock( JFFSyncOperationWithProgress progress_load_data_block_ )
+JFFAsyncOperation asyncOperationWithSyncOperationWithProgressBlock( JFFSyncOperationWithProgress progress_load_data_block_ )
 {
    progress_load_data_block_ = [ [ progress_load_data_block_ copy ] autorelease ];
    return [ [ ^( JFFAsyncOperationProgressHandler pregress_info_callback_
