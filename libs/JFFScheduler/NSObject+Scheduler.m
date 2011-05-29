@@ -28,7 +28,7 @@
    {
       if ( !repeats_ )
       {
-         //TODO [ self_ removeOnDeallocBlock: cancel_ ];
+         [ self_ removeOnDeallocBlock: cancel_ ];
          cancel_();
       }
 
