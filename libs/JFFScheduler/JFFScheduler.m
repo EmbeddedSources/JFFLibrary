@@ -2,7 +2,7 @@
 
 @interface JFFScheduler ()
 
-@property ( nonatomic, retain ) NSMutableSet* cancelBlocks;
+@property ( nonatomic, retain ) NSMutableArray* cancelBlocks;
 
 @end
 
@@ -14,7 +14,7 @@
 {
    self = [ super init ];
 
-   self.cancelBlocks = [ NSMutableSet set ];
+   self.cancelBlocks = [ NSMutableArray array ];
 
    return self;
 }
@@ -54,11 +54,11 @@
       block_( cancel_block_ );
    } copy ] autorelease ];
 
-   __block NSTimer* timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
-                                                               target: schedule_block_
-                                                             selector: @selector( performBlock )
-                                                             userInfo: nil
-                                                              repeats: YES ];
+   NSTimer* timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
+                                                       target: schedule_block_
+                                                     selector: @selector( performBlock )
+                                                     userInfo: nil
+                                                      repeats: YES ];
 
    __block JFFScheduler* scheduler_ = self;
 

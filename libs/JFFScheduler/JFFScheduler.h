@@ -6,7 +6,7 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
 @interface JFFScheduler : NSObject
 {
 @private
-   NSMutableSet* _cancel_blocks;
+   NSMutableArray* _cancel_blocks;
 }
 
 +(id)scheduler;
