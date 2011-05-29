@@ -1,5 +1,7 @@
 #import "JFFScheduler.h"
 
+#import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
+
 @interface JFFScheduler ()
 
 @property ( nonatomic, retain ) NSMutableArray* cancelBlocks;
@@ -46,37 +48,37 @@
 -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_
                           duration:( NSTimeInterval )duration_
 {
-   __block JFFCancelScheduledBlock cancel_block_ = nil;
+   JFFSimpleBlockHolder* cancel_block_holder_ = [ JFFSimpleBlockHolder simpleBlockHolder ];
 
    block_ = [ [ block_ copy ] autorelease ];
    void (^schedule_block_) ( void ) = [ [ ^
    {
-      block_( cancel_block_ );
+      block_( cancel_block_holder_.simpleBlock );
    } copy ] autorelease ];
 
-   NSTimer* timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
-                                                       target: schedule_block_
-                                                     selector: @selector( performBlock )
-                                                     userInfo: nil
-                                                      repeats: YES ];
+   __block NSTimer* timer_ = [ NSTimer scheduledTimerWithTimeInterval: duration_
+                                                               target: schedule_block_
+                                                             selector: @selector( performBlock )
+                                                             userInfo: nil
+                                                              repeats: YES ];
 
+   __block NSObject* cancel_ptr_ = nil;
    __block JFFScheduler* scheduler_ = self;
 
-   cancel_block_ = [ [ ^
+   cancel_block_holder_.simpleBlock = ^
    {
       if ( scheduler_ )
       {
          [ timer_ invalidate ];
-         [ cancel_block_ retain ];
-         [ scheduler_.cancelBlocks removeObject: cancel_block_ ];
+         [ scheduler_.cancelBlocks removeObject: cancel_ptr_ ];
          scheduler_ = nil;
-         [ cancel_block_ release ];
       }
-   } copy ] autorelease ];
+   };
 
-   [ self.cancelBlocks addObject: cancel_block_ ];
+   cancel_ptr_ = (id)cancel_block_holder_.simpleBlock;
+   [ self.cancelBlocks addObject: cancel_ptr_ ];
 
-   return cancel_block_;
+   return cancel_block_holder_.simpleBlock;
 }
 
 -(void)cancelAllScheduledOperations
