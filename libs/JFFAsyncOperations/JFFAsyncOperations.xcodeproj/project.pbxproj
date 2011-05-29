@@ -28,6 +28,8 @@
 		65648BD613924220001E163C /* JFFBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BD413924220001E163C /* JFFBlockOperation.m */; };
 		65648C0B13924510001E163C /* NSObject+AsyncPropertyReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C0913924510001E163C /* NSObject+AsyncPropertyReader.h */; };
 		65648C0C13924510001E163C /* NSObject+AsyncPropertyReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648C0A13924510001E163C /* NSObject+AsyncPropertyReader.m */; };
+		65648C3A1392490F001E163C /* JFFBlockOperationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C381392490F001E163C /* JFFBlockOperationUtils.h */; };
+		65648C3B1392490F001E163C /* JFFBlockOperationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648C391392490F001E163C /* JFFBlockOperationUtils.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		65648BD413924220001E163C /* JFFBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFBlockOperation.m; sourceTree = "<group>"; };
 		65648C0913924510001E163C /* NSObject+AsyncPropertyReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AsyncPropertyReader.h"; sourceTree = "<group>"; };
 		65648C0A13924510001E163C /* NSObject+AsyncPropertyReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AsyncPropertyReader.m"; sourceTree = "<group>"; };
+		65648C381392490F001E163C /* JFFBlockOperationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlockOperationUtils.h; sourceTree = "<group>"; };
+		65648C391392490F001E163C /* JFFBlockOperationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFBlockOperationUtils.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFAsyncOperations.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFAsyncOperations.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +115,8 @@
 				65648B4713923D34001E163C /* JFFPropertyPath.m */,
 				65648C0913924510001E163C /* NSObject+AsyncPropertyReader.h */,
 				65648C0A13924510001E163C /* NSObject+AsyncPropertyReader.m */,
+				65648C381392490F001E163C /* JFFBlockOperationUtils.h */,
+				65648C391392490F001E163C /* JFFBlockOperationUtils.m */,
 				651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */,
 				651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */,
 				65648BC9139241C5001E163C /* JFFResultContext.h */,
@@ -161,6 +167,7 @@
 				65648BCB139241C5001E163C /* JFFResultContext.h in Headers */,
 				65648BD513924220001E163C /* JFFBlockOperation.h in Headers */,
 				65648C0B13924510001E163C /* NSObject+AsyncPropertyReader.h in Headers */,
+				65648C3A1392490F001E163C /* JFFBlockOperationUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +231,7 @@
 				65648BCC139241C5001E163C /* JFFResultContext.m in Sources */,
 				65648BD613924220001E163C /* JFFBlockOperation.m in Sources */,
 				65648C0C13924510001E163C /* NSObject+AsyncPropertyReader.m in Sources */,
+				65648C3B1392490F001E163C /* JFFBlockOperationUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
