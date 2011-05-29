@@ -27,7 +27,10 @@
    JFFScheduledBlock block_ = ^( JFFCancelScheduledBlock cancel_ )
    {
       if ( !repeats_ )
+      {
+         //TODO [ self_ removeOnDeallocBlock: cancel_ ];
          cancel_();
+      }
 
       num_of_args_ == 1
          ? objc_msgSend( self_, selector_, user_info_ )
