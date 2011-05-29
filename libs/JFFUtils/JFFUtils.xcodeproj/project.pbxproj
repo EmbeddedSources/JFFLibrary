@@ -27,6 +27,8 @@
 		651BE1CD1391A36800DD6890 /* NSObject+OnDeallocBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1CB1391A36800DD6890 /* NSObject+OnDeallocBlock.h */; };
 		651BE1CE1391A36800DD6890 /* NSObject+OnDeallocBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1CC1391A36800DD6890 /* NSObject+OnDeallocBlock.m */; };
 		651BE27C1391BD7800DD6890 /* JFFUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE27B1391BD7800DD6890 /* JFFUtils.h */; };
+		65648B7E13923EC4001E163C /* NSString+PropertyName.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648B7C13923EC4001E163C /* NSString+PropertyName.h */; };
+		65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B7D13923EC4001E163C /* NSString+PropertyName.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		651BE1CB1391A36800DD6890 /* NSObject+OnDeallocBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+OnDeallocBlock.h"; sourceTree = "<group>"; };
 		651BE1CC1391A36800DD6890 /* NSObject+OnDeallocBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OnDeallocBlock.m"; sourceTree = "<group>"; };
 		651BE27B1391BD7800DD6890 /* JFFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils.h; sourceTree = "<group>"; };
+		65648B7C13923EC4001E163C /* NSString+PropertyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PropertyName.h"; sourceTree = "<group>"; };
+		65648B7D13923EC4001E163C /* NSString+PropertyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PropertyName.m"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +179,8 @@
 			children = (
 				651BE19B1391969A00DD6890 /* NSString+Search.h */,
 				651BE19C1391969A00DD6890 /* NSString+Search.m */,
+				65648B7C13923EC4001E163C /* NSString+PropertyName.h */,
+				65648B7D13923EC4001E163C /* NSString+PropertyName.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -198,6 +204,7 @@
 				651BE1C31391A25500DD6890 /* JFFOnDeallocBlockOwner.h in Headers */,
 				651BE1CD1391A36800DD6890 /* NSObject+OnDeallocBlock.h in Headers */,
 				651BE27C1391BD7800DD6890 /* JFFUtils.h in Headers */,
+				65648B7E13923EC4001E163C /* NSString+PropertyName.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +267,7 @@
 				651BE19E1391969A00DD6890 /* NSString+Search.m in Sources */,
 				651BE1C41391A25500DD6890 /* JFFOnDeallocBlockOwner.m in Sources */,
 				651BE1CE1391A36800DD6890 /* NSObject+OnDeallocBlock.m in Sources */,
+				65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
