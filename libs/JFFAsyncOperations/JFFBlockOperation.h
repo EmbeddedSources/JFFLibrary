@@ -1,8 +1,8 @@
-#include <ESCommon/ESUtils/Blocks/ESBlocksDefinitions.h>
+#import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
 
 #import <Foundation/Foundation.h>
 
-@interface ESBlockOperation : NSOperation
+@interface JFFBlockOperation : NSOperation
 {
 @private
    JFFSyncOperation _load_data_block;

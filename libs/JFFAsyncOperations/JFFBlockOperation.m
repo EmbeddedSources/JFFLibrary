@@ -1,21 +1,21 @@
-#import "ESBlockOperation.h"
+#import "JFFBlockOperation.h"
 
 #import "JFFOperationQueue.h"
 #import "JFFResultContext.h"
-#import "ESError.h"
 
-#import "NSThread+AssertMainThread.h"
+#import <JFFUtils/JFFError.h>
+#import <JFFUtils/NSThread+AssertMainThread.h>
 
-@interface ESBlockOperation ()
+@interface JFFBlockOperation ()
 
-@property ( copy ) ESDataLoader loadDataBlock;
-@property ( nonatomic, copy ) ESDidLoadDataWithErrorHandler didLoadDataBlock;
-@property ( nonatomic, copy ) ESCancelHandler cancelBlock;
+@property ( copy ) JFFSyncOperation loadDataBlock;
+@property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didLoadDataBlock;
+@property ( nonatomic, copy ) JFFCancelHandler cancelBlock;
 @property ( nonatomic, assign ) NSOperationQueue* operationQueue;
 
 @end
 
-@implementation ESBlockOperation
+@implementation JFFBlockOperation
 
 @synthesize loadDataBlock = _load_data_block;
 @synthesize didLoadDataBlock = _did_load_data_block;
@@ -72,7 +72,7 @@
 
    self.cancelBlock = nil;
 
-   ESDidLoadDataWithErrorHandler did_load_data_block_ = [ self.didLoadDataBlock copy ];
+   JFFDidFinishAsyncOperationHandler did_load_data_block_ = [ self.didLoadDataBlock copy ];
    self.didLoadDataBlock = nil;
    did_load_data_block_( result_context_.result, result_context_.error );
    [ did_load_data_block_ release ];
@@ -111,7 +111,7 @@
    {
       NSLog( @"critical error: %@", ex_ );
       result_context_.result = nil;
-      result_context_.error = [ ESError errorWithDescription: [ NSString stringWithFormat: @"exception: %@, reason: %@", ex_.name, ex_.reason ] ];
+      result_context_.error = [ JFFError errorWithDescription: [ NSString stringWithFormat: @"exception: %@, reason: %@", ex_.name, ex_.reason ] ];
    }
 
    [ self performSelectorOnMainThread: @selector( didFinishOperationWithResultContext: )
