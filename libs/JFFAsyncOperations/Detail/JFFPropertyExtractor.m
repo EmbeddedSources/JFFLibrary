@@ -15,7 +15,7 @@
 
 @property ( nonatomic, retain ) JFFPropertyPath* propertyPath;
 
-@property ( nonatomic, retain ) NSObject* object;
+@property ( nonatomic, assign ) NSObject* object;
 @property ( nonatomic, retain ) JFFObjectRelatedPropertyData* objectPropertyData;
 
 @property ( nonatomic, assign, readonly ) SEL propertyGetSelector;
@@ -64,7 +64,6 @@
       [ self clearData ];
 
    [ _property_path release ];
-   [ _object release ];
 
    [ super dealloc ];
 }
@@ -72,8 +71,6 @@
 -(void)clearData
 {
    self.objectPropertyData = nil;
-   self.object = nil;
-   //self.propertyPath = nil;
 }
 
 -(SEL)propertyGetSelector

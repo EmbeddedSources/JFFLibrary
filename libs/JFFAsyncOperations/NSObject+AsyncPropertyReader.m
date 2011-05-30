@@ -151,16 +151,21 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
 {
    NSAssert( async_operation_, @"async_operation_ should be set" );
 
-   JFFPropertyExtractor* property_extractor_ = [ JFFPropertyExtractor propertyForObject: self
-                                                                           propertyPath: property_path_
-                                                                            asyncLoader: async_operation_
-                                                                         didFinishBlock: did_finish_operation_ ];
+   __block NSObject* self_ = self;
+
+   async_operation_ = [ [ async_operation_ copy ] autorelease ];
+   did_finish_operation_ = [ [ did_finish_operation_ copy ] autorelease ];
 
    JFFAsyncOperation result_ = [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
                                      , JFFCancelHandler cancel_callback_
                                      , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       [ NSThread assertMainThread ];
+
+      JFFPropertyExtractor* property_extractor_ = [ JFFPropertyExtractor propertyForObject: self_
+                                                                              propertyPath: property_path_
+                                                                               asyncLoader: async_operation_
+                                                                            didFinishBlock: did_finish_operation_ ];
 
       id result_ = property_extractor_.property;
       if ( result_ )
