@@ -1,1 +1,10 @@
-Collection of ios libraries.
+Collection of IOS libraries which contains:
+
+JFFLibrary - main project which include and build all projects from libs directory.
+
+JFFAsyncOperations - used for managing of asynchronous operations
+JFFScheduler - some useful API for creation of scheduled jobs
+JFFUI - contains UI components and extensions
+JFFUtils - collection of useful NS classes extensions and some light classes
+
+License : BSD

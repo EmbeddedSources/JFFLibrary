@@ -1,4 +1,6 @@
 .svn
 build
-/.svnignore
-/*.DS_Store
+.svnignore
+*.DS_Store
+*.mode1v3
+*.pbxuser
