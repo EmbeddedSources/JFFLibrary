@@ -72,9 +72,10 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
       property_extractor_.property = result_;
 
       if ( finish_block_ )
+      {
          finish_block_( result_, error_ );
-
-      result_ = property_extractor_.property;
+         result_ = property_extractor_.property;
+      }
 
       clearDataForPropertyExtractor( property_extractor_ );
 
