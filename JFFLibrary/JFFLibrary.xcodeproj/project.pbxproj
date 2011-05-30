@@ -62,14 +62,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 655E9EF71393A4F50074BD61 /* JFFUI.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libJFFUI.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = JFFUI;
 		};
 		655E9EFE1393A4FE0074BD61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 655E9EF71393A4F50074BD61 /* JFFUI.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* JFFUI */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = JFFUI;
 		};
 /* End PBXContainerItemProxy section */
