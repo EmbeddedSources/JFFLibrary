@@ -1,10 +1,10 @@
 #import "JFFExamplesAppDelegate.h"
-#import "JFFExamplesViewController.h"
+
 
 @implementation JFFExamplesAppDelegate
 
 @synthesize window;
-@synthesize viewController;
+@synthesize tabBarController;
 
 
 #pragma mark -
@@ -14,11 +14,11 @@
 {    
    // Override point for customization after app launch.
 
-	// Set the view controller as the window's root view controller and display.
-   self.window.rootViewController = self.viewController;
+   // Set the tab bar controller as the window's root view controller and display.
+   self.window.rootViewController = self.tabBarController;
    [ self.window makeKeyAndVisible ];
 
-	return YES;
+   return YES;
 }
 
 
@@ -33,7 +33,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+     Restart any tasks that were paused (or not yet started) while the application was inactive.
      */
 }
 
@@ -41,10 +41,24 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     /*
      Called when the application is about to terminate.
-     See also applicationDidEnterBackground:.
      */
 }
 
+
+#pragma mark -
+#pragma mark UITabBarControllerDelegate methods
+
+/*
+ // Optional UITabBarControllerDelegate method
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+}
+ */
+
+/*
+ // Optional UITabBarControllerDelegate method
+- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed {
+}
+ */
 
 #pragma mark -
 #pragma mark Memory management
@@ -57,10 +71,10 @@
 
 
 - (void)dealloc {
-    [viewController release];
+    [tabBarController release];
     [window release];
     [super dealloc];
 }
 
-
 @end
+
