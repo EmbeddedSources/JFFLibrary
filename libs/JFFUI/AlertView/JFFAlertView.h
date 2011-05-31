@@ -12,7 +12,7 @@
   cancelButtonTitle:( id )cancel_button_title_
   otherButtonTitles:( id )other_button_titles_, ...;
 
--(void)addAlertButton:( id )alert_button_id_;
+-(void)addAlertButton:( id )alert_button_;
 
 -(void)addAlertButtonWithTitle:( NSString* )title_ ation:( JFFSimpleBlock )action_;
 

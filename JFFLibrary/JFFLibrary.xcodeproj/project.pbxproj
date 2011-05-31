@@ -349,6 +349,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFLibrary_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../libs;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = JFFLibrary;
 			};

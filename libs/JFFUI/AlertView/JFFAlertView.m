@@ -169,9 +169,9 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
    return index_;
 }
 
--(void)addAlertButton:( id )alert_button_id_
+-(void)addAlertButton:( id )alert_button_
 {
-   [ self addAlertButtonWithIndex: alert_button_id_ ];
+   [ self addAlertButtonWithIndex: alert_button_ ];
 }
 
 -(void)addAlertButtonWithTitle:( NSString* )title_ ation:( JFFSimpleBlock )action_

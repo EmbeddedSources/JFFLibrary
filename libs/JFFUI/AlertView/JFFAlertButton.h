@@ -10,4 +10,3 @@
 +(id)alertButton:( NSString* )title_ action:( JFFSimpleBlock )action_;
 
 @end
-
