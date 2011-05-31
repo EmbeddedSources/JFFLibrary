@@ -104,6 +104,7 @@ static NSString* const button2_button_title_ = @"button2";
       {
          NSLog( @"Alert1 \"%@\" button selected with index: %d", button2_button_title_, button_index_ );
       }
+      self.alertView1 = nil;
    }
    else if ( self.alertView2 == alert_view_ )
    {
@@ -115,6 +116,7 @@ static NSString* const button2_button_title_ = @"button2";
       {
          NSLog( @"Alert2 \"%@\" button selected with index: %d", button1_button_title_, button_index_ );
       }
+      self.alertView2 = nil;
    }
 }
 
