@@ -1,9 +1,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIAlertViewExampleViewController : UIViewController
-{
-
-}
 
 +(id)uiAlertViewExampleViewController;
 
