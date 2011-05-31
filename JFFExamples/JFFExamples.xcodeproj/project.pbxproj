@@ -21,6 +21,7 @@
 		658750E7139570AA001AAA2B /* UIAlertViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658750E3139570AA001AAA2B /* UIAlertViewExampleViewController.m */; };
 		658751211395748D001AAA2B /* UIAlertViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658751201395748D001AAA2B /* UIAlertViewExampleViewController.xib */; };
 		658751A213958A44001AAA2B /* JFFAlertViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658751A113958A44001AAA2B /* JFFAlertViewExampleViewController.xib */; };
+		658751C21395933B001AAA2B /* libJFFUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65875196139589D4001AAA2B /* libJFFUI.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,13 @@
 			containerPortal = 65875191139589D4001AAA2B /* JFFUI.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libJFFUI.a */;
+			remoteInfo = JFFUI;
+		};
+		658751C013959332001AAA2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65875191139589D4001AAA2B /* JFFUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* JFFUI */;
 			remoteInfo = JFFUI;
 		};
 /* End PBXContainerItemProxy section */
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658751C21395933B001AAA2B /* libJFFUI.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -181,6 +190,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				658751C113959332001AAA2B /* PBXTargetDependency */,
 			);
 			name = JFFExamples;
 			productName = JFFExamples;
@@ -257,6 +267,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		658751C113959332001AAA2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFUI;
+			targetProxy = 658751C013959332001AAA2B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
