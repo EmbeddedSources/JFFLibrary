@@ -1,13 +1,28 @@
 #import "UIAlertViewExampleViewController.h"
 
-#import <JFFUI/AlertView/JFFAlertView.h>
-#import <JFFUI/AlertView/JFFAlertButton.h>
-
 static NSString* const cancel_button_title_ = @"cancel";
 static NSString* const button1_button_title_ = @"button1";
 static NSString* const button2_button_title_ = @"button2";
 
+@interface UIAlertViewExampleViewController ()
+
+@property ( nonatomic, retain ) UIAlertView* alertView1;
+@property ( nonatomic, retain ) UIAlertView* alertView2;
+
+@end
+
 @implementation UIAlertViewExampleViewController
+
+@synthesize alertView1 = _alert_view1;
+@synthesize alertView2 = _alert_view2;
+
+-(void)dealloc
+{
+   [ _alert_view1 release ];
+   [ _alert_view2 release ];
+
+   [ super dealloc ];
+}
 
 -(id)init
 {
@@ -15,7 +30,7 @@ static NSString* const button2_button_title_ = @"button2";
 
    if ( self )
    {
-       self.title = @"UIAlertView example";
+      self.title = @"UIAlertView example";
    }
 
    return self;
@@ -33,32 +48,19 @@ static NSString* const button2_button_title_ = @"button2";
 
 -(void)showAlertView1WithButton2:( BOOL )show_button2_
 {
-   JFFAlertButton* cancel_button_ = [ JFFAlertButton alertButton: cancel_button_title_
-                                                          action: ^
-   {
-      NSLog( @"Alert1 \"%@\" button selected", cancel_button_title_ );
-   } ];
-
-   JFFAlertView* alert_view_ = [ JFFAlertView alertWithTitle: @"Alert1"
+   self.alertView1 = [ [ [ UIAlertView alloc ] initWithTitle: @"Alert1"
                                                      message: @"test"
-                                           cancelButtonTitle: cancel_button_
-                                           otherButtonTitles: nil ];
+                                                    delegate: self
+                                           cancelButtonTitle: cancel_button_title_
+                                           otherButtonTitles: nil ] autorelease ];
 
    if ( show_button2_ )
    {
-      [ alert_view_ addAlertButtonWithTitle: button2_button_title_
-                                      ation: ^
-      {
-         NSLog( @"Alert1 \"%@\" button selected", button2_button_title_ );
-      } ];
+      [ self.alertView1 addButtonWithTitle: button2_button_title_ ];
    }
-   [ alert_view_ addAlertButtonWithTitle: button1_button_title_
-                                   ation: ^
-   {
-      NSLog( @"Alert1 \"%@\" button selected", button1_button_title_ );
-   } ];
+   [ self.alertView1 addButtonWithTitle: button1_button_title_ ];
 
-   [ alert_view_ show ];
+   [ self.alertView1 show ];
 }
 
 -(IBAction)showAlertView1Action:( id )sender_
@@ -73,23 +75,49 @@ static NSString* const button2_button_title_ = @"button2";
 
 -(IBAction)showAlertView3Action:( id )sender_
 {
-   JFFAlertButton* cancel_button_ = [ JFFAlertButton alertButton: cancel_button_title_
-                                                          action: ^
-   {
-      NSLog( @"Alert2 \"%@\" button selected", cancel_button_title_ );
-   } ];
-   JFFAlertButton* button1_ = [ JFFAlertButton alertButton: button1_button_title_
-                                                    action: ^
-   {
-      NSLog( @"Alert2 \"%@\" button selected", button1_button_title_ );
-   } ];
-
-   JFFAlertView* alert_view_ = [ JFFAlertView alertWithTitle: @"Alert2"
+   self.alertView2 = [ [ [ UIAlertView alloc ] initWithTitle: @"Alert2"
                                                      message: @"test"
-                                           cancelButtonTitle: cancel_button_
-                                           otherButtonTitles: button1_, nil ];
+                                                    delegate: self
+                                           cancelButtonTitle: cancel_button_title_
+                                           otherButtonTitles: button1_button_title_, nil ] autorelease ];
 
-   [ alert_view_ show ];
+   [ self.alertView2 show ];
+}
+
+#pragma mark UIAlertViewDelegate
+
+-(void)alertView:( UIAlertView* )alert_view_ clickedButtonAtIndex:( NSInteger )button_index_
+{
+   NSString* clicked_button_title_ = [ alert_view_ buttonTitleAtIndex: button_index_ ];
+
+   if ( self.alertView1 == alert_view_ )
+   {
+      if ( [ clicked_button_title_ isEqualToString: cancel_button_title_ ] )
+      {
+         NSLog( @"Alert1 \"%@\" button selected with index: %d", cancel_button_title_, button_index_ );
+      }
+      else if ( [ clicked_button_title_ isEqualToString: button1_button_title_ ] )
+      {
+         NSLog( @"Alert1 \"%@\" button selected with index: %d", button1_button_title_, button_index_ );
+      }
+      else if ( [ clicked_button_title_ isEqualToString: button2_button_title_ ] )
+      {
+         NSLog( @"Alert1 \"%@\" button selected with index: %d", button2_button_title_, button_index_ );
+      }
+      self.alertView1 = nil;
+   }
+   else if ( self.alertView2 == alert_view_ )
+   {
+      if ( [ clicked_button_title_ isEqualToString: cancel_button_title_ ] )
+      {
+         NSLog( @"Alert2 \"%@\" button selected with index: %d", cancel_button_title_, button_index_ );
+      }
+      else if ( [ clicked_button_title_ isEqualToString: button1_button_title_ ] )
+      {
+         NSLog( @"Alert2 \"%@\" button selected with index: %d", button1_button_title_, button_index_ );
+      }
+      self.alertView2 = nil;
+   }
 }
 
 @end
