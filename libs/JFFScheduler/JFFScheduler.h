@@ -9,12 +9,18 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
    NSMutableArray* _cancel_blocks;
 }
 
+//returns new scheduler
 +(id)scheduler;
 
+//returns shared scheduler
 +(id)sharedScheduler;
 
+//Add new block to scheduler which will be invoked on the current thread using the default mode after a delay,
+//returning the block for canceling this invocation
+//the invocation will be canceled at removing "scheduler" object from memory
 -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_ duration:( NSTimeInterval )duration_;
 
+//cancel all delayed invocations for self
 -(void)cancelAllScheduledOperations;
 
 @end
