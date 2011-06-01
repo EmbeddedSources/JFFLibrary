@@ -7,4 +7,6 @@ JFFScheduler - some useful API for creation of scheduled jobs
 JFFUI - contains UI components and extensions
 JFFUtils - collection of useful NS classes extensions and some light classes
 
+JFFExamples - contains usage examples of JFFLibrary components.
+
 License : BSD

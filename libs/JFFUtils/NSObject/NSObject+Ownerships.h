@@ -2,6 +2,7 @@
 
 @interface NSObject (Ownerships)
 
--(NSMutableArray*)ownerships;
+//lazy load property, any object can be added to this array
+@property ( nonatomic, retain, readonly ) NSMutableArray* ownerships;
 
 @end

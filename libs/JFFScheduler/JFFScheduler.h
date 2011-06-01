@@ -12,7 +12,7 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
 //returns new scheduler
 +(id)scheduler;
 
-//returns shared scheduler
+//returns the shared scheduler
 +(id)sharedScheduler;
 
 //Add new block to scheduler which will be invoked on the current thread using the default mode after a delay,
