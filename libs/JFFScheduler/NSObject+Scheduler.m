@@ -19,8 +19,7 @@
 
    NSString* selector_string_ = NSStringFromSelector( selector_ );
    NSUInteger num_of_args_ = [ selector_string_ numberOfCharacterFromString: @":" ];
-   NSString* assert_warning_ = [ NSString stringWithFormat: @"selector \"%@\" should has 0 or 1 parameters", selector_string_ ];
-   NSAssert( num_of_args_ == 0 || num_of_args_ == 1, assert_warning_ );
+   NSAssert1( num_of_args_ == 0 || num_of_args_ == 1, @"selector \"%@\" should has 0 or 1 parameters", selector_string_ );
 
    __block id self_ = self;
 
