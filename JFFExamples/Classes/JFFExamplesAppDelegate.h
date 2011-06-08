@@ -2,11 +2,12 @@
 
 @interface JFFExamplesAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 {
-   UIWindow* window;
-   UITabBarController* tabBarController;
+@private
+   UIWindow* _window;
+   UITabBarController* _tab_bar_controller;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property ( nonatomic, retain ) IBOutlet UIWindow* window;
+@property ( nonatomic, retain ) IBOutlet UITabBarController* tabBarController;
 
 @end

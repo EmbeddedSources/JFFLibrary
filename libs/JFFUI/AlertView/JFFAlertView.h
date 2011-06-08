@@ -1,6 +1,6 @@
-#import <UIKit/UIKit.h>
-
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
+
+#import <UIKit/UIKit.h>
 
 @interface JFFAlertView : UIAlertView
 

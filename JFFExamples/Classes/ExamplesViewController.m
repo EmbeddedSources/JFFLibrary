@@ -3,6 +3,9 @@
 #import "UIAlertViewExampleViewController.h"
 #import "JFFAlertViewExampleViewController.h"
 
+#import "UIActionSheetViewExampleViewController.h"
+#import "JFFActionSheetViewExampleViewController.h"
+
 @implementation ExamplesViewController
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:( UIInterfaceOrientation )interface_orientation_
@@ -19,6 +22,18 @@
 -(IBAction)showJFFAlertViewExampleAction:( id )sender_
 {
    UIViewController* controller_ = [ JFFAlertViewExampleViewController jffAlertViewExampleViewController ];
+   [ self.navigationController pushViewController: controller_ animated: YES ];
+}
+
+-(IBAction)showUIActionSheetExampleAction:( id )sender_
+{
+   UIViewController* controller_ = [ UIActionSheetViewExampleViewController uiActionSheetExampleViewController ];
+   [ self.navigationController pushViewController: controller_ animated: YES ];
+}
+
+-(IBAction)showJFFActionSheetExampleAction:( id )sender_
+{
+   UIViewController* controller_ = [ JFFActionSheetViewExampleViewController jffActionSheetExampleViewController ];
    [ self.navigationController pushViewController: controller_ animated: YES ];
 }
 

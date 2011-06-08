@@ -1,44 +1,11 @@
 #import "JFFAlertView.h"
 
 #import "JFFAlertButton.h"
+#import "NSObject+JFFAlertButton.h"
 
 #define UI_APPLICATION_DID_ENTER_BACKGROUND_NOTIFICATION @"UIApplicationDidEnterBackgroundNotification"
 
 static NSMutableArray* active_alerts_ = nil;
-
-@interface NSObject (JFFAlertView)
-
--(JFFAlertButton*)toAlertButton;
-
-@end
-
-@implementation NSObject (JFFAlertView)
-
--(JFFAlertButton*)toAlertButton
-{
-   [ self doesNotRecognizeSelector: _cmd ];
-   return nil;
-}
-
-@end
-
-@implementation NSString (JFFAlertView)
-
--(JFFAlertButton*)toAlertButton
-{
-   return [ JFFAlertButton alertButton: self action: (JFFSimpleBlock)^(){} ];
-}
-
-@end
-
-@implementation JFFAlertButton (JFFAlertView)
-
--(JFFAlertButton*)toAlertButton
-{
-   return self;
-}
-
-@end
 
 @interface JFFAlertView ()
 
@@ -55,6 +22,15 @@ static NSMutableArray* active_alerts_ = nil;
 @synthesize dismissBeforeEnterBackground = _dismiss_before_enter_background;
 @synthesize exclusive = _exclusive;
 @synthesize alertButtons = _alert_buttons;
+
+-(void)dealloc
+{
+   [ [ NSNotificationCenter defaultCenter ] removeObserver: self ];
+
+   [ _alert_buttons release ];
+
+   [ super dealloc ];
+}
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_
 {
@@ -125,15 +101,6 @@ static NSMutableArray* active_alerts_ = nil;
    [ self showAlertWithTitle: NSLocalizedString( @"INFORMATION", nil ) description: description_ ];
 }
 
--(void)dealloc
-{
-   [ [ NSNotificationCenter defaultCenter ] removeObserver: self ];
-
-   [ _alert_buttons release ];
-
-   [ super dealloc ];
-}
-
 -(id)initWithTitle:( NSString* )title_
            message:( NSString* )message_
  cancelButtonTitle:( NSString* )cancel_button_title_
@@ -189,8 +156,6 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
   cancelButtonTitle:( id )cancel_button_title_
   otherButtonTitles:( id )other_button_titles_, ...
 {
-   JFFAlertButton* cancel_alert_button_title_ = [ cancel_button_title_ toAlertButton ];
-
    NSMutableArray* other_alert_buttons_ = [ NSMutableArray array ];
    NSMutableArray* other_alert_string_titles_ = [ NSMutableArray array ];
 
@@ -204,12 +169,15 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
    }
    va_end( args );
 
-   if ( cancel_alert_button_title_ )
-      [ other_alert_buttons_ insertObject: cancel_alert_button_title_ atIndex: 0 ];
+   JFFAlertButton* cancel_button_ = [ cancel_button_title_ toAlertButton ];
+   if ( cancel_button_ )
+   {
+      [ other_alert_buttons_ insertObject: cancel_button_ atIndex: 0 ];
+   }
 
    JFFAlertView* alert_view_ = [ [ [ self alloc ] initWithTitle: title_
                                                         message: message_
-                                              cancelButtonTitle: cancel_button_title_
+                                              cancelButtonTitle: cancel_button_.title
                                          otherButtonTitlesArray: other_alert_string_titles_ ] autorelease ];
 
    alert_view_.alertButtons = other_alert_buttons_;
@@ -219,7 +187,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)show
 {
-   [ JFFAlertView activeAlertsAddAlert: self ];
+   [ [ self class ] activeAlertsAddAlert: self ];
 
    [ super show ];
 }
@@ -254,7 +222,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_
 {
-   [ JFFAlertView activeAlertsRemoveAlert: self ];
+   [ [ self class ] activeAlertsRemoveAlert: self ];
 }
 
 @end

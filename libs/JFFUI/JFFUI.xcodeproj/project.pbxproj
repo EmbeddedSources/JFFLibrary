@@ -14,6 +14,10 @@
 		655E9DBC1392E8C00074BD61 /* NSError+Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB61392E8C00074BD61 /* NSError+Alert.h */; };
 		655E9DBD1392E8C00074BD61 /* NSError+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB71392E8C00074BD61 /* NSError+Alert.m */; };
 		655E9E4B1392ED360074BD61 /* JFFUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9E4A1392ED360074BD61 /* JFFUI.h */; };
+		8D996F18139F5D370075A325 /* JFFActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D996F16139F5D370075A325 /* JFFActionSheet.h */; };
+		8D996F19139F5D370075A325 /* JFFActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F17139F5D370075A325 /* JFFActionSheet.m */; };
+		8D996F1E139F61200075A325 /* NSObject+JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */; };
+		8D996F1F139F61200075A325 /* NSObject+JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUI_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUI_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +30,10 @@
 		655E9DB61392E8C00074BD61 /* NSError+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Alert.h"; sourceTree = "<group>"; };
 		655E9DB71392E8C00074BD61 /* NSError+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Alert.m"; sourceTree = "<group>"; };
 		655E9E4A1392ED360074BD61 /* JFFUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUI.h; sourceTree = "<group>"; };
+		8D996F16139F5D370075A325 /* JFFActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFActionSheet.h; sourceTree = "<group>"; };
+		8D996F17139F5D370075A325 /* JFFActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFActionSheet.m; sourceTree = "<group>"; };
+		8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JFFAlertButton.h"; sourceTree = "<group>"; };
+		8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JFFAlertButton.m"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUI_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUI_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,14 +98,26 @@
 		655E9DB11392E8C00074BD61 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
+				8D996F1B139F60E70075A325 /* Detail */,
 				655E9DB61392E8C00074BD61 /* NSError+Alert.h */,
 				655E9DB71392E8C00074BD61 /* NSError+Alert.m */,
 				655E9DB21392E8C00074BD61 /* JFFAlertButton.h */,
 				655E9DB31392E8C00074BD61 /* JFFAlertButton.m */,
 				655E9DB41392E8C00074BD61 /* JFFAlertView.h */,
 				655E9DB51392E8C00074BD61 /* JFFAlertView.m */,
+				8D996F16139F5D370075A325 /* JFFActionSheet.h */,
+				8D996F17139F5D370075A325 /* JFFActionSheet.m */,
 			);
 			path = AlertView;
+			sourceTree = "<group>";
+		};
+		8D996F1B139F60E70075A325 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */,
+				8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +132,8 @@
 				655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */,
 				655E9DBC1392E8C00074BD61 /* NSError+Alert.h in Headers */,
 				655E9E4B1392ED360074BD61 /* JFFUI.h in Headers */,
+				8D996F18139F5D370075A325 /* JFFActionSheet.h in Headers */,
+				8D996F1E139F61200075A325 /* NSObject+JFFAlertButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +193,8 @@
 				655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */,
 				655E9DBB1392E8C00074BD61 /* JFFAlertView.m in Sources */,
 				655E9DBD1392E8C00074BD61 /* NSError+Alert.m in Sources */,
+				8D996F19139F5D370075A325 /* JFFActionSheet.m in Sources */,
+				8D996F1F139F61200075A325 /* NSObject+JFFAlertButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
