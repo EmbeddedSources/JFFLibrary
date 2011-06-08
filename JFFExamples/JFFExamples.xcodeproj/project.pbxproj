@@ -22,10 +22,10 @@
 		658751211395748D001AAA2B /* UIAlertViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658751201395748D001AAA2B /* UIAlertViewExampleViewController.xib */; };
 		658751A213958A44001AAA2B /* JFFAlertViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658751A113958A44001AAA2B /* JFFAlertViewExampleViewController.xib */; };
 		658751C21395933B001AAA2B /* libJFFUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65875196139589D4001AAA2B /* libJFFUI.a */; };
-		8D35DEBA139F834000A20886 /* JFFActionSheetViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D35DEB8139F834000A20886 /* JFFActionSheetViewExampleViewController.m */; };
-		8D35DEBB139F834000A20886 /* JFFActionSheetViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D35DEB9139F834000A20886 /* JFFActionSheetViewExampleViewController.xib */; };
-		8D996F32139F6E3E0075A325 /* UIActionSheetViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F30139F6E3E0075A325 /* UIActionSheetViewExampleViewController.m */; };
-		8D996F33139F6E3E0075A325 /* UIActionSheetViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D996F31139F6E3E0075A325 /* UIActionSheetViewExampleViewController.xib */; };
+		65F4034B139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F40346139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m */; };
+		65F4034C139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F40347139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib */; };
+		65F4034D139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F40349139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m */; };
+		65F4034E139FE0DA00F835BC /* UIActionSheetViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F4034A139FE0DA00F835BC /* UIActionSheetViewExampleViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,13 +68,13 @@
 		658751201395748D001AAA2B /* UIAlertViewExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIAlertViewExampleViewController.xib; sourceTree = "<group>"; };
 		65875191139589D4001AAA2B /* JFFUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUI.xcodeproj; path = ../libs/JFFUI/JFFUI.xcodeproj; sourceTree = SOURCE_ROOT; };
 		658751A113958A44001AAA2B /* JFFAlertViewExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JFFAlertViewExampleViewController.xib; sourceTree = "<group>"; };
+		65F40345139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFActionSheetViewExampleViewController.h; sourceTree = "<group>"; };
+		65F40346139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFActionSheetViewExampleViewController.m; sourceTree = "<group>"; };
+		65F40347139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFFActionSheetViewExampleViewController.xib; sourceTree = "<group>"; };
+		65F40348139FE0DA00F835BC /* UIActionSheetViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionSheetViewExampleViewController.h; sourceTree = "<group>"; };
+		65F40349139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionSheetViewExampleViewController.m; sourceTree = "<group>"; };
+		65F4034A139FE0DA00F835BC /* UIActionSheetViewExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIActionSheetViewExampleViewController.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* JFFExamples-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JFFExamples-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		8D35DEB7139F834000A20886 /* JFFActionSheetViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFActionSheetViewExampleViewController.h; sourceTree = "<group>"; };
-		8D35DEB8139F834000A20886 /* JFFActionSheetViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFActionSheetViewExampleViewController.m; sourceTree = "<group>"; };
-		8D35DEB9139F834000A20886 /* JFFActionSheetViewExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFFActionSheetViewExampleViewController.xib; sourceTree = "<group>"; };
-		8D996F2F139F6E3E0075A325 /* UIActionSheetViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionSheetViewExampleViewController.h; sourceTree = "<group>"; };
-		8D996F30139F6E3E0075A325 /* UIActionSheetViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionSheetViewExampleViewController.m; sourceTree = "<group>"; };
-		8D996F31139F6E3E0075A325 /* UIActionSheetViewExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIActionSheetViewExampleViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +160,7 @@
 		658750DD139570AA001AAA2B /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				8D996F2D139F6E030075A325 /* JFFActionSheet */,
+				65F40344139FE0DA00F835BC /* JFFActionSheet */,
 				658750DE139570AA001AAA2B /* JFFAlertView */,
 			);
 			path = Examples;
@@ -187,19 +187,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8D996F2D139F6E030075A325 /* JFFActionSheet */ = {
+		65F40344139FE0DA00F835BC /* JFFActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				8D35DEB7139F834000A20886 /* JFFActionSheetViewExampleViewController.h */,
-				8D35DEB8139F834000A20886 /* JFFActionSheetViewExampleViewController.m */,
-				8D35DEB9139F834000A20886 /* JFFActionSheetViewExampleViewController.xib */,
-				8D996F2F139F6E3E0075A325 /* UIActionSheetViewExampleViewController.h */,
-				8D996F30139F6E3E0075A325 /* UIActionSheetViewExampleViewController.m */,
-				8D996F31139F6E3E0075A325 /* UIActionSheetViewExampleViewController.xib */,
+				65F40345139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.h */,
+				65F40346139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m */,
+				65F40347139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib */,
+				65F40348139FE0DA00F835BC /* UIActionSheetViewExampleViewController.h */,
+				65F40349139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m */,
+				65F4034A139FE0DA00F835BC /* UIActionSheetViewExampleViewController.xib */,
 			);
-			name = JFFActionSheet;
-			path = Classes/JFFActionSheet;
-			sourceTree = SOURCE_ROOT;
+			path = JFFActionSheet;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -272,8 +271,8 @@
 				658750DB13956EB4001AAA2B /* ExamplesViewController.xib in Resources */,
 				658751211395748D001AAA2B /* UIAlertViewExampleViewController.xib in Resources */,
 				658751A213958A44001AAA2B /* JFFAlertViewExampleViewController.xib in Resources */,
-				8D996F33139F6E3E0075A325 /* UIActionSheetViewExampleViewController.xib in Resources */,
-				8D35DEBB139F834000A20886 /* JFFActionSheetViewExampleViewController.xib in Resources */,
+				65F4034C139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib in Resources */,
+				65F4034E139FE0DA00F835BC /* UIActionSheetViewExampleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +289,8 @@
 				284F764110B34E8A00D7BA5B /* SecondViewController.m in Sources */,
 				658750E5139570AA001AAA2B /* JFFAlertViewExampleViewController.m in Sources */,
 				658750E7139570AA001AAA2B /* UIAlertViewExampleViewController.m in Sources */,
-				8D996F32139F6E3E0075A325 /* UIActionSheetViewExampleViewController.m in Sources */,
-				8D35DEBA139F834000A20886 /* JFFActionSheetViewExampleViewController.m in Sources */,
+				65F4034B139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m in Sources */,
+				65F4034D139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
