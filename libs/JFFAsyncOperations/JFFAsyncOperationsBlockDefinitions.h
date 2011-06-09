@@ -4,7 +4,10 @@
 
 typedef void (^JFFAsyncOperationProgressHandler)( id progress_info_ );
 
+//Synchronous block which can take a lot of time
 typedef id (^JFFSyncOperation)( NSError** error_ );
+
+//This block should call progress_callback_ block only from own thread
 typedef id (^JFFSyncOperationWithProgress)( NSError** error_
                                            , JFFAsyncOperationProgressHandler progress_callback_ );
 
