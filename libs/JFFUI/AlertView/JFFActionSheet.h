@@ -10,8 +10,6 @@
 
 @property ( nonatomic, assign ) BOOL dismissBeforeEnterBackground;
 
-//TODO destructive_button_ - NSString?
-
 //cancelButtonTitle, otherButtonTitles - pass NSString(button title) or JFFAlertButton
 +(id)actionSheetWithTitle:( NSString* )title_
         cancelButtonTitle:( id )cancel_button_title_
