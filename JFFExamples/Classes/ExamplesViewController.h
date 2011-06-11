@@ -11,6 +11,6 @@
 -(IBAction)showJFFActionSheetExampleAction:( id )sender_;
 
 // UIView animations examples
--(IBAction)showUIViewAnimations:( id )sender_;
+-(IBAction)showUIViewAnimationsAction:( id )sender_;
 
 @end

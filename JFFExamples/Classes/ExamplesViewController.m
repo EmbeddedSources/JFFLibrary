@@ -39,7 +39,7 @@
    [ self.navigationController pushViewController: controller_ animated: YES ];
 }
 
--(IBAction)showUIViewAnimations:( id )sender_
+-(IBAction)showUIViewAnimationsAction:( id )sender_
 {
    UIViewController* controller_ = [ UIViewAnimationsExampleViewController uiViewAnimationsExampleViewController ];
    [ self.navigationController pushViewController: controller_ animated: YES ];

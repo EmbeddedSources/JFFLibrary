@@ -1,13 +1,4 @@
-//
-//  SecondViewController.m
-//  JFFExamples
-//
-//  Created by vgor on 31.05.11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "SecondViewController.h"
-
 
 @implementation SecondViewController
 
@@ -19,25 +10,28 @@
 */
 
 // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
+-(BOOL)shouldAutorotateToInterfaceOrientation:( UIInterfaceOrientation )interface_orientation_
+{
+   return YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+-(void)didReceiveMemoryWarning
+{
+   // Releases the view if it doesn't have a superview.
+   [ super didReceiveMemoryWarning ];
+
+   // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+-(void)viewDidUnload
+{
+   // Release any retained subviews of the main view.
+   // e.g. self.myOutlet = nil;
 }
 
-
-- (void)dealloc {
-    [super dealloc];
+-(void)dealloc
+{
+   [ super dealloc ];
 }
 
 @end
