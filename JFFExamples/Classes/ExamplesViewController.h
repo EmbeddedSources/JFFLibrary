@@ -12,5 +12,6 @@
 
 // UIView animations examples
 -(IBAction)showUIViewAnimationsAction:( id )sender_;
+-(IBAction)showUIViewBlocksAnimationsAction:( id )sender_;
 
 @end

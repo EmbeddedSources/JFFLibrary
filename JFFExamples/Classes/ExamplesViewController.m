@@ -7,6 +7,7 @@
 #import "JFFActionSheetViewExampleViewController.h"
 
 #import "UIViewAnimationsExampleViewController.h"
+#import "UIViewBlocksAnimationsExampleViewController.h"
 
 @implementation ExamplesViewController
 
@@ -42,6 +43,12 @@
 -(IBAction)showUIViewAnimationsAction:( id )sender_
 {
    UIViewController* controller_ = [ UIViewAnimationsExampleViewController uiViewAnimationsExampleViewController ];
+   [ self.navigationController pushViewController: controller_ animated: YES ];
+}
+
+-(IBAction)showUIViewBlocksAnimationsAction:( id )sender_
+{
+   UIViewController* controller_ = [ UIViewBlocksAnimationsExampleViewController uiViewBlocksAnimationsExampleViewController ];
    [ self.navigationController pushViewController: controller_ animated: YES ];
 }
 

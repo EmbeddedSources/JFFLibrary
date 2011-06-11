@@ -199,7 +199,28 @@
 					<object class="IBUIButton" id="171711197">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 175}, {223, 37}}</string>
+						<string key="NSFrame">{{20, 175}, {275, 37}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="107859356"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<reference key="IBUIFont" ref="679895287"/>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">UIView animations example</string>
+						<reference key="IBUIHighlightedTitleColor" ref="458187681"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="191917303"/>
+					</object>
+					<object class="IBUIButton" id="107859356">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{20, 220}, {275, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="160001666"/>
@@ -209,7 +230,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="679895287"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">UIView animations example</string>
+						<string key="IBUINormalTitle">UIView blocks animations example</string>
 						<reference key="IBUIHighlightedTitleColor" ref="458187681"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -289,6 +310,15 @@
 					</object>
 					<int key="connectionID">20</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showUIViewBlocksAnimationsAction:</string>
+						<reference key="source" ref="107859356"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">23</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -322,6 +352,7 @@
 							<reference ref="844324783"/>
 							<reference ref="4498517"/>
 							<reference ref="171711197"/>
+							<reference ref="107859356"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -360,6 +391,11 @@
 						<reference key="object" ref="171711197"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">21</int>
+						<reference key="object" ref="107859356"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -375,6 +411,7 @@
 					<string>18.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
+					<string>21.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
 					<string>3.IBViewBoundsToFrameTransform</string>
 					<string>4.IBPluginDependency</string>
@@ -398,6 +435,7 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{469, 59}, {783, 921}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
@@ -429,7 +467,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">20</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -446,9 +484,11 @@
 							<string>showUIActionSheetExampleAction:</string>
 							<string>showUIAlertViewExampleAction:</string>
 							<string>showUIViewAnimationsAction:</string>
+							<string>showUIViewBlocksAnimationsAction:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -465,6 +505,7 @@
 							<string>showUIActionSheetExampleAction:</string>
 							<string>showUIAlertViewExampleAction:</string>
 							<string>showUIViewAnimationsAction:</string>
+							<string>showUIViewBlocksAnimationsAction:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -486,6 +527,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showUIViewAnimationsAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">showUIViewBlocksAnimationsAction:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
