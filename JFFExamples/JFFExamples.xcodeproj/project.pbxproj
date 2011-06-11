@@ -18,6 +18,7 @@
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
 		651D002313A38D0A00177693 /* UIViewAnimationsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D002113A38D0A00177693 /* UIViewAnimationsExampleViewController.m */; };
 		651D002413A38D0A00177693 /* UIViewAnimationsExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651D002213A38D0A00177693 /* UIViewAnimationsExampleViewController.xib */; };
+		6563D90C13A42AC6005B3C69 /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6563D90213A42AAB005B3C69 /* libJFFAsyncOperations.a */; };
 		657BAAA113A41538002D22E4 /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 657BAA9C13A4151B002D22E4 /* libJFFUtils.a */; };
 		658750DB13956EB4001AAA2B /* ExamplesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658750DA13956EB4001AAA2B /* ExamplesViewController.xib */; };
 		658750E5139570AA001AAA2B /* JFFAlertViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658750E0139570AA001AAA2B /* JFFAlertViewExampleViewController.m */; };
@@ -34,6 +35,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6563D90113A42AAB005B3C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6563D8FA13A42AAB005B3C69 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
+		6563D90A13A42AB8005B3C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6563D8FA13A42AAB005B3C69 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
 		657BAA9B13A4151B002D22E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 657BAA9413A4151B002D22E4 /* JFFUtils.xcodeproj */;
@@ -82,6 +97,7 @@
 		651D002013A38D0A00177693 /* UIViewAnimationsExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAnimationsExampleViewController.h; sourceTree = "<group>"; };
 		651D002113A38D0A00177693 /* UIViewAnimationsExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimationsExampleViewController.m; sourceTree = "<group>"; };
 		651D002213A38D0A00177693 /* UIViewAnimationsExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIViewAnimationsExampleViewController.xib; sourceTree = "<group>"; };
+		6563D8FA13A42AAB005B3C69 /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../libs/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = SOURCE_ROOT; };
 		657BAA9413A4151B002D22E4 /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../libs/JFFUtils/JFFUtils.xcodeproj; sourceTree = SOURCE_ROOT; };
 		658750DA13956EB4001AAA2B /* ExamplesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamplesViewController.xib; sourceTree = "<group>"; };
 		658750DF139570AA001AAA2B /* JFFAlertViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertViewExampleViewController.h; sourceTree = "<group>"; };
@@ -108,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6563D90C13A42AC6005B3C69 /* libJFFAsyncOperations.a in Frameworks */,
 				657BAAA113A41538002D22E4 /* libJFFUtils.a in Frameworks */,
 				658751C21395933B001AAA2B /* libJFFUI.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -145,6 +162,7 @@
 		29B97314FDCFA39411CA2CEA /* JFFExamples */ = {
 			isa = PBXGroup;
 			children = (
+				6563D8FA13A42AAB005B3C69 /* JFFAsyncOperations.xcodeproj */,
 				657BAA9413A4151B002D22E4 /* JFFUtils.xcodeproj */,
 				65875191139589D4001AAA2B /* JFFUI.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -196,6 +214,14 @@
 				65C6D72913A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.xib */,
 			);
 			path = UIViewAnimations;
+			sourceTree = "<group>";
+		};
+		6563D8FB13A42AAB005B3C69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6563D90213A42AAB005B3C69 /* libJFFAsyncOperations.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		657BAA9513A4151B002D22E4 /* Products */ = {
@@ -266,6 +292,7 @@
 			dependencies = (
 				658751C113959332001AAA2B /* PBXTargetDependency */,
 				657BAAA013A41530002D22E4 /* PBXTargetDependency */,
+				6563D90B13A42AB8005B3C69 /* PBXTargetDependency */,
 			);
 			name = JFFExamples;
 			productName = JFFExamples;
@@ -291,6 +318,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 6563D8FB13A42AAB005B3C69 /* Products */;
+					ProjectRef = 6563D8FA13A42AAB005B3C69 /* JFFAsyncOperations.xcodeproj */;
+				},
+				{
 					ProductGroup = 65875192139589D4001AAA2B /* Products */;
 					ProjectRef = 65875191139589D4001AAA2B /* JFFUI.xcodeproj */;
 				},
@@ -307,6 +338,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6563D90213A42AAB005B3C69 /* libJFFAsyncOperations.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFAsyncOperations.a;
+			remoteRef = 6563D90113A42AAB005B3C69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		657BAA9C13A4151B002D22E4 /* libJFFUtils.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -363,6 +401,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6563D90B13A42AB8005B3C69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFAsyncOperations;
+			targetProxy = 6563D90A13A42AB8005B3C69 /* PBXContainerItemProxy */;
+		};
 		657BAAA013A41530002D22E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JFFUtils;

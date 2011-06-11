@@ -1,6 +1,8 @@
 #import "UIViewBlocksAnimationsExampleViewController.h"
 
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
+#import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
+#import <JFFAsyncOperations/JFFAsyncOperationLogic.h>
 
 static const CGFloat button_offset_ = 20.f;
 
@@ -89,41 +91,46 @@ static const CGFloat button_offset_ = 20.f;
    } copy ] autorelease ];
 }
 
--(JFFSimpleBlock)animationBlockWithAnimations:( JFFSimpleBlock )animations_
-                                   completion:( JFFSimpleBlock )completion_
+-(JFFAsyncOperation)animationBlockWithAnimations:( JFFSimpleBlock )animations_
 {
-   completion_ = [ [ completion_ copy ] autorelease ];
-   return [ [ ^
+   return [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
+                , JFFCancelHandler cancel_callback_
+                , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
+      done_callback_ = [ [ done_callback_ copy ] autorelease ];
       [ UIView animateWithDuration: 0.2
                         animations: animations_
                         completion: ^( BOOL finished_ )
       {
-         if ( completion_ )
-            completion_();
+         if ( done_callback_ )
+            done_callback_( [ NSNull null ], nil );
       } ];
+      return [ [ ^{} copy ] autorelease ];
    } copy ] autorelease ];
 }
 
 -(IBAction)animateButtonAction:( id )sender_
 {
-   JFFSimpleBlock move_left_animation_block_ = [ self moveLeftAnimationBlock ];
-   move_left_animation_block_ = [ self animationBlockWithAnimations: move_left_animation_block_
-                                                         completion: nil ];
-
-   JFFSimpleBlock move_down_animation_block_ = [ self moveDownAnimationBlock ];
-   move_down_animation_block_ = [ self animationBlockWithAnimations: move_down_animation_block_
-                                                         completion: move_left_animation_block_ ];
-
    JFFSimpleBlock move_right_animation_block_ = [ self moveRightAnimationBlock ];
-   move_right_animation_block_ = [ self animationBlockWithAnimations: move_right_animation_block_
-                                                          completion: move_down_animation_block_ ];
+   JFFAsyncOperation move_right_async_block_ = [ self animationBlockWithAnimations: move_right_animation_block_ ];
 
    JFFSimpleBlock move_up_animation_block_ = [ self moveUpAnimationBlock ];
-   move_up_animation_block_ = [ self animationBlockWithAnimations: [ self moveUpAnimationBlock ]
-                                                       completion: move_right_animation_block_ ];
+   JFFAsyncOperation move_up_async_block_ = [ self animationBlockWithAnimations: move_up_animation_block_ ];
 
-   move_up_animation_block_();
+   JFFSimpleBlock move_left_animation_block_ = [ self moveLeftAnimationBlock ];
+   JFFAsyncOperation move_left_async_block_ = [ self animationBlockWithAnimations: move_left_animation_block_ ];
+
+   JFFSimpleBlock move_down_animation_block_ = [ self moveDownAnimationBlock ];
+   JFFAsyncOperation move_down_async_block_ = [ self animationBlockWithAnimations: move_down_animation_block_ ];
+
+   JFFAsyncOperation result_animation_block_ = sequenceOfAsyncOperations(
+                                                                         move_right_async_block_
+                                                                         , move_up_async_block_
+                                                                         , move_left_async_block_
+                                                                         , move_down_async_block_
+                                                                         , nil );
+
+   result_animation_block_( nil, nil, nil );
 }
 
 @end
