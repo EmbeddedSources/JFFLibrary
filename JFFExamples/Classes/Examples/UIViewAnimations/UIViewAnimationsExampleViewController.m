@@ -8,18 +8,19 @@ static const CGFloat button_offset_ = 20.f;
 @interface JFFNextAnimation : NSObject
 
 @property ( nonatomic, retain ) UIViewAnimationsExampleViewController* controller;
-@property ( nonatomic, assign ) SEL nextAnimationSelector;
+@property ( nonatomic, retain ) NSMutableArray* nextAnimations;
 
 @end
 
 @implementation JFFNextAnimation
 
 @synthesize controller;
-@synthesize nextAnimationSelector;
+@synthesize nextAnimations;
 
 -(void)dealloc
 {
    [ controller release ];
+   [ nextAnimations release ];
 
    [ super dealloc ];
 }
@@ -52,11 +53,8 @@ static const CGFloat button_offset_ = 20.f;
 	return YES;
 }
 
--(void)moveUpAnimation
+-(void)moveUpAnimationWithNextAnimation:( JFFNextAnimation* )next_animation_
 {
-   JFFNextAnimation* next_animation_ = [ JFFNextAnimation new ];
-   next_animation_.controller = self;
-   next_animation_.nextAnimationSelector = @selector( moveRightAnimation );
    [ UIView beginAnimations: nil context: next_animation_ ];
 
    CGFloat new_y_ = self.animatedButton.frame.origin.y
@@ -72,11 +70,8 @@ static const CGFloat button_offset_ = 20.f;
    [ UIView commitAnimations ];
 }
 
--(void)moveDownAnimation
+-(void)moveDownAnimationWithNextAnimation:( JFFNextAnimation* )next_animation_
 {
-   JFFNextAnimation* next_animation_ = [ JFFNextAnimation new ];
-   next_animation_.controller = self;
-   next_animation_.nextAnimationSelector = @selector( moveLeftAnimation );
    [ UIView beginAnimations: nil context: next_animation_ ];
 
    CGFloat new_y_ = self.animatedButton.frame.origin.y
@@ -92,11 +87,8 @@ static const CGFloat button_offset_ = 20.f;
    [ UIView commitAnimations ];
 }
 
--(void)moveRightAnimation
+-(void)moveRightAnimationWithNextAnimation:( JFFNextAnimation* )next_animation_
 {
-   JFFNextAnimation* next_animation_ = [ JFFNextAnimation new ];
-   next_animation_.controller = self;
-   next_animation_.nextAnimationSelector = @selector( moveDownAnimation );
    [ UIView beginAnimations: nil context: next_animation_ ];
 
    CGFloat new_x_ = self.animatedButton.frame.origin.x
@@ -112,9 +104,9 @@ static const CGFloat button_offset_ = 20.f;
    [ UIView commitAnimations ];
 }
 
--(void)moveLeftAnimation
+-(void)moveLeftAnimationWithNextAnimation:( JFFNextAnimation* )next_animation_
 {
-   [ UIView beginAnimations: nil context: nil ];
+   [ UIView beginAnimations: nil context: next_animation_ ];
 
    CGFloat new_x_ = self.animatedButton.frame.origin.x
       - ( self.view.frame.size.width - button_offset_ * 2 )
@@ -131,16 +123,40 @@ static const CGFloat button_offset_ = 20.f;
 
 -(IBAction)animateButtonAction:( id )sender_
 {
-   [ self moveUpAnimation ];
+   JFFNextAnimation* next_animation_ = [ JFFNextAnimation new ];
+   next_animation_.controller = self;
+   next_animation_.nextAnimations = [ NSMutableArray arrayWithObjects:
+                                     @"moveUpAnimationWithNextAnimation:"
+                                     , @"moveLeftAnimationWithNextAnimation:"
+                                     , @"moveDownAnimationWithNextAnimation:"
+                                     , nil ];
+
+   [ self moveRightAnimationWithNextAnimation: next_animation_ ];
 }
 
 -(void)animationDidStop:( NSString* )animation_id_ finished:( NSNumber* )finished_ context:( void* )context_
 {
-   if ( [ finished_ boolValue ] )
+   if ( !context_ )
+      return;
+
+   JFFNextAnimation* context_object_ = context_;
+
+   NSString* next_animation_string_ = [ context_object_.nextAnimations objectAtIndex: 0 ];
+   next_animation_string_ = [ [ next_animation_string_ retain ] autorelease ];
+   [ context_object_.nextAnimations removeObjectAtIndex: 0 ];
+
+   SEL next_animation_sel_ = NSSelectorFromString( next_animation_string_ );
+
+   if ( [ context_object_.nextAnimations count ] == 0 )
    {
-      JFFNextAnimation* context_object_ = context_;
-      [ context_object_.controller performSelector: context_object_.nextAnimationSelector ];
+      [ context_object_.controller performSelector: next_animation_sel_
+                                        withObject: nil ];
       [ context_object_ release ];
+   }
+   else
+   {
+      [ context_object_.controller performSelector: next_animation_sel_
+                                        withObject: context_object_ ];
    }
 }
 
