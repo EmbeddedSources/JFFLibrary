@@ -24,6 +24,8 @@
 		658751211395748D001AAA2B /* UIAlertViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658751201395748D001AAA2B /* UIAlertViewExampleViewController.xib */; };
 		658751A213958A44001AAA2B /* JFFAlertViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658751A113958A44001AAA2B /* JFFAlertViewExampleViewController.xib */; };
 		658751C21395933B001AAA2B /* libJFFUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65875196139589D4001AAA2B /* libJFFUI.a */; };
+		65C6D72A13A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D72813A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.m */; };
+		65C6D72B13A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D72913A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.xib */; };
 		65F4034B139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F40346139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m */; };
 		65F4034C139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F40347139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib */; };
 		65F4034D139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F40349139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m */; };
@@ -73,6 +75,9 @@
 		658751201395748D001AAA2B /* UIAlertViewExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIAlertViewExampleViewController.xib; sourceTree = "<group>"; };
 		65875191139589D4001AAA2B /* JFFUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUI.xcodeproj; path = ../libs/JFFUI/JFFUI.xcodeproj; sourceTree = SOURCE_ROOT; };
 		658751A113958A44001AAA2B /* JFFAlertViewExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JFFAlertViewExampleViewController.xib; sourceTree = "<group>"; };
+		65C6D72713A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewBlocksAnimationsExampleViewController.h; sourceTree = "<group>"; };
+		65C6D72813A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewBlocksAnimationsExampleViewController.m; sourceTree = "<group>"; };
+		65C6D72913A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIViewBlocksAnimationsExampleViewController.xib; sourceTree = "<group>"; };
 		65F40345139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFActionSheetViewExampleViewController.h; sourceTree = "<group>"; };
 		65F40346139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFActionSheetViewExampleViewController.m; sourceTree = "<group>"; };
 		65F40347139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFFActionSheetViewExampleViewController.xib; sourceTree = "<group>"; };
@@ -168,6 +173,9 @@
 				651D002013A38D0A00177693 /* UIViewAnimationsExampleViewController.h */,
 				651D002113A38D0A00177693 /* UIViewAnimationsExampleViewController.m */,
 				651D002213A38D0A00177693 /* UIViewAnimationsExampleViewController.xib */,
+				65C6D72713A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.h */,
+				65C6D72813A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.m */,
+				65C6D72913A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.xib */,
 			);
 			path = UIViewAnimations;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 				65F4034C139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.xib in Resources */,
 				65F4034E139FE0DA00F835BC /* UIActionSheetViewExampleViewController.xib in Resources */,
 				651D002413A38D0A00177693 /* UIViewAnimationsExampleViewController.xib in Resources */,
+				65C6D72B13A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +318,7 @@
 				65F4034B139FE0DA00F835BC /* JFFActionSheetViewExampleViewController.m in Sources */,
 				65F4034D139FE0DA00F835BC /* UIActionSheetViewExampleViewController.m in Sources */,
 				651D002313A38D0A00177693 /* UIViewAnimationsExampleViewController.m in Sources */,
+				65C6D72A13A412B7005B5B38 /* UIViewBlocksAnimationsExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
