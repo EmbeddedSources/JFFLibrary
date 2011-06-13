@@ -6,6 +6,9 @@
 #import "UIActionSheetViewExampleViewController.h"
 #import "JFFActionSheetViewExampleViewController.h"
 
+#import "UIViewAnimationsExampleViewController.h"
+#import "UIViewBlocksAnimationsExampleViewController.h"
+
 @implementation ExamplesViewController
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:( UIInterfaceOrientation )interface_orientation_
@@ -34,6 +37,18 @@
 -(IBAction)showJFFActionSheetExampleAction:( id )sender_
 {
    UIViewController* controller_ = [ JFFActionSheetViewExampleViewController jffActionSheetExampleViewController ];
+   [ self.navigationController pushViewController: controller_ animated: YES ];
+}
+
+-(IBAction)showUIViewAnimationsAction:( id )sender_
+{
+   UIViewController* controller_ = [ UIViewAnimationsExampleViewController uiViewAnimationsExampleViewController ];
+   [ self.navigationController pushViewController: controller_ animated: YES ];
+}
+
+-(IBAction)showUIViewBlocksAnimationsAction:( id )sender_
+{
+   UIViewController* controller_ = [ UIViewBlocksAnimationsExampleViewController uiViewBlocksAnimationsExampleViewController ];
    [ self.navigationController pushViewController: controller_ animated: YES ];
 }
 
