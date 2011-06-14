@@ -3,6 +3,8 @@
 
 #import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
 
+#import <JFFUtils/NSString/NSString+Search.h>
+
 #import <JFFUtils/UIView/UIView+AnimationWithBlocks.h>
 
 #import <JFFUtils/UITableView/UITableView+WithinUpdates.h>
