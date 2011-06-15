@@ -84,11 +84,22 @@ static NSMutableArray* active_alerts_ = nil;
               description:( NSString* )description_
 {
    JFFAlertView* alert_ = [ JFFAlertView alertWithTitle: title_
-                                              message: description_
-                                    cancelButtonTitle: NSLocalizedString( @"OK", nil )
-                                    otherButtonTitles: nil ];
+                                                message: description_
+                                      cancelButtonTitle: NSLocalizedString( @"OK", nil )
+                                      otherButtonTitles: nil ];
 
    [ alert_ show ];
+}
+
++(void)showExclusiveAlertWithTitle:( NSString* )title_
+                       description:( NSString* )description_
+{
+   JFFAlertView* alert_ = [ JFFAlertView alertWithTitle: title_
+                                                message: description_
+                                      cancelButtonTitle: NSLocalizedString( @"OK", nil )
+                                      otherButtonTitles: nil ];
+
+   [ alert_ exclusiveShow ];
 }
 
 +(void)showErrorWithDescription:( NSString* )description_
@@ -99,6 +110,11 @@ static NSMutableArray* active_alerts_ = nil;
 +(void)showInformationWithDescription:( NSString* )description_
 {
    [ self showAlertWithTitle: NSLocalizedString( @"INFORMATION", nil ) description: description_ ];
+}
+
++(void)showExclusiveErrorWithDescription:( NSString* )description_
+{
+   [ self showAlertWithTitle: NSLocalizedString( @"ERROR", nil ) description: description_ ];
 }
 
 -(id)initWithTitle:( NSString* )title_
