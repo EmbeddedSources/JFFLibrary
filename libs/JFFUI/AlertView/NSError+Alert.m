@@ -21,4 +21,11 @@
    NSLog( @"NSError : %@, domain : %@ code : %d", [ self localizedDescription ], [ self domain ], [ self code ] );
 }
 
+-(void)showExclusiveErrorAlert
+{
+   [ self writeErrorToNSLog ];
+
+   [ JFFAlertView showExclusiveErrorWithDescription: [ self localizedDescription ] ];
+}
+
 @end

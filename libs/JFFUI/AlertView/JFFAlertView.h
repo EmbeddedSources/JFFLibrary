@@ -23,6 +23,7 @@
               description:( NSString* )description_;
 
 +(void)showErrorWithDescription:( NSString* )description_;
++(void)showExclusiveErrorWithDescription:( NSString* )description_;
 +(void)showInformationWithDescription:( NSString* )description_;
 
 //If call several times, only first alert will be showed
