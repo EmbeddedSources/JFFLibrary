@@ -33,6 +33,9 @@
 		65648BE213924326001E163C /* JFFError.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BE013924326001E163C /* JFFError.m */; };
 		65648BF0139243FF001E163C /* NSThread+AssertMainThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */; };
 		65648BF1139243FF001E163C /* NSThread+AssertMainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */; };
+		8D1DE50C13AB8123001FD56F /* NSURLNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */; };
+		8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */; };
+		8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,9 @@
 		65648BE013924326001E163C /* JFFError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFError.m; sourceTree = "<group>"; };
 		65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+AssertMainThread.h"; sourceTree = "<group>"; };
 		65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+AssertMainThread.m"; sourceTree = "<group>"; };
+		8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLNewFeaturesRuntime.m; sourceTree = "<group>"; };
+		8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeExtensions.h"; sourceTree = "<group>"; };
+		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +152,8 @@
 				651BE138139107EA00DD6890 /* NSObject+Ownerships.m */,
 				651BE1CB1391A36800DD6890 /* NSObject+OnDeallocBlock.h */,
 				651BE1CC1391A36800DD6890 /* NSObject+OnDeallocBlock.m */,
+				8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */,
+				8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				651BE0A41390496200DD6890 /* Blocks */,
+				8D1DE50813AB808D001FD56F /* NSURL */,
 				651BE19A1391969300DD6890 /* NSString */,
 				651BE0AA1390496200DD6890 /* NSArray */,
 				651BE0AD1390496200DD6890 /* NSObject */,
@@ -197,6 +206,14 @@
 			path = NSString;
 			sourceTree = "<group>";
 		};
+		8D1DE50813AB808D001FD56F /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */,
+			);
+			path = NSURL;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -219,6 +236,7 @@
 				65648B7E13923EC4001E163C /* NSString+PropertyName.h in Headers */,
 				65648BE113924326001E163C /* JFFError.h in Headers */,
 				65648BF0139243FF001E163C /* NSThread+AssertMainThread.h in Headers */,
+				8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +305,8 @@
 				65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */,
 				65648BE213924326001E163C /* JFFError.m in Sources */,
 				65648BF1139243FF001E163C /* NSThread+AssertMainThread.m in Sources */,
+				8D1DE50C13AB8123001FD56F /* NSURLNewFeaturesRuntime.m in Sources */,
+				8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
