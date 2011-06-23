@@ -1,5 +1,7 @@
 #import "JFFAsyncOperationLogic.h"
 
+#import "JFFResultContext.h"
+
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
 
 #import <Foundation/Foundation.h>
@@ -167,19 +169,19 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL loaded_ = NO;
-      __block NSError* block_error_ = nil;
+      JFFResultContext* error_holder_ = [ JFFResultContext resultContext ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       JFFDidFinishAsyncOperationHandler result_block_ = ^( id result_, NSError* error_ )
       {
          if ( loaded_ )
          {
-            error_ = error_ ? error_ : block_error_;
+            error_ = error_ ? error_ : error_holder_.error;
             done_callback_( error_ ? nil : [ NSNull null ], error_ );
             return;
          }
          loaded_ = YES;
-         block_error_ = error_;
+         error_holder_.error = error_;
       };
 
       JFFSimpleBlockHolder* cancel_holder1_ = [ JFFSimpleBlockHolder simpleBlockHolder ];
@@ -270,13 +272,13 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL loaded_ = NO;
-      __block NSError* block_error_ = nil;
+      JFFResultContext* error_holder_ = [ JFFResultContext resultContext ];
       __block BOOL done_ = NO;
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       JFFDidFinishAsyncOperationHandler result_block_ = ^( id result_, NSError* error_ )
       {
-         error_ = error_ ? error_ : block_error_;
+         error_ = error_ ? error_ : error_holder_.error;
          if ( ( loaded_ || error_ ) && !done_ )
          {
             done_ = YES;
@@ -284,7 +286,7 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
             return;
          }
          loaded_ = YES;
-         block_error_ = error_;
+         error_holder_.error = error_;
       };
 
       JFFSimpleBlockHolder* cancel_holder1_ = [ JFFSimpleBlockHolder simpleBlockHolder ];
@@ -317,7 +319,7 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
 
       JFFCancelAsyncOpration cancel1_ = first_loader_( progress_callback_, cancel_callback1_, result_block_ );
 
-      JFFCancelAsyncOpration cancel2_ = block_error_ != nil
+      JFFCancelAsyncOpration cancel2_ = error_holder_.error != nil
          ? (JFFCancelAsyncOpration)[ [ ^() { /*do nothing*/ } copy ] autorelease ]
          : second_loader_( progress_callback_, cancel_callback2_, result_block_ );
 
