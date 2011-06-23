@@ -6,6 +6,7 @@
 #define UI_APPLICATION_DID_ENTER_BACKGROUND_NOTIFICATION @"UIApplicationDidEnterBackgroundNotification"
 
 static NSMutableArray* active_alerts_ = nil;
+static NSInteger first_alert_index_ = 1;
 
 @interface JFFAlertView ()
 
@@ -14,6 +15,7 @@ static NSMutableArray* active_alerts_ = nil;
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_;
 +(void)activeAlertsRemoveAlert:( UIAlertView* )alert_view_;
+-(void)forceShow;
 
 @end
 
@@ -205,7 +207,10 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 {
    [ [ self class ] activeAlertsAddAlert: self ];
 
-   [ super show ];
+   if ( [ active_alerts_ count ] == first_alert_index_ )
+   {
+      [ self forceShow ];
+   }
 }
 
 -(void)exclusiveShow
@@ -239,6 +244,16 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 -(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_
 {
    [ [ self class ] activeAlertsRemoveAlert: self ];
+
+   if ( [ active_alerts_ count ] <= 0 )
+      return;
+
+   [ [ active_alerts_ objectAtIndex: 0 ] forceShow ];
+}
+
+-(void)forceShow
+{
+   [ super show ];
 }
 
 @end
