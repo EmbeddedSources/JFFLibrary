@@ -1,0 +1,6 @@
+#ifndef JFF_UTILS_BLOCK_DEFINITIONS
+#define JFF_UTILS_BLOCK_DEFINITIONS
+
+typedef void (^JFFSimpleBlock)( void );
+
+#endif //JFF_UTILS_BLOCK_DEFINITIONS
