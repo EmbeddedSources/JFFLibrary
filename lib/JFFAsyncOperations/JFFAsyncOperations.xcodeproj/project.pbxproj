@@ -1,0 +1,332 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		651BE1621391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */; };
+		651BE1671391928400DD6890 /* JFFAsyncOperationLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */; };
+		651BE1681391928400DD6890 /* JFFAsyncOperationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */; };
+		65648AFC13923C50001E163C /* JFFPropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648AFA13923C50001E163C /* JFFPropertyExtractor.h */; };
+		65648B4813923D34001E163C /* JFFPropertyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648B4613923D34001E163C /* JFFPropertyPath.h */; };
+		65648B4913923D34001E163C /* JFFPropertyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B4713923D34001E163C /* JFFPropertyPath.m */; };
+		65648B5B13923D8D001E163C /* JFFObjectRelatedPropertyData.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648B5913923D8D001E163C /* JFFObjectRelatedPropertyData.h */; };
+		65648B5C13923D8D001E163C /* JFFObjectRelatedPropertyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B5A13923D8D001E163C /* JFFObjectRelatedPropertyData.m */; };
+		65648B6313923E3C001E163C /* NSObject+PropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648B6113923E3C001E163C /* NSObject+PropertyExtractor.h */; };
+		65648B6413923E3C001E163C /* NSObject+PropertyExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B6213923E3C001E163C /* NSObject+PropertyExtractor.m */; };
+		65648B8013923F17001E163C /* JFFPropertyExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648AFB13923C50001E163C /* JFFPropertyExtractor.m */; };
+		65648BAF1392407F001E163C /* JFFCallbacksBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BAD1392407F001E163C /* JFFCallbacksBlocks.h */; };
+		65648BB01392407F001E163C /* JFFCallbacksBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BAE1392407F001E163C /* JFFCallbacksBlocks.m */; };
+		65648BB513924134001E163C /* JFFOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BB313924134001E163C /* JFFOperationQueue.h */; };
+		65648BB613924134001E163C /* JFFOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BB413924134001E163C /* JFFOperationQueue.m */; };
+		65648BCB139241C5001E163C /* JFFResultContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BC9139241C5001E163C /* JFFResultContext.h */; };
+		65648BCC139241C5001E163C /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BCA139241C5001E163C /* JFFResultContext.m */; };
+		65648BD513924220001E163C /* JFFBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BD313924220001E163C /* JFFBlockOperation.h */; };
+		65648BD613924220001E163C /* JFFBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BD413924220001E163C /* JFFBlockOperation.m */; };
+		65648C0B13924510001E163C /* NSObject+AsyncPropertyReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C0913924510001E163C /* NSObject+AsyncPropertyReader.h */; };
+		65648C0C13924510001E163C /* NSObject+AsyncPropertyReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648C0A13924510001E163C /* NSObject+AsyncPropertyReader.m */; };
+		65648C3A1392490F001E163C /* JFFAsyncOperationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C381392490F001E163C /* JFFAsyncOperationUtils.h */; };
+		65648C3B1392490F001E163C /* JFFAsyncOperationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648C391392490F001E163C /* JFFAsyncOperationUtils.m */; };
+		65648C5113924A77001E163C /* JFFAsyncOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C5013924A77001E163C /* JFFAsyncOperations.h */; };
+		AA747D9F0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsBlockDefinitions.h; sourceTree = "<group>"; };
+		651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationLogic.h; sourceTree = "<group>"; };
+		651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationLogic.m; sourceTree = "<group>"; };
+		65648AFA13923C50001E163C /* JFFPropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyExtractor.h; sourceTree = "<group>"; };
+		65648AFB13923C50001E163C /* JFFPropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPropertyExtractor.m; sourceTree = "<group>"; };
+		65648B4613923D34001E163C /* JFFPropertyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyPath.h; sourceTree = "<group>"; };
+		65648B4713923D34001E163C /* JFFPropertyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPropertyPath.m; sourceTree = "<group>"; };
+		65648B5913923D8D001E163C /* JFFObjectRelatedPropertyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFObjectRelatedPropertyData.h; sourceTree = "<group>"; };
+		65648B5A13923D8D001E163C /* JFFObjectRelatedPropertyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFObjectRelatedPropertyData.m; sourceTree = "<group>"; };
+		65648B6113923E3C001E163C /* NSObject+PropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyExtractor.h"; sourceTree = "<group>"; };
+		65648B6213923E3C001E163C /* NSObject+PropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyExtractor.m"; sourceTree = "<group>"; };
+		65648BAD1392407F001E163C /* JFFCallbacksBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFCallbacksBlocks.h; sourceTree = "<group>"; };
+		65648BAE1392407F001E163C /* JFFCallbacksBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFCallbacksBlocks.m; sourceTree = "<group>"; };
+		65648BB313924134001E163C /* JFFOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFOperationQueue.h; sourceTree = "<group>"; };
+		65648BB413924134001E163C /* JFFOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFOperationQueue.m; sourceTree = "<group>"; };
+		65648BC9139241C5001E163C /* JFFResultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFResultContext.h; sourceTree = "<group>"; };
+		65648BCA139241C5001E163C /* JFFResultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFResultContext.m; sourceTree = "<group>"; };
+		65648BD313924220001E163C /* JFFBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlockOperation.h; sourceTree = "<group>"; };
+		65648BD413924220001E163C /* JFFBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFBlockOperation.m; sourceTree = "<group>"; };
+		65648C0913924510001E163C /* NSObject+AsyncPropertyReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AsyncPropertyReader.h"; sourceTree = "<group>"; };
+		65648C0A13924510001E163C /* NSObject+AsyncPropertyReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AsyncPropertyReader.m"; sourceTree = "<group>"; };
+		65648C381392490F001E163C /* JFFAsyncOperationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationUtils.h; sourceTree = "<group>"; };
+		65648C391392490F001E163C /* JFFAsyncOperationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationUtils.m; sourceTree = "<group>"; };
+		65648C5013924A77001E163C /* JFFAsyncOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations.h; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libJFFAsyncOperations.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFAsyncOperations.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libJFFAsyncOperations.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* JFFAsyncOperations */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = JFFAsyncOperations;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				65648AF913923C47001E163C /* Detail */,
+				651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */,
+				65648BB313924134001E163C /* JFFOperationQueue.h */,
+				65648BB413924134001E163C /* JFFOperationQueue.m */,
+				65648BD313924220001E163C /* JFFBlockOperation.h */,
+				65648BD413924220001E163C /* JFFBlockOperation.m */,
+				65648B4613923D34001E163C /* JFFPropertyPath.h */,
+				65648B4713923D34001E163C /* JFFPropertyPath.m */,
+				65648C0913924510001E163C /* NSObject+AsyncPropertyReader.h */,
+				65648C0A13924510001E163C /* NSObject+AsyncPropertyReader.m */,
+				65648C381392490F001E163C /* JFFAsyncOperationUtils.h */,
+				65648C391392490F001E163C /* JFFAsyncOperationUtils.m */,
+				651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */,
+				651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */,
+				65648BC9139241C5001E163C /* JFFResultContext.h */,
+				65648BCA139241C5001E163C /* JFFResultContext.m */,
+				65648C5013924A77001E163C /* JFFAsyncOperations.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		65648AF913923C47001E163C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				65648AFA13923C50001E163C /* JFFPropertyExtractor.h */,
+				65648AFB13923C50001E163C /* JFFPropertyExtractor.m */,
+				65648B5913923D8D001E163C /* JFFObjectRelatedPropertyData.h */,
+				65648B5A13923D8D001E163C /* JFFObjectRelatedPropertyData.m */,
+				65648B6113923E3C001E163C /* NSObject+PropertyExtractor.h */,
+				65648B6213923E3C001E163C /* NSObject+PropertyExtractor.m */,
+				65648BAD1392407F001E163C /* JFFCallbacksBlocks.h */,
+				65648BAE1392407F001E163C /* JFFCallbacksBlocks.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* JFFAsyncOperations_Prefix.pch in Headers */,
+				651BE1621391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h in Headers */,
+				651BE1671391928400DD6890 /* JFFAsyncOperationLogic.h in Headers */,
+				65648AFC13923C50001E163C /* JFFPropertyExtractor.h in Headers */,
+				65648B4813923D34001E163C /* JFFPropertyPath.h in Headers */,
+				65648B5B13923D8D001E163C /* JFFObjectRelatedPropertyData.h in Headers */,
+				65648B6313923E3C001E163C /* NSObject+PropertyExtractor.h in Headers */,
+				65648BAF1392407F001E163C /* JFFCallbacksBlocks.h in Headers */,
+				65648BB513924134001E163C /* JFFOperationQueue.h in Headers */,
+				65648BCB139241C5001E163C /* JFFResultContext.h in Headers */,
+				65648BD513924220001E163C /* JFFBlockOperation.h in Headers */,
+				65648C0B13924510001E163C /* NSObject+AsyncPropertyReader.h in Headers */,
+				65648C3A1392490F001E163C /* JFFAsyncOperationUtils.h in Headers */,
+				65648C5113924A77001E163C /* JFFAsyncOperations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* JFFAsyncOperations */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFAsyncOperations" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFFAsyncOperations;
+			productName = JFFAsyncOperations;
+			productReference = D2AAC07E0554694100DB518D /* libJFFAsyncOperations.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFAsyncOperations" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* JFFAsyncOperations */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* JFFAsyncOperations */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				651BE1681391928400DD6890 /* JFFAsyncOperationLogic.m in Sources */,
+				65648B4913923D34001E163C /* JFFPropertyPath.m in Sources */,
+				65648B5C13923D8D001E163C /* JFFObjectRelatedPropertyData.m in Sources */,
+				65648B6413923E3C001E163C /* NSObject+PropertyExtractor.m in Sources */,
+				65648B8013923F17001E163C /* JFFPropertyExtractor.m in Sources */,
+				65648BB01392407F001E163C /* JFFCallbacksBlocks.m in Sources */,
+				65648BB613924134001E163C /* JFFOperationQueue.m in Sources */,
+				65648BCC139241C5001E163C /* JFFResultContext.m in Sources */,
+				65648BD613924220001E163C /* JFFBlockOperation.m in Sources */,
+				65648C0C13924510001E163C /* NSObject+AsyncPropertyReader.m in Sources */,
+				65648C3B1392490F001E163C /* JFFAsyncOperationUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JFFAsyncOperations.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFAsyncOperations_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JFFAsyncOperations;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/JFFAsyncOperations.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFAsyncOperations_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JFFAsyncOperations;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFAsyncOperations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFAsyncOperations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
