@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
+		655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
+		655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
+		655E9DBB1392E8C00074BD61 /* JFFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB51392E8C00074BD61 /* JFFAlertView.m */; };
+		655E9DBC1392E8C00074BD61 /* NSError+Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB61392E8C00074BD61 /* NSError+Alert.h */; };
+		655E9DBD1392E8C00074BD61 /* NSError+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB71392E8C00074BD61 /* NSError+Alert.m */; };
+		655E9E4B1392ED360074BD61 /* JFFUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9E4A1392ED360074BD61 /* JFFUI.h */; };
+		8D996F18139F5D370075A325 /* JFFActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D996F16139F5D370075A325 /* JFFActionSheet.h */; };
+		8D996F19139F5D370075A325 /* JFFActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F17139F5D370075A325 /* JFFActionSheet.m */; };
+		8D996F1E139F61200075A325 /* NSObject+JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */; };
+		8D996F1F139F61200075A325 /* NSObject+JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */; };
+		AA747D9F0F9514B9006C5449 /* JFFUI_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUI_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		655E9DB21392E8C00074BD61 /* JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertButton.h; sourceTree = "<group>"; };
+		655E9DB31392E8C00074BD61 /* JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertButton.m; sourceTree = "<group>"; };
+		655E9DB41392E8C00074BD61 /* JFFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertView.h; sourceTree = "<group>"; };
+		655E9DB51392E8C00074BD61 /* JFFAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertView.m; sourceTree = "<group>"; };
+		655E9DB61392E8C00074BD61 /* NSError+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Alert.h"; sourceTree = "<group>"; };
+		655E9DB71392E8C00074BD61 /* NSError+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Alert.m"; sourceTree = "<group>"; };
+		655E9E4A1392ED360074BD61 /* JFFUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUI.h; sourceTree = "<group>"; };
+		8D996F16139F5D370075A325 /* JFFActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFActionSheet.h; sourceTree = "<group>"; };
+		8D996F17139F5D370075A325 /* JFFActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFActionSheet.m; sourceTree = "<group>"; };
+		8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JFFAlertButton.h"; sourceTree = "<group>"; };
+		8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JFFAlertButton.m"; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* JFFUI_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUI_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libJFFUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libJFFUI.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* JFFUI */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = JFFUI;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				655E9DB11392E8C00074BD61 /* AlertView */,
+				655E9E4A1392ED360074BD61 /* JFFUI.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* JFFUI_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		655E9DB11392E8C00074BD61 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				8D996F1B139F60E70075A325 /* Detail */,
+				655E9DB61392E8C00074BD61 /* NSError+Alert.h */,
+				655E9DB71392E8C00074BD61 /* NSError+Alert.m */,
+				655E9DB21392E8C00074BD61 /* JFFAlertButton.h */,
+				655E9DB31392E8C00074BD61 /* JFFAlertButton.m */,
+				655E9DB41392E8C00074BD61 /* JFFAlertView.h */,
+				655E9DB51392E8C00074BD61 /* JFFAlertView.m */,
+				8D996F16139F5D370075A325 /* JFFActionSheet.h */,
+				8D996F17139F5D370075A325 /* JFFActionSheet.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		8D996F1B139F60E70075A325 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */,
+				8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* JFFUI_Prefix.pch in Headers */,
+				655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */,
+				655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */,
+				655E9DBC1392E8C00074BD61 /* NSError+Alert.h in Headers */,
+				655E9E4B1392ED360074BD61 /* JFFUI.h in Headers */,
+				8D996F18139F5D370075A325 /* JFFActionSheet.h in Headers */,
+				8D996F1E139F61200075A325 /* NSObject+JFFAlertButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* JFFUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFUI" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFFUI;
+			productName = JFFUI;
+			productReference = D2AAC07E0554694100DB518D /* libJFFUI.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFUI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* JFFUI */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* JFFUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */,
+				655E9DBB1392E8C00074BD61 /* JFFAlertView.m in Sources */,
+				655E9DBD1392E8C00074BD61 /* NSError+Alert.m in Sources */,
+				8D996F19139F5D370075A325 /* JFFActionSheet.m in Sources */,
+				8D996F1F139F61200075A325 /* NSObject+JFFAlertButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JFFUI.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFUI_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JFFUI;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/JFFUI.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFUI_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JFFUI;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
