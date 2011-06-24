@@ -1,3 +1,0 @@
-1. remove NSLocalizedString
-2. add unit test
-3. create standart folders struct
