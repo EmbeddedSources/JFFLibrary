@@ -29,20 +29,25 @@ static void clearDataForPropertyExtractor( JFFPropertyExtractor* property_extrac
    [ property_extractor_ clearData ];
 }
 
-static JFFCancelAsyncOpration cancelBlock( JFFPropertyExtractor* property_extractor_, JFFCallbacksBlocks* callbacks_ )
+static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_, JFFCallbacksBlocks* callbacks_ )
 {
-   return [ [ ^( void )
+   return [ [ ^( BOOL cancel_operation_ )
    {
       [ property_extractor_.delegates removeObject: callbacks_ ];
-      if ( [ property_extractor_.delegates count ] == 0 )
+      callbacks_.didLoadDataBlock = nil;
+      callbacks_.onProgressBlock = nil;
+
+      JFFCancelAsyncOperation cancel_ = [ property_extractor_.cancelBlock copy ];
+
+      if ( [ property_extractor_.delegates count ] == 0
+          || cancel_operation_ )
       {
-         JFFCancelAsyncOpration cancel_ = [ property_extractor_.cancelBlock copy ];
-
          clearDataForPropertyExtractor( property_extractor_ );
+      }
 
-         if ( cancel_ )
-            cancel_();
-
+      if ( cancel_ )
+      {
+         cancel_( cancel_operation_ );
          [ cancel_ release ];
       }
    } copy ] autorelease ];
@@ -155,37 +160,41 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
    async_operation_ = [ [ async_operation_ copy ] autorelease ];
    did_finish_operation_ = [ [ did_finish_operation_ copy ] autorelease ];
 
-   JFFAsyncOperation result_ = [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
-                                     , JFFCancelHandler cancel_callback_
-                                     , JFFDidFinishAsyncOperationHandler done_callback_ )
+   __block id self_ = self;
+
+   return [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
+                , JFFCancelAsyncOperationHandler cancel_callback_
+                , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       [ NSThread assertMainThread ];
 
-      JFFPropertyExtractor* property_extractor_ = [ JFFPropertyExtractor propertyForObject: self
-                                                                              propertyPath: property_path_
-                                                                               asyncLoader: async_operation_
-                                                                            didFinishBlock: did_finish_operation_ ];
+      JFFPropertyExtractor* property_extractor_ = [ JFFPropertyExtractor propertyForObject: self_
+                                                                              propertyPath: property_path_ ];
 
       id result_ = property_extractor_.property;
       if ( result_ )
       {
          done_callback_( result_, nil );
-         return [ [ ^(){ /*do nothing*/ } copy ] autorelease ];
+         return (JFFCancelAsyncOperation)[ [ ^( BOOL cancel_ ){ /*do nothing*/ } copy ] autorelease ];
       }
+
+      property_extractor_.asyncLoader = async_operation_;
+      property_extractor_.didFinishBlock = did_finish_operation_;
 
       JFFCallbacksBlocks* callbacks_ = [ JFFCallbacksBlocks callbacksBlocksWithOnProgressBlock: progress_callback_
                                                                               didLoadDataBlock: done_callback_ ];
 
       NSMutableArray* delegates_ = property_extractor_.delegates;
-
-      JFFCancelAsyncOpration main_cancel_ = cancelBlock( property_extractor_, callbacks_ );
-
-      if ( [ delegates_ count ] == 0 )
+      if ( nil == delegates_ )
       {
-         delegates_ = [ NSMutableArray arrayWithObject: callbacks_ ];
+         property_extractor_.delegates = [ NSMutableArray arrayWithObject: callbacks_ ];
+         delegates_ = property_extractor_.delegates;
+      }
 
-         property_extractor_.delegates = delegates_;
+      JFFCancelAsyncOperation main_cancel_ = cancelBlock( property_extractor_, callbacks_ );
 
+      if ( nil == property_extractor_.cancelBlock )
+      {
          JFFAsyncOperationProgressHandler progress_callback_ = ^( id progress_info_ )
          {
             [ delegates_ each: ^( id obj_ )
@@ -199,24 +208,29 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
          JFFDidFinishAsyncOperationHandler done_callback_ = doneCallbackBlock( property_extractor_ );
 
          cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
-         cancel_callback_ = [ [ ^( void )
+         cancel_callback_ = [ [ ^( BOOL canceled_ )
          {
             clearDataForPropertyExtractor( property_extractor_ );
 
             if ( cancel_callback_ )
-               cancel_callback_();
+               cancel_callback_( canceled_ );
          } copy ] autorelease ];
 
-         property_extractor_.cancelBlock = property_extractor_.asyncLoader( progress_callback_, cancel_callback_, done_callback_ );
+         property_extractor_.cancelBlock = property_extractor_.asyncLoader( progress_callback_
+                                                                           , cancel_callback_
+                                                                           , done_callback_ );
 
-         return (id)main_cancel_;
+         if ( nil == property_extractor_.cancelBlock )
+         {
+            return (JFFCancelAsyncOperation)[ [ ^( BOOL cancel_ ){ /*do nothing*/ } copy ] autorelease ];
+         }
+
+         return main_cancel_;
       }
       [ delegates_ addObject: callbacks_ ];
 
-      return (id)main_cancel_;
+      return main_cancel_;
    } copy ] autorelease ];
-
-   return result_;
 }
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )property_name_

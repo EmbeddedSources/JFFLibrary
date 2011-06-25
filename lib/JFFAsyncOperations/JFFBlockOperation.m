@@ -10,7 +10,7 @@
 
 @property ( copy ) JFFSyncOperation loadDataBlock;
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didLoadDataBlock;
-@property ( nonatomic, copy ) JFFCancelHandler cancelBlock;
+@property ( nonatomic, copy ) JFFCancelAsyncOperationHandler cancelBlockHandler;
 @property ( nonatomic, assign ) NSOperationQueue* operationQueue;
 
 @end
@@ -20,39 +20,39 @@
 @synthesize loadDataBlock = _load_data_block;
 @synthesize didLoadDataBlock = _did_load_data_block;
 @synthesize operationQueue = _operation_queue;
-@synthesize cancelBlock = _cancel_block;
+@synthesize cancelBlockHandler = _cancel_block_handler;
 
 -(void)dealloc
 {
    NSAssert( !_did_load_data_block, @"should be nil" );
    [ _load_data_block release ];
-   [ _cancel_block release ];
+   [ _cancel_block_handler release ];
 
    [ super dealloc ];
 }
 
 -(id)initWithLoadDataBlock:( JFFSyncOperation )load_data_block_
-            didCancelBlock:( JFFCancelHandler )cancel_block_
+            didCancelBlock:( JFFCancelAsyncOperationHandler )cancel_block_handler_
           didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
 {
    self = [ super init ];
 
    if ( self )
    {
-      self.loadDataBlock = load_data_block_;
-      self.cancelBlock = cancel_block_;
-      self.didLoadDataBlock = did_load_data_block_;
+      self.loadDataBlock      = load_data_block_;
+      self.cancelBlockHandler = cancel_block_handler_;
+      self.didLoadDataBlock   = did_load_data_block_;
    }
 
    return self;
 }
 
 +(id)performOperationWithLoadDataBlock:( JFFSyncOperation )load_data_block_
-                        didCancelBlock:( JFFCancelHandler )cancel_block_
+                        didCancelBlock:( JFFCancelAsyncOperationHandler )cancel_block_handler_
                       didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
 {
    id operation_ = [ [ self alloc ] initWithLoadDataBlock: load_data_block_
-                                           didCancelBlock: cancel_block_
+                                           didCancelBlock: cancel_block_handler_
                                          didLoadDataBlock: did_load_data_block_];
 
    [ [ JFFOperationQueue sharedQueue ] addOperation: operation_ ];
@@ -70,7 +70,7 @@
 
    [ shared_queue_ setCurrentContextQueue: self.operationQueue ];
 
-   self.cancelBlock = nil;
+   self.cancelBlockHandler = nil;
 
    JFFDidFinishAsyncOperationHandler did_load_data_block_ = [ self.didLoadDataBlock copy ];
    self.didLoadDataBlock = nil;
@@ -80,7 +80,7 @@
    [ shared_queue_ setCurrentContextQueue: current_queue_ ];
 }
 
--(void)cancel
+-(void)cancel:( BOOL )cancel_
 {
    [ NSThread assertMainThread ];
 
@@ -88,10 +88,10 @@
 
    self.didLoadDataBlock = nil;
 
-   if ( self.cancelBlock )
+   if ( self.cancelBlockHandler )
    {
-      self.cancelBlock();
-      self.cancelBlock = nil;
+      self.cancelBlockHandler( cancel_ );
+      self.cancelBlockHandler = nil;
    }
 }
 

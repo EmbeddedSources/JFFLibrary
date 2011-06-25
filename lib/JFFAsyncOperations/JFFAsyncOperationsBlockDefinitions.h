@@ -1,4 +1,4 @@
-#include <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
+#import <Foundation/Foundation.h>
 
 @class NSError;
 
@@ -13,15 +13,17 @@ typedef id (^JFFSyncOperationWithProgress)( NSError** error_
 
 typedef void (^JFFDidFinishAsyncOperationHandler)( id result_, NSError* error_ );
 
-typedef JFFSimpleBlock JFFCancelAsyncOpration;
-typedef JFFSimpleBlock JFFCancelHandler;
+//typedef void (^JFFCancelAsyncOperation)( BOOL unsubscribe_if_no_ );
+typedef void (^JFFCancelAsyncOperation)( BOOL cancel_ );
+
+typedef JFFCancelAsyncOperation JFFCancelAsyncOperationHandler;
 
 //@@ progress_callback_ -- nil | valid block
 //@@ cancel_callback_   -- nil | valid block
 //@@ done_callback_     -- nil | valid block
-typedef JFFCancelAsyncOpration (^JFFAsyncOperation)( JFFAsyncOperationProgressHandler progress_callback_
-                                                    , JFFCancelHandler cancel_callback_
-                                                    , JFFDidFinishAsyncOperationHandler done_callback_ );
+typedef JFFCancelAsyncOperation (^JFFAsyncOperation)( JFFAsyncOperationProgressHandler progress_callback_
+                                                     , JFFCancelAsyncOperationHandler cancel_callback_
+                                                     , JFFDidFinishAsyncOperationHandler done_callback_ );
 
 typedef void (^JFFDidFinishAsyncOperationHook)( id result_
                                                , NSError* error_

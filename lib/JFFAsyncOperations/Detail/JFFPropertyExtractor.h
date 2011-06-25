@@ -19,16 +19,14 @@
 
 //object related data
 @property ( nonatomic, retain ) NSMutableArray* delegates;
-@property ( nonatomic, copy ) JFFCancelAsyncOpration cancelBlock;
+@property ( nonatomic, copy ) JFFCancelAsyncOperation cancelBlock;
 @property ( nonatomic, copy ) JFFAsyncOperation asyncLoader;
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didFinishBlock;
 
 @property ( nonatomic, retain ) id property;
 
 +(id)propertyForObject:( NSObject* )object_
-          propertyPath:( JFFPropertyPath* )property_path_
-           asyncLoader:( JFFAsyncOperation )async_loader_
-        didFinishBlock:( JFFDidFinishAsyncOperationHandler )did_finish_block_;
+          propertyPath:( JFFPropertyPath* )property_path_;
 
 -(void)clearData;
 

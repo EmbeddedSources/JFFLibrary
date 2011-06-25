@@ -1,10 +1,7 @@
-#ifndef JFF_ASYNC_OPERATIONS_UTILS_INCLUDED
-#define JFF_ASYNC_OPERATIONS_UTILS_INCLUDED
-
 #import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
+
+#import <Foundation/Foundation.h>
 
 JFFAsyncOperation asyncOperationWithSyncOperation( JFFSyncOperation load_data_block_ );
 
 JFFAsyncOperation asyncOperationWithSyncOperationWithProgressBlock( JFFSyncOperationWithProgress progress_load_data_block_ );
-
-#endif //JFF_ASYNC_OPERATIONS_UTILS_INCLUDED

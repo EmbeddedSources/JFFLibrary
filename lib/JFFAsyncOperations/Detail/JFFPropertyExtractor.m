@@ -30,8 +30,6 @@
 
 -(id)initWithObject:( NSObject* )object_
        propertyPath:( JFFPropertyPath* )property_path_
-        asyncLoader:( JFFAsyncOperation )async_loader_
-     didFinishBlock:( JFFDidFinishAsyncOperationHandler )did_finish_block_
 {
    self = [ super init ];
 
@@ -39,9 +37,6 @@
    {
       self.propertyPath = property_path_;
       self.object = object_;
-
-      self.asyncLoader = async_loader_;
-      self.didFinishBlock = did_finish_block_;
    }
 
    return self;
@@ -49,20 +44,13 @@
 
 +(id)propertyForObject:( NSObject* )object_
           propertyPath:( JFFPropertyPath* )property_path_
-           asyncLoader:( JFFAsyncOperation )async_loader_
-        didFinishBlock:( JFFDidFinishAsyncOperationHandler )did_finish_block_
 {
    return [ [ [ self alloc ] initWithObject: object_
-                               propertyPath: property_path_
-                                asyncLoader: async_loader_
-                             didFinishBlock: did_finish_block_ ] autorelease ];
+                               propertyPath: property_path_ ] autorelease ];
 }
 
 -(void)dealloc
 {
-   if ( [ self.delegates count ] == 0 )
-      [ self clearData ];
-
    [ _property_path release ];
    [ _object release ];
 
@@ -173,12 +161,12 @@
    self.objectPropertyData.didFinishBlock = did_finish_block_;
 }
 
--(JFFCancelAsyncOpration)cancelBlock
+-(JFFCancelAsyncOperation)cancelBlock
 {
    return self.objectPropertyData.cancelBlock;
 }
 
--(void)setCancelBlock:( JFFCancelAsyncOpration )cancel_block_
+-(void)setCancelBlock:( JFFCancelAsyncOperation )cancel_block_
 {
    self.objectPropertyData.cancelBlock = cancel_block_;
 }

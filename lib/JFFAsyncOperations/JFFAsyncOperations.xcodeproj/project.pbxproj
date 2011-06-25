@@ -10,6 +10,8 @@
 		651BE1621391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */; };
 		651BE1671391928400DD6890 /* JFFAsyncOperationLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */; };
 		651BE1681391928400DD6890 /* JFFAsyncOperationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */; };
+		6555854613B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6555854413B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.h */; };
+		6555854713B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555854513B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.m */; };
 		65648AFC13923C50001E163C /* JFFPropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648AFA13923C50001E163C /* JFFPropertyExtractor.h */; };
 		65648B4813923D34001E163C /* JFFPropertyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648B4613923D34001E163C /* JFFPropertyPath.h */; };
 		65648B4913923D34001E163C /* JFFPropertyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B4713923D34001E163C /* JFFPropertyPath.m */; };
@@ -39,6 +41,8 @@
 		651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsBlockDefinitions.h; sourceTree = "<group>"; };
 		651BE1651391928400DD6890 /* JFFAsyncOperationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationLogic.h; sourceTree = "<group>"; };
 		651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationLogic.m; sourceTree = "<group>"; };
+		6555854413B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFCancelAyncOperationBlockHolder.h; sourceTree = "<group>"; };
+		6555854513B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFCancelAyncOperationBlockHolder.m; sourceTree = "<group>"; };
 		65648AFA13923C50001E163C /* JFFPropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyExtractor.h; sourceTree = "<group>"; };
 		65648AFB13923C50001E163C /* JFFPropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPropertyExtractor.m; sourceTree = "<group>"; };
 		65648B4613923D34001E163C /* JFFPropertyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyPath.h; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				651BE1661391928400DD6890 /* JFFAsyncOperationLogic.m */,
 				65648BC9139241C5001E163C /* JFFResultContext.h */,
 				65648BCA139241C5001E163C /* JFFResultContext.m */,
+				6555854413B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.h */,
+				6555854513B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.m */,
 				65648C5013924A77001E163C /* JFFAsyncOperations.h */,
 			);
 			name = Classes;
@@ -172,6 +178,7 @@
 				65648C0B13924510001E163C /* NSObject+AsyncPropertyReader.h in Headers */,
 				65648C3A1392490F001E163C /* JFFAsyncOperationUtils.h in Headers */,
 				65648C5113924A77001E163C /* JFFAsyncOperations.h in Headers */,
+				6555854613B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +246,7 @@
 				65648BD613924220001E163C /* JFFBlockOperation.m in Sources */,
 				65648C0C13924510001E163C /* NSObject+AsyncPropertyReader.m in Sources */,
 				65648C3B1392490F001E163C /* JFFAsyncOperationUtils.m in Sources */,
+				6555854713B538CC00C6E60E /* JFFCancelAyncOperationBlockHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
