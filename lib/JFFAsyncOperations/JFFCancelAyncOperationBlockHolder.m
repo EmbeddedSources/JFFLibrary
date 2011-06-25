@@ -11,7 +11,7 @@
    [ super dealloc ];
 }
 
-+(id)simpleBlockHolder
++(id)cancelAyncOperationBlockHolder
 {
    return [ [ [ self alloc ] init ] autorelease ];
 }

@@ -51,7 +51,7 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
                 , JFFCancelAsyncOperationHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder simpleBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       JFFCancelAsyncOperation first_cancel_ = first_loader_( progress_callback_
@@ -114,7 +114,7 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
                 , JFFCancelAsyncOperationHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder simpleBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
 
@@ -185,8 +185,8 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
          error_holder_.error = error_;
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ JFFCancelAyncOperationBlockHolder simpleBlockHolder ];
-      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ JFFCancelAyncOperationBlockHolder simpleBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
 
       __block BOOL caneled_ = NO;
 
@@ -290,8 +290,8 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
          error_holder_.error = error_;
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ JFFCancelAyncOperationBlockHolder simpleBlockHolder ];
-      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ JFFCancelAyncOperationBlockHolder simpleBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
 
       __block BOOL caneled_ = NO;
 

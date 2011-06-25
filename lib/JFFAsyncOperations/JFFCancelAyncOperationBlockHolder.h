@@ -10,7 +10,7 @@
 
 @property ( nonatomic, copy ) JFFCancelAsyncOperation simpleBlock;
 
-+(id)simpleBlockHolder;
++(id)cancelAyncOperationBlockHolder;
 
 -(void)performCancelBlockOnceWithArgument:( BOOL )cancel_;
 
