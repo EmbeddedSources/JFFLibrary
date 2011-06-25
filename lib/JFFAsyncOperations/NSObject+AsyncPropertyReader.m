@@ -39,8 +39,7 @@ static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extra
 
       JFFCancelAsyncOperation cancel_ = [ property_extractor_.cancelBlock copy ];
 
-      if ( [ property_extractor_.delegates count ] == 0
-          || cancel_operation_ )
+      if ( cancel_operation_ )
       {
          clearDataForPropertyExtractor( property_extractor_ );
       }

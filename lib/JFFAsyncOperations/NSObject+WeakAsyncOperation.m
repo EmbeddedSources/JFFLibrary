@@ -14,6 +14,7 @@
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL finished_ = NO;
+      __block id self_ = self;
 
       JFFSimpleBlockHolder* ondealloc_block_holder_ = [ JFFSimpleBlockHolder simpleBlockHolder ];
 
@@ -24,7 +25,7 @@
 
          if ( ondealloc_block_holder_.simpleBlock )
          {
-            [ self removeOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
+            [ self_ removeOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
             ondealloc_block_holder_.simpleBlock = nil;
          }
 
@@ -39,7 +40,7 @@
 
          if ( ondealloc_block_holder_.simpleBlock )
          {
-            [ self removeOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
+            [ self_ removeOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
             ondealloc_block_holder_.simpleBlock = nil;
          }
 

@@ -84,7 +84,8 @@
 {
    [ NSThread assertMainThread ];
 
-   [ super cancel ];
+   if ( cancel_ )
+      [ super cancel ];
 
    self.didLoadDataBlock = nil;
 
