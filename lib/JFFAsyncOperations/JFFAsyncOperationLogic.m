@@ -178,7 +178,8 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
          if ( loaded_ )
          {
             error_ = error_ ? error_ : error_holder_.error;
-            done_callback_( error_ ? nil : [ NSNull null ], error_ );
+            if ( done_callback_ )
+               done_callback_( error_ ? nil : [ NSNull null ], error_ );
             return;
          }
          loaded_ = YES;
@@ -283,7 +284,8 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
          if ( ( loaded_ || error_ ) && !done_ )
          {
             done_ = YES;
-            done_callback_( error_ ? nil : [ NSNull null ], error_ );
+            if ( done_callback_ )
+               done_callback_( error_ ? nil : [ NSNull null ], error_ );
             return;
          }
          loaded_ = YES;
