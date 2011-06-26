@@ -2,11 +2,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AsyncOperationLoadBalancer : NSObject
-{
-
-}
-
-@end
+void setBalancerCurrentContextName( NSString* context_name_ );
 
 JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation loader_ );
