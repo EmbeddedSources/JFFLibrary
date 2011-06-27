@@ -36,8 +36,25 @@ static void peformBlockWithinContext( JFFSimpleBlock block_, JFFContextLoaders* 
 
 static void findAndPerformNextNativeLoader()
 {
-//   JFFContextLoaders* active_loaders_ = [ sharedBalancer() activeContextLoaders ];
-   //TODO implement
+   JFFContextLoaders* active_loaders_ = [ sharedBalancer() activeContextLoaders ];
+   //TODO check condition yet
+   if ( active_loaders_.activeLoadersNumber < 5 || global_active_number_ == 0 )
+   {
+      JFFAsyncOperation loader_ = nil;
+
+      if ( [ active_loaders_.pendingLoaders count ] > 0 )
+      {
+         loader_ = [ [ [ active_loaders_.pendingLoaders objectAtIndex: 0 ] copy ] autorelease ];
+         [ loader_ removeObjectAtIndex: 0 ];
+      }
+
+      if ( !loader_ )
+      {
+         //TODO get any loader
+      }
+
+      //TODO perform loader
+   }
 }
 
 static void finishExecuteOfNativeLoader( JFFAsyncOperation native_loader_
@@ -47,8 +64,6 @@ static void finishExecuteOfNativeLoader( JFFAsyncOperation native_loader_
    {
       --global_active_number_;
    }
-
-   findAndPerformNextNativeLoader();
 }
 
 static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOperationHandler native_cancel_callback_
@@ -72,6 +87,8 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
             native_cancel_callback_( canceled_ );
          }, context_loaders_ );
       }
+
+      findAndPerformNextNativeLoader();
    } copy ] autorelease ];
 }
 
@@ -91,6 +108,8 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
             native_done_callback_( result_, error_ );
          }, context_loaders_ );
       }
+
+      findAndPerformNextNativeLoader();
    } copy ] autorelease ];
 }
 
@@ -184,6 +203,7 @@ JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
          [ progress_block_holder_ performProgressBlockWithArgument: progress_info_ ];
       };
 
+      //TODO check condition yet
       if ( ( [ sharedBalancer().activeContextName isEqualToString: context_loaders_.name ]
             && context_loaders_.activeLoadersNumber < 5 )
           || global_active_number_ == 0 )
