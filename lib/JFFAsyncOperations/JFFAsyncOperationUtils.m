@@ -1,51 +1,9 @@
 #import "JFFAsyncOperationUtils.h"
 
 #import "JFFBlockOperation.h"
+#import "JFFAsyncOperationProgressBlockHolder.h"
 
 #import <JFFUtils/NSObject/NSObject+PerformBlock.h>
-
-@interface JFFAsyncOperationProgressBlockHolder : NSObject
-{
-@private
-   JFFAsyncOperationProgressHandler _progress_block;
-}
-
-@property ( nonatomic, copy ) JFFAsyncOperationProgressHandler progressBlock;
-
-+(id)asyncOperationProgressBlockHolder;
-
--(void)performBlockOnceWithArgument:( id )object_;
-
-@end
-
-@implementation JFFAsyncOperationProgressBlockHolder
-
-@synthesize progressBlock = _progress_block;
-
--(void)dealloc
-{
-   [ _progress_block release ];
-
-   [ super dealloc ];
-}
-
-+(id)asyncOperationProgressBlockHolder
-{
-   return [ [ [ self alloc ] init ] autorelease ];
-}
-
--(void)performBlockOnceWithArgument:( id )object_
-{
-   if ( !self.progressBlock )
-      return;
-
-   JFFAsyncOperationProgressHandler block_ = [ self.progressBlock copy ];
-   self.progressBlock = nil;
-   block_( object_ );
-   [ block_ release ];
-}
-
-@end
 
 JFFAsyncOperation asyncOperationWithSyncOperation( JFFSyncOperation load_data_block_ )
 {

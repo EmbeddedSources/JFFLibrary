@@ -6,7 +6,6 @@
 
 @implementation JFFContextLoaders
 
-@synthesize activeLoadersNumber = _active_loaders_number;
 @synthesize pendingLoaders = _pending_loaders;
 @synthesize activeLoadersData = _active_loaders_data;
 @synthesize name = _name;
@@ -38,11 +37,16 @@
    return _active_loaders_data;
 }
 
--(void)addActiveNativeLoader:( JFFAsyncOperation )loader_
+-(NSUInteger)activeLoadersNumber
+{
+   return [ self.activeLoadersData count ];
+}
+
+-(void)addActiveNativeLoader:( JFFAsyncOperation )native_loader_
                wrappedCancel:( JFFCancelAsyncOperation )cancel_
 {
    JFFActiveLoaderData* data_ = [ JFFActiveLoaderData new ];
-   data_.nativeLoader = loader_;
+   data_.nativeLoader = native_loader_;
    data_.wrappedCancel = cancel_;
 
    [ self.activeLoadersData addObject: data_ ];
@@ -60,6 +64,23 @@
 
    if ( data_ )
       data_.wrappedCancel( canceled_ );
+}
+
+-(BOOL)removeNativeLoader:( JFFAsyncOperation )native_loader_
+{
+   JFFActiveLoaderData* data_ = [ self.activeLoadersData firstMatch: ^( id object_ )
+   {
+      JFFAsyncOperation loader_ = object_;
+      return (BOOL)( loader_ == native_loader_ );
+   } ];
+
+   if ( data_ )
+   {
+      [ self.activeLoadersData removeObject: data_ ];
+      return YES;
+   }
+
+   return NO;
 }
 
 @end
