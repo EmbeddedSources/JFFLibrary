@@ -2,6 +2,6 @@
 
 #import <Foundation/Foundation.h>
 
-void setBalancerCurrentContextName( NSString* context_name_ );
+void setBalancerActiveContextName( NSString* context_name_ );
 
 JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation loader_ );
