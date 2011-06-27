@@ -2,11 +2,11 @@
 
 @implementation JFFCancelAyncOperationBlockHolder
 
-@synthesize simpleBlock = _simple_block;
+@synthesize cancelBlock = _cancel_block;
 
 -(void)dealloc
 {
-   [ _simple_block release ];
+   [ _cancel_block release ];
 
    [ super dealloc ];
 }
@@ -18,11 +18,11 @@
 
 -(void)performCancelBlockOnceWithArgument:( BOOL )cancel_
 {
-   if ( !self.simpleBlock )
+   if ( !self.cancelBlock )
       return;
 
-   JFFCancelAsyncOperation block_ = [ self.simpleBlock copy ];
-   self.simpleBlock = nil;
+   JFFCancelAsyncOperation block_ = [ self.cancelBlock copy ];
+   self.cancelBlock = nil;
    block_( cancel_ );
    [ block_ release ];
 }

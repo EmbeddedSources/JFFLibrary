@@ -16,7 +16,10 @@
 {
    self = [ super init ];
 
-   self.cancelBlocks = [ NSMutableArray array ];
+   if ( self )
+   {
+      self.cancelBlocks = [ NSMutableArray array ];
+   }
 
    return self;
 }

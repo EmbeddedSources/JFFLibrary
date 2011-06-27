@@ -11,7 +11,6 @@
 @property ( copy ) JFFSyncOperation loadDataBlock;
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didLoadDataBlock;
 @property ( nonatomic, copy ) JFFCancelAsyncOperationHandler cancelBlockHandler;
-@property ( nonatomic, assign ) NSOperationQueue* operationQueue;
 
 @end
 
@@ -19,7 +18,6 @@
 
 @synthesize loadDataBlock = _load_data_block;
 @synthesize didLoadDataBlock = _did_load_data_block;
-@synthesize operationQueue = _operation_queue;
 @synthesize cancelBlockHandler = _cancel_block_handler;
 
 -(void)dealloc
@@ -65,19 +63,12 @@
    if ( !self.didLoadDataBlock )
       return;
 
-   JFFOperationQueue* shared_queue_ = [ JFFOperationQueue sharedQueue ];
-   NSOperationQueue* current_queue_ = [ shared_queue_ currentContextQueue ];
-
-   [ shared_queue_ setCurrentContextQueue: self.operationQueue ];
-
    self.cancelBlockHandler = nil;
 
    JFFDidFinishAsyncOperationHandler did_load_data_block_ = [ self.didLoadDataBlock copy ];
    self.didLoadDataBlock = nil;
    did_load_data_block_( result_context_.result, result_context_.error );
    [ did_load_data_block_ release ];
-
-   [ shared_queue_ setCurrentContextQueue: current_queue_ ];
 }
 
 -(void)cancel:( BOOL )cancel_

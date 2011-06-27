@@ -64,13 +64,13 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
          }
          else
          {
-            block_holder_.simpleBlock = second_loader_( progress_callback_
+            block_holder_.cancelBlock = second_loader_( progress_callback_
                                                        , cancel_callback_
                                                        , done_callback_ );
          }
       } );
-      if ( !block_holder_.simpleBlock )
-         block_holder_.simpleBlock = first_cancel_;
+      if ( !block_holder_.cancelBlock )
+         block_holder_.cancelBlock = first_cancel_;
 
       return [ [ ^( BOOL cancel_ )
       {
@@ -122,15 +122,15 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
       {
          if ( error_ )
          {
-            block_holder_.simpleBlock = second_loader_( progress_callback_, cancel_callback_, done_callback_ );
+            block_holder_.cancelBlock = second_loader_( progress_callback_, cancel_callback_, done_callback_ );
          }
          else
          {
             done_callback_( result_, nil );
          }
       } );
-      if ( !block_holder_.simpleBlock )
-         block_holder_.simpleBlock = first_cancel_;
+      if ( !block_holder_.cancelBlock )
+         block_holder_.cancelBlock = first_cancel_;
 
       return [ [ ^( BOOL cancel_ )
       {
@@ -217,8 +217,8 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
       JFFCancelAsyncOperation cancel1_ = first_loader_( progress_callback_, cancel_callback1_, result_block_ );
       JFFCancelAsyncOperation cancel2_ = second_loader_( progress_callback_, cancel_callback2_, result_block_ );
 
-      cancel_holder1_.simpleBlock = cancel1_;
-      cancel_holder2_.simpleBlock = cancel2_;
+      cancel_holder1_.cancelBlock = cancel1_;
+      cancel_holder2_.cancelBlock = cancel2_;
        
       return [ [ ^( BOOL cancel_ )
       {
@@ -326,8 +326,8 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
          ? (JFFCancelAsyncOperation)[ [ ^( BOOL cancel_ ) { /*do nothing*/ } copy ] autorelease ]
          : second_loader_( progress_callback_, cancel_callback2_, result_block_ );
 
-      cancel_holder1_.simpleBlock = cancel1_;
-      cancel_holder2_.simpleBlock = cancel2_;
+      cancel_holder1_.cancelBlock = cancel1_;
+      cancel_holder2_.cancelBlock = cancel2_;
 
       return [ [ ^( BOOL cancel_ )
       {

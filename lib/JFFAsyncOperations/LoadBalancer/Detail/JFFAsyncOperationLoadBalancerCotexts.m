@@ -17,11 +17,16 @@
    [ super dealloc ];
 }
 
+-(NSArray*)allContextNames
+{
+   return [ self.contextLoadersByName allKeys ];
+}
+
 -(NSString*)currentContextName
 {
    if ( !_current_context_name )
    {
-      _current_context_name = [ self.currentContextName retain ];
+      _current_context_name = [ self.activeContextName retain ];
    }
    return _current_context_name;
 }
@@ -58,17 +63,17 @@
 
 -(JFFContextLoaders*)contextLoadersForName:( NSString* )name_
 {
-   JFFContextLoaders* result_ = [ self.contextLoadersByName objectForKey: name_ ];
-   if ( !result_ )
+   JFFContextLoaders* context_loaders_ = [ self.contextLoadersByName objectForKey: name_ ];
+   if ( !context_loaders_ )
    {
-      result_ = [ JFFContextLoaders new ];
-      result_.name = name_;
+      context_loaders_ = [ JFFContextLoaders new ];
+      context_loaders_.name = name_;
 
-      [ result_ setValue: result_ forKey: name_ ];
+      [ self.contextLoadersByName setValue: context_loaders_ forKey: name_ ];
 
-      [ result_ release ];
+      [ context_loaders_ release ];
    }
-   return result_;
+   return context_loaders_;
 }
 
 -(JFFContextLoaders*)activeContextLoaders

@@ -5,11 +5,10 @@
 @interface JFFCancelAyncOperationBlockHolder : NSObject
 {
 @private
-   JFFCancelAsyncOperation _simple_block;
+   JFFCancelAsyncOperation _cancel_block;
 }
 
-//TODO rename property
-@property ( nonatomic, copy ) JFFCancelAsyncOperation simpleBlock;
+@property ( nonatomic, copy ) JFFCancelAsyncOperation cancelBlock;
 
 +(id)cancelAyncOperationBlockHolder;
 

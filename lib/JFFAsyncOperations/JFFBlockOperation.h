@@ -8,8 +8,6 @@
    JFFSyncOperation _load_data_block;
    JFFCancelAsyncOperationHandler _cancel_block_handler;
    JFFDidFinishAsyncOperationHandler _did_load_data_block;
-
-   NSOperationQueue* _operation_queue;
 }
 
 +(id)performOperationWithLoadDataBlock:( JFFSyncOperation )load_data_block_

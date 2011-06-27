@@ -4,3 +4,4 @@
 #import <JFFAsyncOperations/NSObject+AsyncPropertyReader.h>
 #import <JFFAsyncOperations/NSObject+WeakAsyncOperation.h>
 #import <JFFAsyncOperations/JFFAsyncOperationLogic.h>
+#import <JFFAsyncOperations/LoadBalancer/JFFAsyncOperationLoadBalancer.h>
