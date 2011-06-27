@@ -128,6 +128,8 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
          assert( NO );// @"balanced loaders should not be unsubscribed from native loader"
       }
 
+      [ native_cancel_callback_ copy ];
+
       finishExecuteOfNativeLoader( native_loader_, context_loaders_ );
 
       if ( native_cancel_callback_ )
@@ -137,6 +139,8 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
             native_cancel_callback_( canceled_ );
          }, context_loaders_ );
       }
+
+      [ native_cancel_callback_ release ];
 
       findAndPerformNextNativeLoader();
    } copy ] autorelease ];
@@ -149,6 +153,8 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
    native_done_callback_ = [ [ native_done_callback_ copy ] autorelease ];
    return [ [ ^( id result_, NSError* error_ )
    {
+      [ native_done_callback_ copy ];
+
       finishExecuteOfNativeLoader( native_loader_, context_loaders_ );
 
       if ( native_done_callback_ )
@@ -158,6 +164,8 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
             native_done_callback_( result_, error_ );
          }, context_loaders_ );
       }
+
+      [ native_done_callback_ release ];
 
       findAndPerformNextNativeLoader();
    } copy ] autorelease ];
@@ -186,6 +194,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
       //cancel holder for unsubscribe
       JFFCancelAyncOperationBlockHolder* cancel_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      native_cancel_callback_ = [ [ native_cancel_callback_ copy ] autorelease ];
       cancel_block_holder_.cancelBlock = native_cancel_callback_;
       JFFCancelAsyncOperation wrapped_cancel_callback_ = ^( BOOL canceled_ )
       {
@@ -195,6 +204,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
       //finish holder for unsubscribe
       JFFDidFinishAsyncOperationBlockHolder* finish_block_holder_ = [ JFFDidFinishAsyncOperationBlockHolder didFinishAyncOperationBlockHolder ];
+      native_done_callback_ = [ [ native_done_callback_ copy ] autorelease ];
       finish_block_holder_.didFinishBlock = native_done_callback_;
       JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = ^( id result_, NSError* error_ )
       {
@@ -227,7 +237,8 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
             }
             else
             {
-               native_cancel_callback_( NO );
+               if ( native_cancel_callback_ )
+                  native_cancel_callback_( NO );
 
                progress_block_holder_.progressBlock = nil;
                cancel_block_holder_.cancelBlock = nil;
