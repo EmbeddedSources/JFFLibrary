@@ -12,6 +12,7 @@
 
 +(id)sharedBalancer;
 
+-(JFFContextLoaders*)activeContextLoaders;
 -(JFFContextLoaders*)currentContextLoaders;
 
 @end

@@ -36,6 +36,7 @@ static void peformBlockWithinContext( JFFSimpleBlock block_, JFFContextLoaders* 
 
 static void findAndPerformNextNativeLoader()
 {
+//   JFFContextLoaders* active_loaders_ = [ sharedBalancer() activeContextLoaders ];
    //TODO implement
 }
 

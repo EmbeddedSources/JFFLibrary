@@ -56,19 +56,29 @@
    return instance_;
 }
 
--(JFFContextLoaders*)currentContextLoaders
+-(JFFContextLoaders*)contextLoadersForName:( NSString* )name_
 {
-   JFFContextLoaders* result_ = [ self.contextLoadersByName objectForKey: self.currentContextName ];
+   JFFContextLoaders* result_ = [ self.contextLoadersByName objectForKey: name_ ];
    if ( !result_ )
    {
       result_ = [ JFFContextLoaders new ];
-      result_.name = self.currentContextName;
+      result_.name = name_;
 
-      [ result_ setValue: result_ forKey: self.currentContextName ];
+      [ result_ setValue: result_ forKey: name_ ];
 
       [ result_ release ];
    }
    return result_;
+}
+
+-(JFFContextLoaders*)activeContextLoaders
+{
+   return [ self contextLoadersForName: self.activeContextName ];
+}
+
+-(JFFContextLoaders*)currentContextLoaders
+{
+   return [ self contextLoadersForName: self.currentContextName ];
 }
 
 @end
