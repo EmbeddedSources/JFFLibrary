@@ -6,6 +6,7 @@
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 
 //TODO check on recurcive load balancer
+static NSUInteger global_active_number_ = 0;
 
 static JFFAsyncOperationLoadBalancerCotexts* sharedBalancer()
 {
@@ -42,6 +43,7 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
       if ( canceled_ )
       {
          --context_loaders_.activeLoadersNumber;
+         --global_active_number_;
       }
       else
       {
@@ -68,6 +70,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
    return [ [ ^( id result_, NSError* error_ )
    {
       --context_loaders_.activeLoadersNumber;
+      --global_active_number_;
 
       //TODO remove native loader from executing loaders if exists
       //TODO perform next loader
@@ -102,6 +105,7 @@ static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation na
       JFFCancelAsyncOperationHandler wrapped_cancel_callback_ = cancelCallbackWrapper( native_cancel_callback_, context_loaders_ );
       JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = doneCallbackWrapper( native_done_callback_, context_loaders_ );
 
+      //TODO check native loader no within balancer
       JFFCancelAsyncOperation cancel_block_ = native_loader_( wrapped_progress_callback_
                                                              , wrapped_cancel_callback_
                                                              , wrapped_done_callback_ );
@@ -133,45 +137,40 @@ JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
    {
       JFFContextLoaders* context_loaders_ = [ sharedBalancer() currentContextLoaders ];
 
-      JFFCancelAsyncOperation wrapped_cancel_block_ = nil;
-
-      if ( context_loaders_.activeLoadersNumber >= 5 /* || globalActiveNumber >= 10 */ )
+      //TODO check active context also
+      if ( ( [ sharedBalancer().activeContextName isEqualToString: context_loaders_.name ]
+            && context_loaders_.activeLoadersNumber < 5 )
+          || global_active_number_ == 0 )
       {
-         [ context_loaders_.pendingLoaders addObject: native_loader_ ];
-      }
-      else
-      {
-         JFFAsyncOperation context_loader_ = balancedAsyncOperationWithContext( native_loader_, context_loaders_ );
          ++context_loaders_.activeLoadersNumber;
-         wrapped_cancel_block_ = context_loader_( progress_callback_, cancel_callback_, done_callback_ );
+         ++global_active_number_;
+         JFFAsyncOperation context_loader_ = balancedAsyncOperationWithContext( native_loader_, context_loaders_ );
+         return (JFFCancelAsyncOperation)context_loader_( progress_callback_, cancel_callback_, done_callback_ );
       }
 
-      return [ [ ^( BOOL canceled_ )
+      [ context_loaders_.pendingLoaders addObject: native_loader_ ];
+
+      JFFCancelAsyncOperation cancel_ = [ [ ^( BOOL canceled_ )
       {
-         if ( wrapped_cancel_block_ )
+         //executing or already executed
+         if ( ![ context_loaders_.pendingLoaders containsObject: native_loader_ ] )
          {
-            wrapped_cancel_block_( canceled_ );
+            //TODO how to cancel if it executing now?
+            return;
+         }
+
+         if ( canceled_ )
+         {
+            [ context_loaders_.pendingLoaders removeObject: native_loader_ ];
+            cancel_callback_( YES );
          }
          else
          {
-            //executing or already executed
-            if ( ![ context_loaders_.pendingLoaders containsObject: native_loader_ ] )
-            {
-               //TODO how to cancel if it executing now?
-               return;
-            }
-
-            if ( canceled_ )
-            {
-               [ context_loaders_.pendingLoaders removeObject: native_loader_ ];
-               cancel_callback_( YES );
-            }
-            else
-            {
-               cancel_callback_( NO );
-               //TODO unsubscribe here
-            }
+            cancel_callback_( NO );
+            //TODO unsubscribe here
          }
       } copy ] autorelease ];
+
+      return cancel_;
    } copy ] autorelease ];
 }
