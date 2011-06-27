@@ -20,6 +20,10 @@
 		65347FF013B8142A0002CF73 /* JFFContextLoaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 65347FEE13B8142A0002CF73 /* JFFContextLoaders.m */; };
 		65347FF713B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347FF513B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.h */; };
 		65347FF813B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 65347FF613B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.m */; };
+		6534802513B81DAE0002CF73 /* JFFActiveLoaderData.h in Headers */ = {isa = PBXBuildFile; fileRef = 6534802313B81DAE0002CF73 /* JFFActiveLoaderData.h */; };
+		6534802613B81DAE0002CF73 /* JFFActiveLoaderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6534802413B81DAE0002CF73 /* JFFActiveLoaderData.m */; };
+		6534804C13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6534804A13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.h */; };
+		6534804D13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6534804B13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m */; };
 		655ADDE013B68E45005A6D3F /* NSObject+WeakAsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 655ADDDE13B68E45005A6D3F /* NSObject+WeakAsyncOperation.h */; };
 		655ADDE113B68E45005A6D3F /* NSObject+WeakAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 655ADDDF13B68E45005A6D3F /* NSObject+WeakAsyncOperation.m */; };
 		65648AFC13923C50001E163C /* JFFPropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648AFA13923C50001E163C /* JFFPropertyExtractor.h */; };
@@ -59,6 +63,10 @@
 		65347FEE13B8142A0002CF73 /* JFFContextLoaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFContextLoaders.m; sourceTree = "<group>"; };
 		65347FF513B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationLoadBalancerCotexts.h; sourceTree = "<group>"; };
 		65347FF613B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationLoadBalancerCotexts.m; sourceTree = "<group>"; };
+		6534802313B81DAE0002CF73 /* JFFActiveLoaderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFActiveLoaderData.h; sourceTree = "<group>"; };
+		6534802413B81DAE0002CF73 /* JFFActiveLoaderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFActiveLoaderData.m; sourceTree = "<group>"; };
+		6534804A13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationProgressBlockHolder.h; sourceTree = "<group>"; };
+		6534804B13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationProgressBlockHolder.m; sourceTree = "<group>"; };
 		655ADDDE13B68E45005A6D3F /* NSObject+WeakAsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WeakAsyncOperation.h"; sourceTree = "<group>"; };
 		655ADDDF13B68E45005A6D3F /* NSObject+WeakAsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WeakAsyncOperation.m"; sourceTree = "<group>"; };
 		65648AFA13923C50001E163C /* JFFPropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyExtractor.h; sourceTree = "<group>"; };
@@ -165,6 +173,8 @@
 				65347F3113B7ED090002CF73 /* JFFResultContext.m */,
 				65347F6B13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h */,
 				65347F6C13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.m */,
+				6534804A13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.h */,
+				6534804B13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -182,6 +192,8 @@
 		65347FEC13B8141F0002CF73 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				6534802313B81DAE0002CF73 /* JFFActiveLoaderData.h */,
+				6534802413B81DAE0002CF73 /* JFFActiveLoaderData.m */,
 				65347FED13B8142A0002CF73 /* JFFContextLoaders.h */,
 				65347FEE13B8142A0002CF73 /* JFFContextLoaders.m */,
 				65347FF513B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.h */,
@@ -231,6 +243,8 @@
 				65347F9613B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h in Headers */,
 				65347FEF13B8142A0002CF73 /* JFFContextLoaders.h in Headers */,
 				65347FF713B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.h in Headers */,
+				6534802513B81DAE0002CF73 /* JFFActiveLoaderData.h in Headers */,
+				6534804C13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +317,8 @@
 				65347F9713B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.m in Sources */,
 				65347FF013B8142A0002CF73 /* JFFContextLoaders.m in Sources */,
 				65347FF813B8147C0002CF73 /* JFFAsyncOperationLoadBalancerCotexts.m in Sources */,
+				6534802613B81DAE0002CF73 /* JFFActiveLoaderData.m in Sources */,
+				6534804D13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

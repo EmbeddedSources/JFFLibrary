@@ -8,6 +8,7 @@
    JFFCancelAsyncOperation _simple_block;
 }
 
+//TODO rename property
 @property ( nonatomic, copy ) JFFCancelAsyncOperation simpleBlock;
 
 +(id)cancelAyncOperationBlockHolder;
