@@ -58,7 +58,6 @@
       if ( !finished_ )
       {
          [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
-         ondealloc_block_holder_.simpleBlock = nil;
       }
 
       return cancel_;
