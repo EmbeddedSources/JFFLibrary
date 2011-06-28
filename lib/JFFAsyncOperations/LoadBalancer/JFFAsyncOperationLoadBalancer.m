@@ -9,7 +9,8 @@
 
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 
-static NSUInteger max_operation_count_ = 5;
+static const NSUInteger max_operation_count_ = 5;
+static const NSUInteger total_max_operation_count_ = 7;
 
 static NSUInteger global_active_number_ = 0;
 
@@ -258,6 +259,15 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
    } copy ] autorelease ];
 }
 
+static BOOL canPeformAsyncOperationForContext( JFFContextLoaders* context_loaders_ )
+{
+   //TODO check condition yet
+   BOOL is_active_context_ = [ sharedBalancer().activeContextName isEqualToString: context_loaders_.name ];
+   return ( ( is_active_context_ && context_loaders_.activeLoadersNumber < max_operation_count_ )
+           || 0 == global_active_number_ )
+      && global_active_number_ <= total_max_operation_count_;
+}
+
 static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation native_loader_
                                                            , JFFContextLoaders* context_loaders_
                                                            , JFFInsertPendingLoaderPositionType pending_position_ )
@@ -267,10 +277,7 @@ static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation na
                 , JFFCancelAsyncOperationHandler cancel_callback_
                 , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      //TODO check condition yet
-      if ( ( [ sharedBalancer().activeContextName isEqualToString: context_loaders_.name ]
-            && context_loaders_.activeLoadersNumber < max_operation_count_ )
-          || global_active_number_ == 0 )
+      if ( canPeformAsyncOperationForContext( context_loaders_ ) )
       {
          JFFAsyncOperation context_loader_ = wrappedAsyncOperationWithContext( native_loader_, context_loaders_ );
          return context_loader_( progress_callback_, cancel_callback_, done_callback_ );
