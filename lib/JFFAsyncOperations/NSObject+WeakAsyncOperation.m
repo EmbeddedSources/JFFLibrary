@@ -57,6 +57,7 @@
 
       if ( !finished_ )
       {
+         //TODO assert retain count
          [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
       }
 
