@@ -1,4 +1,4 @@
-#import "JFFAsyncOperationLogic.h"
+#import "JFFAsyncOperationContinuity.h"
 
 #import "JFFResultContext.h"
 #import "JFFCancelAyncOperationBlockHolder.h"

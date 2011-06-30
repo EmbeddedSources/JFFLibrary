@@ -27,12 +27,6 @@
 
 @end
 
-typedef enum
-{
-   JFFInsertPendingLoaderFirst
-   , JFFInsertPendingLoaderLast
-} JFFInsertPendingLoaderPositionType;
-
 @class JFFPedingLoaderData;
 
 @interface JFFContextLoaders ( PendingLoaders )
@@ -44,8 +38,7 @@ typedef enum
 -(void)addPendingNativeLoader:( JFFAsyncOperation )native_loader_
              progressCallback:( JFFAsyncOperationProgressHandler )progress_callback_
                cancelCallback:( JFFCancelAsyncOperationHandler )cancel_callback_
-                 doneCallback:( JFFDidFinishAsyncOperationHandler )done_callback_
-              pendingPosition:( JFFInsertPendingLoaderPositionType )pending_position_;
+                 doneCallback:( JFFDidFinishAsyncOperationHandler )done_callback_;
 
 -(BOOL)containsPendingNativeLoader:( JFFAsyncOperation )native_loader_;
 

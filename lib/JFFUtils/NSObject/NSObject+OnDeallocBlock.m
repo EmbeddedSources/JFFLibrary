@@ -24,6 +24,7 @@
 {
    if ( self.block == block_ )
    {
+      self.block = nil;
       [ array_ removeObject: self ];
       return YES;
    }

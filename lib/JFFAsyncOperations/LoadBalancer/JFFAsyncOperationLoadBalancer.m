@@ -24,11 +24,19 @@ static void setBalancerCurrentContextName( NSString* context_name_ )
    sharedBalancer().currentContextName = context_name_;
 }
 
+static BOOL canPeformAsyncOperationForContext( JFFContextLoaders* context_loaders_ );
+static BOOL findAndTryToPerformNextNativeLoader( void );
+
 void setBalancerActiveContextName( NSString* context_name_ )
 {
+   if ( [ sharedBalancer().activeContextName isEqualToString: context_name_ ] )
+      return;
+
    NSLog( @"!!!SET ACTIVE CONTEXT NAME: %@", context_name_ );
    sharedBalancer().activeContextName = context_name_;
    setBalancerCurrentContextName( context_name_ );
+
+   while ( findAndTryToPerformNextNativeLoader() );
 }
 
 static void peformBlockWithinContext( JFFSimpleBlock block_, JFFContextLoaders* context_loaders_ )
@@ -41,16 +49,13 @@ static void peformBlockWithinContext( JFFSimpleBlock block_, JFFContextLoaders* 
    sharedBalancer().currentContextName = current_context_name_;
 }
 
-static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation native_loader_
-                                                           , JFFContextLoaders* context_loaders_
-                                                           , JFFInsertPendingLoaderPositionType pending_position_ );
+static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation native_loader_
+                                                          , JFFContextLoaders* context_loaders_ );
 
 static void performInBalancerPedingLoaderData( JFFPedingLoaderData* pending_loader_data_
                                               , JFFContextLoaders* context_loaders_ )
 {
-   JFFAsyncOperation balanced_loader_ = balancedAsyncOperationWithContext( pending_loader_data_.nativeLoader
-                                                                          , context_loaders_
-                                                                          , JFFInsertPendingLoaderFirst );
+   JFFAsyncOperation balanced_loader_ = wrappedAsyncOperationWithContext( pending_loader_data_.nativeLoader, context_loaders_ );
 
    balanced_loader_( pending_loader_data_.progressCallback
                     , pending_loader_data_.cancelCallback
@@ -59,29 +64,33 @@ static void performInBalancerPedingLoaderData( JFFPedingLoaderData* pending_load
 
 static BOOL performLoaderFromContextIfPossible( JFFContextLoaders* context_loaders_ )
 {
-   if ( context_loaders_.pendingLoadersNumber > 0 )
+   if ( context_loaders_.pendingLoadersNumber > 0
+       && canPeformAsyncOperationForContext( context_loaders_ ) )
    {
       JFFPedingLoaderData* pending_loader_data_ = [ context_loaders_ popPendingLoaderData ];
       performInBalancerPedingLoaderData( pending_loader_data_, context_loaders_ );
+      //TODO remove empty context_loaders_ (without tasks)
       return YES;
    }
    return NO;
 }
 
-static void findAndPerformNextNativeLoader()
+static BOOL findAndTryToPerformNextNativeLoader( void )
 {
    JFFAsyncOperationLoadBalancerCotexts* balancer_ = sharedBalancer();
 
    JFFContextLoaders* active_loaders_ = [ balancer_ activeContextLoaders ];
    if ( performLoaderFromContextIfPossible( active_loaders_ ) )
-      return;
+      return YES;
 
    for ( NSString* name_ in balancer_.allContextNames )
    {
       JFFContextLoaders* context_loaders_ = [ balancer_.contextLoadersByName objectForKey: name_ ];
       if ( performLoaderFromContextIfPossible( context_loaders_ ) )
-         return;
+         return YES;
    }
+
+   return NO;
 }
 
 static void logBalancerState()
@@ -129,7 +138,7 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
          assert( NO );// @"balanced loaders should not be unsubscribed from native loader"
       }
 
-      [ native_cancel_callback_ copy ];
+      [ [ native_cancel_callback_ copy ] autorelease ];
 
       finishExecuteOfNativeLoader( native_loader_, context_loaders_ );
 
@@ -141,9 +150,7 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
          }, context_loaders_ );
       }
 
-      [ native_cancel_callback_ release ];
-
-      findAndPerformNextNativeLoader();
+      findAndTryToPerformNextNativeLoader();
    } copy ] autorelease ];
 }
 
@@ -154,7 +161,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
    native_done_callback_ = [ [ native_done_callback_ copy ] autorelease ];
    return [ [ ^( id result_, NSError* error_ )
    {
-      [ native_done_callback_ copy ];
+      [ [ native_done_callback_ copy ] autorelease ];
 
       finishExecuteOfNativeLoader( native_loader_, context_loaders_ );
 
@@ -166,9 +173,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
          }, context_loaders_ );
       }
 
-      [ native_done_callback_ release ];
-
-      findAndPerformNextNativeLoader();
+      findAndTryToPerformNextNativeLoader();
    } copy ] autorelease ];
 }
 
@@ -268,10 +273,10 @@ static BOOL canPeformAsyncOperationForContext( JFFContextLoaders* context_loader
       && global_active_number_ <= total_max_operation_count_;
 }
 
-static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation native_loader_
-                                                           , JFFContextLoaders* context_loaders_
-                                                           , JFFInsertPendingLoaderPositionType pending_position_ )
+JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
 {
+   JFFContextLoaders* context_loaders_ = [ sharedBalancer() currentContextLoaders ];
+
    native_loader_ = [ [ native_loader_ copy ] autorelease ];
    return [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
                 , JFFCancelAsyncOperationHandler cancel_callback_
@@ -286,8 +291,7 @@ static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation na
       [ context_loaders_ addPendingNativeLoader: native_loader_
                                progressCallback: progress_callback_
                                  cancelCallback: cancel_callback_
-                                   doneCallback: done_callback_
-                                pendingPosition: pending_position_ ];
+                                   doneCallback: done_callback_ ];
 
       logBalancerState();
 
@@ -315,10 +319,4 @@ static JFFAsyncOperation balancedAsyncOperationWithContext( JFFAsyncOperation na
 
       return cancel_;
    } copy ] autorelease ];
-}
-
-JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
-{
-   JFFContextLoaders* context_loaders_ = [ sharedBalancer() currentContextLoaders ];
-   return balancedAsyncOperationWithContext( native_loader_, context_loaders_, JFFInsertPendingLoaderLast );
 }

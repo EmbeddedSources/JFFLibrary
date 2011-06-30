@@ -116,7 +116,6 @@
              progressCallback:( JFFAsyncOperationProgressHandler )progress_callback_
                cancelCallback:( JFFCancelAsyncOperationHandler )cancel_callback_
                  doneCallback:( JFFDidFinishAsyncOperationHandler )done_callback_
-              pendingPosition:( JFFInsertPendingLoaderPositionType )pending_position_
 {
    JFFPedingLoaderData* data_ = [ JFFPedingLoaderData new ];
    data_.nativeLoader     = native_loader_;
@@ -124,14 +123,7 @@
    data_.cancelCallback   = cancel_callback_;
    data_.doneCallback     = done_callback_;
 
-   if ( JFFInsertPendingLoaderLast == pending_position_ )
-   {
-      [ self.pendingLoadersData addObject: data_ ];
-   }
-   else
-   {
-      [ self.pendingLoadersData insertObject: data_ atIndex: 0 ];
-   }
+   [ self.pendingLoadersData addObject: data_ ];
 
    [ data_ release ];
 }

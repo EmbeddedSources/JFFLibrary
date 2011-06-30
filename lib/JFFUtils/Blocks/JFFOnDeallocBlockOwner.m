@@ -16,8 +16,11 @@
 
 -(void)dealloc
 {
-   _block();
-   [ _block release ];
+   if ( _block )
+   {
+      _block();
+      [ _block release ];
+   }
 
    [ super dealloc ];
 }
