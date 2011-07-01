@@ -132,8 +132,8 @@
 {
    return [ self.pendingLoadersData firstMatch: ^( id object_ )
    {
-     JFFPedingLoaderData* loader_data_ = object_;
-     return (BOOL)( loader_data_.nativeLoader == native_loader_ );
+      JFFPedingLoaderData* loader_data_ = object_;
+      return (BOOL)( loader_data_.nativeLoader == native_loader_ );
    } ];
 }
 

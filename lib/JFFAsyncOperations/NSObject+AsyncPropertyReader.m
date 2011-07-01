@@ -33,17 +33,15 @@ static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extra
 {
    return [ [ ^( BOOL cancel_operation_ )
    {
+      JFFCancelAsyncOperation cancel_ = property_extractor_.cancelBlock;
+      if ( !cancel_ )
+         return;
+
+      cancel_ = [ cancel_ copy ];
+
       if ( cancel_operation_ )
       {
-         JFFCancelAsyncOperation cancel_ = [ property_extractor_.cancelBlock copy ];
-
          clearDataForPropertyExtractor( property_extractor_ );
-         if ( cancel_ )
-         {
-            cancel_( YES );
-         }
-
-         [ cancel_ release ];
       }
       else
       {
@@ -51,6 +49,10 @@ static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extra
          callbacks_.didLoadDataBlock = nil;
          callbacks_.onProgressBlock = nil;
       }
+
+      cancel_( cancel_operation_ );
+
+      [ cancel_ release ];
    } copy ] autorelease ];
 }
 

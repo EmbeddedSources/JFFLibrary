@@ -50,16 +50,18 @@
 
       JFFCancelAsyncOperation cancel_ = async_op_( progress_callback_, cancel_callback_, done_callback_ );
 
+      if ( finished_ )
+      {
+         return (JFFCancelAsyncOperation)[ [ ^( BOOL canceled_ ) {} copy ] autorelease ];
+      }
+
       ondealloc_block_holder_.simpleBlock = ^
       {
          cancel_( NO );
       };
 
-      if ( !finished_ )
-      {
-         //TODO assert retain count
-         [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
-      }
+      //TODO assert retain count
+      [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
 
       return cancel_;
    } copy ] autorelease ];

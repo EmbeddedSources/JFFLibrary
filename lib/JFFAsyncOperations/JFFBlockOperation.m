@@ -82,8 +82,10 @@
 
    if ( self.cancelBlockHandler )
    {
-      self.cancelBlockHandler( cancel_ );
+      JFFCancelAsyncOperationHandler cancel_handler_ = [ self.cancelBlockHandler copy ];
       self.cancelBlockHandler = nil;
+      cancel_handler_( cancel_ );
+      [ cancel_handler_ release ];
    }
 }
 

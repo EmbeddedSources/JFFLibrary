@@ -199,18 +199,16 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
       __block BOOL done_ = NO;
 
       //cancel holder for unsubscribe
-      JFFCancelAyncOperationBlockHolder* cancel_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
-      native_cancel_callback_ = [ [ native_cancel_callback_ copy ] autorelease ];
-      cancel_block_holder_.cancelBlock = native_cancel_callback_;
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      cancel_callback_block_holder_.cancelBlock = native_cancel_callback_;
       JFFCancelAsyncOperation wrapped_cancel_callback_ = ^( BOOL canceled_ )
       {
          done_ = YES;
-         [ cancel_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
+         [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
       };
 
       //finish holder for unsubscribe
       JFFDidFinishAsyncOperationBlockHolder* finish_block_holder_ = [ JFFDidFinishAsyncOperationBlockHolder didFinishAyncOperationBlockHolder ];
-      native_done_callback_ = [ [ native_done_callback_ copy ] autorelease ];
       finish_block_holder_.didFinishBlock = native_done_callback_;
       JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = ^( id result_, NSError* error_ )
       {
@@ -231,36 +229,33 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
                                                              , wrapped_cancel_callback_
                                                              , wrapped_done_callback_ );
 
-      if ( !done_ )
+      if ( done_ )
       {
-         ++global_active_number_;
-
-         JFFCancelAsyncOperation wrapped_cancel_block_ = [ [ ^( BOOL canceled_ )
-         {
-            if ( canceled_ )
-            {
-               cancel_block_( YES );
-            }
-            else
-            {
-               if ( native_cancel_callback_ )
-                  native_cancel_callback_( NO );
-
-               progress_block_holder_.progressBlock = nil;
-               cancel_block_holder_.cancelBlock = nil;
-               finish_block_holder_.didFinishBlock = nil;
-            }
-         } copy ] autorelease ];
-
-         [ context_loaders_ addActiveNativeLoader: native_loader_
-                                    wrappedCancel: wrapped_cancel_block_ ];
-         logBalancerState();
-
-         return wrapped_cancel_block_;
+         return (JFFCancelAsyncOperation)[ [ ^( BOOL canceled_ ) { /* do nothing */ } copy ] autorelease ];
       }
 
-      cancel_block_ = [ [ ^( BOOL canceled_ ) { /* do nothing */ } copy ] autorelease ];
-      return cancel_block_;
+      ++global_active_number_;
+
+      JFFCancelAsyncOperation wrapped_cancel_block_ = [ [ ^( BOOL canceled_ )
+      {
+         if ( canceled_ )
+         {
+            cancel_block_( YES );
+         }
+         else
+         {
+            [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: NO ];
+
+            progress_block_holder_.progressBlock = nil;
+            finish_block_holder_.didFinishBlock = nil;
+         }
+      } copy ] autorelease ];
+
+      [ context_loaders_ addActiveNativeLoader: native_loader_
+                                 wrappedCancel: wrapped_cancel_block_ ];
+      logBalancerState();
+
+      return wrapped_cancel_block_;
    } copy ] autorelease ];
 }
 
@@ -288,6 +283,7 @@ JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
          return context_loader_( progress_callback_, cancel_callback_, done_callback_ );
       }
 
+      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
       [ context_loaders_ addPendingNativeLoader: native_loader_
                                progressCallback: progress_callback_
                                  cancelCallback: cancel_callback_
