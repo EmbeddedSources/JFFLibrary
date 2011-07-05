@@ -26,7 +26,7 @@
 
 +(id)scheduler
 {
-   return [ [ [ self alloc ] init ] autorelease ];
+   return [ [ self new ] autorelease ];
 }
 
 +(id)sharedScheduler
@@ -34,7 +34,7 @@
    static id instance_ = nil;
    if ( !instance_ )
    {
-      instance_ = [ [ self alloc ] init ];
+      instance_ = [ self new ];
    }
    return instance_;
 }

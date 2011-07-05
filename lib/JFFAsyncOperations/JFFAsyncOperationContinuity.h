@@ -1,4 +1,5 @@
 #import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
+#import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 
 @class NSArray;
 
@@ -30,8 +31,14 @@ JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* blocks_ 
 
 ///////////////////////// ADD OBSERVERS OF ASYNC OP. RESULT ////////////////////////
 
-JFFAsyncOperation asyncOperationWithDoneCallbackBlock( JFFAsyncOperation loader_
-                                                      , JFFDidFinishAsyncOperationHandler done_callback_block_ );
+//finish_callback_block_ called before loader_'s JFFDidFinishAsyncOperationHandler
+JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loader_
+                                                        , JFFDidFinishAsyncOperationHandler finish_callback_block_ );
 
-JFFAsyncOperation asyncOperationWithDoneHookBlock( JFFAsyncOperation loader_
-                                                  , JFFDidFinishAsyncOperationHook done_callback_hook_ );
+//finish_callback_hook_ called instead loader_'s JFFDidFinishAsyncOperationHandler
+JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
+                                                    , JFFDidFinishAsyncOperationHook finish_callback_hook_ );
+
+//done_callback_hook_ called an cancel or finish loader_'s callbacks
+JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
+                                              , JFFSimpleBlock done_callback_hook_ );

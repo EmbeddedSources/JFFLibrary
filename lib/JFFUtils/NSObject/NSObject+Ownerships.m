@@ -11,7 +11,7 @@ static char ownerships_key_;
    NSMutableArray* ownerships_ = objc_getAssociatedObject( self, &ownerships_key_ );
    if ( !ownerships_ )
    {
-      ownerships_ = [ [ NSMutableArray alloc ] init ];
+      ownerships_ = [ NSMutableArray new ];
       objc_setAssociatedObject( self, &ownerships_key_, ownerships_, OBJC_ASSOCIATION_RETAIN_NONATOMIC );
       [ ownerships_ release ];
    }

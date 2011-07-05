@@ -9,7 +9,7 @@
 
 +(id)extractPropertyData
 {
-   return [ [ [ self alloc ] init ] autorelease ];
+   return [ [ self new ] autorelease ];
 }
 
 -(void)dealloc

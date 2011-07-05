@@ -13,7 +13,7 @@
 
 +(id)asyncOperationProgressBlockHolder
 {
-   return [ [ [ self alloc ] init ] autorelease ];
+   return [ [ self new ] autorelease ];
 }
 
 -(void)performProgressBlockWithArgument:( id )progress_info_

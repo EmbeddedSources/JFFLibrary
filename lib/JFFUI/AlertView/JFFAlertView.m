@@ -121,6 +121,16 @@ static NSInteger first_alert_index_ = 1;
 
 -(id)initWithTitle:( NSString* )title_
            message:( NSString* )message_
+          delegate:( id /*<UIAlertViewDelegate>*/ )delegate_
+ cancelButtonTitle:( NSString* )cancel_button_title_
+ otherButtonTitles:( NSString* )other_button_titles, ...
+{
+   NSAssert( NO, @"dont use this constructor of JFFAlertView" );
+   return nil;
+}
+
+-(id)initWithTitle:( NSString* )title_
+           message:( NSString* )message_
  cancelButtonTitle:( NSString* )cancel_button_title_
 otherButtonTitlesArray:( NSArray* )other_button_titles_
 {

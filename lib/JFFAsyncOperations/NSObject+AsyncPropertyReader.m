@@ -42,15 +42,19 @@ static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extra
       if ( cancel_operation_ )
       {
          clearDataForPropertyExtractor( property_extractor_ );
+         cancel_( YES );
       }
       else
       {
          [ property_extractor_.delegates removeObject: callbacks_ ];
          callbacks_.didLoadDataBlock = nil;
          callbacks_.onProgressBlock = nil;
-      }
 
-      cancel_( cancel_operation_ );
+         if ( callbacks_.onCancelBlock )
+            callbacks_.onCancelBlock( NO );
+
+         callbacks_.onCancelBlock = nil;
+      }
 
       [ cancel_ release ];
    } copy ] autorelease ];
@@ -72,6 +76,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
       {
          JFFCallbacksBlocks* callback_ = obj_;
          return (id)[ JFFCallbacksBlocks callbacksBlocksWithOnProgressBlock: callback_.onProgressBlock
+                                                              onCancelBlock: callback_.onCancelBlock
                                                            didLoadDataBlock: callback_.didLoadDataBlock ];
       } ];
 
@@ -99,6 +104,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
          JFFCallbacksBlocks* callback_ = obj_;
          callback_.didLoadDataBlock = nil;
          callback_.onProgressBlock = nil;
+         callback_.onCancelBlock = nil;
       } ];
    } copy ] autorelease ];
 }
@@ -185,6 +191,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
       property_extractor_.didFinishBlock = did_finish_operation_;
 
       JFFCallbacksBlocks* callbacks_ = [ JFFCallbacksBlocks callbacksBlocksWithOnProgressBlock: progress_callback_
+                                                                                 onCancelBlock: cancel_callback_
                                                                               didLoadDataBlock: done_callback_ ];
 
       NSMutableArray* delegates_ = property_extractor_.delegates;
