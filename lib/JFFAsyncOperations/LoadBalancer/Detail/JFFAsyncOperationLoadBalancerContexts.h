@@ -4,7 +4,7 @@
 
 @class JFFContextLoaders;
 
-@interface JFFAsyncOperationLoadBalancerCotexts : NSObject
+@interface JFFAsyncOperationLoadBalancerContexts : NSObject
 {
 @private
    NSString* _current_context_name;

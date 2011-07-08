@@ -2,7 +2,7 @@
 
 #import "JFFContextLoaders.h"
 #import "JFFPedingLoaderData.h"
-#import "JFFAsyncOperationLoadBalancerCotexts.h"
+#import "JFFAsyncOperationLoadBalancerContexts.h"
 #import "JFFAsyncOperationProgressBlockHolder.h"
 #import "JFFCancelAyncOperationBlockHolder.h"
 #import "JFFDidFinishAsyncOperationBlockHolder.h"
@@ -14,9 +14,9 @@ static const NSUInteger total_max_operation_count_ = 7;
 
 static NSUInteger global_active_number_ = 0;
 
-static JFFAsyncOperationLoadBalancerCotexts* sharedBalancer()
+static JFFAsyncOperationLoadBalancerContexts* sharedBalancer()
 {
-   return [ JFFAsyncOperationLoadBalancerCotexts sharedBalancer ];
+   return [ JFFAsyncOperationLoadBalancerContexts sharedBalancer ];
 }
 
 static void setBalancerCurrentContextName( NSString* context_name_ )
@@ -64,7 +64,8 @@ static void performInBalancerPedingLoaderData( JFFPedingLoaderData* pending_load
 
 static BOOL performLoaderFromContextIfPossible( JFFContextLoaders* context_loaders_ )
 {
-   if ( context_loaders_.pendingLoadersNumber > 0
+   BOOL have_pending_loaders_ = ( context_loaders_.pendingLoadersNumber > 0 );
+   if ( have_pending_loaders_
        && canPeformAsyncOperationForContext( context_loaders_ ) )
    {
       JFFPedingLoaderData* pending_loader_data_ = [ context_loaders_ popPendingLoaderData ];
@@ -77,7 +78,7 @@ static BOOL performLoaderFromContextIfPossible( JFFContextLoaders* context_loade
 
 static BOOL findAndTryToPerformNextNativeLoader( void )
 {
-   JFFAsyncOperationLoadBalancerCotexts* balancer_ = sharedBalancer();
+   JFFAsyncOperationLoadBalancerContexts* balancer_ = sharedBalancer();
 
    JFFContextLoaders* active_loaders_ = [ balancer_ activeContextLoaders ];
    if ( performLoaderFromContextIfPossible( active_loaders_ ) )
@@ -95,8 +96,9 @@ static BOOL findAndTryToPerformNextNativeLoader( void )
 
 static void logBalancerState()
 {
+   return;
    NSLog( @"|||||LOAD BALANCER|||||" );
-   JFFAsyncOperationLoadBalancerCotexts* balancer_ = sharedBalancer();
+   JFFAsyncOperationLoadBalancerContexts* balancer_ = sharedBalancer();
    JFFContextLoaders* active_loaders_ = [ balancer_ activeContextLoaders ];
    NSLog( @"Active context name: %@", active_loaders_.name );
    NSLog( @"pending count: %d", active_loaders_.pendingLoadersNumber );
@@ -231,7 +233,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
       if ( done_ )
       {
-         return (JFFCancelAsyncOperation)[ [ ^( BOOL canceled_ ) { /* do nothing */ } copy ] autorelease ];
+         return JFFEmptyCancelAsyncOperationBlock;
       }
 
       ++global_active_number_;

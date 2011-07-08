@@ -327,6 +327,7 @@
 				GCC_PREFIX_HEADER = JFFUtils_Prefix.pch;
 				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = JFFUtils;
 			};
 			name = Debug;
@@ -341,6 +342,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFUtils_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = JFFUtils;
 			};
 			name = Release;
