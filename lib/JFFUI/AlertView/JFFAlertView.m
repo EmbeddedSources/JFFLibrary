@@ -116,7 +116,7 @@ static NSInteger first_alert_index_ = 1;
 
 +(void)showExclusiveErrorWithDescription:( NSString* )description_
 {
-   [ self showAlertWithTitle: NSLocalizedString( @"ERROR", nil ) description: description_ ];
+   [ self showExclusiveAlertWithTitle: NSLocalizedString( @"ERROR", nil ) description: description_ ];
 }
 
 -(id)initWithTitle:( NSString* )title_
