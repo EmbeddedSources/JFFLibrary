@@ -6,6 +6,12 @@
 
 static char property_data_property_key_;
 
+@interface NSObject (PropertyExtractorPrivate)
+
+@property ( nonatomic, retain ) NSMutableDictionary* propertyDataByPropertyName;
+
+@end
+
 @implementation NSObject (PropertyExtractor)
 
 -(JFFObjectRelatedPropertyData*)propertyDataForPropertPath:( JFFPropertyPath* )property_path_

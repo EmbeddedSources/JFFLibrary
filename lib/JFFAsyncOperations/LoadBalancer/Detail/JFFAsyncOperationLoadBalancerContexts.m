@@ -1,8 +1,10 @@
-#import "JFFAsyncOperationLoadBalancerCotexts.h"
+#import "JFFAsyncOperationLoadBalancerContexts.h"
 
 #import "JFFContextLoaders.h"
 
-@implementation JFFAsyncOperationLoadBalancerCotexts
+#import <JFFUtils/NSThread+AssertMainThread.h>
+
+@implementation JFFAsyncOperationLoadBalancerContexts
 
 @synthesize currentContextName = _current_context_name;
 @synthesize activeContextName = _active_context_name;
@@ -15,6 +17,19 @@
    [ _context_loaders_by_name release ];
 
    [ super dealloc ];
+}
+
++(id)sharedBalancer
+{
+   [ NSThread assertMainThread ];
+   static JFFAsyncOperationLoadBalancerContexts* instance_ = nil;
+
+   if ( !instance_ )
+   {
+      instance_ = [ self new ];
+   }
+
+   return instance_;
 }
 
 -(NSArray*)allContextNames
@@ -47,18 +62,6 @@
       _context_loaders_by_name = [ NSMutableDictionary new ];
    }
    return _context_loaders_by_name;
-}
-
-+(id)sharedBalancer
-{
-   static JFFAsyncOperationLoadBalancerCotexts* instance_ = nil;
-
-   if ( !instance_ )
-   {
-      instance_ = [ self new ];
-   }
-
-   return instance_;
 }
 
 -(JFFContextLoaders*)contextLoadersForName:( NSString* )name_

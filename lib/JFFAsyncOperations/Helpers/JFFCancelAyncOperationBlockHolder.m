@@ -13,7 +13,7 @@
 
 +(id)cancelAyncOperationBlockHolder
 {
-   return [ [ [ self alloc ] init ] autorelease ];
+   return [ [ self new ] autorelease ];
 }
 
 -(void)performCancelBlockOnceWithArgument:( BOOL )cancel_

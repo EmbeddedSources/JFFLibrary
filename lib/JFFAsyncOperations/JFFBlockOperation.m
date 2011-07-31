@@ -91,9 +91,9 @@
 
 -(void)main
 {
-   NSAutoreleasePool* pool_ = [ [ NSAutoreleasePool alloc ] init ];
+   NSAutoreleasePool* pool_ = [ NSAutoreleasePool new ];
 
-   JFFResultContext* result_context_ = [ [ [ JFFResultContext alloc ] init ] autorelease ];
+   JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
 
    @try
    {

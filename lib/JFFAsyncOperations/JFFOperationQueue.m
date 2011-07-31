@@ -33,7 +33,7 @@
 
    if ( !instance_ )
    {
-      instance_ = [ [ self alloc ] init ];
+      instance_ = [ self new ];
    }
 
    return instance_;

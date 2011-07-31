@@ -52,7 +52,7 @@
 
       if ( finished_ )
       {
-         return (JFFCancelAsyncOperation)[ [ ^( BOOL canceled_ ) {} copy ] autorelease ];
+         return JFFEmptyCancelAsyncOperationBlock;
       }
 
       ondealloc_block_holder_.simpleBlock = ^

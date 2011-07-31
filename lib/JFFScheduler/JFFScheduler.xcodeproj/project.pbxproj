@@ -171,6 +171,7 @@
 				GCC_PREFIX_HEADER = JFFScheduler_Prefix.pch;
 				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = JFFScheduler;
 			};
 			name = Debug;
@@ -186,6 +187,7 @@
 				GCC_PREFIX_HEADER = JFFScheduler_Prefix.pch;
 				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = JFFScheduler;
 			};
 			name = Release;

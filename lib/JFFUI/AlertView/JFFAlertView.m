@@ -116,7 +116,17 @@ static NSInteger first_alert_index_ = 1;
 
 +(void)showExclusiveErrorWithDescription:( NSString* )description_
 {
-   [ self showAlertWithTitle: NSLocalizedString( @"ERROR", nil ) description: description_ ];
+   [ self showExclusiveAlertWithTitle: NSLocalizedString( @"ERROR", nil ) description: description_ ];
+}
+
+-(id)initWithTitle:( NSString* )title_
+           message:( NSString* )message_
+          delegate:( id /*<UIAlertViewDelegate>*/ )delegate_
+ cancelButtonTitle:( NSString* )cancel_button_title_
+ otherButtonTitles:( NSString* )other_button_titles, ...
+{
+   NSAssert( NO, @"dont use this constructor of JFFAlertView" );
+   return nil;
 }
 
 -(id)initWithTitle:( NSString* )title_
