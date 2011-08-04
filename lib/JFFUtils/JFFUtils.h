@@ -10,3 +10,5 @@
 #import <JFFUtils/UITableView/UITableView+WithinUpdates.h>
 
 #import <JFFUtils/NSThread+AssertMainThread.h>
+
+#import <JFFUtils/JFFMulticastDelegate.h>

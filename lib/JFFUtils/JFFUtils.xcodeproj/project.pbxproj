@@ -37,6 +37,10 @@
 		8D1DE50C13AB8123001FD56F /* NSURLNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */; };
 		8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */; };
 		8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
+		8DB67B1A13E97FCF0024EA6C /* JFFMulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */; };
+		8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */; };
+		8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */; };
+		8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +76,10 @@
 		8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLNewFeaturesRuntime.m; sourceTree = "<group>"; };
 		8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeExtensions.h"; sourceTree = "<group>"; };
 		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
+		8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFMulticastDelegate.h; sourceTree = "<group>"; };
+		8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMulticastDelegate.m; sourceTree = "<group>"; };
+		8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAssignProxy.h; sourceTree = "<group>"; };
+		8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAssignProxy.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libJFFUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +201,10 @@
 				65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */,
 				65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */,
 				65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */,
+				8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */,
+				8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */,
+				8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */,
+				8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */,
 				651BE27B1391BD7800DD6890 /* JFFUtils.h */,
 			);
 			name = Classes;
@@ -240,6 +252,8 @@
 				65648BE113924326001E163C /* JFFError.h in Headers */,
 				65648BF0139243FF001E163C /* NSThread+AssertMainThread.h in Headers */,
 				8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */,
+				8DB67B1A13E97FCF0024EA6C /* JFFMulticastDelegate.h in Headers */,
+				8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +325,8 @@
 				8D1DE50C13AB8123001FD56F /* NSURLNewFeaturesRuntime.m in Sources */,
 				8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */,
 				65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */,
+				8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */,
+				8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
