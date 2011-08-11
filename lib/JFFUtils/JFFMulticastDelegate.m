@@ -1,50 +1,10 @@
 #import "JFFMulticastDelegate.h"
 
-#import "JFFAssignProxy.h"
-#import "JFFUtilsBlockDefinitions.h"
-
-#import "NSArray+BlocksAdditions.h"
-#import "NSObject+OnDeallocBlock.h"
+#import "JFFMutableAssignArray.h"
 
 @interface JFFMulticastDelegate ()
 
-@property ( nonatomic, retain ) NSMutableArray* delegates;
-
-@end
-
-@interface JFFAssignProxyDelegate : JFFAssignProxy
-
-@property ( nonatomic, copy ) JFFSimpleBlock onDeallocBlock;
-
-@end
-
-@implementation JFFAssignProxyDelegate
-
-@synthesize onDeallocBlock = _on_dealloc_block;
-
--(void)dealloc
-{
-   [ _on_dealloc_block release ];
-
-   [ super dealloc ];
-}
-
--(void)onAddToMulticastDelegate:( JFFMulticastDelegate* )multicast_delegate_
-{
-   __block JFFMulticastDelegate* assign_multicast_delegate_ = multicast_delegate_;
-   __block JFFAssignProxyDelegate* self_ = self;
-   self.onDeallocBlock = ^( void )
-   {
-      [ assign_multicast_delegate_ removeDelegate: self_.target ];
-   };
-   [ self.target addOnDeallocBlock: self.onDeallocBlock ];
-}
-
--(void)onRemoveFromMulticastDelegate:( JFFMulticastDelegate* )multicast_delegate_
-{
-   [ self.target removeOnDeallocBlock: self.onDeallocBlock ];
-   self.onDeallocBlock = nil;
-}
+@property ( nonatomic, retain ) JFFMutableAssignArray* delegates;
 
 @end
 
@@ -60,47 +20,30 @@
    [ super dealloc ];
 }
 
--(NSMutableArray*)delegates
+-(JFFMutableAssignArray*)delegates
 {
    if ( !_delegates )
    {
-      _delegates = [ NSMutableArray new ];
+      _delegates = [ JFFMutableAssignArray new ];
    }
    return _delegates;
 }
 
 -(void)addDelegate:( id )delegate_
 {
-   JFFAssignProxyDelegate* proxy_ = [ JFFAssignProxyDelegate assignProxyWithTarget: delegate_ ];
-   if ( ![ self.delegates containsObject: proxy_ ] )
+   if ( ![ self.delegates containsObject: delegate_ ] )
    {
-      [ self.delegates addObject: proxy_ ];
-      [ proxy_ onAddToMulticastDelegate: self ];
+      [ self.delegates addObject: delegate_ ];
    }
 }
 
 -(void)removeDelegate:( id )delegate_
 {
-   JFFAssignProxyDelegate* proxy_ = [ JFFAssignProxyDelegate assignProxyWithTarget: delegate_ ];
-
-   proxy_ = [ _delegates firstMatch: ^BOOL( id object_ )
-   {
-      return [ object_ isEqual: proxy_ ];
-   } ];
-
-   if ( proxy_ )
-   {
-      [  proxy_ onRemoveFromMulticastDelegate: self ];
-      [ _delegates removeObject: proxy_ ];
-   }
+   [ _delegates removeObject: delegate_ ];
 }
 
 -(void)removeAllDelegates
 {
-   for( JFFAssignProxyDelegate* proxy_ in _delegates )
-   {
-      [  proxy_ onRemoveFromMulticastDelegate: self ];
-   }
    [ _delegates removeAllObjects ];
 }
 
@@ -108,22 +51,20 @@
 {
    SEL selector_ = [ invocation_ selector ];
 
-   NSArray* delegates_ = _delegates ? [ [ NSArray alloc ] initWithArray: _delegates ] : nil;
-   for( JFFAssignProxyDelegate* proxy_ in delegates_ )
+   for( id delegate_ in _delegates.array )
    {
-      if ( [ proxy_ respondsToSelector: selector_ ] )
+      if ( [ delegate_ respondsToSelector: selector_ ] )
       {
-         [ invocation_ invokeWithTarget: proxy_ ];
+         [ invocation_ invokeWithTarget: delegate_ ];
       }
    }
-   [ delegates_ release ];
 }
 
 -(NSMethodSignature*)methodSignatureForSelector:( SEL )selector_
 {
-   for( JFFAssignProxyDelegate* proxy_ in _delegates )
+   for( id delegate_ in _delegates.array )
    {
-      NSMethodSignature* result_ = [ proxy_ methodSignatureForSelector: selector_ ];
+      NSMethodSignature* result_ = [ delegate_ methodSignatureForSelector: selector_ ];
       if( result_ )
          return result_;
    }
