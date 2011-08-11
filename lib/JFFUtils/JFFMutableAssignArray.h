@@ -2,7 +2,7 @@
 
 @interface JFFMutableAssignArray : NSObject
 
-@property ( nonatomic, retain ) NSArray* array;
+@property ( nonatomic, copy, readonly ) NSArray* array;
 
 -(void)addObject:( id )object_;
 -(BOOL)containsObject:( id )object_;
