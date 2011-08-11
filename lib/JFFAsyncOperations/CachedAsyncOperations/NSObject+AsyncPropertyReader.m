@@ -52,12 +52,12 @@
 static void clearDelegates( NSArray* delegates_ )
 {
    [ delegates_ each: ^( id obj_ )
-    {
-       JFFCallbacksBlocksHolder* callback_ = obj_;
-       callback_.didLoadDataBlock = nil;
-       callback_.onCancelBlock = nil;
-       callback_.onProgressBlock = nil;
-    } ];
+   {
+      JFFCallbacksBlocksHolder* callback_ = obj_;
+      callback_.didLoadDataBlock = nil;
+      callback_.onCancelBlock = nil;
+      callback_.onProgressBlock = nil;
+   } ];
 }
 
 static void clearDataForPropertyExtractor( JFFPropertyExtractor* property_extractor_ )
@@ -207,7 +207,9 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
    {
       [ NSThread assertMainThread ];
 
-      JFFPropertyExtractor* property_extractor_ = factory_( self_, property_path_ );
+      JFFPropertyExtractor* property_extractor_ = factory_();
+      property_extractor_.object = self_;
+      property_extractor_.propertyPath = property_path_;
 
       id result_ = property_extractor_.property;
       if ( result_ )
@@ -265,9 +267,9 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                               asyncOperation:( JFFAsyncOperation )async_operation_
                                       didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
-   JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( id object_, JFFPropertyPath* property_path_ )
+   JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
    {
-      return [ JFFPropertyExtractor propertyForObject: object_ propertyPath: property_path_ ];
+      return [ [ JFFPropertyExtractor new ] autorelease ];
    };
 
    return [ self privateAsyncOperationForPropertyWithPath: property_path_

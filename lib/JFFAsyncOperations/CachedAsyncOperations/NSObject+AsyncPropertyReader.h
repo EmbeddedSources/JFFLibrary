@@ -5,7 +5,7 @@
 @class JFFPropertyPath;
 @class JFFPropertyExtractor;
 
-typedef JFFPropertyExtractor* (^JFFPropertyExtractorFactoryBlock)( id object_, JFFPropertyPath* property_path_ );
+typedef JFFPropertyExtractor* (^JFFPropertyExtractorFactoryBlock)( void );
 
 @interface NSObject (AsyncPropertyReader)
 

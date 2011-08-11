@@ -9,9 +9,6 @@
 
 @interface JFFPropertyExtractor ()
 
-@property ( nonatomic, retain ) JFFPropertyPath* propertyPath;
-
-@property ( nonatomic, retain ) NSObject* object;
 @property ( nonatomic, retain ) JFFObjectRelatedPropertyData* objectPropertyData;
 
 @property ( nonatomic, assign, readonly ) SEL propertyGetSelector;
@@ -23,27 +20,6 @@
 
 @synthesize propertyPath = _property_path;
 @synthesize object = _object;
-
--(id)initWithObject:( NSObject* )object_
-       propertyPath:( JFFPropertyPath* )property_path_
-{
-   self = [ super init ];
-
-   if ( self )
-   {
-      self.propertyPath = property_path_;
-      self.object = object_;
-   }
-
-   return self;
-}
-
-+(id)propertyForObject:( NSObject* )object_
-          propertyPath:( JFFPropertyPath* )property_path_
-{
-   return [ [ [ self alloc ] initWithObject: object_
-                               propertyPath: property_path_ ] autorelease ];
-}
 
 -(void)dealloc
 {
