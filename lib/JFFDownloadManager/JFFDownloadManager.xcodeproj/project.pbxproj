@@ -1,0 +1,232 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D01375813E6F7C2009B596A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D01375713E6F7C2009B596A /* Foundation.framework */; };
+		8D01375E13E6F7C2009B596A /* JFFDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D01375D13E6F7C2009B596A /* JFFDownloadManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8D01375413E6F7C2009B596A /* libJFFDownloadManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFDownloadManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D01375713E6F7C2009B596A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8D01375B13E6F7C2009B596A /* JFFDownloadManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFDownloadManager-Prefix.pch"; sourceTree = "<group>"; };
+		8D01375C13E6F7C2009B596A /* JFFDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JFFDownloadManager.h; sourceTree = "<group>"; };
+		8D01375D13E6F7C2009B596A /* JFFDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFFDownloadManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D01375113E6F7C1009B596A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D01375813E6F7C2009B596A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D01374913E6F7C1009B596A = {
+			isa = PBXGroup;
+			children = (
+				8D01375913E6F7C2009B596A /* JFFDownloadManager */,
+				8D01375613E6F7C2009B596A /* Frameworks */,
+				8D01375513E6F7C2009B596A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D01375513E6F7C2009B596A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D01375413E6F7C2009B596A /* libJFFDownloadManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D01375613E6F7C2009B596A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D01375713E6F7C2009B596A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D01375913E6F7C2009B596A /* JFFDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D01375C13E6F7C2009B596A /* JFFDownloadManager.h */,
+				8D01375D13E6F7C2009B596A /* JFFDownloadManager.m */,
+				8D01375A13E6F7C2009B596A /* Supporting Files */,
+			);
+			path = JFFDownloadManager;
+			sourceTree = "<group>";
+		};
+		8D01375A13E6F7C2009B596A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D01375B13E6F7C2009B596A /* JFFDownloadManager-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8D01375213E6F7C1009B596A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D01375313E6F7C1009B596A /* JFFDownloadManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D01376113E6F7C2009B596A /* Build configuration list for PBXNativeTarget "JFFDownloadManager" */;
+			buildPhases = (
+				8D01375013E6F7C1009B596A /* Sources */,
+				8D01375113E6F7C1009B596A /* Frameworks */,
+				8D01375213E6F7C1009B596A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFFDownloadManager;
+			productName = JFFDownloadManager;
+			productReference = 8D01375413E6F7C2009B596A /* libJFFDownloadManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D01374B13E6F7C1009B596A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 8D01374E13E6F7C1009B596A /* Build configuration list for PBXProject "JFFDownloadManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8D01374913E6F7C1009B596A;
+			productRefGroup = 8D01375513E6F7C2009B596A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D01375313E6F7C1009B596A /* JFFDownloadManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D01375013E6F7C1009B596A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D01375E13E6F7C2009B596A /* JFFDownloadManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8D01375F13E6F7C2009B596A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8D01376013E6F7C2009B596A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D01376213E6F7C2009B596A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DSTROOT = /tmp/JFFDownloadManager.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JFFDownloadManager/JFFDownloadManager-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8D01376313E6F7C2009B596A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DSTROOT = /tmp/JFFDownloadManager.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JFFDownloadManager/JFFDownloadManager-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D01374E13E6F7C1009B596A /* Build configuration list for PBXProject "JFFDownloadManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D01375F13E6F7C2009B596A /* Debug */,
+				8D01376013E6F7C2009B596A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D01376113E6F7C2009B596A /* Build configuration list for PBXNativeTarget "JFFDownloadManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D01376213E6F7C2009B596A /* Debug */,
+				8D01376313E6F7C2009B596A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D01374B13E6F7C1009B596A /* Project object */;
+}

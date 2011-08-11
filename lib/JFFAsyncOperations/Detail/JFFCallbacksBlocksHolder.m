@@ -1,6 +1,6 @@
-#import "JFFCallbacksBlocks.h"
+#import "JFFCallbacksBlocksHolder.h"
 
-@implementation JFFCallbacksBlocks
+@implementation JFFCallbacksBlocksHolder
 
 @synthesize onProgressBlock = _on_progress_block;
 @synthesize onCancelBlock = _on_cancel_block;
@@ -22,9 +22,9 @@
    return self;
 }
 
-+(id)callbacksBlocksWithOnProgressBlock:( JFFAsyncOperationProgressHandler )on_progress_block_
-                          onCancelBlock:( JFFCancelAsyncOperationHandler )on_cancel_block_
-                       didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
++(id)callbacksBlocksHolderWithOnProgressBlock:( JFFAsyncOperationProgressHandler )on_progress_block_
+                                onCancelBlock:( JFFCancelAsyncOperationHandler )on_cancel_block_
+                             didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
 {
    return [ [ [ self alloc ] initWithOnProgressBlock: on_progress_block_
                                        onCancelBlock: on_cancel_block_

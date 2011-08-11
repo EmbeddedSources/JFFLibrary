@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JFFCallbacksBlocks : NSObject
+@interface JFFCallbacksBlocksHolder : NSObject
 {
 @private
    JFFAsyncOperationProgressHandler _on_progress_block;
@@ -14,8 +14,8 @@
 @property ( nonatomic, copy ) JFFCancelAsyncOperationHandler onCancelBlock;
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didLoadDataBlock;
 
-+(id)callbacksBlocksWithOnProgressBlock:( JFFAsyncOperationProgressHandler )on_progress_block_
-                          onCancelBlock:( JFFCancelAsyncOperationHandler )on_cancel_block_
-                       didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_;
++(id)callbacksBlocksHolderWithOnProgressBlock:( JFFAsyncOperationProgressHandler )on_progress_block_
+                                onCancelBlock:( JFFCancelAsyncOperationHandler )on_cancel_block_
+                             didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_;
 
 @end

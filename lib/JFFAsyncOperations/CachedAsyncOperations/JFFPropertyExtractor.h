@@ -14,8 +14,8 @@
    SEL _property_set_selector;
 }
 
-@property ( nonatomic, retain, readonly ) JFFPropertyPath* propertyPath;
-@property ( nonatomic, retain, readonly ) NSObject* object;
+@property ( nonatomic, retain ) JFFPropertyPath* propertyPath;
+@property ( nonatomic, retain ) NSObject* object;
 
 //object related data
 @property ( nonatomic, retain ) NSMutableArray* delegates;
@@ -24,9 +24,6 @@
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didFinishBlock;
 
 @property ( nonatomic, retain ) id property;
-
-+(id)propertyForObject:( NSObject* )object_
-          propertyPath:( JFFPropertyPath* )property_path_;
 
 -(void)clearData;
 
