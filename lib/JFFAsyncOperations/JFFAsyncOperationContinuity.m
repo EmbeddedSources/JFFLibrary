@@ -214,11 +214,8 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
          }
       } copy ] autorelease ];
        
-      JFFCancelAsyncOperation cancel1_ = first_loader_( progress_callback_, cancel_callback1_, result_block_ );
-      JFFCancelAsyncOperation cancel2_ = second_loader_( progress_callback_, cancel_callback2_, result_block_ );
-
-      cancel_holder1_.cancelBlock = cancel1_;
-      cancel_holder2_.cancelBlock = cancel2_;
+      cancel_holder1_.cancelBlock = first_loader_( progress_callback_, cancel_callback1_, result_block_ );
+      cancel_holder2_.cancelBlock = second_loader_( progress_callback_, cancel_callback2_, result_block_ );
        
       return [ [ ^( BOOL cancel_ )
       {

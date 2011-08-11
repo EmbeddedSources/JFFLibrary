@@ -7,10 +7,6 @@
 
 #import <JFFUtils/NSString/NSString+PropertyName.h>
 
-@implementation NSObject (JFFPropertyExtractorPrivate)
-
-@end
-
 @interface JFFPropertyExtractor ()
 
 @property ( nonatomic, retain ) JFFPropertyPath* propertyPath;

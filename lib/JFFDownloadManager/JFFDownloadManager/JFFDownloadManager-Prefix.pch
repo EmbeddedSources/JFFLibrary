@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'JFFDownloadManager' target in the 'JFFDownloadManager' project
+//
+
+#ifdef __OBJC__
+   #import <Foundation/Foundation.h>
+#endif

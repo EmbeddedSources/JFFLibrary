@@ -3,6 +3,9 @@
 #import <Foundation/Foundation.h>
 
 @class JFFPropertyPath;
+@class JFFPropertyExtractor;
+
+typedef JFFPropertyExtractor* (^JFFPropertyExtractorFactoryBlock)( id object_, JFFPropertyPath* property_path_ );
 
 @interface NSObject (AsyncPropertyReader)
 
@@ -17,6 +20,15 @@
                                        asyncOperation:( JFFAsyncOperation )async_operation_;
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
+                                       asyncOperation:( JFFAsyncOperation )async_operation_
+                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
+
+-(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
+                        propertyExtractorFactoryBlock:( JFFPropertyExtractorFactoryBlock )factory_
+                                       asyncOperation:( JFFAsyncOperation )async_operation_;
+
+-(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
+                        propertyExtractorFactoryBlock:( JFFPropertyExtractorFactoryBlock )factory_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
                                didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
 

@@ -25,6 +25,9 @@
 
 @property ( nonatomic, retain ) id property;
 
+-(id)initWithObject:( NSObject* )object_
+       propertyPath:( JFFPropertyPath* )property_path_;
+
 +(id)propertyForObject:( NSObject* )object_
           propertyPath:( JFFPropertyPath* )property_path_;
 
