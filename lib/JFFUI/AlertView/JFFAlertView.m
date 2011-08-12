@@ -169,7 +169,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
    [ self addAlertButtonWithIndex: alert_button_ ];
 }
 
--(void)addAlertButtonWithTitle:( NSString* )title_ ation:( JFFSimpleBlock )action_
+-(void)addAlertButtonWithTitle:( NSString* )title_ action:( JFFSimpleBlock )action_
 {
    [ self addAlertButton: [ JFFAlertButton alertButton: title_ action: action_ ] ];
 }

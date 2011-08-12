@@ -15,7 +15,7 @@
 //pass NSString(button title) or JFFAlertButton
 -(void)addAlertButton:( id )alert_button_;
 
--(void)addAlertButtonWithTitle:( NSString* )title_ ation:( JFFSimpleBlock )action_;
+-(void)addAlertButtonWithTitle:( NSString* )title_ action:( JFFSimpleBlock )action_;
 
 +(void)dismissAllAlertViews;
 
