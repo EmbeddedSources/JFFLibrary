@@ -72,6 +72,18 @@
    return nil;
 }
 
+-(NSUInteger)firstIndexOfObjectMatch:( PredicateBlock )predicate_
+{
+   NSUInteger result_ = 0;
+   for ( id object_ in self )
+   {
+      if ( predicate_( object_ ) )
+         return result_;
+      ++result_;
+   }
+   return NSNotFound;
+}
+
 -(void)transformWithArray:( NSArray* )other_
                 withBlock:( TransformBlock )block_
 {

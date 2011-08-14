@@ -71,7 +71,7 @@
 
 -(NSArray*)array
 {
-   return [ NSArray arrayWithArray: _mutable_array ];
+   return _mutable_array ? [ NSArray arrayWithArray: _mutable_array ] : nil;
 }
 
 -(void)addObject:( id )object_
@@ -83,23 +83,26 @@
 
 -(BOOL)containsObject:( id )object_
 {
-   JFFAutoRemoveAssignProxy* proxy_ = _mutable_array ? [ JFFAutoRemoveAssignProxy assignProxyWithTarget: object_ ] : nil;
-   return [ _mutable_array containsObject: proxy_ ];
+   return [ _mutable_array firstMatch: ^BOOL( id element_ )
+   {
+      JFFAutoRemoveAssignProxy* proxy_ = element_;
+      return proxy_.target == object_;
+   } ] != nil;
 }
 
 -(void)removeObject:( id )object_
 {
-   JFFAutoRemoveAssignProxy* proxy_ = _mutable_array ? [ JFFAutoRemoveAssignProxy assignProxyWithTarget: object_ ] : nil;
-
-   proxy_ = [ _mutable_array firstMatch: ^BOOL( id object_ )
+   NSUInteger index_ = [ _mutable_array firstIndexOfObjectMatch: ^BOOL( id element_ )
    {
-      return [ object_ isEqual: proxy_ ];
+      JFFAutoRemoveAssignProxy* proxy_ = element_;
+      return proxy_.target == object_;
    } ];
 
-   if ( proxy_ )
+   if ( index_ != NSNotFound )
    {
+      JFFAutoRemoveAssignProxy* proxy_ = [ _mutable_array objectAtIndex: index_ ];
       [  proxy_ onRemoveFromMutableAssignArray: self ];
-      [ _mutable_array removeObject: proxy_ ];
+      [ _mutable_array removeObjectAtIndex: index_ ];
    }
 }
 

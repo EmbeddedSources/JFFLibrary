@@ -4,6 +4,7 @@
 #import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
 
 #import <JFFUtils/NSString/NSString+Search.h>
+#import <JFFUtils/NSString/NSString+PathExtensions.h>
 
 #import <JFFUtils/UIView/UIView+AnimationWithBlocks.h>
 

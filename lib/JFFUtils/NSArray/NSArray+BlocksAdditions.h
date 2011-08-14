@@ -42,6 +42,8 @@ typedef void (^TransformBlock)( id first_object_, id second_object_ );
 //returning the first element for which the block returns a YES value 
 -(id)firstMatch:( PredicateBlock )predicate_;
 
+-(NSUInteger)firstIndexOfObjectMatch:( PredicateBlock )predicate_;
+
 //Invokes the block passing parallel in successive elements from self and other NSArray,
 -(void)transformWithArray:( NSArray* )other_
                 withBlock:( TransformBlock )block_;

@@ -12,4 +12,9 @@
    [ super dealloc ];
 }
 
+-(long long)expectedContentLength
+{
+   return [ [ _all_header_fields objectForKey: @"Content-Length" ] longLongValue ];
+}
+
 @end

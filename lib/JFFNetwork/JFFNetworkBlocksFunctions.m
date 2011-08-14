@@ -47,9 +47,6 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
 
       return [ [ ^void( BOOL canceled_ )
       {
-         connection_.didReceiveDataBlock = nil;
-         connection_.didFinishLoadingBlock = nil;
-
          if ( canceled_ )
             [ connection_ cancel ];
 

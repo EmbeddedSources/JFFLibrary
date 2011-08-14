@@ -39,6 +39,8 @@
 		8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
 		8D713C6D13F3F62B007268DF /* JFFMutableAssignArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713C6B13F3F62B007268DF /* JFFMutableAssignArray.h */; };
 		8D713C6E13F3F62B007268DF /* JFFMutableAssignArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713C6C13F3F62B007268DF /* JFFMutableAssignArray.m */; };
+		8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CC513F539A5007268DF /* NSString+PathExtensions.h */; };
+		8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CC613F539A5007268DF /* NSString+PathExtensions.m */; };
 		8DB67B1A13E97FCF0024EA6C /* JFFMulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */; };
 		8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */; };
 		8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */; };
@@ -80,6 +82,8 @@
 		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
 		8D713C6B13F3F62B007268DF /* JFFMutableAssignArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFMutableAssignArray.h; sourceTree = "<group>"; };
 		8D713C6C13F3F62B007268DF /* JFFMutableAssignArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignArray.m; sourceTree = "<group>"; };
+		8D713CC513F539A5007268DF /* NSString+PathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PathExtensions.h"; sourceTree = "<group>"; };
+		8D713CC613F539A5007268DF /* NSString+PathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PathExtensions.m"; sourceTree = "<group>"; };
 		8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFMulticastDelegate.h; sourceTree = "<group>"; };
 		8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMulticastDelegate.m; sourceTree = "<group>"; };
 		8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAssignProxy.h; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				651BE19C1391969A00DD6890 /* NSString+Search.m */,
 				65648B7C13923EC4001E163C /* NSString+PropertyName.h */,
 				65648B7D13923EC4001E163C /* NSString+PropertyName.m */,
+				8D713CC513F539A5007268DF /* NSString+PathExtensions.h */,
+				8D713CC613F539A5007268DF /* NSString+PathExtensions.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				8DB67B1A13E97FCF0024EA6C /* JFFMulticastDelegate.h in Headers */,
 				8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */,
 				8D713C6D13F3F62B007268DF /* JFFMutableAssignArray.h in Headers */,
+				8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +342,7 @@
 				8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */,
 				8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */,
 				8D713C6E13F3F62B007268DF /* JFFMutableAssignArray.m in Sources */,
+				8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

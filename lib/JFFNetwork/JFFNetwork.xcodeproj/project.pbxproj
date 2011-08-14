@@ -13,8 +13,20 @@
 		8D5AE6F513F3E8AF00EB6143 /* JFFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */; };
 		8D5AE6F913F3E93000EB6143 /* JFFURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */; };
 		8D5AE6FA13F3E93000EB6143 /* JFFURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */; };
+		8D713CB713F52FBA007268DF /* JFFDownloadItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CB513F52FBA007268DF /* JFFDownloadItem.h */; };
+		8D713CBA13F52FE2007268DF /* JFFDownloadItemDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CB913F52FE2007268DF /* JFFDownloadItemDelegate.h */; };
+		8D713CBE13F538D0007268DF /* NSMutableSet+DownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CBC13F538D0007268DF /* NSMutableSet+DownloadManager.h */; };
+		8D713CBF13F538D0007268DF /* NSMutableSet+DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CBD13F538D0007268DF /* NSMutableSet+DownloadManager.m */; };
+		8D713CCC13F53D78007268DF /* JFFFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CCA13F53D78007268DF /* JFFFileManager.h */; };
+		8D713CCD13F53D78007268DF /* JFFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CCB13F53D78007268DF /* JFFFileManager.m */; };
 		8DD5660013F3EC1100A4538D /* JFFNetworkBlocksFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD565FE13F3EC1100A4538D /* JFFNetworkBlocksFunctions.h */; };
 		8DD5660113F3EC1100A4538D /* JFFNetworkBlocksFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */; };
+		8DD71E9213F5492C004C90A9 /* JFFTrafficCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9013F5492C004C90A9 /* JFFTrafficCalculator.h */; };
+		8DD71E9313F5492C004C90A9 /* JFFTrafficCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9113F5492C004C90A9 /* JFFTrafficCalculator.m */; };
+		8DD71E9613F54948004C90A9 /* JFFTrafficCalculatorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9513F54948004C90A9 /* JFFTrafficCalculatorDelegate.h */; };
+		8DD71E9913F54AE7004C90A9 /* JFFDownloadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9813F54AE7004C90A9 /* JFFDownloadItem.m */; };
+		8DD71E9C13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9A13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h */; };
+		8DD71E9D13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9B13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +38,20 @@
 		8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFNetwork.h; sourceTree = "<group>"; };
 		8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFURLResponse.h; sourceTree = "<group>"; };
 		8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFURLResponse.m; sourceTree = "<group>"; };
+		8D713CB513F52FBA007268DF /* JFFDownloadItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFDownloadItem.h; sourceTree = "<group>"; };
+		8D713CB913F52FE2007268DF /* JFFDownloadItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFDownloadItemDelegate.h; sourceTree = "<group>"; };
+		8D713CBC13F538D0007268DF /* NSMutableSet+DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+DownloadManager.h"; sourceTree = "<group>"; };
+		8D713CBD13F538D0007268DF /* NSMutableSet+DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+DownloadManager.m"; sourceTree = "<group>"; };
+		8D713CCA13F53D78007268DF /* JFFFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFFileManager.h; sourceTree = "<group>"; };
+		8D713CCB13F53D78007268DF /* JFFFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFFileManager.m; sourceTree = "<group>"; };
 		8DD565FE13F3EC1100A4538D /* JFFNetworkBlocksFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFNetworkBlocksFunctions.h; sourceTree = "<group>"; };
 		8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFNetworkBlocksFunctions.m; sourceTree = "<group>"; };
+		8DD71E9013F5492C004C90A9 /* JFFTrafficCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFTrafficCalculator.h; sourceTree = "<group>"; };
+		8DD71E9113F5492C004C90A9 /* JFFTrafficCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFTrafficCalculator.m; sourceTree = "<group>"; };
+		8DD71E9513F54948004C90A9 /* JFFTrafficCalculatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFTrafficCalculatorDelegate.h; sourceTree = "<group>"; };
+		8DD71E9813F54AE7004C90A9 /* JFFDownloadItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFFDownloadItem.m; path = DownloadManager/JFFDownloadItem.m; sourceTree = SOURCE_ROOT; };
+		8DD71E9A13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DownloadingFileInfo.h"; sourceTree = "<group>"; };
+		8DD71E9B13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+DownloadingFileInfo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +104,7 @@
 		8D5AE6EF13F3E7EE00EB6143 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8D713CB413F52FBA007268DF /* DownloadManager */,
 				8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */,
 				8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */,
 				8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */,
@@ -89,6 +114,33 @@
 				8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		8D713CB413F52FBA007268DF /* DownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D713CBB13F538AB007268DF /* Detail */,
+				8D713CB513F52FBA007268DF /* JFFDownloadItem.h */,
+				8DD71E9813F54AE7004C90A9 /* JFFDownloadItem.m */,
+				8D713CB913F52FE2007268DF /* JFFDownloadItemDelegate.h */,
+			);
+			path = DownloadManager;
+			sourceTree = "<group>";
+		};
+		8D713CBB13F538AB007268DF /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8D713CCA13F53D78007268DF /* JFFFileManager.h */,
+				8D713CCB13F53D78007268DF /* JFFFileManager.m */,
+				8D713CBC13F538D0007268DF /* NSMutableSet+DownloadManager.h */,
+				8D713CBD13F538D0007268DF /* NSMutableSet+DownloadManager.m */,
+				8DD71E9013F5492C004C90A9 /* JFFTrafficCalculator.h */,
+				8DD71E9113F5492C004C90A9 /* JFFTrafficCalculator.m */,
+				8DD71E9513F54948004C90A9 /* JFFTrafficCalculatorDelegate.h */,
+				8DD71E9A13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h */,
+				8DD71E9B13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +154,13 @@
 				8D5AE6F513F3E8AF00EB6143 /* JFFNetwork.h in Headers */,
 				8D5AE6F913F3E93000EB6143 /* JFFURLResponse.h in Headers */,
 				8DD5660013F3EC1100A4538D /* JFFNetworkBlocksFunctions.h in Headers */,
+				8D713CB713F52FBA007268DF /* JFFDownloadItem.h in Headers */,
+				8D713CBA13F52FE2007268DF /* JFFDownloadItemDelegate.h in Headers */,
+				8D713CBE13F538D0007268DF /* NSMutableSet+DownloadManager.h in Headers */,
+				8D713CCC13F53D78007268DF /* JFFFileManager.h in Headers */,
+				8DD71E9213F5492C004C90A9 /* JFFTrafficCalculator.h in Headers */,
+				8DD71E9613F54948004C90A9 /* JFFTrafficCalculatorDelegate.h in Headers */,
+				8DD71E9C13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +217,11 @@
 				8D5AE6F313F3E80B00EB6143 /* JFFURLConnection.m in Sources */,
 				8D5AE6FA13F3E93000EB6143 /* JFFURLResponse.m in Sources */,
 				8DD5660113F3EC1100A4538D /* JFFNetworkBlocksFunctions.m in Sources */,
+				8D713CBF13F538D0007268DF /* NSMutableSet+DownloadManager.m in Sources */,
+				8D713CCD13F53D78007268DF /* JFFFileManager.m in Sources */,
+				8DD71E9313F5492C004C90A9 /* JFFTrafficCalculator.m in Sources */,
+				8DD71E9913F54AE7004C90A9 /* JFFDownloadItem.m in Sources */,
+				8DD71E9D13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
