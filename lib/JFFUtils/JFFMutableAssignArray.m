@@ -27,7 +27,7 @@
 {
    __block JFFMutableAssignArray* assign_array_ = array_;
    __block JFFAutoRemoveAssignProxy* self_ = self;
-   self.onDeallocBlock = ^( void )
+   self.onDeallocBlock = ^void( void )
    {
       [ assign_array_ removeObject: self_.target ];
    };

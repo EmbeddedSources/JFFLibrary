@@ -1,3 +1,3 @@
 #import "JFFAsyncOperationsBlockDefinitions.h"
 
-JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock = ^( BOOL cancel_ ){ /*do nothing*/ };
+JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock = ^void( BOOL cancel_ ){ /*do nothing*/ };

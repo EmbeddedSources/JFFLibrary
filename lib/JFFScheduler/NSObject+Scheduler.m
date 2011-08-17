@@ -23,7 +23,7 @@
 
    __block id self_ = self;
 
-   JFFScheduledBlock block_ = ^( JFFCancelScheduledBlock cancel_ )
+   JFFScheduledBlock block_ = ^void( JFFCancelScheduledBlock cancel_ )
    {
       if ( !repeats_ )
       {

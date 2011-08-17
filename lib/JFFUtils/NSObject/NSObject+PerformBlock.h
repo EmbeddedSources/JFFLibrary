@@ -6,8 +6,11 @@
 //Invokes self-block
 -(void)performBlock;
 
-//Invokes self-block on the current thread.
+//Invokes self-block on the main thread.
 -(void)performBlockOnMainThread;
+
+//Invokes self-block on the current thread.
+-(void)performBlockOnCurrentThread;
 
 //Invokes self-block on the current thread using the default mode after a delay.
 -(void)performBlockAfterDelay:( NSTimeInterval )delay_;

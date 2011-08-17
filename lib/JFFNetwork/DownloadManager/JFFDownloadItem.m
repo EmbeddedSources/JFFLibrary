@@ -13,6 +13,7 @@
 #import <JFFUtils/JFFMutableAssignArray.h>
 #import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
 #import <JFFUtils/JFFMulticastDelegate.h>
+#import <JFFUtils/JFFError.h>
 
 #import <JFFAsyncOperations/CachedAsyncOperations/NSObject+AsyncPropertyReader.h>
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
@@ -138,10 +139,29 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
    return ( self.fileLength == NSURLResponseUnknownLength ) ? 0.f : (float) self.downloadedFileLength / self.fileLength;
 }
 
++(BOOL)checkNotAlreadyUsedLocalPath:( NSString* )local_file_path_
+                                url:( NSURL* )url_
+                              error:( NSError** )error_
+{
+   BOOL result_ = [ download_items_.array firstMatch: ^BOOL( id object_ )
+   {
+      JFFDownloadItem* item_ = object_;
+      return ![ item_.url isEqual: url_ ]
+         && [ item_.localFilePath isEqualToString: local_file_path_ ];
+   } ] == nil;
+
+   if ( !result_ && error_ )
+      *error_ = [ JFFError errorWithDescription: @"Invalid arguments. This \"local path\" used for another url" ];
+
+   return result_;
+}
+
 +(id)downloadItemWithURL:( NSURL* )url_
            localFilePath:( NSString* )local_file_path_
+                   error:( NSError** )error_
 {
-   //TODO test that is local_file_path_ is not alredy busy
+   if ( ![ self checkNotAlreadyUsedLocalPath: local_file_path_ url: url_ error: error_ ] )
+      return nil;
 
    id result_ = [ download_items_.array firstMatch: ^BOOL( id object_ )
    {
@@ -196,12 +216,15 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
    [ NSMutableSet removeDownloadedFileWithPath: self.localFilePath ];
 }
 
-+(void)removeDownloadForURL:( NSURL* )url_ localFilePath:( NSString* )local_file_path_
++(BOOL)removeDownloadForURL:( NSURL* )url_
+              localFilePath:( NSString* )local_file_path_
+                      error:( NSError** )error_
 {
    @autoreleasepool
    {
-      JFFDownloadItem* item_ = [ self downloadItemWithURL: url_ localFilePath: local_file_path_ ];
+      JFFDownloadItem* item_ = [ self downloadItemWithURL: url_ localFilePath: local_file_path_ error: error_ ];
       [ item_ removeDownload ];
+      return item_ != nil;
    }
 }
 
@@ -338,6 +361,7 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
       return self.stopBlock;
    };
 
+   //???
    return [ self asyncOperationForPropertyWithName: @"downloadedFlag" asyncOperation: loader_ ];
 }
 

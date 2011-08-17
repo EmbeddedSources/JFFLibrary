@@ -87,11 +87,6 @@ static float average_speed_duration_ = 3.f;
    }
 }
 
--(void)finishLoading
-{
-   [ self stopScheduling ];
-}
-
 -(void)removeOldItemsFromDownloadingSpeedInfo
 {
    ESDownloadedBytesPerDate* last_item_ = [ self.downloadingSpeedInfo lastObject ];
@@ -137,16 +132,6 @@ static float average_speed_duration_ = 3.f;
    [ self calculateDownloadSpeed ];
 }
 
--(void)failLoading
-{
-   [ self stop ];
-}
-
--(void)cancelDownloading
-{
-   [ self stop ];
-}
-
 -(void)bytesReceived:( NSUInteger )bytes_count_
 {
    ESDownloadedBytesPerDate* item_ = [ [ [ ESDownloadedBytesPerDate alloc ] initWithBytesCount: bytes_count_ ] autorelease ];
@@ -160,7 +145,7 @@ static float average_speed_duration_ = 3.f;
    [ self stopScheduling ];
 
    __block JFFTrafficCalculator* self_ = self;
-   JFFScheduledBlock block_ = ^( JFFCancelScheduledBlock cancel_ ) { [ self_ calculateDownloadSpeed ]; };
+   JFFScheduledBlock block_ = ^void( JFFCancelScheduledBlock cancel_ ) { [ self_ calculateDownloadSpeed ]; };
    self.cancelCalculateSpeedBlock = [ [ JFFScheduler sharedScheduler ] addBlock: block_ duration: calculate_speed_interval_ ];
    
 }

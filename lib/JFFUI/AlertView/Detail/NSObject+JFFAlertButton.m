@@ -16,7 +16,7 @@
 
 -(JFFAlertButton*)toAlertButton
 {
-   return [ JFFAlertButton alertButton: self action: (JFFSimpleBlock)^(){} ];
+   return [ JFFAlertButton alertButton: self action: ^void( void ){} ];
 }
 
 @end

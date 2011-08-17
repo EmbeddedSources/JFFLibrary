@@ -17,6 +17,16 @@
    [ self performSelectorOnMainThread: @selector( performBlock ) withObject: nil waitUntilDone: NO ];
 }
 
+-(void)performBlockOnCurrentThread
+{
+   self = [ [ self copy ] autorelease ];
+   [ self performSelector: @selector( performBlock )
+                 onThread: [ NSThread currentThread ]
+               withObject: nil
+            waitUntilDone: NO
+                    modes: nil ];
+}
+
 -(void)performBlockAfterDelay:( NSTimeInterval )delay_
 {
    self = [ [ self copy ] autorelease ];

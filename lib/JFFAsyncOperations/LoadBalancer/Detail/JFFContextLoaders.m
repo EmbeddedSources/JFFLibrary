@@ -68,10 +68,10 @@
 
 -(JFFActiveLoaderData*)activeLoaderDataForNativeLoader:( JFFAsyncOperation )native_loader_
 {
-   return [ self.activeLoadersData firstMatch: ^( id object_ )
+   return [ self.activeLoadersData firstMatch: ^BOOL( id object_ )
    {
       JFFActiveLoaderData* loader_data_ = object_;
-      return (BOOL)( loader_data_.nativeLoader == native_loader_ );
+      return loader_data_.nativeLoader == native_loader_;
    } ];
 }
 
@@ -130,10 +130,10 @@
 
 -(JFFPedingLoaderData*)pendingLoaderDataForNativeLoader:( JFFAsyncOperation )native_loader_
 {
-   return [ self.pendingLoadersData firstMatch: ^( id object_ )
+   return [ self.pendingLoadersData firstMatch: ^BOOL( id object_ )
    {
       JFFPedingLoaderData* loader_data_ = object_;
-      return (BOOL)( loader_data_.nativeLoader == native_loader_ );
+      return loader_data_.nativeLoader == native_loader_;
    } ];
 }
 

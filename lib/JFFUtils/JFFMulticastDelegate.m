@@ -2,6 +2,8 @@
 
 #import "JFFMutableAssignArray.h"
 
+#import "NSObject+PerformBlock.h"
+
 @interface JFFMulticastDelegate ()
 
 @property ( nonatomic, retain ) JFFMutableAssignArray* delegates;

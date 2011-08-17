@@ -66,7 +66,7 @@ JFFAsyncOperation dataURLResponseLoader( NSURL* url_
       JFFAsyncOperation loader_ = chunkedURLResponseLoader( url_, post_data_, headers_ );
 
       NSMutableData* response_data_ = [ NSMutableData data ];
-      progress_callback_ = ^( id progress_info_ )
+      JFFAsyncOperationProgressHandler data_progress_callback_ = ^void( id progress_info_ )
       {
          [ response_data_ appendData: progress_info_ ];
       };
@@ -74,12 +74,12 @@ JFFAsyncOperation dataURLResponseLoader( NSURL* url_
       if ( done_callback_ )
       {
          done_callback_ = [ [ done_callback_ copy ] autorelease ];
-         done_callback_ = ^( id result_, NSError* error_ )
+         done_callback_ = ^void( id result_, NSError* error_ )
          {
             done_callback_( result_ ? response_data_ : nil, error_ );
          };
       }
 
-      return loader_( progress_callback_, cancel_callback_, done_callback_ );
+      return loader_( data_progress_callback_, cancel_callback_, done_callback_ );
    } copy ] autorelease ];
 }

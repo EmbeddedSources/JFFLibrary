@@ -13,8 +13,7 @@ typedef id (^JFFSyncOperationWithProgress)( NSError** error_
 
 typedef void (^JFFDidFinishAsyncOperationHandler)( id result_, NSError* error_ );
 
-//typedef void (^JFFCancelAsyncOperation)( BOOL unsubscribe_if_no_ );
-typedef void (^JFFCancelAsyncOperation)( BOOL cancel_ );
+typedef void (^JFFCancelAsyncOperation)( BOOL unsubscribe_only_if_no_ );
 
 typedef JFFCancelAsyncOperation JFFCancelAsyncOperationHandler;
 

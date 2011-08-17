@@ -15,9 +15,6 @@ typedef void (^RICancelCalculateSpeed) ( void );
 
 -(id)initWithDelegate:( id< JFFTrafficCalculatorDelegate > )delegate_;
 
--(void)cancelDownloading;//TODO remove
--(void)finishLoading;//TODO remove
--(void)failLoading;//TODO remove
 -(void)startLoading;
 
 -(void)stop;

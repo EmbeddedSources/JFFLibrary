@@ -4,7 +4,7 @@
 
 -(void)each:( ActionBlock )block_
 {
-   [ self enumerateObjectsUsingBlock: ^( id obj_, NSUInteger idx_, BOOL* stop_ )
+   [ self enumerateObjectsUsingBlock: ^void( id obj_, NSUInteger idx_, BOOL* stop_ )
    {
       block_( obj_ );
    } ];
@@ -12,7 +12,7 @@
 
 -(NSArray*)select:( PredicateBlock )predicate_
 {
-   return [ self objectsAtIndexes: [ self indexesOfObjectsPassingTest: ^( id obj_, NSUInteger idx_, BOOL* stop_ ) 
+   return [ self objectsAtIndexes: [ self indexesOfObjectsPassingTest: ^BOOL( id obj_, NSUInteger idx_, BOOL* stop_ ) 
    {
       return predicate_( obj_ );
    } ] ];
@@ -22,7 +22,7 @@
 {
    NSMutableArray* result_ = [ NSMutableArray arrayWithCapacity: [ self count ] ];
 
-   [ self each: ^( id object_ ) { [ result_ addObject: block_( object_ ) ]; } ];
+   [ self each: ^void( id object_ ) { [ result_ addObject: block_( object_ ) ]; } ];
 
    return [ NSArray arrayWithArray: result_ ];
 }
@@ -31,7 +31,7 @@
 {
    NSMutableArray* result_ = [ NSMutableArray array ];
 
-   [ self each: ^( id object_ ) 
+   [ self each: ^void( id object_ ) 
    {
       NSArray* object_items_ = block_( object_ );
       [ result_ addObjectsFromArray: object_items_ ]; 
@@ -57,7 +57,7 @@
 {
    __block NSUInteger count_ = 0;
 
-   [ self each: ^( id object_ ) { if ( predicate_( object_ ) ) ++count_; } ];
+   [ self each: ^void( id object_ ) { if ( predicate_( object_ ) ) ++count_; } ];
 
    return count_;
 }

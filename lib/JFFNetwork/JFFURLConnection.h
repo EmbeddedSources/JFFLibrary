@@ -23,7 +23,7 @@ typedef void (^ESDidReceiveDataHandler)( NSData* data_ );
    ESDidFinishLoadingHandler _did_finish_loading_block;
 }
 
-//callbacks cleared after receiving response 
+//callbacks cleared after finish of loading
 @property ( nonatomic, copy ) ESDidReceiveResponseHandler didReceiveResponseBlock;
 @property ( nonatomic, copy ) ESDidReceiveDataHandler didReceiveDataBlock;
 @property ( nonatomic, copy ) ESDidFinishLoadingHandler didFinishLoadingBlock;

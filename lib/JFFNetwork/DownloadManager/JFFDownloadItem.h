@@ -20,9 +20,12 @@ extern long long JFFUnknownFileLength;
 
 //can return existing download item
 +(id)downloadItemWithURL:( NSURL* )url_
-           localFilePath:( NSString* )local_file_path_;
+           localFilePath:( NSString* )local_file_path_
+                   error:( NSError** )error_;
 
-+(void)removeDownloadForURL:( NSURL* )url_ localFilePath:( NSString* )local_file_path_;
++(BOOL)removeDownloadForURL:( NSURL* )url_
+              localFilePath:( NSString* )local_file_path_
+                      error:( NSError** )error_;
 
 -(void)start;
 -(void)stop;

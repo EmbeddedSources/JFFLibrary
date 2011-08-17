@@ -133,7 +133,7 @@ static JFFCancelAsyncOperationHandler cancelCallbackWrapper( JFFCancelAsyncOpera
                                                             , JFFContextLoaders* context_loaders_ )
 {
    native_cancel_callback_ = [ [ native_cancel_callback_ copy ] autorelease ];
-   return [ [ ^( BOOL canceled_ )
+   return [ [ ^void( BOOL canceled_ )
    {
       if ( !canceled_ )
       {
@@ -161,7 +161,7 @@ static JFFDidFinishAsyncOperationHandler doneCallbackWrapper( JFFDidFinishAsyncO
                                                              , JFFContextLoaders* context_loaders_ )
 {
    native_done_callback_ = [ [ native_done_callback_ copy ] autorelease ];
-   return [ [ ^( id result_, NSError* error_ )
+   return [ [ ^void( id result_, NSError* error_ )
    {
       [ [ native_done_callback_ copy ] autorelease ];
 
@@ -183,14 +183,14 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
                                                           , JFFContextLoaders* context_loaders_ )
 {
    native_loader_ = [ [ native_loader_ copy ] autorelease ];
-   return [ [ ^( JFFAsyncOperationProgressHandler native_progress_callback_
-                , JFFCancelAsyncOperationHandler native_cancel_callback_
-                , JFFDidFinishAsyncOperationHandler native_done_callback_ )
+   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler native_progress_callback_
+                                       , JFFCancelAsyncOperationHandler native_cancel_callback_
+                                       , JFFDidFinishAsyncOperationHandler native_done_callback_ )
    {
       //progress holder for unsubscribe
       JFFAsyncOperationProgressBlockHolder* progress_block_holder_ = [ JFFAsyncOperationProgressBlockHolder asyncOperationProgressBlockHolder ];
       progress_block_holder_.progressBlock = native_progress_callback_;
-      JFFAsyncOperationProgressHandler wrapped_progress_callback_ = ^( id progress_info_ )
+      JFFAsyncOperationProgressHandler wrapped_progress_callback_ = ^void( id progress_info_ )
       {
          peformBlockWithinContext( ^
          {
@@ -203,7 +203,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
       //cancel holder for unsubscribe
       JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
       cancel_callback_block_holder_.cancelBlock = native_cancel_callback_;
-      JFFCancelAsyncOperation wrapped_cancel_callback_ = ^( BOOL canceled_ )
+      JFFCancelAsyncOperation wrapped_cancel_callback_ = ^void( BOOL canceled_ )
       {
          done_ = YES;
          [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
@@ -212,7 +212,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
       //finish holder for unsubscribe
       JFFDidFinishAsyncOperationBlockHolder* finish_block_holder_ = [ JFFDidFinishAsyncOperationBlockHolder didFinishAyncOperationBlockHolder ];
       finish_block_holder_.didFinishBlock = native_done_callback_;
-      JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = ^( id result_, NSError* error_ )
+      JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = ^void( id result_, NSError* error_ )
       {
          done_ = YES;
          [ finish_block_holder_ performDidFinishBlockOnceWithResult: result_ error: error_ ];
@@ -238,7 +238,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
       ++global_active_number_;
 
-      JFFCancelAsyncOperation wrapped_cancel_block_ = [ [ ^( BOOL canceled_ )
+      JFFCancelAsyncOperation wrapped_cancel_block_ = [ [ ^void( BOOL canceled_ )
       {
          if ( canceled_ )
          {
@@ -275,9 +275,9 @@ JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
    JFFContextLoaders* context_loaders_ = [ sharedBalancer() currentContextLoaders ];
 
    native_loader_ = [ [ native_loader_ copy ] autorelease ];
-   return [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
-                , JFFCancelAsyncOperationHandler cancel_callback_
-                , JFFDidFinishAsyncOperationHandler done_callback_ )
+   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                       , JFFCancelAsyncOperationHandler cancel_callback_
+                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       if ( canPeformAsyncOperationForContext( context_loaders_ ) )
       {
@@ -293,7 +293,7 @@ JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
 
       logBalancerState();
 
-      JFFCancelAsyncOperation cancel_ = [ [ ^( BOOL canceled_ )
+      JFFCancelAsyncOperation cancel_ = [ [ ^void( BOOL canceled_ )
       {
          if ( ![ context_loaders_ containsPendingNativeLoader: native_loader_ ] )
          {
