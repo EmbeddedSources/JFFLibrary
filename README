@@ -4,7 +4,8 @@ Collection of IOS libraries which contains:
 JFFLibrary - library which include and build all projects from lib directory.
 
 JFFAsyncOperations - used for managing of asynchronous operations
-JFFScheduler - some useful API for creation of scheduled jobs
+JFFNetwork - contains "asynchronous interface" functions for working with network
+JFFScheduler - some useful API for creation scheduled jobs
 JFFUI - contains UI components and extensions
 JFFUtils - collection of useful NS classes extensions and some light classes
 
