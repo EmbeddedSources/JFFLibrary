@@ -90,7 +90,7 @@
 		8D3084B013C44FD1002B3F35 /* JFFAsyncOperationsBlockDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationsBlockDefinitions.m; sourceTree = "<group>"; };
 		8D61CD2A13F2BC8A0003AC4A /* JFFObjectRelatedPropertyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFObjectRelatedPropertyData.h; sourceTree = "<group>"; };
 		8D61CD2B13F2BC8A0003AC4A /* JFFObjectRelatedPropertyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFObjectRelatedPropertyData.m; sourceTree = "<group>"; };
-		8D61CD2F13F2BCE40003AC4A /* NSObject+PropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "NSObject+PropertyExtractor.h"; sourceTree = "<group>"; };
+		8D61CD2F13F2BCE40003AC4A /* NSObject+PropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyExtractor.h"; sourceTree = "<group>"; };
 		8D61CD3013F2BCE40003AC4A /* NSObject+PropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyExtractor.m"; sourceTree = "<group>"; };
 		8D9827F713F2B9D5009DD73B /* JFFPropertyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyPath.h; sourceTree = "<group>"; };
 		8D9827F813F2B9D5009DD73B /* JFFPropertyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPropertyPath.m; sourceTree = "<group>"; };

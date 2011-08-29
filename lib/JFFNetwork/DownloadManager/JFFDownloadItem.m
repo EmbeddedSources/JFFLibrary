@@ -10,6 +10,7 @@
 #import "JFFTrafficCalculatorDelegate.h"
 #import "NSMutableDictionary+DownloadingFileInfo.h"
 
+#import <JFFLibrary/JFFCompatibility.h>
 #import <JFFUtils/JFFMutableAssignArray.h>
 #import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
 #import <JFFUtils/JFFMulticastDelegate.h>
@@ -219,13 +220,16 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
 +(BOOL)removeDownloadForURL:( NSURL* )url_
               localFilePath:( NSString* )local_file_path_
                       error:( NSError** )error_
-{
-   @autoreleasepool
+{ //http://cocoawithlove.com/2010/07/tips-tricks-for-conditional-ios3-ios32.html
+   AUTORELEASE_POOL_BEGIN
    {
       JFFDownloadItem* item_ = [ self downloadItemWithURL: url_ localFilePath: local_file_path_ error: error_ ];
       [ item_ removeDownload ];
       return item_ != nil;
    }
+   AUTORELEASE_POOL_END
+   
+   return NO;
 }
 
 -(void)addDelegate:( id< JFFDownloadItemDelegate > )delegate_
@@ -321,25 +325,25 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
                                                                    headers: headers_ ];
 
       progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
-      connection_.didReceiveDataBlock = ^void( NSData* data_ )
+      connection_.didReceiveDataBlock = ^( NSData* data_ )
       {
          [ self didReceiveData: data_ progressHandler: progress_callback_ ];
       };
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
-      connection_.didFinishLoadingBlock = ^void( NSError* error_ )
+      connection_.didFinishLoadingBlock = ^( NSError* error_ )
       {
          [ self didFinishLoadedWithError: error_ doneCallback: done_callback_ ];
       };
 
-      connection_.didReceiveResponseBlock = ^void( JFFURLResponse* response_ )
+      connection_.didReceiveResponseBlock = ^( JFFURLResponse* response_ )
       {
          [ self didReceiveResponse: response_ ];
       };
 
       JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
       cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
-      cancel_callback_ = ^void( BOOL canceled_ )
+      cancel_callback_ = ^( BOOL canceled_ )
       {
          [ self didCancelWithFlag: canceled_ cancelCallback: cancel_callback_ ];
       };
