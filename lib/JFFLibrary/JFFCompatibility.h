@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-#ifdef __IPHONE_5_0 //__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_4_0
+#if defined( __IPHONE_5_0 ) && ( __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0 )
     #define AUTORELEASE_POOL_BEGIN @autoreleasepool
     #define AUTORELEASE_POOL_END
 #else
