@@ -20,7 +20,7 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
                                                                    headers: headers_ ];
 
       progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
-      connection_.didReceiveDataBlock = ^void( NSData* data_ )
+      connection_.didReceiveDataBlock = ^( NSData* data_ )
       {
          if ( progress_callback_ )
             progress_callback_( data_ );
@@ -29,13 +29,13 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
       JFFResultContext* result_context_ = [ JFFResultContext resultContext ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
-      connection_.didFinishLoadingBlock = ^void( NSError* error_ )
+      connection_.didFinishLoadingBlock = ^( NSError* error_ )
       {
          if ( done_callback_ )
             done_callback_( error_ ? nil : result_context_.result, error_ );
       };
 
-      connection_.didReceiveResponseBlock = ^void( JFFURLResponse* response_ )
+      connection_.didReceiveResponseBlock = ^( JFFURLResponse* response_ )
       {
          result_context_.result = response_;
       };
