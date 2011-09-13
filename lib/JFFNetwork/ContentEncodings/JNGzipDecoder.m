@@ -1,53 +1,94 @@
 #import "JNGzipDecoder.h"
 
+#import "JNGzipErrorsLogger.h"
+#import "JNGzipCustomErrors.h"
+#import "JNConstants.h"
+
+NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
 
 @implementation JNGzipDecoder
 
-static const NSUInteger max_buffer_size_ = 4096;
-
--(NSString*)zipErrorFromCode:(int)error_code_
+//http://www.cocoadev.com/index.pl?NSDataCategory
+-(NSData*)decodeData:( NSData*   )encoded_data_
+               error:( NSError** )error_
 {
-   NSArray* zip_errors_ = [ NSArray arrayWithObjects: 
-                             @"Z_VERSION_ERROR"
-                           , @"Z_BUF_ERROR"                              
-                           , @"Z_MEM_ERROR"                             
-                           , @"Z_DATA_ERROR"
-                           , @"Z_STREAM_ERROR"                           
-                           , @"Z_ERRNO"
-                           , nil ];
+   NSAssert( error_, @"[!!! ERROR !!!] : JNGzipDecoder -- NULL errors are not acceptible" );
+   *error_ = nil;
 
-   NSUInteger error_index_     = error_code_ + abs( Z_VERSION_ERROR );
-   NSUInteger max_error_index_ = Z_ERRNO     + abs( Z_VERSION_ERROR );
-   
-   if ( error_index_ > max_error_index_ )
+
+   if ( 0 == [ encoded_data_ length ] ) 
    {
-      return @"Z_UnknownError";
+      return encoded_data_;
    }
-
-   return [ zip_errors_ objectAtIndex: error_index_ ];
-}
-
--(NSData*)decodeData:( NSData* )encoded_data_
-{
-   Bytef decoded_buffer_[ 4096 ] = {0};
-   uLongf decoded_size_ = max_buffer_size_;
-   
-   int uncompress_result_ = uncompress( decoded_buffer_    , &decoded_size_        ,
-                                        encoded_data_.bytes,  encoded_data_.length );
-   
-   if ( Z_OK != uncompress_result_ )
+	
+	unsigned full_length_ = [encoded_data_ length];
+	unsigned half_length_ = [encoded_data_ length] / 2;
+	
+	NSMutableData* decompressed_ = [ NSMutableData dataWithLength: full_length_ + half_length_ ];
+	BOOL done_   = NO;
+	int  status_ = 0 ;
+	
+	z_stream strm;
+	strm.next_in   = (Bytef *)[ encoded_data_ bytes ];
+	strm.avail_in  = [ encoded_data_ length ];
+	strm.total_out = 0;
+	strm.zalloc    = Z_NULL;
+	strm.zfree     = Z_NULL;
+	
+   //!! dodikk -- WTF Magic
+	if ( inflateInit2( &strm, (15+32) ) != Z_OK ) 
    {
-      NSLog( @"[!!! WARNING !!!] JNGzipDecoder -- unzip action has failed.\n Zip error code -- %d\n Zip error -- %@"
-             , uncompress_result_
-             , [ self zipErrorFromCode: uncompress_result_ ] );
-
+      NSLog( @"[!!! ERROR !!!] : JNGzipDecoder -- inflateInit2 failed" );
+      
+      *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN
+                                     code: JNGzipInitFailed
+                                 userInfo: nil ];
       return nil;
    }
-   
-   NSData* result_ = [ NSData dataWithBytes: decoded_buffer_
-                                     length: decoded_size_ ];
-   
-   return result_;
+	while (!done_)
+	{
+		// Make sure we have enough room and reset the lengths.
+		if (strm.total_out >= [decompressed_ length])
+      {
+			[decompressed_ increaseLengthBy: half_length_];
+      }
+		strm.next_out = [decompressed_ mutableBytes] + strm.total_out;
+		strm.avail_out = [decompressed_ length] - strm.total_out;
+		
+		// Inflate another chunk.
+		status_ = inflate (&strm, Z_SYNC_FLUSH);
+		if (status_ == Z_STREAM_END) 
+      {
+         done_ = YES;
+      }
+		else if (status_ != Z_OK)
+      {
+         break;
+      }
+	}
+	if (inflateEnd (&strm) != Z_OK) 
+   {
+      return nil;
+   }
+	
+	// Set real length.
+	if (done_)
+	{
+		[decompressed_ setLength: strm.total_out];
+		return [NSData dataWithData: decompressed_];
+	}
+	else 
+   {
+      NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unzip action has failed.\n Zip error code -- %d\n Zip error -- %@"
+            , status_
+            , [ JNGzipErrorsLogger zipErrorFromCode: status_ ] );
+      
+      *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN
+                                     code: status_
+                                 userInfo: nil ];
+      
+      return nil;
+   }
 }
 
 @end

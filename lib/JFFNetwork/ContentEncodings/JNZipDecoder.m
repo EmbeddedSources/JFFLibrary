@@ -1,0 +1,44 @@
+#import "JNZipDecoder.h"
+
+#import "JNConstants.h"
+#import "JNGzipErrorsLogger.h"
+
+@implementation JNZipDecoder
+
+
+-(NSData*)decodeData:( NSData*   )encoded_data_
+               error:( NSError** )error_
+{
+   NSAssert( error_, @"[!!! ERROR !!!] : JNZipDecoder -- NULL errors are not acceptible" );
+   *error_ = nil;
+   if ( nil == encoded_data_ )
+   {
+      return nil;
+   }
+   
+   Bytef decoded_buffer_[ MAX_BUFFER_SIZE ] = {0};
+   uLongf decoded_size_ = MAX_BUFFER_SIZE;
+   
+   int uncompress_result_ = uncompress( decoded_buffer_    , &decoded_size_        ,
+                                        encoded_data_.bytes,  encoded_data_.length );
+   
+   if ( Z_OK != uncompress_result_ )
+   {
+      NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unzip action has failed.\n Zip error code -- %d\n Zip error -- %@"
+             , uncompress_result_
+             , [ JNGzipErrorsLogger zipErrorFromCode: uncompress_result_ ] );
+
+      *error_ = [ NSError errorWithDomain: @"zlib.error" 
+                                     code: uncompress_result_ 
+                                 userInfo: nil ];
+
+      return nil;
+   }
+   
+   NSData* result_ = [ NSData dataWithBytes: decoded_buffer_
+                                     length: decoded_size_ ];
+   
+   return result_;
+}
+
+@end

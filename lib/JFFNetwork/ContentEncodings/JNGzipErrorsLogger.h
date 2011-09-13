@@ -1,13 +1,7 @@
-//
-//  GzipErrorsLogger.h
-//  JFFNetwork
-//
-//  Created by Oleksandr Dodatko on 9/13/11.
-//  Copyright (c) 2011 EPAM systems. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
-@interface GzipErrorsLogger : NSObject
+@interface JNGzipErrorsLogger : NSObject
+
++(NSString*)zipErrorFromCode:(int)error_code_;
 
 @end

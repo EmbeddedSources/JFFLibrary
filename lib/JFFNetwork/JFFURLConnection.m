@@ -2,9 +2,14 @@
 
 #import "JFFURLResponse.h"
 
-#import <JFFUtils/JFFError.h>
+#import "JNHttpDecoder.h"
+#import "JNHttpEncodingsFactory.h"
+#import "JNConstants.h"
 
+#import <JFFUtils/JFFError.h>
 #include <CFNetwork/CFNetwork.h>
+
+
 
 @interface JFFURLConnection ()
 
@@ -13,6 +18,8 @@
 
 @property ( nonatomic, assign ) BOOL responseHandled;
 @property ( nonatomic, retain ) NSURL* url;
+
+@property ( nonatomic, retain ) JFFURLResponse* urlResponse;
 
 -(void)startConnectionWithPostData:( NSData* )data_
                            headers:( NSDictionary* )headers_;
@@ -36,11 +43,13 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
       {
          [ self_ handleResponseForReadStream: stream_ ];
 
-         static const NSUInteger max_buf_size_ = 1024*4;
-         UInt8 buffer_[ max_buf_size_ ];
-         CFIndex bytes_read_ = CFReadStreamRead( stream_, buffer_, max_buf_size_ );
+         UInt8 buffer_[ MAX_BUFFER_SIZE ];
+         CFIndex bytes_read_ = CFReadStreamRead( stream_, buffer_, MAX_BUFFER_SIZE );
          if ( bytes_read_ > 0 )
-            [ self_ handleData: buffer_ length: bytes_read_ ];
+         {
+            [ self_ handleData: buffer_
+                        length: bytes_read_ ];
+         }
          break;
       }
       case kCFStreamEventErrorOccurred:
@@ -77,17 +86,21 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 @synthesize didReceiveDataBlock = _did_receive_data_block;
 @synthesize didFinishLoadingBlock = _did_finish_loading_block;
 
+@synthesize urlResponse = _url_response;
+
 -(void)dealloc
 {
    [ self cancel ];
 
-   [ _post_data release ];
-   [ _headers release ];
-
-   [ _url release ];
+   [ _post_data                  release ];
+   [ _headers                    release ];
+   [ _url                        release ];
+   
    [ _did_receive_response_block release ];
-   [ _did_receive_data_block release ];
-   [ _did_finish_loading_block release ];
+   [ _did_receive_data_block     release ];
+   [ _did_finish_loading_block   release ];
+   
+   [ _url_response               release ];
 
    [ super dealloc ];
 }
@@ -117,8 +130,12 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
               postData:( NSData* )data_
            contentType:( NSString* )content_type_
 {
-   NSDictionary* headers_ = [ NSDictionary dictionaryWithObject: content_type_
-                                                         forKey: @"Content-Type" ];
+   NSDictionary* headers_ = [ NSDictionary dictionaryWithObjectsAndKeys: 
+                                 content_type_, @"Content-Type"
+                               , @"keep-alive", @"Connection"
+                               , nil 
+                            ];
+
    return [ self connectionWithURL: url_
                           postData: data_
                            headers: headers_ ];
@@ -153,8 +170,8 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
                            headers:( NSDictionary* )headers_
 {
    CFStringRef method_ = (CFStringRef) ( data_ ? @"POST" : @"GET" );
-
    CFHTTPMessageRef http_request_ = CFHTTPMessageCreateRequest( NULL, method_, (CFURLRef)self.url, kCFHTTPVersion1_1 );
+
 
    [ self applyCookiesForHTTPRequest: http_request_ ];
 
@@ -175,6 +192,15 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    //                                             CFReadStreamRef	requestBody )
    _read_stream = CFReadStreamCreateForHTTPRequest( NULL, http_request_ );
    CFRelease( http_request_ );
+   
+   
+   //Prefer using keep-alive packages
+   Boolean keep_alive_set_result_ = CFReadStreamSetProperty( _read_stream, kCFStreamPropertyHTTPAttemptPersistentConnection, kCFBooleanTrue );
+   if ( FALSE == keep_alive_set_result_ )
+   {
+      NSLog( @"JFFURLConnection->start : unable to setup keep-alive packages" );
+   }
+
 
    typedef void* (*retain)( void* info_ );
    typedef void (*release)( void* info_ );
@@ -219,11 +245,33 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    [ self clearCallbacks ];
 }
 
--(void)handleData:( void* )buffer_ length:( NSUInteger )length_
+-(void)handleData:( void* )buffer_ 
+           length:( NSUInteger )length_
 {
-   if ( self.didReceiveDataBlock )
+   if ( !self.didReceiveDataBlock )
    {
-      self.didReceiveDataBlock( [ NSData dataWithBytes: buffer_ length: length_ ] );
+      return;
+   }
+   
+   
+   NSString* content_encoding_ = [ self.urlResponse.allHeaderFields objectForKey: @"Content-Encoding" ];
+   id< JNHttpDecoder > decoder_ = [ JNHttpEncodingsFactory decoderForHeaderString: content_encoding_ ];
+   
+   NSError* decoder_error_ = nil;
+   
+   NSData* raw_ns_data_ = [ NSData dataWithBytes: buffer_ 
+                                          length: length_ ];
+   
+   NSData* decoded_data_ = [ decoder_ decodeData: raw_ns_data_ 
+                                           error: &decoder_error_ ];
+   
+   if ( nil == decoded_data_ )
+   {
+      self.didFinishLoadingBlock( decoder_error_ );
+   }
+   else 
+   {
+      self.didReceiveDataBlock( decoded_data_ );
    }
 }
 
@@ -257,10 +305,11 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 -(void)handleResponseForReadStream:( CFReadStreamRef )stream_
 {
    if ( self.responseHandled )
+   {
       return;
+   }
 
-   CFHTTPMessageRef response_ = (CFHTTPMessageRef)CFReadStreamCopyProperty( stream_
-                                                                           , kCFStreamPropertyHTTPResponseHeader );
+   CFHTTPMessageRef response_ = (CFHTTPMessageRef)CFReadStreamCopyProperty( stream_, kCFStreamPropertyHTTPResponseHeader );
    if ( response_ )
    {
       self.responseHandled = YES;
@@ -271,6 +320,7 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
       if ( self.didReceiveResponseBlock )
       {
          UInt32 error_code_ = CFHTTPMessageGetResponseStatusCode( response_ );
+                 
          JFFURLResponse* url_response_ = [ JFFURLResponse new ];
          url_response_.statusCode = error_code_;
 
@@ -279,6 +329,8 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
          self.didReceiveResponseBlock( url_response_ );
          self.didReceiveResponseBlock = nil;
 
+         
+         self.urlResponse = url_response_;
          [ url_response_ release ];
       }
 
