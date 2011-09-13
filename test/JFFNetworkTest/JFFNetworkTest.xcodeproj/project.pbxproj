@@ -26,6 +26,9 @@
 		53A33F2E141F69EB00469DAA /* 1.1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53A33F2C141F69EB00469DAA /* 1.1.txt */; };
 		53A33F2F141F69EB00469DAA /* 1.1.zip in Resources */ = {isa = PBXBuildFile; fileRef = 53A33F2D141F69EB00469DAA /* 1.1.zip */; };
 		53A33F32141F6AC400469DAA /* ZipDecoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F31141F6AC400469DAA /* ZipDecoderTest.m */; };
+		53A33F3B141F806A00469DAA /* StubDecoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F3A141F806A00469DAA /* StubDecoderTest.m */; };
+		53A33F3E141F809F00469DAA /* EncodingsFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F3D141F809E00469DAA /* EncodingsFactoryTest.m */; };
+		53A33F41141F80B400469DAA /* GzipErrorsLoggerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F40141F80B400469DAA /* GzipErrorsLoggerTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,9 @@
 		53A33F2C141F69EB00469DAA /* 1.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.1.txt; sourceTree = "<group>"; };
 		53A33F2D141F69EB00469DAA /* 1.1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 1.1.zip; sourceTree = "<group>"; };
 		53A33F31141F6AC400469DAA /* ZipDecoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipDecoderTest.m; sourceTree = "<group>"; };
+		53A33F3A141F806A00469DAA /* StubDecoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubDecoderTest.m; sourceTree = "<group>"; };
+		53A33F3D141F809E00469DAA /* EncodingsFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingsFactoryTest.m; sourceTree = "<group>"; };
+		53A33F40141F80B400469DAA /* GzipErrorsLoggerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GzipErrorsLoggerTest.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* JFFNetworkTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JFFNetworkTest-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,10 +158,13 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5310BB22141F538400A3E2B1 /* GzipDecoderTest.m */,
-				53A33F31141F6AC400469DAA /* ZipDecoderTest.m */,
 				53A33F21141F600300469DAA /* JNTestBundleManager.h */,
 				53A33F22141F600300469DAA /* JNTestBundleManager.m */,
+				53A33F3D141F809E00469DAA /* EncodingsFactoryTest.m */,
+				5310BB22141F538400A3E2B1 /* GzipDecoderTest.m */,
+				53A33F40141F80B400469DAA /* GzipErrorsLoggerTest.m */,
+				53A33F3A141F806A00469DAA /* StubDecoderTest.m */,
+				53A33F31141F6AC400469DAA /* ZipDecoderTest.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -407,6 +416,9 @@
 				5310BB23141F538400A3E2B1 /* GzipDecoderTest.m in Sources */,
 				53A33F23141F600300469DAA /* JNTestBundleManager.m in Sources */,
 				53A33F32141F6AC400469DAA /* ZipDecoderTest.m in Sources */,
+				53A33F3B141F806A00469DAA /* StubDecoderTest.m in Sources */,
+				53A33F3E141F809F00469DAA /* EncodingsFactoryTest.m in Sources */,
+				53A33F41141F80B400469DAA /* GzipErrorsLoggerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

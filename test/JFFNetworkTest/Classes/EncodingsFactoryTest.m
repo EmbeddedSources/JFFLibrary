@@ -1,12 +1,7 @@
-//
-//  EncodingsFactoryTest.m
-//  JFFNetworkTest
-//
-//  Created by Oleksandr Dodatko on 9/13/11.
-//  Copyright (c) 2011 EPAM systems. All rights reserved.
-//
+@interface EncodingsFactoryTest : GHTestCase
 
-#import "EncodingsFactoryTest.h"
+@end
+
 
 @implementation EncodingsFactoryTest
 
