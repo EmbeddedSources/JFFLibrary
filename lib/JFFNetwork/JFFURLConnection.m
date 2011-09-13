@@ -10,7 +10,6 @@
 #include <CFNetwork/CFNetwork.h>
 
 
-
 @interface JFFURLConnection ()
 
 @property ( nonatomic, retain ) NSData* postData;
@@ -252,19 +251,18 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    {
       return;
    }
-   
-   
+
    NSString* content_encoding_ = [ self.urlResponse.allHeaderFields objectForKey: @"Content-Encoding" ];
    id< JNHttpDecoder > decoder_ = [ JNHttpEncodingsFactory decoderForHeaderString: content_encoding_ ];
-   
+
    NSError* decoder_error_ = nil;
-   
+
    NSData* raw_ns_data_ = [ NSData dataWithBytes: buffer_ 
                                           length: length_ ];
-   
+
    NSData* decoded_data_ = [ decoder_ decodeData: raw_ns_data_ 
                                            error: &decoder_error_ ];
-   
+
    if ( nil == decoded_data_ )
    {
       self.didFinishLoadingBlock( decoder_error_ );
@@ -329,7 +327,6 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
          self.didReceiveResponseBlock( url_response_ );
          self.didReceiveResponseBlock = nil;
 
-         
          self.urlResponse = url_response_;
          [ url_response_ release ];
       }

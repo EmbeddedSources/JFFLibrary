@@ -6,7 +6,6 @@
 
 @implementation JNZipDecoder
 
-
 -(NSData*)decodeData:( NSData*   )encoded_data_
                error:( NSError** )error_
 {
@@ -16,13 +15,13 @@
    {
       return nil;
    }
-   
+
    Bytef decoded_buffer_[ MAX_BUFFER_SIZE ] = {0};
    uLongf decoded_size_ = MAX_BUFFER_SIZE;
-   
+
    int uncompress_result_ = uncompress( decoded_buffer_    , &decoded_size_        ,
-                                        encoded_data_.bytes,  encoded_data_.length );
-   
+                                        encoded_data_.bytes, encoded_data_.length );
+
    if ( Z_OK != uncompress_result_ )
    {
       NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unzip action has failed.\n Zip error code -- %d\n Zip error -- %@"
@@ -35,10 +34,10 @@
 
       return nil;
    }
-   
+
    NSData* result_ = [ NSData dataWithBytes: decoded_buffer_
                                      length: decoded_size_ ];
-   
+
    return result_;
 }
 
