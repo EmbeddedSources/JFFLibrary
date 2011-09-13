@@ -3,9 +3,12 @@
    #import <JFFNetwork/ContentEncodings/JNGzipDecoder.h>
    #import <JFFNetwork/ContentEncodings/JNZipDecoder.h>
    #import <JFFNetwork/ContentEncodings/JNStubDecoder.h>
+   #import <JFFNetwork/ContentEncodings/JNHttpEncodingsFactory.h>
+   #import <JFFNetwork/ContentEncodings/JNGzipErrorsLogger.h>
 
    #import "JNTestBundleManager.h"
 
+   #import <zlib.h>
    #import <GHUnitIOS/GHUnit.h>
    #import <Foundation/Foundation.h>
    #import <UIKit/UIKit.h>
