@@ -1,0 +1,12 @@
+
+#ifdef __OBJC__
+   #import <JFFNetwork/ContentEncodings/JNGzipDecoder.h>
+   #import <JFFNetwork/ContentEncodings/JNZipDecoder.h>
+   #import <JFFNetwork/ContentEncodings/JNStubDecoder.h>
+
+   #import "JNTestBundleManager.h"
+
+   #import <GHUnitIOS/GHUnit.h>
+   #import <Foundation/Foundation.h>
+   #import <UIKit/UIKit.h>
+#endif
