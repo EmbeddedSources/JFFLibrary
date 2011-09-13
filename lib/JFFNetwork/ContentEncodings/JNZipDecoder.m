@@ -1,4 +1,5 @@
 #import "JNZipDecoder.h"
+#import "JNGzipCustomErrors.h"
 
 #import "JNConstants.h"
 #import "JNGzipErrorsLogger.h"
@@ -28,7 +29,7 @@
              , uncompress_result_
              , [ JNGzipErrorsLogger zipErrorFromCode: uncompress_result_ ] );
 
-      *error_ = [ NSError errorWithDomain: @"zlib.error" 
+      *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN 
                                      code: uncompress_result_ 
                                  userInfo: nil ];
 

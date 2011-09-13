@@ -53,19 +53,39 @@
 
 -(void)testBadDataProducesCorrectError
 {
-   NSError* error_ = nil;
-
-   //compressed with zip instead of gzip
-   NSData*   gzip_data_  = [ JNTestBundleManager loadZipFileNamed : @"1.1" ];
+   NSError*       error_         = nil;
+   NSData*        gzip_data_     = nil;
+   NSData*        received_data_ = nil;
+   JNGzipDecoder* decoder_ = [ [ JNGzipDecoder new ] autorelease ];
    
-   JNZipDecoder* decoder_ = [ [ JNZipDecoder new ] autorelease ];
-   NSData* received_data_ = [ decoder_ decodeData: gzip_data_
-                                            error: &error_ ];
-   
-   GHAssertNil( received_data_, @"nil data in error Expected" );
 
-   GHAssertTrue( [ error_.domain isEqualToString: @"gzip.error" ], @"Unexpected error domain" );
-   GHAssertTrue( error_.code == Z_DATA_ERROR, @"Unexpected error code" );
+   {
+      //compressed with zip instead of gzip
+      gzip_data_  = [ JNTestBundleManager loadZipFileNamed : @"1.1" ];
+      
+      
+      received_data_ = [ decoder_ decodeData: gzip_data_
+                                       error: &error_ ];
+      
+      GHAssertNil( received_data_, @"nil data in error Expected" );
+
+      GHAssertTrue( [ error_.domain isEqualToString: GZIP_ERROR_DOMAIN ], @"Unexpected error domain" );
+      GHAssertTrue( error_.code == Z_DATA_ERROR, @"Unexpected error code" );
+   }
+   
+   {
+      //compressed with zip instead of gzip
+      gzip_data_  = [ JNTestBundleManager loadZipFileNamed : @"1-Incomplete" ];
+      
+      
+      received_data_ = [ decoder_ decodeData: gzip_data_
+                                       error: &error_ ];
+      
+      GHAssertNil( received_data_, @"nil data in error Expected" );
+      
+      GHAssertTrue( [ error_.domain isEqualToString: GZIP_ERROR_DOMAIN ], @"Unexpected error domain" );
+      GHAssertTrue( error_.code == Z_BUF_ERROR, @"Unexpected error code" );
+   }   
 }
 
 @end

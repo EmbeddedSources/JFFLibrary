@@ -68,6 +68,12 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
 	}
 	if (inflateEnd (&strm) != Z_OK) 
    {
+      NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unexpected EOF" );
+      
+      *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN
+                                     code: JNGzipUnexpectedEOF
+                                 userInfo: nil ];
+
       return nil;
    }
 	
