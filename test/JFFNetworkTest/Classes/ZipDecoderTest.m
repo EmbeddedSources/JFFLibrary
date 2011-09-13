@@ -63,8 +63,6 @@
                                             error: &error_ ];
    
    GHAssertNil( received_data_, @"nil data in error Expected" );
-   GHAssertNil( error_, @"Unexpected decode error - %@", error_ );
-   
    GHAssertTrue( [ error_.domain isEqualToString: @"gzip.error" ], @"Unexpected error domain" );
    GHAssertTrue( error_.code == Z_DATA_ERROR, @"Unexpected error code" );
 }
