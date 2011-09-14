@@ -58,7 +58,6 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
          CFStreamError error_ = CFReadStreamGetError( stream_ );
          NSString* error_description_ = [ NSString stringWithFormat: @"CFStreamError domain: %d", error_.domain ];
 
-         [ self_ closeReadStream ];
          [ self_ handleFinish: [ JFFError errorWithDescription: error_description_
                                                           code: error_.error ] ];
          break;
@@ -67,7 +66,6 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
       {
          [ self_ handleResponseForReadStream: stream_ ];
 
-         [ self_ closeReadStream ];
          [ self_ handleFinish: nil ];
          break;
       }
@@ -265,7 +263,7 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 
    if ( nil == decoded_data_ )
    {
-      self.didFinishLoadingBlock( decoder_error_ );
+      [ self handleFinish: decoder_error_ ];
    }
    else 
    {
@@ -273,16 +271,9 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    }
 }
 
--(BOOL)checkFinished
-{
-   return NULL == _read_stream/* && _write_stream */;
-}
-
 -(void)handleFinish:( NSError* )error_
 {
-   BOOL finished_ = [ self checkFinished ] || error_ != nil;
-   if ( !finished_ )
-      return;
+   [ self closeReadStream ];
 
    if ( self.didFinishLoadingBlock )
    {
