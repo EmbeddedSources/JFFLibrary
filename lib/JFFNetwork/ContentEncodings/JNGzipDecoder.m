@@ -15,19 +15,20 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
    NSAssert( error_, @"[!!! ERROR !!!] : JNGzipDecoder -- NULL errors are not acceptible" );
    *error_ = nil;
 
+   NSUInteger encoded_data_length_ = [ encoded_data_ length ];
    if ( 0 == [ encoded_data_ length ] ) 
    {
       return encoded_data_;
    }
 
-   unsigned full_length_ = [encoded_data_ length];
-   unsigned half_length_ = [encoded_data_ length] / 2;
+   unsigned full_length_ = encoded_data_length_;
+   unsigned half_length_ = encoded_data_length_ / 2;
 
    NSMutableData* decompressed_ = [ NSMutableData dataWithLength: full_length_ + half_length_ ];
    BOOL done_   = NO;
    int  status_ = 0 ;
 
-   z_stream strm;
+   z_stream strm  = {0};
    strm.next_in   = (Bytef *)[ encoded_data_ bytes ];
    strm.avail_in  = [ encoded_data_ length ];
    strm.total_out = 0;
@@ -35,7 +36,7 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
    strm.zfree     = Z_NULL;
 
    //!! dodikk -- WTF Magic
-   if ( inflateInit2( &strm, (15+32) ) != Z_OK ) 
+   if ( inflateInit2( &strm, (15 + 32) ) != Z_OK ) 
    {
       NSLog( @"[!!! ERROR !!!] : JNGzipDecoder -- inflateInit2 failed" );
 
@@ -47,25 +48,25 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
    while (!done_)
    {
       // Make sure we have enough room and reset the lengths.
-      if (strm.total_out >= [decompressed_ length])
+      if ( strm.total_out >= [ decompressed_ length ] )
       {
-         [decompressed_ increaseLengthBy: half_length_];
+         [ decompressed_ increaseLengthBy: half_length_ ];
       }
-      strm.next_out = [decompressed_ mutableBytes] + strm.total_out;
-      strm.avail_out = [decompressed_ length] - strm.total_out;
+      strm.next_out  = [ decompressed_ mutableBytes ] + strm.total_out;
+      strm.avail_out = [ decompressed_ length       ] - strm.total_out;
 
       // Inflate another chunk.
-      status_ = inflate (&strm, Z_SYNC_FLUSH);
-      if (status_ == Z_STREAM_END) 
+      status_ = inflate( &strm, Z_SYNC_FLUSH );
+      if ( status_ == Z_STREAM_END ) 
       {
          done_ = YES;
       }
-      else if (status_ != Z_OK)
+      else if ( status_ != Z_OK )
       {
          break;
       }
 	}
-	if (inflateEnd (&strm) != Z_OK) 
+	if ( inflateEnd( &strm ) != Z_OK ) 
    {
       NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unexpected EOF" );
       
@@ -77,10 +78,10 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
    }
 	
 	// Set real length.
-	if (done_)
+	if ( done_ )
 	{
-		[decompressed_ setLength: strm.total_out];
-		return [NSData dataWithData: decompressed_];
+		[ decompressed_ setLength: strm.total_out ];
+		return [ NSData dataWithData: decompressed_ ];
 	}
 	else 
    {
@@ -94,6 +95,8 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
       
       return nil;
    }
+
+   return nil;
 }
 
 @end
