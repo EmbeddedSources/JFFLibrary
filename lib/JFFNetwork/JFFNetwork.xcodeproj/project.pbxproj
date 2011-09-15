@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5310B9F1141F489200A3E2B1 /* JNConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5310B9EF141F489200A3E2B1 /* JNConstants.h */; };
+		5316F433141E151C00C3D9A9 /* JFFUrlResponseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */; };
+		5316F434141E151C00C3D9A9 /* JFFUrlResponseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */; };
+		5383420B141E689E00473CF2 /* JNHttpDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5383420A141E689E00473CF2 /* JNHttpDecoder.h */; };
+		53834214141E691900473CF2 /* JNHttpEncodingsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834212141E691900473CF2 /* JNHttpEncodingsFactory.h */; };
+		53834215141E691900473CF2 /* JNHttpEncodingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834213141E691900473CF2 /* JNHttpEncodingsFactory.m */; };
+		53834218141E69E300473CF2 /* JNGzipDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834216141E69E300473CF2 /* JNGzipDecoder.h */; };
+		53834219141E69E300473CF2 /* JNGzipDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834217141E69E300473CF2 /* JNGzipDecoder.m */; };
+		5383421B141E6A3B00473CF2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5383421A141E6A3B00473CF2 /* libz.dylib */; };
+		5383424A141E713900473CF2 /* JNStubDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834248141E713900473CF2 /* JNStubDecoder.h */; };
+		5383424B141E713900473CF2 /* JNStubDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834249141E713900473CF2 /* JNStubDecoder.m */; };
+		53A33F26141F631500469DAA /* JNZipDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F24141F631500469DAA /* JNZipDecoder.h */; };
+		53A33F27141F631500469DAA /* JNZipDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F25141F631500469DAA /* JNZipDecoder.m */; };
+		53A33F34141F7C2C00469DAA /* JNGzipCustomErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F33141F7C2B00469DAA /* JNGzipCustomErrors.h */; };
+		53A33F37141F7E1D00469DAA /* JNGzipErrorsLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F35141F7E1D00469DAA /* JNGzipErrorsLogger.h */; };
+		53A33F38141F7E1D00469DAA /* JNGzipErrorsLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */; };
 		8D5AE6DF13F3E6C600EB6143 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */; };
 		8D5AE6F213F3E80B00EB6143 /* JFFURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */; };
 		8D5AE6F313F3E80B00EB6143 /* JFFURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F113F3E80B00EB6143 /* JFFURLConnection.m */; };
@@ -30,6 +46,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5310B9EF141F489200A3E2B1 /* JNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNConstants.h; sourceTree = "<group>"; };
+		5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUrlResponseLogger.h; sourceTree = "<group>"; };
+		5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFUrlResponseLogger.m; sourceTree = "<group>"; };
+		5383420A141E689E00473CF2 /* JNHttpDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNHttpDecoder.h; sourceTree = "<group>"; };
+		53834212141E691900473CF2 /* JNHttpEncodingsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNHttpEncodingsFactory.h; sourceTree = "<group>"; };
+		53834213141E691900473CF2 /* JNHttpEncodingsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNHttpEncodingsFactory.m; sourceTree = "<group>"; };
+		53834216141E69E300473CF2 /* JNGzipDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNGzipDecoder.h; sourceTree = "<group>"; };
+		53834217141E69E300473CF2 /* JNGzipDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNGzipDecoder.m; sourceTree = "<group>"; };
+		5383421A141E6A3B00473CF2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		53834248141E713900473CF2 /* JNStubDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNStubDecoder.h; sourceTree = "<group>"; };
+		53834249141E713900473CF2 /* JNStubDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNStubDecoder.m; sourceTree = "<group>"; };
+		53A33F24141F631500469DAA /* JNZipDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNZipDecoder.h; sourceTree = "<group>"; };
+		53A33F25141F631500469DAA /* JNZipDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNZipDecoder.m; sourceTree = "<group>"; };
+		53A33F33141F7C2B00469DAA /* JNGzipCustomErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNGzipCustomErrors.h; sourceTree = "<group>"; };
+		53A33F35141F7E1D00469DAA /* JNGzipErrorsLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNGzipErrorsLogger.h; sourceTree = "<group>"; };
+		53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNGzipErrorsLogger.m; sourceTree = "<group>"; };
 		8D5AE6DB13F3E6C600EB6143 /* libJFFNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D5AE6E213F3E6C700EB6143 /* JFFNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFNetwork-Prefix.pch"; sourceTree = "<group>"; };
@@ -60,12 +92,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5AE6DF13F3E6C600EB6143 /* Foundation.framework in Frameworks */,
+				5383421B141E6A3B00473CF2 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53834209141E684F00473CF2 /* ContentEncodings */ = {
+			isa = PBXGroup;
+			children = (
+				5383420A141E689E00473CF2 /* JNHttpDecoder.h */,
+				53834212141E691900473CF2 /* JNHttpEncodingsFactory.h */,
+				53834213141E691900473CF2 /* JNHttpEncodingsFactory.m */,
+				53834216141E69E300473CF2 /* JNGzipDecoder.h */,
+				53834217141E69E300473CF2 /* JNGzipDecoder.m */,
+				53834248141E713900473CF2 /* JNStubDecoder.h */,
+				53834249141E713900473CF2 /* JNStubDecoder.m */,
+				53A33F24141F631500469DAA /* JNZipDecoder.h */,
+				53A33F25141F631500469DAA /* JNZipDecoder.m */,
+				53A33F33141F7C2B00469DAA /* JNGzipCustomErrors.h */,
+				53A33F35141F7E1D00469DAA /* JNGzipErrorsLogger.h */,
+				53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */,
+			);
+			path = ContentEncodings;
+			sourceTree = "<group>";
+		};
 		8D5AE6D013F3E6C500EB6143 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */,
+				5383421A141E6A3B00473CF2 /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -104,6 +157,7 @@
 		8D5AE6EF13F3E7EE00EB6143 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				53834209141E684F00473CF2 /* ContentEncodings */,
 				8D713CB413F52FBA007268DF /* DownloadManager */,
 				8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */,
 				8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */,
@@ -112,6 +166,9 @@
 				8DD565FE13F3EC1100A4538D /* JFFNetworkBlocksFunctions.h */,
 				8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */,
 				8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */,
+				5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */,
+				5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */,
+				5310B9EF141F489200A3E2B1 /* JNConstants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -161,6 +218,15 @@
 				8DD71E9213F5492C004C90A9 /* JFFTrafficCalculator.h in Headers */,
 				8DD71E9613F54948004C90A9 /* JFFTrafficCalculatorDelegate.h in Headers */,
 				8DD71E9C13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h in Headers */,
+				5316F433141E151C00C3D9A9 /* JFFUrlResponseLogger.h in Headers */,
+				5383420B141E689E00473CF2 /* JNHttpDecoder.h in Headers */,
+				53834214141E691900473CF2 /* JNHttpEncodingsFactory.h in Headers */,
+				53834218141E69E300473CF2 /* JNGzipDecoder.h in Headers */,
+				5383424A141E713900473CF2 /* JNStubDecoder.h in Headers */,
+				5310B9F1141F489200A3E2B1 /* JNConstants.h in Headers */,
+				53A33F26141F631500469DAA /* JNZipDecoder.h in Headers */,
+				53A33F34141F7C2C00469DAA /* JNGzipCustomErrors.h in Headers */,
+				53A33F37141F7E1D00469DAA /* JNGzipErrorsLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +288,12 @@
 				8DD71E9313F5492C004C90A9 /* JFFTrafficCalculator.m in Sources */,
 				8DD71E9913F54AE7004C90A9 /* JFFDownloadItem.m in Sources */,
 				8DD71E9D13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m in Sources */,
+				5316F434141E151C00C3D9A9 /* JFFUrlResponseLogger.m in Sources */,
+				53834215141E691900473CF2 /* JNHttpEncodingsFactory.m in Sources */,
+				53834219141E69E300473CF2 /* JNGzipDecoder.m in Sources */,
+				5383424B141E713900473CF2 /* JNStubDecoder.m in Sources */,
+				53A33F27141F631500469DAA /* JNZipDecoder.m in Sources */,
+				53A33F38141F7E1D00469DAA /* JNGzipErrorsLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

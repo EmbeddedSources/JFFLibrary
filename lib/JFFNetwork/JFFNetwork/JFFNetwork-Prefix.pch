@@ -1,7 +1,4 @@
-//
-// Prefix header for all source files of the 'JFFNetwork' target in the 'JFFNetwork' project
-//
-
 #ifdef __OBJC__
    #import <Foundation/Foundation.h>
+   #include <zlib.h>
 #endif
