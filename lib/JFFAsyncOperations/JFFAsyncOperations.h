@@ -1,5 +1,7 @@
 #import <JFFAsyncOperations/JFFAsyncOperationUtils.h>
+
 #import <JFFAsyncOperations/Helpers/JFFResultContext.h>
+#import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
 
 #import <JFFAsyncOperations/CachedAsyncOperations/JFFPropertyPath.h>
 #import <JFFAsyncOperations/CachedAsyncOperations/JFFPropertyExtractor.h>
