@@ -65,30 +65,30 @@ NSString* GZIP_ERROR_DOMAIN = @"gzip.error";
       {
          break;
       }
-	}
-	if ( inflateEnd( &strm ) != Z_OK ) 
+   }
+   if ( inflateEnd( &strm ) != Z_OK ) 
    {
       NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unexpected EOF" );
-      
+
       *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN
                                      code: JNGzipUnexpectedEOF
                                  userInfo: nil ];
 
       return nil;
    }
-	
-	// Set real length.
-	if ( done_ )
-	{
-		[ decompressed_ setLength: strm.total_out ];
-		return [ NSData dataWithData: decompressed_ ];
-	}
-	else 
+
+   // Set real length.
+   if ( done_ )
+   {
+      [ decompressed_ setLength: strm.total_out ];
+      return [ NSData dataWithData: decompressed_ ];
+   }
+   else 
    {
       NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unzip action has failed.\n Zip error code -- %d\n Zip error -- %@"
             , status_
             , [ JNGzipErrorsLogger zipErrorFromCode: status_ ] );
-      
+
       *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN
                                      code: status_
                                  userInfo: nil ];

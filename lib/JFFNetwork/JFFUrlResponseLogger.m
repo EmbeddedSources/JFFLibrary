@@ -1,6 +1,5 @@
 #import "JFFUrlResponseLogger.h"
 
-
 @implementation JFFUrlResponseLogger
 
 +(NSString*)descriptionStringForUrlResponse:(id)url_response_
