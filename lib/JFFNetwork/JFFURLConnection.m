@@ -128,9 +128,9 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
            contentType:( NSString* )content_type_
 {
    NSDictionary* headers_ = [ NSDictionary dictionaryWithObjectsAndKeys: 
-                                 content_type_, @"Content-Type"
-                               , @"keep-alive", @"Connection"
-                               , nil 
+                             content_type_, @"Content-Type",
+                             @"keep-alive", @"Connection",
+                             nil 
                             ];
 
    return [ self connectionWithURL: url_

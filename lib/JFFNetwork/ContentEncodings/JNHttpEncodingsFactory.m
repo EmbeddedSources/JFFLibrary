@@ -8,14 +8,14 @@
 +(id<JNHttpDecoder>)decoderForHeaderString:( NSString* )header_string_
 {
    NSDictionary* decoder_classes_ = [ NSDictionary dictionaryWithObjectsAndKeys: 
-                                         [ JNGzipDecoder class ], @"gzip"
-                                       , nil 
+                                     [ JNGzipDecoder class ], @"gzip",
+                                     nil 
                                     ];
    
    Class decoder_class_ = [ decoder_classes_ objectForKey: header_string_ ];
    if ( Nil == decoder_class_ )
    {
-      NSLog( @"[!!! WARNING !!!] : JNHttpEncodingsFactory -- unknown HTTP encoding id '%@' ", header_string_ );
+//      NSLog( @"[!!! WARNING !!!] : JNHttpEncodingsFactory -- unknown HTTP encoding id '%@' ", header_string_ );
       return [ self stubDecoder ];
    }
 
