@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B79397B142B771300B43DC8 /* UIViewController+OnCloseActions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B793979142B771300B43DC8 /* UIViewController+OnCloseActions.h */; };
-		1B79397C142B771300B43DC8 /* UIViewController+OnCloseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B79397A142B771300B43DC8 /* UIViewController+OnCloseActions.m */; };
+		1B793A63142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */; };
+		1B793A64142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */; };
 		655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
 		655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
 		655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
@@ -25,8 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B793979142B771300B43DC8 /* UIViewController+OnCloseActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+OnCloseActions.h"; sourceTree = "<group>"; };
-		1B79397A142B771300B43DC8 /* UIViewController+OnCloseActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+OnCloseActions.m"; sourceTree = "<group>"; };
+		1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+OnCloseActions.h"; path = "Extensions/UIViewController+OnCloseActions.h"; sourceTree = SOURCE_ROOT; };
+		1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+OnCloseActions.m"; path = "Extensions/UIViewController+OnCloseActions.m"; sourceTree = SOURCE_ROOT; };
 		655E9DB21392E8C00074BD61 /* JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertButton.h; sourceTree = "<group>"; };
 		655E9DB31392E8C00074BD61 /* JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertButton.m; sourceTree = "<group>"; };
 		655E9DB41392E8C00074BD61 /* JFFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertView.h; sourceTree = "<group>"; };
@@ -95,11 +95,11 @@
 		1B793977142B76FD00B43DC8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1B793979142B771300B43DC8 /* UIViewController+OnCloseActions.h */,
-				1B79397A142B771300B43DC8 /* UIViewController+OnCloseActions.m */,
+				1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */,
+				1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */,
 			);
 			name = Extensions;
-			path = "./JFFUI/Extensions";
+			path = ./JFFUI/Extensions;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -149,7 +149,7 @@
 				655E9E4B1392ED360074BD61 /* JFFUI.h in Headers */,
 				8D996F18139F5D370075A325 /* JFFActionSheet.h in Headers */,
 				8D996F1E139F61200075A325 /* NSObject+JFFAlertButton.h in Headers */,
-				1B79397B142B771300B43DC8 /* UIViewController+OnCloseActions.h in Headers */,
+				1B793A63142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +211,7 @@
 				655E9DBD1392E8C00074BD61 /* NSError+Alert.m in Sources */,
 				8D996F19139F5D370075A325 /* JFFActionSheet.m in Sources */,
 				8D996F1F139F61200075A325 /* NSObject+JFFAlertButton.m in Sources */,
-				1B79397C142B771300B43DC8 /* UIViewController+OnCloseActions.m in Sources */,
+				1B793A64142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
