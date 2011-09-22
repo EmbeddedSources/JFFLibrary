@@ -47,6 +47,8 @@
 		8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		B694846B1429E39700B8247E /* JULoadMoreCellscalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = B69484691429E39700B8247E /* JULoadMoreCellscalculator.h */; };
+		B694846C1429E39700B8247E /* JULoadMoreCellscalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B694846A1429E39700B8247E /* JULoadMoreCellscalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAssignProxy.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B69484691429E39700B8247E /* JULoadMoreCellscalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JULoadMoreCellscalculator.h; sourceTree = "<group>"; };
+		B694846A1429E39700B8247E /* JULoadMoreCellscalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JULoadMoreCellscalculator.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libJFFUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,6 +183,8 @@
 		651BE0AE1390496200DD6890 /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
+				B69484691429E39700B8247E /* JULoadMoreCellscalculator.h */,
+				B694846A1429E39700B8247E /* JULoadMoreCellscalculator.m */,
 				651BE0AF1390496200DD6890 /* UITableView+WithinUpdates.h */,
 				651BE0B01390496200DD6890 /* UITableView+WithinUpdates.m */,
 			);
@@ -268,6 +274,7 @@
 				8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */,
 				8D713C6D13F3F62B007268DF /* JFFMutableAssignArray.h in Headers */,
 				8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */,
+				B694846B1429E39700B8247E /* JULoadMoreCellscalculator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +350,7 @@
 				8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */,
 				8D713C6E13F3F62B007268DF /* JFFMutableAssignArray.m in Sources */,
 				8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */,
+				B694846C1429E39700B8247E /* JULoadMoreCellscalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
