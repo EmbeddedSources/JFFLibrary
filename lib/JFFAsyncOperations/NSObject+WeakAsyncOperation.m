@@ -63,7 +63,14 @@
       //TODO assert retain count
       [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
 
-      return cancel_;
+      return [ [ ^void( BOOL cancel_ )
+      {
+         if ( ondealloc_block_holder_.simpleBlock )
+         {
+            [ self_ removeOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
+            ondealloc_block_holder_.simpleBlock();
+         }
+      } copy ] autorelease ];
    } copy ] autorelease ];
 }
 

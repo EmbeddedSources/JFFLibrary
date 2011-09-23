@@ -40,7 +40,6 @@ void exceptionHandler(NSException *exception)
 
 int main(int argc, char *argv[]) 
 {
-   
    /*!
     For debugging:
     Go into the "Get Info" contextual menu of your (test) executable (inside the "Executables" group in the left panel of XCode). 
@@ -66,12 +65,12 @@ int main(int argc, char *argv[])
    setenv( "WRITE_JUNIT_XML", "YES", 1 );
    setenv( "GHUNIT_AUTOEXIT" , "YES", 0 );
    NSSetUncaughtExceptionHandler(&exceptionHandler);
-   
-   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-   
+
+   NSAutoreleasePool* pool_ = [ [ NSAutoreleasePool alloc ] init ];
+
    // Register any special test case classes
    //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];  
-   
+
    int retVal = 0;
    // If GHUNIT_CLI is set we are using the command line interface and run the tests
    // Otherwise load the GUI app
@@ -83,7 +82,7 @@ int main(int argc, char *argv[])
    {
       retVal = UIApplicationMain(argc, argv, nil, @"GHUnitIPhoneAppDelegate");
    }
-   
-   [pool release];
+
+   [ pool_ release ];
    return retVal;
 }

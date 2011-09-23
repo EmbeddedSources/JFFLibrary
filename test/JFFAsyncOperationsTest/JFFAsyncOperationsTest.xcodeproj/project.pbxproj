@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */; };
+		1B835A25142C8BC400FC004C /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */; };
+		1B835A26142C8BC400FC004C /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A16142C8BAB00FC004C /* libJFFUtils.a */; };
 		8D29EF8D13BE066900041B6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8C13BE066900041B6A /* UIKit.framework */; };
 		8D29EF8F13BE066900041B6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8E13BE066900041B6A /* Foundation.framework */; };
 		8D29EF9113BE066900041B6A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF9013BE066900041B6A /* CoreGraphics.framework */; };
@@ -16,7 +19,41 @@
 		8D29EFB613BE08F700041B6A /* MockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D29EFB513BE08F700041B6A /* MockTest.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1B835A15142C8BAB00FC004C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFUtils;
+		};
+		1B835A1F142C8BB300FC004C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
+		1B835A21142C8BBF00FC004C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFUtils;
+		};
+		1B835A23142C8BBF00FC004C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakAsyncOperationTest.m; sourceTree = "<group>"; };
+		1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../../lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
+		1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../../lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
 		8D29EF8813BE066900041B6A /* JFFAsyncOperationsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFAsyncOperationsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D29EF8C13BE066900041B6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8D29EF8E13BE066900041B6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -34,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B835A25142C8BC400FC004C /* libJFFAsyncOperations.a in Frameworks */,
+				1B835A26142C8BC400FC004C /* libJFFUtils.a in Frameworks */,
 				8D29EF8D13BE066900041B6A /* UIKit.framework in Frameworks */,
 				8D29EF8F13BE066900041B6A /* Foundation.framework in Frameworks */,
 				8D29EF9113BE066900041B6A /* CoreGraphics.framework in Frameworks */,
@@ -44,10 +83,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B793B35142C887700B43DC8 /* Dependecies */ = {
+			isa = PBXGroup;
+			children = (
+				1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */,
+				1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */,
+			);
+			name = Dependecies;
+			sourceTree = "<group>";
+		};
+		1B835A0F142C8BAB00FC004C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B835A16142C8BAB00FC004C /* libJFFUtils.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B835A19142C8BB300FC004C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8D29EF7D13BE066900041B6A = {
 			isa = PBXGroup;
 			children = (
 				8D29EF9213BE066900041B6A /* JFFAsyncOperationsTest */,
+				1B793B35142C887700B43DC8 /* Dependecies */,
 				8D29EF8B13BE066900041B6A /* Frameworks */,
 				8D29EF8913BE066900041B6A /* Products */,
 			);
@@ -77,6 +142,7 @@
 			children = (
 				8D29EF9313BE066900041B6A /* Supporting Files */,
 				8D29EFB513BE08F700041B6A /* MockTest.m */,
+				1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */,
 			);
 			path = JFFAsyncOperationsTest;
 			sourceTree = "<group>";
@@ -106,6 +172,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B835A22142C8BBF00FC004C /* PBXTargetDependency */,
+				1B835A24142C8BBF00FC004C /* PBXTargetDependency */,
 			);
 			name = JFFAsyncOperationsTest;
 			productName = JFFAsyncOperationsTest;
@@ -127,12 +195,39 @@
 			mainGroup = 8D29EF7D13BE066900041B6A;
 			productRefGroup = 8D29EF8913BE066900041B6A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1B835A19142C8BB300FC004C /* Products */;
+					ProjectRef = 1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */;
+				},
+				{
+					ProductGroup = 1B835A0F142C8BAB00FC004C /* Products */;
+					ProjectRef = 1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D29EF8713BE066900041B6A /* JFFAsyncOperationsTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1B835A16142C8BAB00FC004C /* libJFFUtils.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFUtils.a;
+			remoteRef = 1B835A15142C8BAB00FC004C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFAsyncOperations.a;
+			remoteRef = 1B835A1F142C8BB300FC004C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D29EF8613BE066900041B6A /* Resources */ = {
@@ -152,10 +247,24 @@
 			files = (
 				8D29EF9913BE066900041B6A /* main.m in Sources */,
 				8D29EFB613BE08F700041B6A /* MockTest.m in Sources */,
+				1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B835A22142C8BBF00FC004C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFUtils;
+			targetProxy = 1B835A21142C8BBF00FC004C /* PBXContainerItemProxy */;
+		};
+		1B835A24142C8BBF00FC004C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFAsyncOperations;
+			targetProxy = 1B835A23142C8BBF00FC004C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8D29EF9513BE066900041B6A /* InfoPlist.strings */ = {
@@ -189,6 +298,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -213,6 +323,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (

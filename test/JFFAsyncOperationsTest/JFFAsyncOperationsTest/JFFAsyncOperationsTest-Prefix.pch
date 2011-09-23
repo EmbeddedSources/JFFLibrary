@@ -11,7 +11,7 @@
 #ifdef __OBJC__
    #import <GHUnitIOS/GHUnit.h>
 
-
    #import <UIKit/UIKit.h>
    #import <Foundation/Foundation.h>
+   #import <JFFAsyncOperations/JFFAsyncOperations.h>
 #endif
