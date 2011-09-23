@@ -29,3 +29,4 @@ typedef void (^JFFDidFinishAsyncOperationHook)( id result_
                                                , JFFDidFinishAsyncOperationHandler done_callback_ );
 
 extern JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock;
+extern JFFCancelAsyncOperation JFFAsyncOperationBlockWithSuccessResult;

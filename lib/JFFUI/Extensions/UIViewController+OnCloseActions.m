@@ -2,9 +2,6 @@
 
 #import <JFFUtils/NSObject/NSObject+RuntimeExtensions.h>
 
-#include <objc/runtime.h>
-#include <objc/message.h>
-
 typedef void (^ESCloseSelfBlock) ( BOOL animated_ );
 
 static char close_action_key_;
