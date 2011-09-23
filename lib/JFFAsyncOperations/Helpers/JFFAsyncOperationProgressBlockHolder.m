@@ -11,11 +11,6 @@
    [ super dealloc ];
 }
 
-+(id)asyncOperationProgressBlockHolder
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)performProgressBlockWithArgument:( id )progress_info_
 {
    if ( self.progressBlock )

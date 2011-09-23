@@ -2,6 +2,7 @@
 
 #import "JFFBlockOperation.h"
 #import "JFFAsyncOperationProgressBlockHolder.h"
+#import "JFFCancelAyncOperationBlockHolder.h"
 
 #import <JFFUtils/NSObject/NSObject+PerformBlock.h>
 
@@ -29,7 +30,7 @@ JFFAsyncOperation asyncOperationWithSyncOperationWithProgressBlock( JFFSyncOpera
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFAsyncOperationProgressBlockHolder* holder_ = [ JFFAsyncOperationProgressBlockHolder asyncOperationProgressBlockHolder ];
+      JFFAsyncOperationProgressBlockHolder* holder_ = [ [ JFFAsyncOperationProgressBlockHolder new ] autorelease ];
       holder_.progressBlock = ^void( id progress_info_ )
       {
          [ ^void( void )
@@ -50,10 +51,14 @@ JFFAsyncOperation asyncOperationWithSyncOperationWithProgressBlock( JFFSyncOpera
       JFFBlockOperation* operation_ = [ JFFBlockOperation performOperationWithLoadDataBlock: load_data_block_
                                                                              didCancelBlock: cancel_callback_
                                                                            didLoadDataBlock: done_callback_ ];
-      return [ [ ^void( BOOL cancel_ )
+
+      JFFCancelAyncOperationBlockHolder* cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      cancel_holder_.cancelBlock = ^void( BOOL cancel_ )
       {
          holder_.progressBlock = nil;
          [ operation_ cancel: cancel_ ];
-      } copy ] autorelease ];
+      };
+
+      return cancel_holder_.onceCancelBlock;
    } copy ] autorelease ];
 }

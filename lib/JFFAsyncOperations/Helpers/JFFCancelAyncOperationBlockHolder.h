@@ -9,9 +9,6 @@
 }
 
 @property ( nonatomic, copy ) JFFCancelAsyncOperation cancelBlock;
-
-+(id)cancelAyncOperationBlockHolder;
-
--(void)performCancelBlockOnceWithArgument:( BOOL )cancel_;
+@property ( nonatomic, copy, readonly ) JFFCancelAsyncOperation onceCancelBlock;
 
 @end

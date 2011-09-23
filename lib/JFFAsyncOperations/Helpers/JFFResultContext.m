@@ -13,9 +13,4 @@
    [ super dealloc ];
 }
 
-+(id)resultContext
-{
-   return [ [ self new ] autorelease ];
-}
-
 @end

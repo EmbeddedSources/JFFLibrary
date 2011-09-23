@@ -16,6 +16,4 @@
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didFinishBlock;
 @property ( nonatomic, copy ) JFFCancelAsyncOperation cancelBlock;
 
-+(id)extractPropertyData;
-
 @end

@@ -9,9 +9,6 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
    NSMutableArray* _cancel_blocks;
 }
 
-//returns new scheduler
-+(id)scheduler;
-
 //returns the shared scheduler
 +(id)sharedScheduler;
 

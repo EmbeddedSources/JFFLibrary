@@ -4,6 +4,7 @@
 #import "JFFPropertyExtractor.h"
 #import "JFFObjectRelatedPropertyData.h"
 #import "JFFCallbacksBlocksHolder.h"
+#import "JFFAsyncOperationsPredefinedBlocks.h"
 
 #import "NSObject+PropertyExtractor.h"
 
@@ -175,7 +176,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
 
    if ( nil == property_extractor_.cancelBlock )
    {
-      return JFFEmptyCancelAsyncOperationBlock;
+      return JFFStubCancelAsyncOperationBlock;
    }
 
    return cancelBlock( property_extractor_, callbacks_ );
@@ -216,7 +217,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
       {
          if ( done_callback_ )
             done_callback_( result_, nil );
-         return JFFEmptyCancelAsyncOperationBlock;
+         return JFFStubCancelAsyncOperationBlock;
       }
 
       property_extractor_.asyncLoader = async_operation_;

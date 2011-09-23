@@ -24,11 +24,6 @@
    return self;
 }
 
-+(id)scheduler
-{
-   return [ [ self new ] autorelease ];
-}
-
 +(id)sharedScheduler
 {
    static id instance_ = nil;
@@ -51,7 +46,7 @@
 -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_
                           duration:( NSTimeInterval )duration_
 {
-   JFFSimpleBlockHolder* cancel_block_holder_ = [ JFFSimpleBlockHolder simpleBlockHolder ];
+   JFFSimpleBlockHolder* cancel_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
 
    block_ = [ [ block_ copy ] autorelease ];
    void (^schedule_block_) ( void ) = [ [ ^

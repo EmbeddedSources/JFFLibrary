@@ -11,11 +11,6 @@
    [ super dealloc ];
 }
 
-+(id)cancelAyncOperationBlockHolder
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)performCancelBlockOnceWithArgument:( BOOL )cancel_
 {
    if ( !self.cancelBlock )
@@ -25,6 +20,14 @@
    self.cancelBlock = nil;
    block_( cancel_ );
    [ block_ release ];
+}
+
+-(JFFCancelAsyncOperation)onceCancelBlock
+{
+   return [ [ ^( BOOL cancel_ )
+   {
+      [ self performCancelBlockOnceWithArgument: cancel_ ];
+   } copy ] autorelease ];
 }
 
 @end
