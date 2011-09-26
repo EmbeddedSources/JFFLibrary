@@ -1,7 +1,11 @@
 #import "NSObject+AutoCancelAsyncOperation.h"
 
 #import "JFFAsyncOperationsPredefinedBlocks.h"
+#import "JFFAsyncOperationContinuity.h"
+
 #import "JFFCancelAyncOperationBlockHolder.h"
+#import "JFFAsyncOperationProgressBlockHolder.h"
+#import "JFFDidFinishAsyncOperationBlockHolder.h"
 
 #import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
@@ -22,8 +26,8 @@
 
       JFFSimpleBlockHolder* ondealloc_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
 
-      JFFSimpleBlockHolder* on_finish_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
-      on_finish_block_holder_.simpleBlock = ^void( void )
+      JFFSimpleBlockHolder* remove_ondealloc_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
+      remove_ondealloc_block_holder_.simpleBlock = ^void( void )
       {
          finished_ = YES;
 
@@ -34,22 +38,28 @@
          }
       };
 
-      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
-      cancel_callback_ = ^void( BOOL cancel_op_ )
+      JFFAsyncOperationProgressBlockHolder* progress_callback_holder_ = [ [ JFFAsyncOperationProgressBlockHolder new ] autorelease ];
+      progress_callback_holder_.progressBlock = progress_callback_;
+      progress_callback_ = ^void( id progress_info_ )
       {
-         on_finish_block_holder_.onceSimpleBlock();
-
-         if ( cancel_callback_ )
-            cancel_callback_( cancel_op_ );
+         if ( progress_callback_holder_.progressBlock )
+            progress_callback_holder_.progressBlock( progress_info_ );
       };
 
-      done_callback_ = [ [ done_callback_ copy ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* cancel_callback_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      cancel_callback_holder_.cancelBlock = cancel_callback_;
+      cancel_callback_ = ^void( BOOL cancel_op_ )
+      {
+         remove_ondealloc_block_holder_.onceSimpleBlock();
+         cancel_callback_holder_.onceCancelBlock( cancel_op_ );
+      };
+
+      JFFDidFinishAsyncOperationBlockHolder* done_callback_holder_ = [ [ JFFDidFinishAsyncOperationBlockHolder new ] autorelease ];
+      done_callback_holder_.didFinishBlock = done_callback_;
       done_callback_ = ^void( id result_, NSError* error_ )
       {
-         on_finish_block_holder_.onceSimpleBlock();
-
-         if ( done_callback_ )
-            done_callback_( result_, error_ );
+         remove_ondealloc_block_holder_.onceSimpleBlock();
+         done_callback_holder_.onceDidFinishBlock( result_, error_ );
       };
 
       JFFCancelAsyncOperation cancel_ = native_async_op_( progress_callback_, cancel_callback_, done_callback_ );
@@ -70,8 +80,19 @@
       JFFCancelAyncOperationBlockHolder* main_cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       main_cancel_holder_.cancelBlock = ^void( BOOL canceled_ )
       {
-         if ( !finished_ )
-            cancel_( canceled_ );
+         if ( finished_ )
+            return;
+
+         if ( canceled_ )
+         {
+            cancel_( YES );
+         }
+         else
+         {
+            progress_callback_holder_.progressBlock = nil;
+            done_callback_holder_.didFinishBlock = nil;
+            cancel_callback_holder_.onceCancelBlock( NO );
+         }
       };
 
       return main_cancel_holder_.onceCancelBlock;

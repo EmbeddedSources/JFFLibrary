@@ -216,7 +216,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
       JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = ^void( id result_, NSError* error_ )
       {
          done_ = YES;
-         [ finish_block_holder_ performDidFinishBlockOnceWithResult: result_ error: error_ ];
+         finish_block_holder_.onceDidFinishBlock( result_, error_ );
       };
 
       wrapped_cancel_callback_ = cancelCallbackWrapper( wrapped_cancel_callback_

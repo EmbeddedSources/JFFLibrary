@@ -103,8 +103,8 @@
 		1B793B35142C887700B43DC8 /* Dependecies */ = {
 			isa = PBXGroup;
 			children = (
-				1B835B52142CD17300FC004C /* JFFScheduler.xcodeproj */,
 				1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */,
+				1B835B52142CD17300FC004C /* JFFScheduler.xcodeproj */,
 				1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */,
 			);
 			name = Dependecies;

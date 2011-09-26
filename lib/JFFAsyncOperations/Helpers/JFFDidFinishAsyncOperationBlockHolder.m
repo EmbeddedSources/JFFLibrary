@@ -22,4 +22,12 @@
    [ block_ release ];
 }
 
+-(JFFDidFinishAsyncOperationHandler)onceDidFinishBlock
+{
+   return [ [ ^( id result_, NSError* error_ )
+   {
+      [ self performDidFinishBlockOnceWithResult: result_ error: error_ ];
+   } copy ] autorelease ];
+}
+
 @end

@@ -4,22 +4,22 @@
 
 @synthesize currentCount = _current_count;
 @synthesize pageSize = _page_size;
-@synthesize totalClipsCount = _total_clips_count;
+@synthesize totalElementsCount = _total_elements_count;
 
-@dynamic hasNoClips;
-@dynamic allClipsLoaded;
+@dynamic hasNoElements;
+@dynamic allElementsLoaded;
 @dynamic loadMoreIndexPath;
 
-static const NSUInteger RIUndefinedClipsCount = -1;
+static const NSUInteger RIUndefinedElementsCount = -1;
 
--(BOOL)hasNoClips
+-(BOOL)hasNoElements
 {
-   return ( self.totalClipsCount == 0  ) || ( self.totalClipsCount == RIUndefinedClipsCount );
+   return ( self.totalElementsCount == 0  ) || ( self.totalElementsCount == RIUndefinedElementsCount );
 }
 
--(BOOL)allClipsLoaded
+-(BOOL)allElementsLoaded
 {
-   return ( self.currentCount >=  self.totalClipsCount );
+   return ( self.currentCount >=  self.totalElementsCount );
 }
 
 -(NSIndexPath*)loadMoreIndexPath
@@ -28,7 +28,7 @@ static const NSUInteger RIUndefinedClipsCount = -1;
                               inSection: 0 ];
 }
 
--(BOOL)noNeedToLoadClipAtIndexPath:( NSIndexPath* )index_path_
+-(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_
 {
    return ( index_path_.row < self.currentCount );
 }
@@ -54,54 +54,52 @@ static const NSUInteger RIUndefinedClipsCount = -1;
    return index_paths_;
 }
 
--(NSUInteger)suggestClipsToAddCountForIndexPath:( NSIndexPath* )index_path_
+-(NSUInteger)suggestElementsToAddCountForIndexPath:( NSIndexPath* )index_path_
                                 overflowOccured:( BOOL* )out_is_overflow_
 {
    NSAssert( out_is_overflow_, @"is_overflow_ is not optional" );
    *out_is_overflow_ = NO;
    
    // if all loaded
-   if ( self.hasNoClips )
+   if ( self.hasNoElements )
    {
       return 0;
    }
-   if ( self.allClipsLoaded )
+   if ( self.allElementsLoaded )
    {
       *out_is_overflow_ = YES;
       return 0;
    }
-   if ( [ self noNeedToLoadClipAtIndexPath: index_path_ ] )
+   if ( [ self noNeedToLoadElementAtIndexPath: index_path_ ] )
    {
       return 0;
    }
    
    static const NSUInteger load_more_placeholder_size_ = 1;
-   NSUInteger rest_of_the_pages_ = self.totalClipsCount - self.currentCount;
+   NSUInteger rest_of_the_pages_ = self.totalElementsCount - self.currentCount;
    BOOL is_paging_disabled_ = ( self.pageSize == 0 );   
    if ( is_paging_disabled_ )
    {
       return rest_of_the_pages_ - load_more_placeholder_size_;
    }   
    
-   NSUInteger clips_to_add_ = index_path_.row - self.currentCount;
-   
-   
+   NSUInteger elements_to_add_ = index_path_.row - self.currentCount;
+
    float items_count_for_index_path_ = 1 + index_path_.row;
    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
-   NSUInteger clips_expected_ = pages_expected_ * self.pageSize;
+   NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
 
    //check if paging disabled
-   BOOL is_overflow_ = ( clips_expected_ >= self.totalClipsCount );
+   BOOL is_overflow_ = ( elements_expected_ >= self.totalElementsCount );
    if ( is_overflow_ )
    {
       *out_is_overflow_ = YES;
       return rest_of_the_pages_ - load_more_placeholder_size_;
    }
 
-   clips_to_add_ = clips_expected_ - self.currentCount;
+   elements_to_add_ = elements_expected_ - self.currentCount;
    
-   return clips_to_add_;
+   return elements_to_add_;
 }
-
 
 @end

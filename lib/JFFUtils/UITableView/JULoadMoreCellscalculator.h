@@ -4,16 +4,16 @@
 
 @property ( nonatomic, assign ) NSUInteger currentCount;
 @property ( nonatomic, assign ) NSUInteger pageSize;
-@property ( nonatomic, assign ) NSUInteger totalClipsCount;
+@property ( nonatomic, assign ) NSUInteger totalElementsCount;
 
--(NSArray*)prepareIndexPathEntriesForBottomCells:(NSUInteger)cells_count_;
--(NSUInteger)suggestClipsToAddCountForIndexPath:( NSIndexPath* )index_path_
+-(NSArray*)prepareIndexPathEntriesForBottomCells:( NSUInteger )cells_count_;
+-(NSUInteger)suggestElementsToAddCountForIndexPath:( NSIndexPath* )index_path_
                                 overflowOccured:( BOOL* )is_overflow_;
 
-@property ( nonatomic, assign, readonly ) BOOL hasNoClips;
-@property ( nonatomic, assign, readonly ) BOOL allClipsLoaded;
+@property ( nonatomic, assign, readonly ) BOOL hasNoElements;
+@property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;
 @property ( nonatomic, retain, readonly ) NSIndexPath* loadMoreIndexPath;
 
--(BOOL)noNeedToLoadClipAtIndexPath:( NSIndexPath* )index_path_;
+-(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_;
 
 @end
