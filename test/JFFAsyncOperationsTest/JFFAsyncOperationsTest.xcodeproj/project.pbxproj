@@ -17,7 +17,6 @@
 		8D29EF9713BE066900041B6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D29EF9513BE066900041B6A /* InfoPlist.strings */; };
 		8D29EF9913BE066900041B6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D29EF9813BE066900041B6A /* main.m */; };
 		8D29EFB313BE070F00041B6A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EFB213BE070F00041B6A /* GHUnitIOS.framework */; };
-		8D29EFB613BE08F700041B6A /* MockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D29EFB513BE08F700041B6A /* MockTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D29EF9913BE066900041B6A /* main.m in Sources */,
-				8D29EFB613BE08F700041B6A /* MockTest.m in Sources */,
 				1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

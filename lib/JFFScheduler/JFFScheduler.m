@@ -24,6 +24,11 @@
    return self;
 }
 
++(id)scheduler
+{
+   return [ [ self new ] autorelease ];
+}
+
 +(id)sharedScheduler
 {
    static id instance_ = nil;

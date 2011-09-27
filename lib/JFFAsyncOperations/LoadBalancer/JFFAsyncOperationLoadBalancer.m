@@ -234,7 +234,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
       if ( done_ )
       {
-         return JFFStubCancelAsyncOperationBlock;
+         return JFFEmptyCancelAsyncOperationBlock;
       }
 
       ++global_active_number_;

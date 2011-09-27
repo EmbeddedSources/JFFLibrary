@@ -14,8 +14,6 @@
 		651BE0BA1390496200DD6890 /* NSArray+BlocksAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */; };
 		651BE0BB1390496200DD6890 /* UITableView+WithinUpdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0AF1390496200DD6890 /* UITableView+WithinUpdates.h */; };
 		651BE0BC1390496200DD6890 /* UITableView+WithinUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0B01390496200DD6890 /* UITableView+WithinUpdates.m */; };
-		651BE0BD1390496200DD6890 /* UIView+AnimationWithBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0B21390496200DD6890 /* UIView+AnimationWithBlocks.h */; };
-		651BE0BE1390496200DD6890 /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0B31390496200DD6890 /* UIView+AnimationWithBlocks.m */; };
 		651BE11D1391041400DD6890 /* NSObject+PerformBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE11B1391041400DD6890 /* NSObject+PerformBlock.h */; };
 		651BE11E1391041400DD6890 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */; };
 		651BE139139107EA00DD6890 /* NSObject+Ownerships.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE137139107EA00DD6890 /* NSObject+Ownerships.h */; };
@@ -59,8 +57,6 @@
 		651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BlocksAdditions.m"; sourceTree = "<group>"; };
 		651BE0AF1390496200DD6890 /* UITableView+WithinUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WithinUpdates.h"; sourceTree = "<group>"; };
 		651BE0B01390496200DD6890 /* UITableView+WithinUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WithinUpdates.m"; sourceTree = "<group>"; };
-		651BE0B21390496200DD6890 /* UIView+AnimationWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationWithBlocks.h"; sourceTree = "<group>"; };
-		651BE0B31390496200DD6890 /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationWithBlocks.m"; sourceTree = "<group>"; };
 		651BE11B1391041400DD6890 /* NSObject+PerformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformBlock.h"; sourceTree = "<group>"; };
 		651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		651BE137139107EA00DD6890 /* NSObject+Ownerships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ownerships.h"; sourceTree = "<group>"; };
@@ -191,15 +187,6 @@
 			path = UITableView;
 			sourceTree = "<group>";
 		};
-		651BE0B11390496200DD6890 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				651BE0B21390496200DD6890 /* UIView+AnimationWithBlocks.h */,
-				651BE0B31390496200DD6890 /* UIView+AnimationWithBlocks.m */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		651BE0BF1390496700DD6890 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +196,6 @@
 				651BE0AA1390496200DD6890 /* NSArray */,
 				651BE0AD1390496200DD6890 /* NSObject */,
 				651BE0AE1390496200DD6890 /* UITableView */,
-				651BE0B11390496200DD6890 /* UIView */,
 				65648BDF13924326001E163C /* JFFError.h */,
 				65648BE013924326001E163C /* JFFError.m */,
 				65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */,
@@ -259,7 +245,6 @@
 				651BE0B71390496200DD6890 /* JFFSimpleBlockHolder.h in Headers */,
 				651BE0B91390496200DD6890 /* NSArray+BlocksAdditions.h in Headers */,
 				651BE0BB1390496200DD6890 /* UITableView+WithinUpdates.h in Headers */,
-				651BE0BD1390496200DD6890 /* UIView+AnimationWithBlocks.h in Headers */,
 				651BE11D1391041400DD6890 /* NSObject+PerformBlock.h in Headers */,
 				651BE139139107EA00DD6890 /* NSObject+Ownerships.h in Headers */,
 				651BE19D1391969A00DD6890 /* NSString+Search.h in Headers */,
@@ -334,7 +319,6 @@
 				651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */,
 				651BE0BA1390496200DD6890 /* NSArray+BlocksAdditions.m in Sources */,
 				651BE0BC1390496200DD6890 /* UITableView+WithinUpdates.m in Sources */,
-				651BE0BE1390496200DD6890 /* UIView+AnimationWithBlocks.m in Sources */,
 				651BE11E1391041400DD6890 /* NSObject+PerformBlock.m in Sources */,
 				651BE13A139107EA00DD6890 /* NSObject+Ownerships.m in Sources */,
 				651BE19E1391969A00DD6890 /* NSString+Search.m in Sources */,

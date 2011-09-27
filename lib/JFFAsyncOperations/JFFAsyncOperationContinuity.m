@@ -15,7 +15,7 @@ static JFFAsyncOperation createEmptyLoaderBlock()
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       done_callback_( [ NSNull null ], nil );
-      return JFFStubCancelAsyncOperationBlock;
+      return JFFEmptyCancelAsyncOperationBlock;
    } copy ] autorelease ];
 }
 
@@ -331,15 +331,15 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
                                                        , cancel_callback1_
                                                        , cancelSafeResultBlock( result_block_, cancel_holder1_ ) );
 
-      cancel_holder1_.cancelBlock = done_ ? JFFStubCancelAsyncOperationBlock : cancel1_;
+      cancel_holder1_.cancelBlock = done_ ? JFFEmptyCancelAsyncOperationBlock : cancel1_;
 
       JFFCancelAsyncOperation cancel2_ = done_
-         ? JFFStubCancelAsyncOperationBlock
+         ? JFFEmptyCancelAsyncOperationBlock
          : second_loader_( progress_callback_
                           , cancel_callback2_
                           , cancelSafeResultBlock( result_block_, cancel_holder2_ ) );
 
-      cancel_holder2_.cancelBlock = done_ ? JFFStubCancelAsyncOperationBlock : cancel2_;
+      cancel_holder2_.cancelBlock = done_ ? JFFEmptyCancelAsyncOperationBlock : cancel2_;
 
       return [ [ ^void( BOOL cancel_ )
       {

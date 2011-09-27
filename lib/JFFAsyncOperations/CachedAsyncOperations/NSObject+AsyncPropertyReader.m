@@ -176,7 +176,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
 
    if ( nil == property_extractor_.cancelBlock )
    {
-      return JFFStubCancelAsyncOperationBlock;
+      return JFFEmptyCancelAsyncOperationBlock;
    }
 
    return cancelBlock( property_extractor_, callbacks_ );
@@ -217,7 +217,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
       {
          if ( done_callback_ )
             done_callback_( result_, nil );
-         return JFFStubCancelAsyncOperationBlock;
+         return JFFEmptyCancelAsyncOperationBlock;
       }
 
       property_extractor_.asyncLoader = async_operation_;

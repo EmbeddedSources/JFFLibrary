@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern JFFCancelAsyncOperation JFFStubCancelAsyncOperationBlock;
+extern JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock;
 extern JFFAsyncOperation JFFAsyncOperationBlockWithSuccessResult;
 
 JFFAsyncOperation asyncOperationBlockWithSuccessResultAfterDelay( NSTimeInterval delay_ );

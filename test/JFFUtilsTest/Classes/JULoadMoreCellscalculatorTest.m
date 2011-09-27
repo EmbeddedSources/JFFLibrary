@@ -86,12 +86,12 @@
 }
 
 
--(void)testClipsAreNotLoaded
+-(void)testElementsAreNotLoaded
 {
    JULoadMoreCellscalculator* cells_calc_ = [ [ [ JULoadMoreCellscalculator alloc ] init ] autorelease ];
    cells_calc_.currentCount = 25;
    cells_calc_.pageSize = 20;
-   cells_calc_.totalClipsCount = -1;
+   cells_calc_.totalElementsCount = -1;
    
    
    NSIndexPath* index_path_ = nil;
@@ -101,7 +101,7 @@
    {
       index_path_ = [ NSIndexPath indexPathForRow: 26 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
                                                    overflowOccured: &is_overflow_ ];
       
       
@@ -109,13 +109,13 @@
       GHAssertFalse( is_overflow_, @"Unexpected overflow" );
    }
    
-   cells_calc_.totalClipsCount = 0;
+   cells_calc_.totalElementsCount = 0;
    
    {
       index_path_ = [ NSIndexPath indexPathForRow: 26 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
       
       
       GHAssertTrue( 0 ==received_ , @"Method should return zero" );
@@ -123,12 +123,12 @@
    }
 }
 
--(void)testAllClipsAreLoaded
+-(void)testAllElementsAreLoaded
 {
    JULoadMoreCellscalculator* cells_calc_ = [ [ [ JULoadMoreCellscalculator alloc ] init ] autorelease ];
    cells_calc_.currentCount = 25;
    cells_calc_.pageSize = 20;
-   cells_calc_.totalClipsCount = 25;
+   cells_calc_.totalElementsCount = 25;
    
    
    NSIndexPath* index_path_ = nil;
@@ -138,8 +138,8 @@
    {
       index_path_ = [ NSIndexPath indexPathForRow: 26 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
 
       
       GHAssertTrue( 0 ==received_ , @"Method should return zero" );
@@ -149,8 +149,8 @@
    {
       index_path_ = [ NSIndexPath indexPathForRow: 10 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
 
       
       GHAssertTrue( 0 == received_ , @"Method should return zero" );
@@ -160,8 +160,8 @@
    {
       index_path_ = [ NSIndexPath indexPathForRow: 33 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
 
       
       GHAssertTrue( 0 == received_ , @"Method should return zero" );
@@ -180,13 +180,13 @@
    
    {
       cells_calc_.currentCount = 25;
-      cells_calc_.totalClipsCount = 1239;
+      cells_calc_.totalElementsCount = 1239;
       cells_calc_.pageSize = 25;
       index_path_ = [ NSIndexPath indexPathForRow: 1224 
                                         inSection: 0 ];
       
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_];
       GHAssertTrue( 1200 == received_ , @"Load more button is not required anymore. It is 1213, not 1214 " );
       GHAssertFalse( is_overflow_, @"Unexpected overflow" );
       
@@ -206,12 +206,12 @@
    {
       cells_calc_.currentCount = 25;
       cells_calc_.pageSize = 20;
-      cells_calc_.totalClipsCount = 35;
+      cells_calc_.totalElementsCount = 35;
       
       index_path_ = [ NSIndexPath indexPathForRow: 26 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                    overflowOccured: &is_overflow_];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_];
       GHAssertTrue( 9 == received_ , @"If IndexPath plus PageSize bigger totalCount we should return value up to totalCount" );
       GHAssertTrue( is_overflow_, @"Unexpected overflow" );
    }
@@ -219,11 +219,11 @@
    {
       cells_calc_.currentCount = 50;
       cells_calc_.pageSize = 10;
-      cells_calc_.totalClipsCount = 60;
+      cells_calc_.totalElementsCount = 60;
       index_path_ =  [ NSIndexPath indexPathForRow: 51 
                                          inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_];
       GHAssertTrue( 9 == received_ , @"If IndexPath plus PageSize bigger totalCount we should return value up to totalCount" );
       GHAssertTrue( is_overflow_, @"Unexpected overflow" );
    }
@@ -232,11 +232,11 @@
    {
       cells_calc_.currentCount    = 1240;
       cells_calc_.pageSize        = 25;
-      cells_calc_.totalClipsCount = 1241;
+      cells_calc_.totalElementsCount = 1241;
       index_path_ = [ NSIndexPath indexPathForRow: 1240 
                                          inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
       GHAssertTrue( 0 == received_ , @"If IndexPath plus PageSize bigger totalCount we should return value up to totalCount" );
       GHAssertTrue( is_overflow_, @"Unexpected overflow" );
    }   
@@ -247,7 +247,7 @@
    JULoadMoreCellscalculator* cells_calc_ = [ [ [ JULoadMoreCellscalculator alloc ] init ] autorelease ];
    cells_calc_.currentCount = 25;
    cells_calc_.pageSize = 5;
-   cells_calc_.totalClipsCount = 50;
+   cells_calc_.totalElementsCount = 50;
    
    NSIndexPath* index_path_ = nil;
    BOOL is_overflow_ = NO;
@@ -256,8 +256,8 @@
    {
       index_path_ = [ NSIndexPath indexPathForRow: 33 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
 
       GHAssertTrue( 10 == received_ , @"Main scenario, should work correct" );
       
@@ -274,8 +274,8 @@
    {
       index_path_ = [ NSIndexPath indexPathForRow: 28 
                                         inSection: 0 ];
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
 
       GHAssertTrue( 5 == received_, @"Main scenario, should work correct" );
       GHAssertFalse( is_overflow_, @"Unexpected overflow" );
@@ -288,7 +288,7 @@
    JULoadMoreCellscalculator* cells_calc_ = [ [ [ JULoadMoreCellscalculator alloc ] init ] autorelease ];
    cells_calc_.currentCount = 25;
    cells_calc_.pageSize = 20;
-   cells_calc_.totalClipsCount = 35;
+   cells_calc_.totalElementsCount = 35;
    
    NSIndexPath* index_path_ = nil;
    BOOL is_overflow_ = NO;
@@ -298,8 +298,8 @@
       index_path_ = [ NSIndexPath indexPathForRow: 6 
                                         inSection: 0 ];
       
-      received_ = [ cells_calc_ suggestClipsToAddCountForIndexPath: index_path_
-                                                   overflowOccured: &is_overflow_ ];
+      received_ = [ cells_calc_ suggestElementsToAddCountForIndexPath: index_path_
+                                                      overflowOccured: &is_overflow_ ];
       
       GHAssertTrue( 0 == received_ , @"If value of row less than currentCount we should return zero" );
       GHAssertFalse( is_overflow_, @"Unexpected overflow" );

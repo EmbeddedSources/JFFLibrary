@@ -4,7 +4,8 @@
 
 #import <JFFScheduler/JFFScheduler.h>
 
-JFFCancelAsyncOperation JFFStubCancelAsyncOperationBlock = ^void( BOOL cancel_ ){ /*do nothing*/ };
+//TODO rename to JFFStubCancelAsyncOperationBlock
+JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock = ^void( BOOL cancel_ ){ /*do nothing*/ };
 
 JFFAsyncOperation JFFAsyncOperationBlockWithSuccessResult =
 ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
@@ -22,9 +23,9 @@ JFFAsyncOperation asyncOperationBlockWithSuccessResultAfterDelay( NSTimeInterval
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       if ( !done_callback_ )
-         return JFFStubCancelAsyncOperationBlock;
+         return JFFEmptyCancelAsyncOperationBlock;
 
-      JFFScheduler* scheduer_ = [ JFFScheduler new ];
+      JFFScheduler* scheduer_ = [ [ JFFScheduler new ] autorelease ];
 
       JFFScheduledBlock scheduled_block_ = ^void( JFFCancelScheduledBlock cancel_ )
       {
@@ -41,8 +42,6 @@ JFFAsyncOperation asyncOperationBlockWithSuccessResultAfterDelay( NSTimeInterval
          if ( cancel_callback_ )
             cancel_callback_( cancel_ );
       };
-
-      [ scheduer_ release ];
 
       return cancel_holder_.onceCancelBlock;
    } copy ] autorelease ];

@@ -2,3 +2,5 @@
 #import <JFFUI/AlertView/JFFAlertView.h>
 #import <JFFUI/AlertView/JFFActionSheet.h>
 #import <JFFUI/AlertView/NSError+Alert.h>
+
+#import <JFFUI/UIView/UIView+AnimationWithBlocks.h>

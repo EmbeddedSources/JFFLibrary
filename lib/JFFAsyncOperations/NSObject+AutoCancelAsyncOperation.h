@@ -4,8 +4,8 @@
 
 @interface NSObject (WeakAsyncOperation)
 
--(JFFAsyncOperation)autoUnsibscribeAsyncOperation:( JFFAsyncOperation )async_op_;
+-(JFFAsyncOperation)autoUnsubsribeOnDeallocAsyncOperation:( JFFAsyncOperation )async_op_;
 
--(JFFAsyncOperation)autoCancelAsyncOperation:( JFFAsyncOperation )async_op_;
+-(JFFAsyncOperation)autoCancelOnDeallocAsyncOperation:( JFFAsyncOperation )async_op_;
 
 @end
