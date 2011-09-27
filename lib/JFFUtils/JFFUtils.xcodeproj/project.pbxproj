@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		534C739A1431E1410085B41E /* NSMutableArray+ChangeCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */; };
+		534C739B1431E1410085B41E /* NSMutableArray+ChangeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */; };
 		651BE0B41390496200DD6890 /* JFFUtilsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */; };
 		651BE0B71390496200DD6890 /* JFFSimpleBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */; };
 		651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ChangeCount.h"; sourceTree = "<group>"; };
+		534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ChangeCount.m"; sourceTree = "<group>"; };
 		651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtilsBlockDefinitions.h; sourceTree = "<group>"; };
 		651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFSimpleBlockHolder.h; sourceTree = "<group>"; };
 		651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolder.m; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 			children = (
 				651BE0AB1390496200DD6890 /* NSArray+BlocksAdditions.h */,
 				651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */,
+				534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */,
+				534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				8D713C6D13F3F62B007268DF /* JFFMutableAssignArray.h in Headers */,
 				8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */,
 				B694846B1429E39700B8247E /* JULoadMoreCellscalculator.h in Headers */,
+				534C739A1431E1410085B41E /* NSMutableArray+ChangeCount.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +358,7 @@
 				8D713C6E13F3F62B007268DF /* JFFMutableAssignArray.m in Sources */,
 				8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */,
 				B694846C1429E39700B8247E /* JULoadMoreCellscalculator.m in Sources */,
+				534C739B1431E1410085B41E /* NSMutableArray+ChangeCount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
