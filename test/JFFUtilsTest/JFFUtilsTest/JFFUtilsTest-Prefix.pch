@@ -7,7 +7,7 @@
 
 #ifdef __OBJC__
    #import <JFFUtils/UITableView/JULoadMoreCellscalculator.h>
-
+   #import <JFFUtils/JFFUtils.h>
 
    #import <GHUnitIOS/GHUnit.h>
    #import <UIKit/UIKit.h>
