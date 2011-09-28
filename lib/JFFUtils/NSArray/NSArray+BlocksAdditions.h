@@ -1,16 +1,7 @@
+#import <JFFUtils/NSArray/JUArrayHelperBlocks.h>
 #import <Foundation/Foundation.h>
 
 @interface NSArray (BlocksAdditions)
-
-#pragma mark -
-#pragma mark block typedefs
-typedef BOOL (^PredicateBlock)( id object_ );
-typedef void (^ActionBlock)( id object_ );
-typedef id (^MappingBlock)( id object_ );
-typedef id (^ProducerBlock)( NSUInteger index_ );
-typedef NSArray* (^FlattenBlock)( id object_ );
-
-typedef void (^TransformBlock)( id first_object_, id second_object_ );
 
 #pragma mark -
 #pragma mark BlocksAdditions

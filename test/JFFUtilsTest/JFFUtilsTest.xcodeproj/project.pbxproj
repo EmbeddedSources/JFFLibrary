@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */; };
+		53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */; };
 		B69483EC1429C88400B8247E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EB1429C88400B8247E /* UIKit.framework */; };
 		B69483EE1429C88400B8247E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483ED1429C88400B8247E /* Foundation.framework */; };
 		B69483F01429C88400B8247E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EF1429C88400B8247E /* CoreGraphics.framework */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUMutableArrayTest.m; sourceTree = "<group>"; };
+		53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayAdditionsTest.m; sourceTree = "<group>"; };
 		B69483E71429C88400B8247E /* JFFUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69483EB1429C88400B8247E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B69483ED1429C88400B8247E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,6 +122,7 @@
 			children = (
 				B69484461429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m */,
 				534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */,
+				53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -227,6 +230,7 @@
 				B69483F81429C88400B8247E /* main.m in Sources */,
 				B69484471429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m in Sources */,
 				534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */,
+				53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

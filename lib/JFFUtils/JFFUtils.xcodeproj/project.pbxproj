@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		534C739A1431E1410085B41E /* NSMutableArray+ChangeCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */; };
 		534C739B1431E1410085B41E /* NSMutableArray+ChangeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */; };
+		53BCF8E0143239D100E896B3 /* NSArray+RemoveDuplicates.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */; };
+		53BCF8E1143239D100E896B3 /* NSArray+RemoveDuplicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */; };
+		53BCF8E314323A4800E896B3 /* JUArrayHelperBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */; };
+		53E366C81433760A002AB0B9 /* NSArray+IsEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E366C61433760A002AB0B9 /* NSArray+IsEmpty.h */; };
+		53E366C91433760A002AB0B9 /* NSArray+IsEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E366C71433760A002AB0B9 /* NSArray+IsEmpty.m */; };
 		651BE0B41390496200DD6890 /* JFFUtilsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */; };
 		651BE0B71390496200DD6890 /* JFFSimpleBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */; };
 		651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */; };
@@ -56,6 +61,11 @@
 /* Begin PBXFileReference section */
 		534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ChangeCount.h"; sourceTree = "<group>"; };
 		534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ChangeCount.m"; sourceTree = "<group>"; };
+		53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RemoveDuplicates.h"; sourceTree = "<group>"; };
+		53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RemoveDuplicates.m"; sourceTree = "<group>"; };
+		53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUArrayHelperBlocks.h; sourceTree = "<group>"; };
+		53E366C61433760A002AB0B9 /* NSArray+IsEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+IsEmpty.h"; sourceTree = "<group>"; };
+		53E366C71433760A002AB0B9 /* NSArray+IsEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+IsEmpty.m"; sourceTree = "<group>"; };
 		651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtilsBlockDefinitions.h; sourceTree = "<group>"; };
 		651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFSimpleBlockHolder.h; sourceTree = "<group>"; };
 		651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolder.m; sourceTree = "<group>"; };
@@ -167,6 +177,11 @@
 				651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */,
 				534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */,
 				534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */,
+				53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */,
+				53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */,
+				53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */,
+				53E366C61433760A002AB0B9 /* NSArray+IsEmpty.h */,
+				53E366C71433760A002AB0B9 /* NSArray+IsEmpty.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -282,6 +297,9 @@
 				8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */,
 				B694846B1429E39700B8247E /* JULoadMoreCellscalculator.h in Headers */,
 				534C739A1431E1410085B41E /* NSMutableArray+ChangeCount.h in Headers */,
+				53BCF8E0143239D100E896B3 /* NSArray+RemoveDuplicates.h in Headers */,
+				53BCF8E314323A4800E896B3 /* JUArrayHelperBlocks.h in Headers */,
+				53E366C81433760A002AB0B9 /* NSArray+IsEmpty.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +377,8 @@
 				8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */,
 				B694846C1429E39700B8247E /* JULoadMoreCellscalculator.m in Sources */,
 				534C739B1431E1410085B41E /* NSMutableArray+ChangeCount.m in Sources */,
+				53BCF8E1143239D100E896B3 /* NSArray+RemoveDuplicates.m in Sources */,
+				53E366C91433760A002AB0B9 /* NSArray+IsEmpty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
