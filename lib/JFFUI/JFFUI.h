@@ -3,4 +3,6 @@
 #import <JFFUI/AlertView/JFFActionSheet.h>
 #import <JFFUI/AlertView/NSError+Alert.h>
 
-#import <JFFUI/UIView/UIView+AnimationWithBlocks.h>
+#import <JFFUI/Extensions/UIView+AnimationWithBlocks.h>
+#import <JFFUI/Extensions/UITableView+WithinUpdates.h>
+#import <JFFUI/Extensions/UINib+FirstObject.h>

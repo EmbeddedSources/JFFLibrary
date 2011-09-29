@@ -10,7 +10,7 @@
 @dynamic allElementsLoaded;
 @dynamic loadMoreIndexPath;
 
-static const NSUInteger RIUndefinedElementsCount = -1;
+static const NSUInteger RIUndefinedElementsCount = NSUIntegerMax;
 
 -(BOOL)hasNoElements
 {

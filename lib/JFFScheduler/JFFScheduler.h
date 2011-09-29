@@ -10,7 +10,7 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
 }
 
 //returns new scheduler
-//deprecated
+//TODO deprecated
 +(id)scheduler;
 
 //returns the shared scheduler
