@@ -26,7 +26,7 @@
          } copy ] autorelease ];
       };
 
-      operation_ = [ obj_ autoUnsibscribeAsyncOperation: operation_ ];
+      operation_ = [ obj_ autoUnsubsribeOnDeallocAsyncOperation: operation_ ];
 
       cancel_ = operation_( nil, ^( BOOL canceled_ )
       {
@@ -70,7 +70,7 @@
          } copy ] autorelease ];
       };
 
-      operation_ = [ obj_ autoUnsibscribeAsyncOperation: operation_ ];
+      operation_ = [ obj_ autoUnsubsribeOnDeallocAsyncOperation: operation_ ];
 
       operation_( nil, nil, nil );
 
@@ -98,7 +98,7 @@
       } copy ] autorelease ];
    };
 
-   operation_ = [ obj_ autoUnsibscribeAsyncOperation: operation_ ];
+   operation_ = [ obj_ autoUnsubsribeOnDeallocAsyncOperation: operation_ ];
 
    __block BOOL cancel_callback_called_ = NO;
 
@@ -132,7 +132,7 @@
       } copy ] autorelease ];
    };
 
-   JFFAsyncOperation auto_cancel_operation_ = [ operation_owner_ autoCancelAsyncOperation: operation_ ];
+   JFFAsyncOperation auto_cancel_operation_ = [ operation_owner_ autoCancelOnDeallocAsyncOperation: operation_ ];
 
    __block BOOL deallocated_ = NO;
 
@@ -196,10 +196,10 @@
       } copy ] autorelease ];
       [ operation_ retain ];//like native operation still living
 
-      JFFAsyncOperation auto_cancel_operation_ = [ operation_owner_ autoCancelAsyncOperation: operation_ ];
+      JFFAsyncOperation auto_cancel_operation_ = [ operation_owner_ autoCancelOnDeallocAsyncOperation: operation_ ];
 
       __block id weak_delegate_ = delegate_;
-      [ weak_delegate_ autoUnsibscribeAsyncOperation: auto_cancel_operation_ ]( nil, nil, ^void( id result_, NSError* error_ )
+      [ weak_delegate_ autoUnsubsribeOnDeallocAsyncOperation: auto_cancel_operation_ ]( nil, nil, ^void( id result_, NSError* error_ )
       {
          NSLog( @"notify delegate: %@, with owner: %@", weak_delegate_, operation_owner_ );
       } );
