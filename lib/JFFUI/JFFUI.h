@@ -6,3 +6,6 @@
 #import <JFFUI/Extensions/UIView+AnimationWithBlocks.h>
 #import <JFFUI/Extensions/UITableView+WithinUpdates.h>
 #import <JFFUI/Extensions/UINib+FirstObject.h>
+
+#import <JFFUI/UIWebView/UIWebView+Bounces.h>
+#import <JFFUI/UIWebView/UIWebView+HideWhenLoading.h>
