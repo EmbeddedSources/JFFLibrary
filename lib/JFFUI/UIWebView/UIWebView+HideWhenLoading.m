@@ -32,6 +32,8 @@ static char property_key_;
 -(void)didFinishLoading
 {
    self.webView.hidden = NO;
+
+   self.webView.delegate = nil;
    self.webView.proxy = nil;
 }
 
