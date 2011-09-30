@@ -13,12 +13,14 @@
 		1B7F58411435BDC000FF06EC /* UIWebView+Bounces.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F583D1435BDC000FF06EC /* UIWebView+Bounces.m */; };
 		1B7F58421435BDC000FF06EC /* UIWebView+HideWhenLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F583E1435BDC000FF06EC /* UIWebView+HideWhenLoading.h */; };
 		1B7F58431435BDC000FF06EC /* UIWebView+HideWhenLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */; };
+		1B7F58971435D53300FF06EC /* UIView+AddSubviewAndScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */; };
+		1B7F58981435D53300FF06EC /* UIView+AddSubviewAndScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */; };
+		1B7F589B1435D58000FF06EC /* UIView+AnimationWithBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */; };
+		1B7F589C1435D58000FF06EC /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */; };
 		1B81FAEF14330E4400997278 /* UINib+FirstObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAED14330E4400997278 /* UINib+FirstObject.h */; };
 		1B81FAF014330E4400997278 /* UINib+FirstObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAEE14330E4400997278 /* UINib+FirstObject.m */; };
 		1B81FAF914330FE500997278 /* UITableView+WithinUpdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAF714330FE500997278 /* UITableView+WithinUpdates.h */; };
 		1B81FAFA14330FE500997278 /* UITableView+WithinUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAF814330FE500997278 /* UITableView+WithinUpdates.m */; };
-		1B81FAFD1433101D00997278 /* UIView+AnimationWithBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAFB1433101D00997278 /* UIView+AnimationWithBlocks.h */; };
-		1B81FAFE1433101D00997278 /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAFC1433101D00997278 /* UIView+AnimationWithBlocks.m */; };
 		655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
 		655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
 		655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
@@ -41,12 +43,14 @@
 		1B7F583D1435BDC000FF06EC /* UIWebView+Bounces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Bounces.m"; sourceTree = "<group>"; };
 		1B7F583E1435BDC000FF06EC /* UIWebView+HideWhenLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+HideWhenLoading.h"; sourceTree = "<group>"; };
 		1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+HideWhenLoading.m"; sourceTree = "<group>"; };
+		1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddSubviewAndScale.h"; sourceTree = "<group>"; };
+		1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddSubviewAndScale.m"; sourceTree = "<group>"; };
+		1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationWithBlocks.h"; sourceTree = "<group>"; };
+		1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationWithBlocks.m"; sourceTree = "<group>"; };
 		1B81FAED14330E4400997278 /* UINib+FirstObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINib+FirstObject.h"; path = "Extensions/UINib+FirstObject.h"; sourceTree = SOURCE_ROOT; };
 		1B81FAEE14330E4400997278 /* UINib+FirstObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINib+FirstObject.m"; path = "Extensions/UINib+FirstObject.m"; sourceTree = SOURCE_ROOT; };
 		1B81FAF714330FE500997278 /* UITableView+WithinUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+WithinUpdates.h"; path = "Extensions/UITableView+WithinUpdates.h"; sourceTree = SOURCE_ROOT; };
 		1B81FAF814330FE500997278 /* UITableView+WithinUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+WithinUpdates.m"; path = "Extensions/UITableView+WithinUpdates.m"; sourceTree = SOURCE_ROOT; };
-		1B81FAFB1433101D00997278 /* UIView+AnimationWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+AnimationWithBlocks.h"; path = "Extensions/UIView+AnimationWithBlocks.h"; sourceTree = SOURCE_ROOT; };
-		1B81FAFC1433101D00997278 /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+AnimationWithBlocks.m"; path = "Extensions/UIView+AnimationWithBlocks.m"; sourceTree = SOURCE_ROOT; };
 		655E9DB21392E8C00074BD61 /* JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertButton.h; sourceTree = "<group>"; };
 		655E9DB31392E8C00074BD61 /* JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertButton.m; sourceTree = "<group>"; };
 		655E9DB41392E8C00074BD61 /* JFFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertView.h; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B7F58941435D50F00FF06EC /* UIView */,
 				1B7F583B1435BDC000FF06EC /* UIWebView */,
 				1B793977142B76FD00B43DC8 /* Extensions */,
 				655E9DB11392E8C00074BD61 /* AlertView */,
@@ -122,8 +127,6 @@
 				1B81FAEE14330E4400997278 /* UINib+FirstObject.m */,
 				1B81FAF714330FE500997278 /* UITableView+WithinUpdates.h */,
 				1B81FAF814330FE500997278 /* UITableView+WithinUpdates.m */,
-				1B81FAFB1433101D00997278 /* UIView+AnimationWithBlocks.h */,
-				1B81FAFC1433101D00997278 /* UIView+AnimationWithBlocks.m */,
 			);
 			name = Extensions;
 			path = ./JFFUI/Extensions;
@@ -138,6 +141,17 @@
 				1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */,
 			);
 			path = UIWebView;
+			sourceTree = "<group>";
+		};
+		1B7F58941435D50F00FF06EC /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */,
+				1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */,
+				1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */,
+				1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -190,9 +204,10 @@
 				1B793A63142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h in Headers */,
 				1B81FAEF14330E4400997278 /* UINib+FirstObject.h in Headers */,
 				1B81FAF914330FE500997278 /* UITableView+WithinUpdates.h in Headers */,
-				1B81FAFD1433101D00997278 /* UIView+AnimationWithBlocks.h in Headers */,
 				1B7F58401435BDC000FF06EC /* UIWebView+Bounces.h in Headers */,
 				1B7F58421435BDC000FF06EC /* UIWebView+HideWhenLoading.h in Headers */,
+				1B7F58971435D53300FF06EC /* UIView+AddSubviewAndScale.h in Headers */,
+				1B7F589B1435D58000FF06EC /* UIView+AnimationWithBlocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,9 +272,10 @@
 				1B793A64142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m in Sources */,
 				1B81FAF014330E4400997278 /* UINib+FirstObject.m in Sources */,
 				1B81FAFA14330FE500997278 /* UITableView+WithinUpdates.m in Sources */,
-				1B81FAFE1433101D00997278 /* UIView+AnimationWithBlocks.m in Sources */,
 				1B7F58411435BDC000FF06EC /* UIWebView+Bounces.m in Sources */,
 				1B7F58431435BDC000FF06EC /* UIWebView+HideWhenLoading.m in Sources */,
+				1B7F58981435D53300FF06EC /* UIView+AddSubviewAndScale.m in Sources */,
+				1B7F589C1435D58000FF06EC /* UIView+AnimationWithBlocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
