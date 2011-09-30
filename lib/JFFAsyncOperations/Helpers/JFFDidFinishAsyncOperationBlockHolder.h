@@ -9,9 +9,6 @@
 }
 
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didFinishBlock;
-
-+(id)didFinishAyncOperationBlockHolder;
-
--(void)performDidFinishBlockOnceWithResult:( id )result_ error:( NSError* )error_;
+@property ( nonatomic, copy, readonly ) JFFDidFinishAsyncOperationHandler onceDidFinishBlock;
 
 @end

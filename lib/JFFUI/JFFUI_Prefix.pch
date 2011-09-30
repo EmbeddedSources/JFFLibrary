@@ -3,7 +3,8 @@
 //
 
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
+   #import <Foundation/Foundation.h>
+   #import <UIKit/UIKit.h>
 
    #include <objc/runtime.h>
    #include <objc/message.h>

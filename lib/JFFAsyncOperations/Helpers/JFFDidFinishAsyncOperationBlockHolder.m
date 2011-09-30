@@ -11,11 +11,6 @@
    [ super dealloc ];
 }
 
-+(id)didFinishAyncOperationBlockHolder
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)performDidFinishBlockOnceWithResult:( id )result_ error:( NSError* )error_
 {
    if ( !self.didFinishBlock )
@@ -25,6 +20,14 @@
    self.didFinishBlock = nil;
    block_( result_, error_ );
    [ block_ release ];
+}
+
+-(JFFDidFinishAsyncOperationHandler)onceDidFinishBlock
+{
+   return [ [ ^( id result_, NSError* error_ )
+   {
+      [ self performDidFinishBlockOnceWithResult: result_ error: error_ ];
+   } copy ] autorelease ];
 }
 
 @end

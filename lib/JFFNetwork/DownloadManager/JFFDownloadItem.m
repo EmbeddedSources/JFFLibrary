@@ -341,7 +341,7 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
          [ self didReceiveResponse: response_ ];
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
       cancel_callback_ = ^( BOOL canceled_ )
       {
@@ -360,7 +360,7 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
          else
             NSAssert( NO, @"pass canceled_ as YES only" );
 
-         [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
+         cancel_callback_block_holder_.onceCancelBlock( canceled_ );
       };
       return self.stopBlock;
    };

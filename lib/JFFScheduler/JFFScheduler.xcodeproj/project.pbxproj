@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B835B3F142CC5F100FC004C /* JFFScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1041390559900DD6890 /* JFFScheduler.m */; };
 		651BE1051390559900DD6890 /* JFFScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1031390559900DD6890 /* JFFScheduler.h */; };
-		651BE1061390559900DD6890 /* JFFScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1041390559900DD6890 /* JFFScheduler.m */; };
 		651BE198139195E500DD6890 /* NSObject+Scheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE196139195E500DD6890 /* NSObject+Scheduler.h */; };
 		651BE199139195E500DD6890 /* NSObject+Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE197139195E500DD6890 /* NSObject+Scheduler.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFScheduler_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFScheduler_Prefix.pch */; };
@@ -149,8 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				651BE1061390559900DD6890 /* JFFScheduler.m in Sources */,
 				651BE199139195E500DD6890 /* NSObject+Scheduler.m in Sources */,
+				1B835B3F142CC5F100FC004C /* JFFScheduler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

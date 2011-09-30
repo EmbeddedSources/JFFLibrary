@@ -26,7 +26,7 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
             progress_callback_( data_ );
       };
 
-      JFFResultContext* result_context_ = [ JFFResultContext resultContext ];
+      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )
@@ -40,18 +40,18 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
          result_context_.result = response_;
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
-      cancel_callback_block_holder_.cancelBlock = cancel_callback_;
-
-      [ connection_ start ];
-
-      return [ [ ^void( BOOL canceled_ )
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      cancel_callback_block_holder_.cancelBlock = ^void( BOOL canceled_ )
       {
          if ( canceled_ )
             [ connection_ cancel ];
 
-         [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
-      } copy ] autorelease ];
+         cancel_callback_( canceled_ );
+      };
+
+      [ connection_ start ];
+
+      return cancel_callback_block_holder_.onceCancelBlock;
    } copy ] autorelease ];
 }
 

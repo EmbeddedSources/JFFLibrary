@@ -10,3 +10,8 @@
     
     #define __bridge_transfer
 #endif
+
+#ifndef cfretain
+   #define cfretain assign
+#endif
+

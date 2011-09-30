@@ -10,7 +10,7 @@
 @dynamic allElementsLoaded;
 @dynamic loadMoreIndexPath;
 
-static const NSUInteger RIUndefinedElementsCount = -1;
+static const NSUInteger RIUndefinedElementsCount = NSUIntegerMax;
 
 -(BOOL)hasNoElements
 {
@@ -85,7 +85,6 @@ static const NSUInteger RIUndefinedElementsCount = -1;
    
    NSUInteger elements_to_add_ = index_path_.row - self.currentCount;
    
-   
    float items_count_for_index_path_ = 1 + index_path_.row;
    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
@@ -102,6 +101,5 @@ static const NSUInteger RIUndefinedElementsCount = -1;
    
    return elements_to_add_;
 }
-
 
 @end

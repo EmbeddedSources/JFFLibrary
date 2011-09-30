@@ -10,6 +10,4 @@
 @property ( nonatomic, retain ) id result;
 @property ( nonatomic, retain ) NSError* error;
 
-+(id)resultContext;
-
 @end

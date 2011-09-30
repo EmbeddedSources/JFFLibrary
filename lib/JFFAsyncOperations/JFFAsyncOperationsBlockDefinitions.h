@@ -27,6 +27,3 @@ typedef JFFCancelAsyncOperation (^JFFAsyncOperation)( JFFAsyncOperationProgressH
 typedef void (^JFFDidFinishAsyncOperationHook)( id result_
                                                , NSError* error_
                                                , JFFDidFinishAsyncOperationHandler done_callback_ );
-
-extern JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock;
-extern JFFCancelAsyncOperation JFFAsyncOperationBlockWithSuccessResult;

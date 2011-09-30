@@ -4,6 +4,7 @@
 #import "JFFPropertyExtractor.h"
 #import "JFFObjectRelatedPropertyData.h"
 #import "JFFCallbacksBlocksHolder.h"
+#import "JFFAsyncOperationsPredefinedBlocks.h"
 
 #import "NSObject+PropertyExtractor.h"
 

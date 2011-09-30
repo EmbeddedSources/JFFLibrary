@@ -9,9 +9,6 @@
 }
 
 @property ( nonatomic, copy ) JFFSimpleBlock simpleBlock;
-
-+(id)simpleBlockHolder;
-
--(void)performBlockOnce;
+@property ( nonatomic, copy, readonly ) JFFSimpleBlock onceSimpleBlock;
 
 @end

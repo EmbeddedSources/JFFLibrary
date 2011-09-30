@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B835B40142CC60E00FC004C /* JFFDownloadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9813F54AE7004C90A9 /* JFFDownloadItem.m */; };
+		1B835B41142CC61100FC004C /* JFFNetworkBlocksFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */; };
 		5310B9F1141F489200A3E2B1 /* JNConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5310B9EF141F489200A3E2B1 /* JNConstants.h */; };
 		5316F433141E151C00C3D9A9 /* JFFUrlResponseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */; };
 		5316F434141E151C00C3D9A9 /* JFFUrlResponseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */; };
@@ -36,11 +38,9 @@
 		8D713CCC13F53D78007268DF /* JFFFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CCA13F53D78007268DF /* JFFFileManager.h */; };
 		8D713CCD13F53D78007268DF /* JFFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CCB13F53D78007268DF /* JFFFileManager.m */; };
 		8DD5660013F3EC1100A4538D /* JFFNetworkBlocksFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD565FE13F3EC1100A4538D /* JFFNetworkBlocksFunctions.h */; };
-		8DD5660113F3EC1100A4538D /* JFFNetworkBlocksFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */; };
 		8DD71E9213F5492C004C90A9 /* JFFTrafficCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9013F5492C004C90A9 /* JFFTrafficCalculator.h */; };
 		8DD71E9313F5492C004C90A9 /* JFFTrafficCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9113F5492C004C90A9 /* JFFTrafficCalculator.m */; };
 		8DD71E9613F54948004C90A9 /* JFFTrafficCalculatorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9513F54948004C90A9 /* JFFTrafficCalculatorDelegate.h */; };
-		8DD71E9913F54AE7004C90A9 /* JFFDownloadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9813F54AE7004C90A9 /* JFFDownloadItem.m */; };
 		8DD71E9C13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9A13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h */; };
 		8DD71E9D13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9B13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m */; };
 /* End PBXBuildFile section */
@@ -282,11 +282,9 @@
 			files = (
 				8D5AE6F313F3E80B00EB6143 /* JFFURLConnection.m in Sources */,
 				8D5AE6FA13F3E93000EB6143 /* JFFURLResponse.m in Sources */,
-				8DD5660113F3EC1100A4538D /* JFFNetworkBlocksFunctions.m in Sources */,
 				8D713CBF13F538D0007268DF /* NSMutableSet+DownloadManager.m in Sources */,
 				8D713CCD13F53D78007268DF /* JFFFileManager.m in Sources */,
 				8DD71E9313F5492C004C90A9 /* JFFTrafficCalculator.m in Sources */,
-				8DD71E9913F54AE7004C90A9 /* JFFDownloadItem.m in Sources */,
 				8DD71E9D13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m in Sources */,
 				5316F434141E151C00C3D9A9 /* JFFUrlResponseLogger.m in Sources */,
 				53834215141E691900473CF2 /* JNHttpEncodingsFactory.m in Sources */,
@@ -294,6 +292,8 @@
 				5383424B141E713900473CF2 /* JNStubDecoder.m in Sources */,
 				53A33F27141F631500469DAA /* JNZipDecoder.m in Sources */,
 				53A33F38141F7E1D00469DAA /* JNGzipErrorsLogger.m in Sources */,
+				1B835B40142CC60E00FC004C /* JFFDownloadItem.m in Sources */,
+				1B835B41142CC61100FC004C /* JFFNetworkBlocksFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
