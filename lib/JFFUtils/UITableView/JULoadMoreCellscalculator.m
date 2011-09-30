@@ -83,7 +83,7 @@ static const NSUInteger RIUndefinedElementsCount = -1;
       return rest_of_the_pages_ - load_more_placeholder_size_;
    }   
    
-   NSUInteger elements_to_add_ = index_path_.row - self.currentCount;
+   NSUInteger elements_to_add_ = 0;
    
    
    float items_count_for_index_path_ = 1 + index_path_.row;
