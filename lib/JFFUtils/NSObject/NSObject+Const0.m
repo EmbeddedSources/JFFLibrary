@@ -25,7 +25,18 @@
 
 +(id)objectThatAlwaysReturnZeroForAnyMethod
 {
-   return [ [ JFFConst0 new ] autorelease ];
+   static id instance_ = nil;
+   if ( !instance_ )
+   {
+      @synchronized( self )
+      {
+         if ( !instance_ )
+         {
+            instance_ = [ JFFConst0 new ];
+         }
+      }
+   }
+   return instance_;
 }
 
 @end
