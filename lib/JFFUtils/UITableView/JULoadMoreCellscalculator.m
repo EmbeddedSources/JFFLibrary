@@ -39,18 +39,18 @@ static const NSUInteger RIUndefinedElementsCount = -1;
    {
       return nil;
    }
-   
+
    NSMutableArray* index_paths_ = [ NSMutableArray arrayWithCapacity: cells_count_ ];
-   
+
    NSUInteger new_row_index_ = self.currentCount + 1; //right after LoadMore button.
    for ( int i = 0; i < cells_count_; ++i, ++new_row_index_ )
    {
       NSIndexPath* new_item_ = [ NSIndexPath indexPathForRow: new_row_index_
                                                    inSection: 0 ];
-      
+
       [ index_paths_ addObject: new_item_ ];
    }
-   
+
    return index_paths_;
 }
 
@@ -59,7 +59,7 @@ static const NSUInteger RIUndefinedElementsCount = -1;
 {
    NSAssert( out_is_overflow_, @"is_overflow_ is not optional" );
    *out_is_overflow_ = NO;
-   
+
    // if all loaded
    if ( self.hasNoElements )
    {
@@ -74,7 +74,7 @@ static const NSUInteger RIUndefinedElementsCount = -1;
    {
       return 0;
    }
-   
+
    static const NSUInteger load_more_placeholder_size_ = 1;
    NSUInteger rest_of_the_pages_ = self.totalElementsCount - self.currentCount;
    BOOL is_paging_disabled_ = ( self.pageSize == 0 );   
@@ -82,10 +82,7 @@ static const NSUInteger RIUndefinedElementsCount = -1;
    {
       return rest_of_the_pages_ - load_more_placeholder_size_;
    }   
-   
-   NSUInteger elements_to_add_ = 0;
-   
-   
+
    float items_count_for_index_path_ = 1 + index_path_.row;
    NSUInteger pages_expected_ = ceilf( items_count_for_index_path_ / self.pageSize );
    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
@@ -98,10 +95,7 @@ static const NSUInteger RIUndefinedElementsCount = -1;
       return rest_of_the_pages_ - load_more_placeholder_size_;
    }
 
-   elements_to_add_ = elements_expected_ - self.currentCount;
-   
-   return elements_to_add_;
+   return elements_expected_ - self.currentCount;
 }
-
 
 @end
