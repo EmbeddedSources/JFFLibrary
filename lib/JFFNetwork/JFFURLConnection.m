@@ -42,8 +42,8 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
       {
          [ self_ handleResponseForReadStream: stream_ ];
 
-         UInt8 buffer_[ MAX_BUFFER_SIZE ];
-         CFIndex bytes_read_ = CFReadStreamRead( stream_, buffer_, MAX_BUFFER_SIZE );
+         UInt8 buffer_[ kJNMaxBufferSize ];
+         CFIndex bytes_read_ = CFReadStreamRead( stream_, buffer_, kJNMaxBufferSize );
          if ( bytes_read_ > 0 )
          {
             [ self_ handleData: buffer_
@@ -128,9 +128,9 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
            contentType:( NSString* )content_type_
 {
    NSDictionary* headers_ = [ NSDictionary dictionaryWithObjectsAndKeys: 
-                             content_type_, @"Content-Type",
-                             @"keep-alive", @"Connection",
-                             nil 
+                                 content_type_, @"Content-Type"
+                               , @"keep-alive", @"Connection"
+                               , nil 
                             ];
 
    return [ self connectionWithURL: url_

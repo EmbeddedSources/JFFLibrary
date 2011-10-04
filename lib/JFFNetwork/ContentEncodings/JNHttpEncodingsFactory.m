@@ -8,8 +8,8 @@
 +(id<JNHttpDecoder>)decoderForHeaderString:( NSString* )header_string_
 {
    NSDictionary* decoder_classes_ = [ NSDictionary dictionaryWithObjectsAndKeys: 
-                                     [ JNGzipDecoder class ], @"gzip",
-                                     nil 
+                                         [ JNGzipDecoder class ], @"gzip"
+                                       , nil 
                                     ];
    
    Class decoder_class_ = [ decoder_classes_ objectForKey: header_string_ ];

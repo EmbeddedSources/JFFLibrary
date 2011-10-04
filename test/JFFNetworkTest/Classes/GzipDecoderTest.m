@@ -64,7 +64,7 @@
 
       GHAssertNil( received_data_, @"nil data in error Expected" );
 
-      GHAssertTrue( [ error_.domain isEqualToString: GZIP_ERROR_DOMAIN ], @"Unexpected error domain" );
+      GHAssertTrue( [ error_.domain isEqualToString: kGzipErrorDomain ], @"Unexpected error domain" );
       GHAssertTrue( error_.code == Z_DATA_ERROR, @"Unexpected error code" );
    }
 
@@ -77,7 +77,7 @@
 
       GHAssertNil( received_data_, @"nil data in error Expected" );
 
-      GHAssertTrue( [ error_.domain isEqualToString: GZIP_ERROR_DOMAIN ], @"Unexpected error domain" );
+      GHAssertTrue( [ error_.domain isEqualToString: kGzipErrorDomain ], @"Unexpected error domain" );
       GHAssertTrue( error_.code == Z_BUF_ERROR, @"Unexpected error code" );
    }   
 }
