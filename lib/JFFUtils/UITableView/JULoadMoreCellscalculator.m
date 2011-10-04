@@ -87,7 +87,7 @@ static const NSUInteger RIUndefinedElementsCount = -1;
    
    
    float items_count_for_index_path_ = 1 + index_path_.row;
-   NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
+   NSUInteger pages_expected_ = ceilf( items_count_for_index_path_ / self.pageSize );
    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
 
    //check if paging disabled

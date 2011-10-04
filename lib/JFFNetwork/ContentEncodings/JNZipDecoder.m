@@ -16,8 +16,8 @@
       return nil;
    }
 
-   Bytef decoded_buffer_[ MAX_BUFFER_SIZE ] = {0};
-   uLongf decoded_size_ = MAX_BUFFER_SIZE;
+   Bytef decoded_buffer_[ kJNMaxBufferSize ] = {0};
+   uLongf decoded_size_ = kJNMaxBufferSize;
 
    int uncompress_result_ = uncompress( decoded_buffer_    , &decoded_size_        ,
                                         encoded_data_.bytes, encoded_data_.length );
@@ -26,9 +26,9 @@
    {
       NSLog( @"[!!! WARNING !!!] JNZipDecoder -- unzip action has failed.\n Zip error code -- %d\n Zip error -- %@"
              , uncompress_result_
-             , [ JNGzipErrorsLogger zipErrorFromCode: uncompress_result_ ] );
+             , [ JNGzipErrorsLogger zipErrorMessageFromCode: uncompress_result_ ] );
 
-      *error_ = [ NSError errorWithDomain: GZIP_ERROR_DOMAIN 
+      *error_ = [ NSError errorWithDomain: kGzipErrorDomain 
                                      code: uncompress_result_ 
                                  userInfo: nil ];
 

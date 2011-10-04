@@ -3,7 +3,7 @@
 
 enum JNConstantsEnum
 {
-   MAX_BUFFER_SIZE = 4096
+   kJNMaxBufferSize = 4096
 };
 
 #endif //__JN_CONSTANTS_H__

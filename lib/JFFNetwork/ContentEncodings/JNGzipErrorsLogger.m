@@ -2,16 +2,17 @@
 
 @implementation JNGzipErrorsLogger
 
-+(NSString*)zipErrorFromCode:(int)error_code_
++(NSString*)zipErrorMessageFromCode:(int)error_code_
 {
-   NSArray* zip_errors_ = [ NSArray arrayWithObjects: 
-                           @"Z_VERSION_ERROR"
-                           , @"Z_BUF_ERROR"                              
-                           , @"Z_MEM_ERROR"                             
-                           , @"Z_DATA_ERROR"
-                           , @"Z_STREAM_ERROR"                           
-                           , @"Z_ERRNO"
-                           , nil ];
+   static NSString* zip_errors_[] = 
+   {
+        @"Z_VERSION_ERROR"
+      , @"Z_BUF_ERROR"                              
+      , @"Z_MEM_ERROR"                             
+      , @"Z_DATA_ERROR"
+      , @"Z_STREAM_ERROR"                           
+      , @"Z_ERRNO"
+   };
    
    NSUInteger error_index_     = error_code_ + abs( Z_VERSION_ERROR );
    NSUInteger max_error_index_ = Z_ERRNO     + abs( Z_VERSION_ERROR );
@@ -21,8 +22,7 @@
       return @"Z_UnknownError";
    }
    
-   return [ zip_errors_ objectAtIndex: error_index_ ];
+   return zip_errors_[ error_index_ ];
 }
-
 
 @end

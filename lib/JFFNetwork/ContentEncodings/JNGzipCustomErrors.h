@@ -1,12 +1,12 @@
 #ifndef JFFNetwork_JNGzipCustomErrors_h
 #define JFFNetwork_JNGzipCustomErrors_h
 
-extern NSString* GZIP_ERROR_DOMAIN;
+extern NSString* kGzipErrorDomain;
 
 enum JNCustomGzipErrorsEnum
 {
-     JNGzipInitFailed    = -100
-   , JNGzipUnexpectedEOF = -101
+     kJNGzipInitFailed    = -100
+   , kJNGzipUnexpectedEOF = -101
 };
 
 #endif

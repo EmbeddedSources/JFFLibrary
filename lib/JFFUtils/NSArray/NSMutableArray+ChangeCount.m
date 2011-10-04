@@ -13,12 +13,16 @@
       return;
    }
 
-
    NSUInteger size_diff_ = count_ - new_size_;
-   for ( NSUInteger i_ = 0; i_ < size_diff_; ++i_ )
+   if ( 0 == size_diff_ )
    {
-      [ self removeLastObject ];
+      return;
    }
+
+   NSUInteger removal_location_ = new_size_;
+   NSRange removal_range_ = NSMakeRange( removal_location_, size_diff_ );
+   
+   [ self removeObjectsInRange: removal_range_ ];
 }
 
 @end
