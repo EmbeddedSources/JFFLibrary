@@ -55,6 +55,7 @@
 
 -(void)dealloc
 {
+   [ self removeAllObjects ];
    [ _mutable_array release ];
 
    [ super dealloc ];
