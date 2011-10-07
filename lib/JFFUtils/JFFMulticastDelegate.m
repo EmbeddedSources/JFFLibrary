@@ -12,14 +12,6 @@
 
 @synthesize delegates = _delegates;
 
--(void)dealloc
-{
-   [ self removeAllDelegates ];
-   [ _delegates release ];
-
-   [ super dealloc ];
-}
-
 -(JFFMutableAssignArray*)delegates
 {
    if ( !_delegates )

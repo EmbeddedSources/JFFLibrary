@@ -16,9 +16,17 @@
    return [ [ self alloc ] initWithTarget: delegate_ ];
 }
 
--(id)forwardingTargetForSelector:( SEL )selector_
+-(void)forwardInvocation:( NSInvocation* )invocation_
 {
-   return self.target;
+   SEL selector_ = [ invocation_ selector ];
+
+   if ( [ self.target respondsToSelector: selector_ ] )
+      [ invocation_ invokeWithTarget: self.target ];
+}
+
+-(NSMethodSignature*)methodSignatureForSelector:( SEL )selector_
+{
+   return [ self.target methodSignatureForSelector: selector_ ];
 }
 
 @end

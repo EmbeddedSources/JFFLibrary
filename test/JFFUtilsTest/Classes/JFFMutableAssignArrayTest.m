@@ -28,7 +28,7 @@
    [ array_ release ];
 }
 
--(void)testMutableAssignArrayFirst
+-(void)testMutableAssignArrayFirstRelease
 {
    JFFMutableAssignArray* array_ = [ JFFMutableAssignArray new ];
 

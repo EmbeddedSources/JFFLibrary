@@ -12,6 +12,7 @@
 		1B902622143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B902621143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m */; };
 		1B902640143EF04500D3B0A0 /* JFFAssignProxyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90263F143EF04400D3B0A0 /* JFFAssignProxyTest.m */; };
 		1B902643143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */; };
+		1B90269F143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */; };
 		534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */; };
 		53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */; };
 		B69483EC1429C88400B8247E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EB1429C88400B8247E /* UIKit.framework */; };
@@ -46,6 +47,7 @@
 		1B902621143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OwnershipsTest.m"; sourceTree = "<group>"; };
 		1B90263F143EF04400D3B0A0 /* JFFAssignProxyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAssignProxyTest.m; sourceTree = "<group>"; };
 		1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignArrayTest.m; sourceTree = "<group>"; };
+		1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMulticastDelegateTest.m; sourceTree = "<group>"; };
 		534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUMutableArrayTest.m; sourceTree = "<group>"; };
 		53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayAdditionsTest.m; sourceTree = "<group>"; };
 		B69483E71429C88400B8247E /* JFFUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				1B902621143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m */,
 				1B90263F143EF04400D3B0A0 /* JFFAssignProxyTest.m */,
 				1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */,
+				1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -250,6 +253,7 @@
 				1B902622143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m in Sources */,
 				1B902640143EF04500D3B0A0 /* JFFAssignProxyTest.m in Sources */,
 				1B902643143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m in Sources */,
+				1B90269F143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

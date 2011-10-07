@@ -44,7 +44,7 @@
 		8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CC513F539A5007268DF /* NSString+PathExtensions.h */; };
 		8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CC613F539A5007268DF /* NSString+PathExtensions.m */; };
 		8DB67B1A13E97FCF0024EA6C /* JFFMulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */; };
-		8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */; };
 		8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */; };
 		8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
