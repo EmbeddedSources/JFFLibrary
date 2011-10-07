@@ -1,3 +1,4 @@
+//can not be under arc
 #import <Foundation/Foundation.h>
 
 #import <JFFUtils/NSObject/NSObject+RuntimeExtensions.h>

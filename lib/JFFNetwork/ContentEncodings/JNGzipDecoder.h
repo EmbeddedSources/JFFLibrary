@@ -3,6 +3,4 @@
 #import <Foundation/Foundation.h>
 
 @interface JNGzipDecoder : NSObject < JNHttpDecoder >
-
 @end
-

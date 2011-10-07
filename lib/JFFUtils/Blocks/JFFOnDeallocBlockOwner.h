@@ -3,10 +3,6 @@
 #import <Foundation/Foundation.h>
 
 @interface JFFOnDeallocBlockOwner : NSObject
-{
-@private
-   JFFSimpleBlock _block;
-}
 
 @property ( nonatomic, copy ) JFFSimpleBlock block;
 

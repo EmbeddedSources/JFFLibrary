@@ -12,4 +12,6 @@ JFFUtils - collection of useful NS classes extensions and some light classes
 "app" folder:
 JFFExamples - contains usage examples of JFFLibrary components.
 
-License : BSD
+License : FreeBSD
+
+Supports iOS versions 4.0 and higher. Builds using IOS SDK ver. 5.0

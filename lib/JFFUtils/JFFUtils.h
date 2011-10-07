@@ -1,6 +1,7 @@
 #import <JFFUtils/NSObject/NSObject+Ownerships.h>
 #import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
 #import <JFFUtils/NSObject/NSObject+Const0.h>
+#import <JFFUtils/NSObject/NSObject+RuntimeExtensions.h>
 
 #import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
 #import <JFFUtils/NSArray/NSArray+RemoveDuplicates.h>

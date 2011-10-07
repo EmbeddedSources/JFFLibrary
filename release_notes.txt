@@ -1,17 +1,18 @@
 30.09.2011 ver.2.2 release notes
-1. added JFFAsyncOperationBlockWithSuccessResult global variable
-2. added asyncOperationBlockWithSuccessResultAfterDelay method for creating async operation with delay
-3. weakAsyncOperation renamed to autoUnsubsribeOnDeallocAsyncOperation and some bugs fixed in this method
-4. removed redundant JFFDownloadManager project
-5. Moved UITableView+WithinUpdates and UIView+AnimationWithBlocks from JFFUtils to JFFUI
-6. added directory struct doc
-7. added autoCancelOnDeallocAsyncOperation method
-8. added +[ UINib firstObjectOfNibNamed: ] method
-9. added UIWebView bounces property
-10. added -[ UIWebView hideWhenLoadingHTMLString: ] method
-11. added -[ NSObject objectThatAlwaysReturnsZeroForAnyMethod ] method
-12. removed +[ JFFObjectRelatedPropertyData extractPropertyData ] method
-13. removed +[ JFFAsyncOperationProgressBlockHolder asyncOperationProgressBlockHolder ] method
+1. IOS 5.0 support added and IOS 3.x - dropped.
+2. JFFUtils porter to ARC
+3. added JFFAsyncOperationBlockWithSuccessResult global variable
+4. added asyncOperationBlockWithSuccessResultAfterDelay method for creating async operation with delay
+5. weakAsyncOperation renamed to autoUnsubsribeOnDeallocAsyncOperation and some bugs fixed in this method
+6. removed redundant JFFDownloadManager project
+7. Moved UITableView+WithinUpdates and UIView+AnimationWithBlocks from JFFUtils to JFFUI
+8. added directory struct doc
+9. added autoCancelOnDeallocAsyncOperation method
+10. added +[ UINib firstObjectOfNibNamed: ] method
+11. added -[ UIWebView hideWhenLoadingHTMLString: ] method
+12. added -[ NSObject objectThatAlwaysReturnsZeroForAnyMethod ] method
+13. removed +[ JFFObjectRelatedPropertyData extractPropertyData ] method
+14. removed +[ JFFAsyncOperationProgressBlockHolder asyncOperationProgressBlockHolder ] method
 15. removed +[ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ] method
 16. removed -[ JFFCancelAyncOperationBlockHolder performCancelBlockOnceWithArgument: ] method
 17. added JFFCancelAyncOperationBlockHolder onceCancelBlock property
@@ -24,3 +25,4 @@
 24. removed -[ JFFSimpleBlockHolder performBlockOnce ] method
 25. added JFFSimpleBlockHolder onceSimpleBlock property
 26. Several bugs fixed and some unit tests added
+27. removed NSObject (PerformBlock) ARC incompatible extensions.

@@ -211,6 +211,9 @@
 /* Begin PBXProject section */
 		8D29EF7F13BE066900041B6A /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 8D29EF8213BE066900041B6A /* Build configuration list for PBXProject "JFFAsyncOperationsTest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

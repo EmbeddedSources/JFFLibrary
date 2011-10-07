@@ -1,6 +1,5 @@
 #import "NSArray+IsEmpty.h"
 
-
 @implementation NSArray ( IsEmpty )
 
 -(BOOL)hasElements

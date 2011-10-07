@@ -39,12 +39,11 @@
 {
    JFFOnDeallocBlockOwner* owner_ = [ [ JFFOnDeallocBlockOwner alloc ] initWithBlock: block_ ];
    [ self.ownerships addObject: owner_ ];
-   [ owner_ release ];
 }
 
 -(void)removeOnDeallocBlock:( void(^)( void ) )block_
 {
-   NSArray* ownerships_ = [ NSArray arrayWithArray: self.ownerships ];
+   NSArray* ownerships_ = [ [ NSArray alloc ] initWithArray: self.ownerships ];
    for ( id object_ in ownerships_ )
    {
       if ( [ object_ removeOnDeallocBlockBlock: block_ fromArray: self.ownerships ] )

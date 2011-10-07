@@ -9,20 +9,18 @@
    self = [ super init ];
 
    NSAssert( block_, @"should not be nil" );
-   self.block = block_;
+   _block = block_;
 
    return self;
 }
 
 -(void)dealloc
 {
-   if ( _block )
+   if ( self.block )
    {
-      _block();
-      [ _block release ];
+      self.block();
+      self.block = nil;//may be bug
    }
-
-   [ super dealloc ];
 }
 
 @end

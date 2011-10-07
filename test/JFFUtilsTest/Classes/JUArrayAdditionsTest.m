@@ -46,7 +46,6 @@
                 , @"one"
                 , nil ];
       
-      
       received_ = [ items_ unique ];
       expected_ = [ NSArray arrayWithObjects: 
                      @"one"

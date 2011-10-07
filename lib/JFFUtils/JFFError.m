@@ -26,12 +26,12 @@
 
 +(id)errorWithDescription:( NSString* )description_ code:( NSInteger )code_
 {
-   return [ [ [ self alloc ] initWithDescription: description_ code: code_ ] autorelease ];
+   return [ [ self alloc ] initWithDescription: description_ code: code_ ];
 }
 
 +(id)errorWithDescription:( NSString* )description_
 {
-   return [ [ [ self alloc ] initWithDescription: description_ ] autorelease ];
+   return [ [ self alloc ] initWithDescription: description_ ];
 }
 
 @end

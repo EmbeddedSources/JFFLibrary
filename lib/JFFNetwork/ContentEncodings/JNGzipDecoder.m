@@ -20,8 +20,8 @@ NSString* kGzipErrorDomain = @"gzip.error";
       return encoded_data_;
    }
 
-   unsigned full_length_ = [encoded_data_ length];
-   unsigned half_length_ = [encoded_data_ length] / 2;
+   unsigned full_length_ = [ encoded_data_ length ];
+   unsigned half_length_ = [ encoded_data_ length ] / 2;
 
    NSMutableData* decompressed_ = [ NSMutableData dataWithLength: full_length_ + half_length_ ];
    BOOL done_   = NO;

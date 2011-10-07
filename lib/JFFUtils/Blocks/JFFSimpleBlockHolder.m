@@ -6,9 +6,7 @@
 
 -(void)dealloc
 {
-   [ _simple_block release ];
-
-   [ super dealloc ];
+   self.simpleBlock = nil;
 }
 
 -(void)performBlockOnce
@@ -16,18 +14,17 @@
    if ( !self.simpleBlock )
       return;
 
-   JFFSimpleBlock block_ = [ self.simpleBlock copy ];
+   JFFSimpleBlock block_ = self.simpleBlock;
    self.simpleBlock = nil;
    block_();
-   [ block_ release ];
 }
 
 -(JFFSimpleBlock)onceSimpleBlock
 {
-   return [ [ ^void( void )
+   return ^void( void )
    {
       [ self performBlockOnce ];
-   } copy ] autorelease ];
+   };
 }
 
 @end

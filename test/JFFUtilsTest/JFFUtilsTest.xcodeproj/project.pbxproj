@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B29556F143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B29556E143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m */; };
+		1B9025C4143DDA1200D3B0A0 /* JFFOnDeallocBlockOwnerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9025C3143DDA1200D3B0A0 /* JFFOnDeallocBlockOwnerTest.m */; };
+		1B902622143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B902621143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m */; };
+		1B902640143EF04500D3B0A0 /* JFFAssignProxyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90263F143EF04400D3B0A0 /* JFFAssignProxyTest.m */; };
+		1B902643143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */; };
 		534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */; };
 		53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */; };
 		B69483EC1429C88400B8247E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EB1429C88400B8247E /* UIKit.framework */; };
@@ -15,7 +20,6 @@
 		B69483F61429C88400B8247E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B69483F41429C88400B8247E /* InfoPlist.strings */; };
 		B69483F81429C88400B8247E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B69483F71429C88400B8247E /* main.m */; };
 		B69484031429D3D300B8247E /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69484021429D3D300B8247E /* GHUnitIOS.framework */; };
-		B69484471429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B69484461429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m */; };
 		B69484661429E26100B8247E /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B69484651429E24B00B8247E /* libJFFUtils.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B29556E143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolderTest.m; sourceTree = "<group>"; };
+		1B9025C3143DDA1200D3B0A0 /* JFFOnDeallocBlockOwnerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFOnDeallocBlockOwnerTest.m; sourceTree = "<group>"; };
+		1B902621143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OwnershipsTest.m"; sourceTree = "<group>"; };
+		1B90263F143EF04400D3B0A0 /* JFFAssignProxyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAssignProxyTest.m; sourceTree = "<group>"; };
+		1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignArrayTest.m; sourceTree = "<group>"; };
 		534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUMutableArrayTest.m; sourceTree = "<group>"; };
 		53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayAdditionsTest.m; sourceTree = "<group>"; };
 		B69483E71429C88400B8247E /* JFFUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +57,6 @@
 		B69483F71429C88400B8247E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B69483F91429C88400B8247E /* JFFUtilsTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFUtilsTest-Prefix.pch"; sourceTree = "<group>"; };
 		B69484021429D3D300B8247E /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ../../frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
-		B69484461429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JULoadMoreCellscalculatorTest.m; sourceTree = "<group>"; };
 		B694845D1429E24B00B8247E /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../../lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,9 +128,13 @@
 		B69484451429DFAC00B8247E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B69484461429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m */,
 				534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */,
 				53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */,
+				1B29556E143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m */,
+				1B9025C3143DDA1200D3B0A0 /* JFFOnDeallocBlockOwnerTest.m */,
+				1B902621143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m */,
+				1B90263F143EF04400D3B0A0 /* JFFAssignProxyTest.m */,
+				1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -162,6 +174,9 @@
 /* Begin PBXProject section */
 		B69483DE1429C88400B8247E /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = B69483E11429C88400B8247E /* Build configuration list for PBXProject "JFFUtilsTest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -228,9 +243,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B69483F81429C88400B8247E /* main.m in Sources */,
-				B69484471429DFAC00B8247E /* JULoadMoreCellscalculatorTest.m in Sources */,
 				534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */,
 				53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */,
+				1B29556F143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m in Sources */,
+				1B9025C4143DDA1200D3B0A0 /* JFFOnDeallocBlockOwnerTest.m in Sources */,
+				1B902622143DF1B300D3B0A0 /* NSObject+OwnershipsTest.m in Sources */,
+				1B902640143EF04500D3B0A0 /* JFFAssignProxyTest.m in Sources */,
+				1B902643143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +300,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-all_load";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -305,7 +324,7 @@
 				New_Setting = "";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-all_load";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -320,6 +339,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFUtilsTest/JFFUtilsTest-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JFFUtilsTest/JFFUtilsTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -335,6 +355,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFUtilsTest/JFFUtilsTest-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JFFUtilsTest/JFFUtilsTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

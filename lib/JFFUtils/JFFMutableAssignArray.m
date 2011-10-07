@@ -18,15 +18,13 @@
 
 -(void)dealloc
 {
-   [ _on_dealloc_block release ];
-
-   [ super dealloc ];
+   _on_dealloc_block = nil;
 }
 
 -(void)onAddToMutableAssignArray:( JFFMutableAssignArray* )array_
 {
-   __block JFFMutableAssignArray* assign_array_ = array_;
-   __block JFFAutoRemoveAssignProxy* self_ = self;
+   __unsafe_unretained JFFMutableAssignArray* assign_array_ = array_;
+   __unsafe_unretained JFFAutoRemoveAssignProxy* self_ = self;
    self.onDeallocBlock = ^void( void )
    {
       [ assign_array_ removeObject: self_.target ];
@@ -55,9 +53,7 @@
 
 -(void)dealloc
 {
-   [ _mutable_array release ];
-
-   [ super dealloc ];
+   [ self removeAllObjects ];
 }
 
 -(NSMutableArray*)mutableArray
@@ -113,6 +109,11 @@
       [  proxy_ onRemoveFromMutableAssignArray: self ];
    }
    [ _mutable_array removeAllObjects ];
+}
+
+-(NSUInteger)count
+{
+   return [ _mutable_array count ];
 }
 
 @end

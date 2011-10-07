@@ -13,30 +13,12 @@
 
 +(id)assignProxyWithTarget:( id )delegate_
 {
-   return [ [ [ self alloc ] initWithTarget: delegate_ ] autorelease ];
+   return [ [ self alloc ] initWithTarget: delegate_ ];
 }
 
--(void)forwardInvocation:( NSInvocation* )invocation_
+-(id)forwardingTargetForSelector:( SEL )selector_
 {
-   SEL selector_ = [ invocation_ selector ];
-
-   if ( [ self.target respondsToSelector: selector_ ] )
-      [ invocation_ invokeWithTarget: self.target ];
-}
-
--(NSMethodSignature*)methodSignatureForSelector:( SEL )selector_
-{
-   return [ self.target methodSignatureForSelector: selector_ ];
-}
-
--(BOOL)isEqual:( id )object_
-{
-   return [ self.target isEqual: [ object_ target ] ];
-}
-
--(NSUInteger)hash
-{
-   return [ self.target hash ];
+   return self.target;
 }
 
 @end

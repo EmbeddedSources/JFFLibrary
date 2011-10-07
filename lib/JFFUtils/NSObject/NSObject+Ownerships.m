@@ -6,16 +6,14 @@ static char ownerships_key_;
 
 @implementation NSObject (Ownerships)
 
+//should not autorelease returned value
 -(NSMutableArray*)ownerships
 {
-   NSMutableArray* ownerships_ = objc_getAssociatedObject( self, &ownerships_key_ );
-   if ( !ownerships_ )
+   if ( !objc_getAssociatedObject( self, &ownerships_key_ ) )
    {
-      ownerships_ = [ NSMutableArray new ];
-      objc_setAssociatedObject( self, &ownerships_key_, ownerships_, OBJC_ASSOCIATION_RETAIN_NONATOMIC );
-      [ ownerships_ release ];
+      objc_setAssociatedObject( self, &ownerships_key_, [ NSMutableArray new ], OBJC_ASSOCIATION_RETAIN_NONATOMIC );
    }
-   return ownerships_;
+   return objc_getAssociatedObject( self, &ownerships_key_ );
 }
 
 @end
