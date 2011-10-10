@@ -34,6 +34,8 @@
 // If you are using the static library and importing header files manually
 //#import "GHUnit.h"
 
+#import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
+
 void exceptionHandler(NSException *exception);
 
 // Default exception handler
@@ -44,7 +46,6 @@ void exceptionHandler(NSException *exception)
 
 int main(int argc, char *argv[]) 
 {
-   
    /*!
     For debugging:
     Go into the "Get Info" contextual menu of your (test) executable (inside the "Executables" group in the left panel of XCode). 
@@ -73,6 +74,7 @@ int main(int argc, char *argv[])
    
    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
    
+   [ JFFSimpleBlockHolder enableInstancesCounting ];
    // Register any special test case classes
    //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];  
    

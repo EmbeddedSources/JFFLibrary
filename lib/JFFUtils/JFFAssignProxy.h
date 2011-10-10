@@ -2,7 +2,7 @@
 
 @interface JFFAssignProxy : NSProxy
 
-@property ( nonatomic, assign, readonly ) id target;
+@property ( nonatomic, unsafe_unretained, readonly ) id target;
 
 +(id)assignProxyWithTarget:( id )delegate_;
 

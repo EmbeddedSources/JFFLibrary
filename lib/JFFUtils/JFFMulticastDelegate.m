@@ -4,7 +4,7 @@
 
 @interface JFFMulticastDelegate ()
 
-@property ( nonatomic, retain ) JFFMutableAssignArray* delegates;
+@property ( nonatomic, strong ) JFFMutableAssignArray* delegates;
 
 @end
 

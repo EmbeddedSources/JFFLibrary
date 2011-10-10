@@ -12,6 +12,15 @@
 
 @synthesize cancelBlocks = _cancel_blocks;
 
+-(void)dealloc
+{
+   [ self cancelAllScheduledOperations ];
+
+   [ _cancel_blocks release ];
+
+   [ super dealloc ];
+}
+
 -(id)init
 {
    self = [ super init ];
@@ -37,15 +46,6 @@
       instance_ = [ self new ];
    }
    return instance_;
-}
-
--(void)dealloc
-{
-   [ self cancelAllScheduledOperations ];
-
-   [ _cancel_blocks release ];
-
-   [ super dealloc ];
 }
 
 -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )action_block_

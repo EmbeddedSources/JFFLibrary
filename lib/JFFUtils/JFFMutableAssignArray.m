@@ -42,7 +42,7 @@
 
 @interface JFFMutableAssignArray ()
 
-@property ( nonatomic, retain ) NSMutableArray* mutableArray;
+@property ( nonatomic, strong ) NSMutableArray* mutableArray;
 
 @end
 

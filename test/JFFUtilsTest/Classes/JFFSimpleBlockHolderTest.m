@@ -7,15 +7,10 @@
 
 -(void)testSimpleBlockHolderBehavior
 {
-   __block BOOL block_holder_deallocated_ = NO;
-
    @autoreleasepool
    {
       JFFSimpleBlockHolder* holder_ = [ JFFSimpleBlockHolder new ];
-      [ holder_ addOnDeallocBlock: ^void( void )
-      {
-         block_holder_deallocated_ = YES;
-      } ];
+      GHAssertTrue( 0 < [ JFFSimpleBlockHolder instancesCount ], @"Block holder should exists" );
 
       __block BOOL block_context_deallocated_ = NO;
       __block NSUInteger perform_block_count_ = 0;
@@ -47,7 +42,7 @@
       [ holder_ release ];
    }
 
-   GHAssertTrue( block_holder_deallocated_, @"Block holder should be dealloced" );
+   GHAssertTrue( 0 == [ JFFSimpleBlockHolder instancesCount ], @"Block holder should be dealloced" );
 }
 
 @end

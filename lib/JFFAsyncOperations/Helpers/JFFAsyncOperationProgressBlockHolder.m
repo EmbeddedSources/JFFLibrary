@@ -2,14 +2,7 @@
 
 @implementation JFFAsyncOperationProgressBlockHolder
 
-@synthesize progressBlock = _progress_block;
-
--(void)dealloc
-{
-   [ _progress_block release ];
-
-   [ super dealloc ];
-}
+@synthesize progressBlock;
 
 -(void)performProgressBlockWithArgument:( id )progress_info_
 {

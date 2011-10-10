@@ -4,11 +4,6 @@
 
 @synthesize simpleBlock = _simple_block;
 
--(void)dealloc
-{
-   self.simpleBlock = nil;
-}
-
 -(void)performBlockOnce
 {
    if ( !self.simpleBlock )

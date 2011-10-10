@@ -18,17 +18,17 @@
 {
    NSAssert( native_async_op_, @"native async operation should not be nil" );
 
-   native_async_op_ = [ [ native_async_op_ copy ] autorelease ];
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
+   native_async_op_ = [ native_async_op_ copy ];
+   return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                   , JFFCancelAsyncOperationHandler cancel_callback_
+                                   , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL finished_ = NO;
-      __block id self_ = self;
+      __unsafe_unretained id self_ = self;
 
-      JFFSimpleBlockHolder* ondealloc_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
+      JFFSimpleBlockHolder* ondealloc_block_holder_ = [ JFFSimpleBlockHolder new ];
 
-      JFFSimpleBlockHolder* remove_ondealloc_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
+      JFFSimpleBlockHolder* remove_ondealloc_block_holder_ = [ JFFSimpleBlockHolder new ];
       remove_ondealloc_block_holder_.simpleBlock = ^void( void )
       {
          finished_ = YES;
@@ -40,7 +40,7 @@
          }
       };
 
-      JFFAsyncOperationProgressBlockHolder* progress_callback_holder_ = [ [ JFFAsyncOperationProgressBlockHolder new ] autorelease ];
+      JFFAsyncOperationProgressBlockHolder* progress_callback_holder_ = [ JFFAsyncOperationProgressBlockHolder new ];
       progress_callback_holder_.progressBlock = progress_callback_;
       JFFAsyncOperationProgressHandler progress_callback_wrapper_ = ^void( id progress_info_ )
       {
@@ -48,7 +48,7 @@
             progress_callback_holder_.progressBlock( progress_info_ );
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* cancel_callback_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
       cancel_callback_holder_.cancelBlock = cancel_callback_;
       JFFCancelAsyncOperationHandler cancel_callback_wrapper_ = ^void( BOOL cancel_op_ )
       {
@@ -56,7 +56,7 @@
          cancel_callback_holder_.onceCancelBlock( cancel_op_ );
       };
 
-      JFFDidFinishAsyncOperationBlockHolder* done_callback_holder_ = [ [ JFFDidFinishAsyncOperationBlockHolder new ] autorelease ];
+      JFFDidFinishAsyncOperationBlockHolder* done_callback_holder_ = [ JFFDidFinishAsyncOperationBlockHolder new ];
       done_callback_holder_.didFinishBlock = done_callback_;
       JFFDidFinishAsyncOperationHandler done_callback_wrapper_ = ^void( id result_, NSError* error_ )
       {
@@ -81,7 +81,7 @@
       //TODO assert retain count
       [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
 
-      JFFCancelAyncOperationBlockHolder* main_cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* main_cancel_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
       main_cancel_holder_.cancelBlock = ^void( BOOL canceled_ )
       {
          if ( finished_ )
@@ -94,7 +94,7 @@
       };
 
       return main_cancel_holder_.onceCancelBlock;
-   } copy ] autorelease ];
+   };
 }
 
 -(JFFAsyncOperation)autoUnsubsribeOnDeallocAsyncOperation:( JFFAsyncOperation )native_async_op_

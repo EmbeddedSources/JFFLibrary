@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2A67C5143F418A00BC284F /* CommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A67C4143F418A00BC284F /* CommonTests.m */; };
+		1B2A67C9143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A67C8143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m */; };
+		1B2A680D143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A680C143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m */; };
 		1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */; };
 		1B835A25142C8BC400FC004C /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */; };
 		1B835A26142C8BC400FC004C /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A16142C8BAB00FC004C /* libJFFUtils.a */; };
@@ -65,6 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B2A67C3143F418A00BC284F /* CommonTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTests.h; sourceTree = "<group>"; };
+		1B2A67C4143F418A00BC284F /* CommonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTests.m; sourceTree = "<group>"; };
+		1B2A67C8143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFDidFinishAsyncOperationBlockHolderTest.m; sourceTree = "<group>"; };
+		1B2A680C143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFCancelAyncOperationBlockHolderTest.m; sourceTree = "<group>"; };
 		1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakAsyncOperationTest.m; sourceTree = "<group>"; };
 		1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../../lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
 		1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../../lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
@@ -167,7 +174,11 @@
 			children = (
 				8D29EF9313BE066900041B6A /* Supporting Files */,
 				8D29EFB513BE08F700041B6A /* MockTest.m */,
+				1B2A67C3143F418A00BC284F /* CommonTests.h */,
+				1B2A67C4143F418A00BC284F /* CommonTests.m */,
 				1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */,
+				1B2A67C8143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m */,
+				1B2A680C143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m */,
 			);
 			path = JFFAsyncOperationsTest;
 			sourceTree = "<group>";
@@ -287,6 +298,9 @@
 			files = (
 				8D29EF9913BE066900041B6A /* main.m in Sources */,
 				1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */,
+				1B2A67C5143F418A00BC284F /* CommonTests.m in Sources */,
+				1B2A67C9143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m in Sources */,
+				1B2A680D143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

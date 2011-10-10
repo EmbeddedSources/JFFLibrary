@@ -20,8 +20,8 @@
 +(void)load
 {
    //for ios 4.x only
-   [ self addMethodIfNeedWithSelector: @selector( scrollView )
-                              toClass: [ NSURL class ] ];
+   [ self addInstanceMethodIfNeedWithSelector: @selector( scrollView )
+                                      toClass: [ NSURL class ] ];
 }
 
 @end

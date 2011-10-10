@@ -35,6 +35,8 @@ JFFAsyncOperation asyncOperationBlockWithSuccessResultAfterDelay( NSTimeInterval
       JFFCancelScheduledBlock cancel_scheduler_ = [ scheduer_ addBlock: scheduled_block_ duration: delay_ ];
 
       JFFCancelAyncOperationBlockHolder* cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+
+      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
       cancel_holder_.cancelBlock = ^void( BOOL cancel_ )
       {
          cancel_scheduler_();

@@ -25,17 +25,9 @@
 
 +(id)objectThatAlwaysReturnsZeroForAnyMethod
 {
-   static id instance_ = nil;
-   if ( !instance_ )
-   {
-      @synchronized( self )
-      {
-         if ( !instance_ )
-         {
-            instance_ = [ JFFConst0 new ];
-         }
-      }
-   }
+   static dispatch_once_t once_;
+   static id instance_;
+   dispatch_once( &once_, ^{ instance_ = [ JFFConst0 new ]; } );
    return instance_;
 }
 
