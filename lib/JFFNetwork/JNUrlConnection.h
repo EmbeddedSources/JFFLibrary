@@ -3,7 +3,7 @@
 
 
 
-@protocol JNUrlConnection
+@protocol JNUrlConnection < NSObject >
 
 @required
    -(void)start;
