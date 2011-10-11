@@ -10,6 +10,17 @@
 		5310B9F1141F489200A3E2B1 /* JNConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5310B9EF141F489200A3E2B1 /* JNConstants.h */; };
 		5316F433141E151C00C3D9A9 /* JFFUrlResponseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */; };
 		5316F434141E151C00C3D9A9 /* JFFUrlResponseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */; };
+		534BEED1144485A6005D745F /* JNUrlConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEED0144485A6005D745F /* JNUrlConnection.h */; };
+		534BEED514448698005D745F /* JNUrlConnectionCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEED414448698005D745F /* JNUrlConnectionCallbacks.h */; };
+		534BEEDB14448782005D745F /* JNUrlResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEEDA14448782005D745F /* JNUrlResponse.h */; };
+		534BEF1614448BBA005D745F /* JNNsUrlConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF1414448BBA005D745F /* JNNsUrlConnection.h */; };
+		534BEF1714448BBA005D745F /* JNNsUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF1514448BBA005D745F /* JNNsUrlConnection.m */; };
+		534BEF1A14448D44005D745F /* JNAbstractConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF1814448D44005D745F /* JNAbstractConnection.h */; };
+		534BEF1B14448D44005D745F /* JNAbstractConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF1914448D44005D745F /* JNAbstractConnection.m */; };
+		534BEF1F14448DC9005D745F /* JNAbstractConnection+Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF1D14448DC9005D745F /* JNAbstractConnection+Constructor.h */; };
+		534BEF2014448DC9005D745F /* JNAbstractConnection+Constructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF1E14448DC9005D745F /* JNAbstractConnection+Constructor.m */; };
+		534BEF9514449AF5005D745F /* JNConnectionsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF9314449AF5005D745F /* JNConnectionsFactory.h */; };
+		534BEF9614449AF5005D745F /* JNConnectionsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF9414449AF5005D745F /* JNConnectionsFactory.m */; };
 		5383420B141E689E00473CF2 /* JNHttpDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5383420A141E689E00473CF2 /* JNHttpDecoder.h */; };
 		53834214141E691900473CF2 /* JNHttpEncodingsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834212141E691900473CF2 /* JNHttpEncodingsFactory.h */; };
 		53834215141E691900473CF2 /* JNHttpEncodingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834213141E691900473CF2 /* JNHttpEncodingsFactory.m */; };
@@ -49,6 +60,17 @@
 		5310B9EF141F489200A3E2B1 /* JNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNConstants.h; sourceTree = "<group>"; };
 		5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUrlResponseLogger.h; sourceTree = "<group>"; };
 		5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFUrlResponseLogger.m; sourceTree = "<group>"; };
+		534BEED0144485A6005D745F /* JNUrlConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlConnection.h; sourceTree = "<group>"; };
+		534BEED414448698005D745F /* JNUrlConnectionCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlConnectionCallbacks.h; sourceTree = "<group>"; };
+		534BEEDA14448782005D745F /* JNUrlResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlResponse.h; sourceTree = "<group>"; };
+		534BEF1414448BBA005D745F /* JNNsUrlConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNNsUrlConnection.h; sourceTree = "<group>"; };
+		534BEF1514448BBA005D745F /* JNNsUrlConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNNsUrlConnection.m; sourceTree = "<group>"; };
+		534BEF1814448D44005D745F /* JNAbstractConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAbstractConnection.h; sourceTree = "<group>"; };
+		534BEF1914448D44005D745F /* JNAbstractConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNAbstractConnection.m; sourceTree = "<group>"; };
+		534BEF1D14448DC9005D745F /* JNAbstractConnection+Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JNAbstractConnection+Constructor.h"; sourceTree = "<group>"; };
+		534BEF1E14448DC9005D745F /* JNAbstractConnection+Constructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JNAbstractConnection+Constructor.m"; sourceTree = "<group>"; };
+		534BEF9314449AF5005D745F /* JNConnectionsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNConnectionsFactory.h; sourceTree = "<group>"; };
+		534BEF9414449AF5005D745F /* JNConnectionsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNConnectionsFactory.m; sourceTree = "<group>"; };
 		5383420A141E689E00473CF2 /* JNHttpDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNHttpDecoder.h; sourceTree = "<group>"; };
 		53834212141E691900473CF2 /* JNHttpEncodingsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNHttpEncodingsFactory.h; sourceTree = "<group>"; };
 		53834213141E691900473CF2 /* JNHttpEncodingsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNHttpEncodingsFactory.m; sourceTree = "<group>"; };
@@ -99,6 +121,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534BEF1C14448DAD005D745F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				534BEF1D14448DC9005D745F /* JNAbstractConnection+Constructor.h */,
+				534BEF1E14448DC9005D745F /* JNAbstractConnection+Constructor.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		534BEF9214449ACC005D745F /* ConnectionsFactory */ = {
+			isa = PBXGroup;
+			children = (
+				534BEF9314449AF5005D745F /* JNConnectionsFactory.h */,
+				534BEF9414449AF5005D745F /* JNConnectionsFactory.m */,
+			);
+			path = ConnectionsFactory;
+			sourceTree = "<group>";
+		};
 		53834209141E684F00473CF2 /* ContentEncodings */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,18 +197,27 @@
 		8D5AE6EF13F3E7EE00EB6143 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				534BEF9214449ACC005D745F /* ConnectionsFactory */,
 				53834209141E684F00473CF2 /* ContentEncodings */,
+				534BEF1C14448DAD005D745F /* Detail */,
 				8D713CB413F52FBA007268DF /* DownloadManager */,
+				534BEEDA14448782005D745F /* JNUrlResponse.h */,
 				8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */,
 				8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */,
+				534BEED0144485A6005D745F /* JNUrlConnection.h */,
 				8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */,
 				8D5AE6F113F3E80B00EB6143 /* JFFURLConnection.m */,
+				534BEF1814448D44005D745F /* JNAbstractConnection.h */,
+				534BEF1914448D44005D745F /* JNAbstractConnection.m */,
+				534BEF1414448BBA005D745F /* JNNsUrlConnection.h */,
+				534BEF1514448BBA005D745F /* JNNsUrlConnection.m */,
 				8DD565FE13F3EC1100A4538D /* JFFNetworkBlocksFunctions.h */,
 				8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */,
 				5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */,
 				5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */,
 				5310B9EF141F489200A3E2B1 /* JNConstants.h */,
 				8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */,
+				534BEED414448698005D745F /* JNUrlConnectionCallbacks.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -227,6 +276,13 @@
 				53A33F26141F631500469DAA /* JNZipDecoder.h in Headers */,
 				53A33F34141F7C2C00469DAA /* JNGzipCustomErrors.h in Headers */,
 				53A33F37141F7E1D00469DAA /* JNGzipErrorsLogger.h in Headers */,
+				534BEED1144485A6005D745F /* JNUrlConnection.h in Headers */,
+				534BEED514448698005D745F /* JNUrlConnectionCallbacks.h in Headers */,
+				534BEEDB14448782005D745F /* JNUrlResponse.h in Headers */,
+				534BEF1614448BBA005D745F /* JNNsUrlConnection.h in Headers */,
+				534BEF1A14448D44005D745F /* JNAbstractConnection.h in Headers */,
+				534BEF1F14448DC9005D745F /* JNAbstractConnection+Constructor.h in Headers */,
+				534BEF9514449AF5005D745F /* JNConnectionsFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +350,10 @@
 				5383424B141E713900473CF2 /* JNStubDecoder.m in Sources */,
 				53A33F27141F631500469DAA /* JNZipDecoder.m in Sources */,
 				53A33F38141F7E1D00469DAA /* JNGzipErrorsLogger.m in Sources */,
+				534BEF1714448BBA005D745F /* JNNsUrlConnection.m in Sources */,
+				534BEF1B14448D44005D745F /* JNAbstractConnection.m in Sources */,
+				534BEF2014448DC9005D745F /* JNAbstractConnection+Constructor.m in Sources */,
+				534BEF9614449AF5005D745F /* JNConnectionsFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

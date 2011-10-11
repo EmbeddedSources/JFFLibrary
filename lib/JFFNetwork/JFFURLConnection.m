@@ -1,4 +1,5 @@
 #import "JFFURLConnection.h"
+#import "JNAbstractConnection+Constructor.h"
 
 #import "JFFURLResponse.h"
 
@@ -79,9 +80,6 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 
 @synthesize url = _url;
 @synthesize responseHandled = _response_handled;
-@synthesize didReceiveResponseBlock = _did_receive_response_block;
-@synthesize didReceiveDataBlock = _did_receive_data_block;
-@synthesize didFinishLoadingBlock = _did_finish_loading_block;
 
 @synthesize urlResponse = _url_response;
 
@@ -92,11 +90,7 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    [ _post_data                  release ];
    [ _headers                    release ];
    [ _url                        release ];
-   
-   [ _did_receive_response_block release ];
-   [ _did_receive_data_block     release ];
-   [ _did_finish_loading_block   release ];
-   
+  
    [ _url_response               release ];
 
    [ super dealloc ];
@@ -106,7 +100,7 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
         postData:( NSData* )data_
          headers:( NSDictionary* )headers_
 {
-   self = [ super init ];
+   self = [ super privateInit ];
 
    if ( self )
    {
@@ -227,13 +221,6 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 -(void)closeStreams
 {
    [ self closeReadStream ];
-}
-
--(void)clearCallbacks
-{
-   self.didReceiveResponseBlock = nil;
-   self.didReceiveDataBlock = nil;
-   self.didFinishLoadingBlock = nil;
 }
 
 -(void)cancel

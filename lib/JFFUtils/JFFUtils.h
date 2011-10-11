@@ -15,3 +15,4 @@
 #import <JFFUtils/NSThread+AssertMainThread.h>
 
 #import <JFFUtils/JFFMulticastDelegate.h>
+#import <JFFUtils/NSArray/JUArrayHelperBlocks.h>

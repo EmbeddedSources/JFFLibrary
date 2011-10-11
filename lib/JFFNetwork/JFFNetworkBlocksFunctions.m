@@ -1,11 +1,10 @@
 #import "JFFNetworkBlocksFunctions.h"
 
+#import "JNConnectionsFactory.h"
 #import "JFFURLConnection.h"
 
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
 #import <JFFAsyncOperations/Helpers/JFFResultContext.h>
-
-static const NSTimeInterval timeout_ = 60.0;
 
 JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
                                            , NSData* post_data_
@@ -15,9 +14,12 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFURLConnection* connection_ = [ JFFURLConnection connectionWithURL: url_
-                                                                  postData: post_data_
-                                                                   headers: headers_ ];
+      JNConnectionsFactory* factory_ = [ [ JNConnectionsFactory alloc ] initWithUrl: url_
+                                                                           postData: post_data_
+                                                                            headers: headers_ ];
+      [ factory_ autorelease ];
+
+      id< JNUrlConnection > connection_ = [ factory_ createFastConnection ];
 
       progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
       connection_.didReceiveDataBlock = ^( NSData* data_ )
@@ -35,7 +37,7 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
             done_callback_( error_ ? nil : result_context_.result, error_ );
       };
 
-      connection_.didReceiveResponseBlock = ^( JFFURLResponse* response_ )
+      connection_.didReceiveResponseBlock = ^( id/*< JNUrlResponse >*/ response_ )
       {
          result_context_.result = response_;
       };
