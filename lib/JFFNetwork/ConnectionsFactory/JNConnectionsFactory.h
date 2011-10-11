@@ -15,7 +15,7 @@
          headers:( NSDictionary* )headers_;
 
 -(id< JNUrlConnection >)createFastConnection;
--(id< JNUrlConnection >)ceateStandardConnection;
+-(id< JNUrlConnection >)createStandardConnection;
 
 
 @end

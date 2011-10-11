@@ -62,7 +62,7 @@
                                        headers: self.headers ];
 }
 
--(id< JNUrlConnection >)ceateStandardConnection
+-(id< JNUrlConnection >)createStandardConnection
 {
    static const NSTimeInterval timeout_ = 1.f;
    NSMutableURLRequest* request_ = [ NSMutableURLRequest requestWithURL: self.url
