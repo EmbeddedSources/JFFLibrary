@@ -113,4 +113,19 @@ didReceiveResponse:( NSHTTPURLResponse* )response_
    }
 }
 
+-(void)connection:( NSURLConnection* )connection_
+ didFailWithError:( NSError* )error_
+{
+   if ( ![ self assertConnectionMismatch: connection_ ] )
+   {
+      return;
+   }
+   
+   if ( nil != self.didFinishLoadingBlock )
+   {
+      self.didFinishLoadingBlock( error_ );
+      [ self cancel ];
+   }
+}
+
 @end
