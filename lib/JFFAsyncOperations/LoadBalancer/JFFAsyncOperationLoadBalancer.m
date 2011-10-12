@@ -8,8 +8,6 @@
 #import "JFFDidFinishAsyncOperationBlockHolder.h"
 #import "JFFAsyncOperationsPredefinedBlocks.h"
 
-#import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
-
 static const NSUInteger max_operation_count_ = 5;
 static const NSUInteger total_max_operation_count_ = 7;
 

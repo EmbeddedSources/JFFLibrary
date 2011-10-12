@@ -3,7 +3,6 @@
 #import "JFFURLConnection.h"
 
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
-#import <JFFAsyncOperations/Helpers/JFFResultContext.h>
 
 static const NSTimeInterval timeout_ = 60.0;
 

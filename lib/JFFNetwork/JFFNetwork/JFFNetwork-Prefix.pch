@@ -1,4 +1,6 @@
 #ifdef __OBJC__
+   #import <JFFUtils/JFFResultContext.h>
+
    #import <Foundation/Foundation.h>
    #include <zlib.h>
 #endif

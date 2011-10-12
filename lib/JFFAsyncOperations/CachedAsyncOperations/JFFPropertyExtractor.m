@@ -5,8 +5,6 @@
 
 #import "NSObject+PropertyExtractor.h"
 
-#import <JFFUtils/NSString/NSString+PropertyName.h>
-
 @interface JFFPropertyExtractor ()
 
 @property ( nonatomic, retain ) JFFObjectRelatedPropertyData* objectPropertyData;

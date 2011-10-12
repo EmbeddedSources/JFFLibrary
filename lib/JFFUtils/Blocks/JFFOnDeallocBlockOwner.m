@@ -19,7 +19,7 @@
    if ( self.block )
    {
       self.block();
-      self.block = nil;//may be bug
+      self.block = nil;//TODO may be bug
    }
 }
 

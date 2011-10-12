@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1B2A678D143F3D0E00BC284F /* NSObject+AutoCancelAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 655ADDDF13B68E45005A6D3F /* NSObject+AutoCancelAsyncOperation.m */; };
-		1B2A67BB143F3F3F00BC284F /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 65347F3113B7ED090002CF73 /* JFFResultContext.m */; };
 		1B2A67E5143F4CAB00BC284F /* JFFDidFinishAsyncOperationBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B3D6E13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.m */; };
 		1B2A682B143F532500BC284F /* JFFCancelAyncOperationBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 65347F6C13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.m */; };
 		1B2A682E143F537B00BC284F /* JFFAsyncOperationProgressBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6534804B13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m */; };
 		1B835B33142CBA2200FC004C /* JFFAsyncOperationsPredefinedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B835B31142CBA2200FC004C /* JFFAsyncOperationsPredefinedBlocks.h */; };
 		1B90273B143F370100D3B0A0 /* libJFFAsyncOpNoARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9026D7143F368B00D3B0A0 /* libJFFAsyncOpNoARC.a */; };
+		1BA2551C1443109B00C9B2BE /* JFFAsyncOperationContinuity.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1661391928400DD6890 /* JFFAsyncOperationContinuity.m */; };
 		651BE1621391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */; };
 		651BE1671391928400DD6890 /* JFFAsyncOperationContinuity.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1651391928400DD6890 /* JFFAsyncOperationContinuity.h */; };
-		65347F3213B7ED090002CF73 /* JFFResultContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347F3013B7ED090002CF73 /* JFFResultContext.h */; };
 		65347F6D13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347F6B13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h */; };
 		65347F9613B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347F9413B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h */; };
 		65347FEF13B8142A0002CF73 /* JFFContextLoaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347FED13B8142A0002CF73 /* JFFContextLoaders.h */; };
@@ -64,8 +63,6 @@
 		651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsBlockDefinitions.h; sourceTree = "<group>"; };
 		651BE1651391928400DD6890 /* JFFAsyncOperationContinuity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationContinuity.h; sourceTree = "<group>"; };
 		651BE1661391928400DD6890 /* JFFAsyncOperationContinuity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationContinuity.m; sourceTree = "<group>"; };
-		65347F3013B7ED090002CF73 /* JFFResultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFResultContext.h; sourceTree = "<group>"; };
-		65347F3113B7ED090002CF73 /* JFFResultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFResultContext.m; sourceTree = "<group>"; };
 		65347F6B13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFCancelAyncOperationBlockHolder.h; sourceTree = "<group>"; };
 		65347F6C13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFCancelAyncOperationBlockHolder.m; sourceTree = "<group>"; };
 		65347F9413B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationLoadBalancer.h; sourceTree = "<group>"; };
@@ -132,8 +129,8 @@
 		0867D691FE84028FC02AAC07 /* JFFAsyncOperations */ = {
 			isa = PBXGroup;
 			children = (
-				1B9026CD143F364D00D3B0A0 /* Dependencies */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
+				1B9026CD143F364D00D3B0A0 /* Dependencies */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
@@ -201,8 +198,6 @@
 		65347F2E13B7ECDB0002CF73 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				65347F3013B7ED090002CF73 /* JFFResultContext.h */,
-				65347F3113B7ED090002CF73 /* JFFResultContext.m */,
 				65347F6B13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h */,
 				65347F6C13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.m */,
 				6534804A13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.h */,
@@ -288,7 +283,6 @@
 				65648C3A1392490F001E163C /* JFFAsyncOperationUtils.h in Headers */,
 				65648C5113924A77001E163C /* JFFAsyncOperations.h in Headers */,
 				655ADDE013B68E45005A6D3F /* NSObject+AutoCancelAsyncOperation.h in Headers */,
-				65347F3213B7ED090002CF73 /* JFFResultContext.h in Headers */,
 				65347F6D13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h in Headers */,
 				65347F9613B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h in Headers */,
 				65347FEF13B8142A0002CF73 /* JFFContextLoaders.h in Headers */,
@@ -377,10 +371,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B2A678D143F3D0E00BC284F /* NSObject+AutoCancelAsyncOperation.m in Sources */,
-				1B2A67BB143F3F3F00BC284F /* JFFResultContext.m in Sources */,
 				1B2A67E5143F4CAB00BC284F /* JFFDidFinishAsyncOperationBlockHolder.m in Sources */,
 				1B2A682B143F532500BC284F /* JFFCancelAyncOperationBlockHolder.m in Sources */,
 				1B2A682E143F537B00BC284F /* JFFAsyncOperationProgressBlockHolder.m in Sources */,
+				1BA2551C1443109B00C9B2BE /* JFFAsyncOperationContinuity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

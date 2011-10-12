@@ -184,6 +184,8 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
   cancelButtonTitle:( id )cancel_button_title_
   otherButtonTitles:( id )other_button_titles_, ...
 {
+   [ NSThread assertMainThread ];
+
    NSMutableArray* other_alert_buttons_ = [ NSMutableArray array ];
    NSMutableArray* other_alert_string_titles_ = [ NSMutableArray array ];
 

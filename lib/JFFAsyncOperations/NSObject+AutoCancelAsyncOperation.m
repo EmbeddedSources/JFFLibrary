@@ -7,10 +7,6 @@
 #import "JFFAsyncOperationProgressBlockHolder.h"
 #import "JFFDidFinishAsyncOperationBlockHolder.h"
 
-#import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
-#import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
-#import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
-
 @implementation NSObject (WeakAsyncOperation)
 
 -(JFFAsyncOperation)autoUnsibscribeOrCancelAsyncOperation:( JFFAsyncOperation )native_async_op_

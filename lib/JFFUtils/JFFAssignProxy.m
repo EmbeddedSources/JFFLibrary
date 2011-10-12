@@ -11,9 +11,9 @@
    return self;
 }
 
-+(id)assignProxyWithTarget:( id )delegate_
++(id)assignProxyWithTarget:( id )target_
 {
-   return [ [ self alloc ] initWithTarget: delegate_ ];
+   return [ [ self alloc ] initWithTarget: target_ ];
 }
 
 -(void)forwardInvocation:( NSInvocation* )invocation_

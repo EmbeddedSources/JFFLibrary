@@ -8,9 +8,6 @@
 
 #import "NSObject+PropertyExtractor.h"
 
-#import <JFFUtils/NSThread+AssertMainThread.h>
-#import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
-
 #include <objc/runtime.h>
 #include <assert.h>
 

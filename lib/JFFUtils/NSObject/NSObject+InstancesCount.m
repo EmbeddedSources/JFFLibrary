@@ -4,8 +4,6 @@
 #import <JFFUtils/NSObject/NSObject+RuntimeExtensions.h>
 #import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
 
-#include <objc/message.h>
-
 @interface JFFNSObjectInstancesCounter : NSObject
 
 @property ( nonatomic, strong ) NSMutableDictionary* instancesNumberByClassName;
@@ -86,7 +84,7 @@
    return nil;
 }
 
-+(id)allocWithZonePrototype:( NSZone* )zone_
++(id)alloCWithZonePrototype:( NSZone* )zone_
 {
    return [ JFFNSObjectInstancesCounter instancesCounterAllocatorForClass: [ self class ]
                                                             nativeAllocor: ^id( void )
@@ -95,7 +93,7 @@
    } ];
 }
 
-+(id)allocWithZoneToAdding:( NSZone* )zone_
++(id)alloCWithZoneToAdding:( NSZone* )zone_
 {
    return [ JFFNSObjectInstancesCounter instancesCounterAllocatorForClass: [ self class ]
                                                             nativeAllocor: ^id( void )
@@ -124,8 +122,8 @@
                //TODO create name allocWithZoneHook dynamicaly and allocWithZonePrototype use block instead
                [ [ self class ] hookClassMethodForClass: class_
                                            withSelector: @selector( allocWithZone: )
-                                prototypeMethodSelector: @selector( allocWithZonePrototype: )
-                                     hookMethodSelector: @selector( allocWithZoneHook: ) ];
+                                prototypeMethodSelector: @selector( alloCWithZonePrototype: )
+                                     hookMethodSelector: @selector( alloCWithZoneToAdding: ) ];
             }
          }
       }

@@ -2,8 +2,6 @@
 
 #import "JFFContextLoaders.h"
 
-#import <JFFUtils/NSThread+AssertMainThread.h>
-
 @implementation JFFAsyncOperationLoadBalancerContexts
 
 @synthesize currentContextName = _current_context_name;

@@ -1,11 +1,12 @@
-#import "JFFAsyncOperationContinuity.h"
+//TODO remove this file
+#import "../JFFAsyncOperationContinuity.h"
 
 #import "JFFCancelAyncOperationBlockHolder.h"
 #import "JFFAsyncOperationsPredefinedBlocks.h"
 
 #import <Foundation/Foundation.h>
 
-/*typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOperation );
+typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOperation );
 
 static JFFAsyncOperation createEmptyLoaderBlock()
 {
@@ -207,10 +208,10 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
                cancel_callback_( canceled_ );
          }
       } copy ] autorelease ];
-       
+
       cancel_holder1_.cancelBlock = first_loader_( progress_callback_, cancel_callback1_, result_block_ );
       cancel_holder2_.cancelBlock = second_loader_( progress_callback_, cancel_callback2_, result_block_ );
-       
+
       return [ [ ^void( BOOL cancel_ )
       {
          if ( !block_canceled_ )
@@ -446,4 +447,4 @@ JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
       };
       return loader_( progress_callback_, cancel_callback_, done_callback_ );
    } copy ] autorelease ];
-}*/
+}
