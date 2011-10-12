@@ -34,6 +34,8 @@
 		53A33F34141F7C2C00469DAA /* JNGzipCustomErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F33141F7C2B00469DAA /* JNGzipCustomErrors.h */; };
 		53A33F37141F7E1D00469DAA /* JNGzipErrorsLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F35141F7E1D00469DAA /* JNGzipErrorsLogger.h */; };
 		53A33F38141F7E1D00469DAA /* JNGzipErrorsLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */; };
+		53CB3D6114457E0D00D7E447 /* JNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 53CB3D5F14457E0D00D7E447 /* JNUtils.h */; };
+		53CB3D6214457E0D00D7E447 /* JNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CB3D6014457E0D00D7E447 /* JNUtils.m */; };
 		8D5AE6DF13F3E6C600EB6143 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */; };
 		8D5AE6F213F3E80B00EB6143 /* JFFURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */; };
 		8D5AE6F313F3E80B00EB6143 /* JFFURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F113F3E80B00EB6143 /* JFFURLConnection.m */; };
@@ -84,6 +86,8 @@
 		53A33F33141F7C2B00469DAA /* JNGzipCustomErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNGzipCustomErrors.h; sourceTree = "<group>"; };
 		53A33F35141F7E1D00469DAA /* JNGzipErrorsLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNGzipErrorsLogger.h; sourceTree = "<group>"; };
 		53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNGzipErrorsLogger.m; sourceTree = "<group>"; };
+		53CB3D5F14457E0D00D7E447 /* JNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUtils.h; sourceTree = "<group>"; };
+		53CB3D6014457E0D00D7E447 /* JNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUtils.m; sourceTree = "<group>"; };
 		8D5AE6DB13F3E6C600EB6143 /* libJFFNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D5AE6E213F3E6C700EB6143 /* JFFNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFNetwork-Prefix.pch"; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 			path = ContentEncodings;
 			sourceTree = "<group>";
 		};
+		53CB3D5E14457DEB00D7E447 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				53CB3D5F14457E0D00D7E447 /* JNUtils.h */,
+				53CB3D6014457E0D00D7E447 /* JNUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8D5AE6D013F3E6C500EB6143 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 				53834209141E684F00473CF2 /* ContentEncodings */,
 				534BEF1C14448DAD005D745F /* Detail */,
 				8D713CB413F52FBA007268DF /* DownloadManager */,
+				53CB3D5E14457DEB00D7E447 /* Utils */,
 				534BEEDA14448782005D745F /* JNUrlResponse.h */,
 				8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */,
 				8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */,
@@ -283,6 +297,7 @@
 				534BEF1A14448D44005D745F /* JNAbstractConnection.h in Headers */,
 				534BEF1F14448DC9005D745F /* JNAbstractConnection+Constructor.h in Headers */,
 				534BEF9514449AF5005D745F /* JNConnectionsFactory.h in Headers */,
+				53CB3D6114457E0D00D7E447 /* JNUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +369,7 @@
 				534BEF1B14448D44005D745F /* JNAbstractConnection.m in Sources */,
 				534BEF2014448DC9005D745F /* JNAbstractConnection+Constructor.m in Sources */,
 				534BEF9614449AF5005D745F /* JNConnectionsFactory.m in Sources */,
+				53CB3D6214457E0D00D7E447 /* JNUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
