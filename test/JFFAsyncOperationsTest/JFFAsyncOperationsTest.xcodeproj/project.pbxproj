@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */; };
 		1B835A25142C8BC400FC004C /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */; };
 		1B835A26142C8BC400FC004C /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A16142C8BAB00FC004C /* libJFFUtils.a */; };
 		8D29EF8D13BE066900041B6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8C13BE066900041B6A /* UIKit.framework */; };
@@ -51,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakAsyncOperationTest.m; sourceTree = "<group>"; };
 		1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../../lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
 		1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../../lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
 		8D29EF8813BE066900041B6A /* JFFAsyncOperationsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFAsyncOperationsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +140,6 @@
 			children = (
 				8D29EF9313BE066900041B6A /* Supporting Files */,
 				8D29EFB513BE08F700041B6A /* MockTest.m */,
-				1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */,
 			);
 			path = JFFAsyncOperationsTest;
 			sourceTree = "<group>";
@@ -185,6 +182,9 @@
 /* Begin PBXProject section */
 		8D29EF7F13BE066900041B6A /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 8D29EF8213BE066900041B6A /* Build configuration list for PBXProject "JFFAsyncOperationsTest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -247,7 +247,6 @@
 			files = (
 				8D29EF9913BE066900041B6A /* main.m in Sources */,
 				8D29EFB613BE08F700041B6A /* MockTest.m in Sources */,
-				1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
