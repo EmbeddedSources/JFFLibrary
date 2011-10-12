@@ -64,7 +64,7 @@
 
 -(id< JNUrlConnection >)createStandardConnection
 {
-   static const NSTimeInterval timeout_ = 1.;
+   static const NSTimeInterval timeout_ = 10.;
    NSMutableURLRequest* request_ = [ NSMutableURLRequest requestWithURL: self.url
                                                             cachePolicy: NSURLRequestReloadIgnoringLocalCacheData 
                                                         timeoutInterval: timeout_ ];
