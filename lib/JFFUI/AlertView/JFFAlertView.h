@@ -17,6 +17,7 @@
 
 -(void)addAlertButtonWithTitle:( NSString* )title_ action:( JFFSimpleBlock )action_;
 
+-(void)forceDismiss;
 +(void)dismissAllAlertViews;
 
 +(void)showAlertWithTitle:( NSString* )title_

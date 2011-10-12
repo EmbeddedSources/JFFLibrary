@@ -114,15 +114,15 @@ static char did_close_action_key_;
 
 +(void)load
 {
-   [ self hookMethodForClass: [ UINavigationController class ]
-                withSelector: @selector( pushViewController:animated: )
-     prototypeMethodSelector: @selector( pushViewControllerPrototype:animated: )
-          hookMethodSelector: @selector( pushViewControllerHook:animated: ) ];
+   [ self hookInstanceMethodForClass: [ UINavigationController class ]
+                        withSelector: @selector( pushViewController:animated: )
+             prototypeMethodSelector: @selector( pushViewControllerPrototype:animated: )
+                  hookMethodSelector: @selector( pushViewControllerHook:animated: ) ];
 
-   [ self hookMethodForClass: [ UIViewController class ]
-                withSelector: @selector( presentModalViewController:animated: )
-     prototypeMethodSelector: @selector( presentModalViewControllerPrototype:animated: )
-          hookMethodSelector: @selector( presentModalViewControllerHook:animated: ) ];
+   [ self hookInstanceMethodForClass: [ UIViewController class ]
+                        withSelector: @selector( presentModalViewController:animated: )
+             prototypeMethodSelector: @selector( presentModalViewControllerPrototype:animated: )
+                  hookMethodSelector: @selector( presentModalViewControllerHook:animated: ) ];
 }
 
 @end

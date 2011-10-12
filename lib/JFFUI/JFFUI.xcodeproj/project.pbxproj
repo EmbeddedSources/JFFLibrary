@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B29555A143DCB3A00532BD7 /* JULoadMoreCellscalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B295558143DCB3A00532BD7 /* JULoadMoreCellscalculator.h */; };
+		1B29555B143DCB3A00532BD7 /* JULoadMoreCellscalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B295559143DCB3A00532BD7 /* JULoadMoreCellscalculator.m */; };
+		1B29555F143DCB7300532BD7 /* UITableView+WithinUpdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B29555D143DCB7300532BD7 /* UITableView+WithinUpdates.h */; };
+		1B295560143DCB7300532BD7 /* UITableView+WithinUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B29555E143DCB7300532BD7 /* UITableView+WithinUpdates.m */; };
+		1B49CFA8143C6D3500E8AACE /* UIWebViewNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B49CFA6143C6D3400E8AACE /* UIWebViewNewFeaturesRuntime.m */; };
 		1B793A63142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */; };
 		1B793A64142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */; };
+		1B7F58421435BDC000FF06EC /* UIWebView+HideWhenLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F583E1435BDC000FF06EC /* UIWebView+HideWhenLoading.h */; };
+		1B7F58431435BDC000FF06EC /* UIWebView+HideWhenLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */; };
+		1B7F58971435D53300FF06EC /* UIView+AddSubviewAndScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */; };
+		1B7F58981435D53300FF06EC /* UIView+AddSubviewAndScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */; };
+		1B7F589B1435D58000FF06EC /* UIView+AnimationWithBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */; };
+		1B7F589C1435D58000FF06EC /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */; };
+		1B81FAEF14330E4400997278 /* UINib+FirstObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAED14330E4400997278 /* UINib+FirstObject.h */; };
+		1B81FAF014330E4400997278 /* UINib+FirstObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAEE14330E4400997278 /* UINib+FirstObject.m */; };
 		655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
 		655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
 		655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
@@ -25,8 +38,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B295558143DCB3A00532BD7 /* JULoadMoreCellscalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JULoadMoreCellscalculator.h; sourceTree = "<group>"; };
+		1B295559143DCB3A00532BD7 /* JULoadMoreCellscalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JULoadMoreCellscalculator.m; sourceTree = "<group>"; };
+		1B29555D143DCB7300532BD7 /* UITableView+WithinUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WithinUpdates.h"; sourceTree = "<group>"; };
+		1B29555E143DCB7300532BD7 /* UITableView+WithinUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WithinUpdates.m"; sourceTree = "<group>"; };
+		1B49CFA6143C6D3400E8AACE /* UIWebViewNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewNewFeaturesRuntime.m; sourceTree = "<group>"; };
 		1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+OnCloseActions.h"; path = "Extensions/UIViewController+OnCloseActions.h"; sourceTree = SOURCE_ROOT; };
 		1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+OnCloseActions.m"; path = "Extensions/UIViewController+OnCloseActions.m"; sourceTree = SOURCE_ROOT; };
+		1B7F583E1435BDC000FF06EC /* UIWebView+HideWhenLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+HideWhenLoading.h"; sourceTree = "<group>"; };
+		1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+HideWhenLoading.m"; sourceTree = "<group>"; };
+		1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddSubviewAndScale.h"; sourceTree = "<group>"; };
+		1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddSubviewAndScale.m"; sourceTree = "<group>"; };
+		1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationWithBlocks.h"; sourceTree = "<group>"; };
+		1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationWithBlocks.m"; sourceTree = "<group>"; };
+		1B81FAED14330E4400997278 /* UINib+FirstObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINib+FirstObject.h"; path = "Extensions/UINib+FirstObject.h"; sourceTree = SOURCE_ROOT; };
+		1B81FAEE14330E4400997278 /* UINib+FirstObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINib+FirstObject.m"; path = "Extensions/UINib+FirstObject.m"; sourceTree = SOURCE_ROOT; };
 		655E9DB21392E8C00074BD61 /* JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertButton.h; sourceTree = "<group>"; };
 		655E9DB31392E8C00074BD61 /* JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertButton.m; sourceTree = "<group>"; };
 		655E9DB41392E8C00074BD61 /* JFFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertView.h; sourceTree = "<group>"; };
@@ -85,6 +111,9 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B295556143DCB0500532BD7 /* UITableView */,
+				1B7F58941435D50F00FF06EC /* UIView */,
+				1B7F583B1435BDC000FF06EC /* UIWebView */,
 				1B793977142B76FD00B43DC8 /* Extensions */,
 				655E9DB11392E8C00074BD61 /* AlertView */,
 				655E9E4A1392ED360074BD61 /* JFFUI.h */,
@@ -92,14 +121,48 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		1B295556143DCB0500532BD7 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				1B295558143DCB3A00532BD7 /* JULoadMoreCellscalculator.h */,
+				1B295559143DCB3A00532BD7 /* JULoadMoreCellscalculator.m */,
+				1B29555D143DCB7300532BD7 /* UITableView+WithinUpdates.h */,
+				1B29555E143DCB7300532BD7 /* UITableView+WithinUpdates.m */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
 		1B793977142B76FD00B43DC8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */,
 				1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */,
+				1B81FAED14330E4400997278 /* UINib+FirstObject.h */,
+				1B81FAEE14330E4400997278 /* UINib+FirstObject.m */,
 			);
 			name = Extensions;
 			path = ./JFFUI/Extensions;
+			sourceTree = "<group>";
+		};
+		1B7F583B1435BDC000FF06EC /* UIWebView */ = {
+			isa = PBXGroup;
+			children = (
+				1B7F583E1435BDC000FF06EC /* UIWebView+HideWhenLoading.h */,
+				1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */,
+				1B49CFA6143C6D3400E8AACE /* UIWebViewNewFeaturesRuntime.m */,
+			);
+			path = UIWebView;
+			sourceTree = "<group>";
+		};
+		1B7F58941435D50F00FF06EC /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */,
+				1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */,
+				1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */,
+				1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -150,6 +213,12 @@
 				8D996F18139F5D370075A325 /* JFFActionSheet.h in Headers */,
 				8D996F1E139F61200075A325 /* NSObject+JFFAlertButton.h in Headers */,
 				1B793A63142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h in Headers */,
+				1B81FAEF14330E4400997278 /* UINib+FirstObject.h in Headers */,
+				1B7F58421435BDC000FF06EC /* UIWebView+HideWhenLoading.h in Headers */,
+				1B7F58971435D53300FF06EC /* UIView+AddSubviewAndScale.h in Headers */,
+				1B7F589B1435D58000FF06EC /* UIView+AnimationWithBlocks.h in Headers */,
+				1B29555A143DCB3A00532BD7 /* JULoadMoreCellscalculator.h in Headers */,
+				1B29555F143DCB7300532BD7 /* UITableView+WithinUpdates.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +281,13 @@
 				8D996F19139F5D370075A325 /* JFFActionSheet.m in Sources */,
 				8D996F1F139F61200075A325 /* NSObject+JFFAlertButton.m in Sources */,
 				1B793A64142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m in Sources */,
+				1B81FAF014330E4400997278 /* UINib+FirstObject.m in Sources */,
+				1B7F58431435BDC000FF06EC /* UIWebView+HideWhenLoading.m in Sources */,
+				1B7F58981435D53300FF06EC /* UIView+AddSubviewAndScale.m in Sources */,
+				1B7F589C1435D58000FF06EC /* UIView+AnimationWithBlocks.m in Sources */,
+				1B49CFA8143C6D3500E8AACE /* UIWebViewNewFeaturesRuntime.m in Sources */,
+				1B29555B143DCB3A00532BD7 /* JULoadMoreCellscalculator.m in Sources */,
+				1B295560143DCB7300532BD7 /* UITableView+WithinUpdates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
