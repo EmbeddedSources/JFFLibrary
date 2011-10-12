@@ -4,7 +4,6 @@
 #import "JFFURLConnection.h"
 
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
-#import <JFFAsyncOperations/Helpers/JFFResultContext.h>
 
 JFFAsyncOperation genericChunkedURLResponseLoader( 
      NSURL* url_
@@ -33,7 +32,7 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
             progress_callback_( data_ );
       };
 
-      JFFResultContext* result_context_ = [ JFFResultContext resultContext ];
+      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )

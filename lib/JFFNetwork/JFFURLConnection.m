@@ -87,11 +87,11 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 {
    [ self cancel ];
 
-   [ _post_data                  release ];
-   [ _headers                    release ];
-   [ _url                        release ];
+   [ _post_data    release ];
+   [ _headers      release ];
+   [ _url          release ];
   
-   [ _url_response               release ];
+   [ _url_response release ];
 
    [ super dealloc ];
 }

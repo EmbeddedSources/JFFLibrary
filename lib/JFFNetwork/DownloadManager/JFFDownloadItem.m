@@ -343,7 +343,7 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
          [ self didReceiveResponse: response_ ];
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
       cancel_callback_ = ^( BOOL canceled_ )
       {
