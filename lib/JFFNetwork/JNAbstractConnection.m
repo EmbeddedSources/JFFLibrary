@@ -35,6 +35,7 @@
    NSLog( @"[!!! ERROR !!!] : JNAbstractConnection->init is not supported. Consider using a 'privateInit' method" );
 
    [ self doesNotRecognizeSelector: _cmd ];
+   [ self release ];
    return nil;
 }
 

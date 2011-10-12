@@ -32,6 +32,7 @@
 -(id)init
 {
    [ self doesNotRecognizeSelector: _cmd ];
+   [ self release ];   
    return nil;
 }
 
@@ -39,6 +40,14 @@
         postData:( NSData* )post_data_
          headers:( NSDictionary* )headers_
 {
+   if ( nil == url_ )
+   {
+      [ self release ];
+      NSAssert( url_, @"[!!! ERROR !!!] JNConnectionsFactory->init : A required URL parameter is nil" );
+
+      return nil;
+   }
+   
    self = [ super init ];
    if ( nil == self )
    {
@@ -75,7 +84,7 @@
    [ request_ setHTTPBody           : self.postData ];
    [ request_ setAllHTTPHeaderFields: self.headers  ];
    [ request_ setHTTPMethod         : http_method_  ];
-   
+
    JNNsUrlConnection* result_ = [ [ JNNsUrlConnection alloc ] initWithRequest: request_ ];
    return [ result_ autorelease ];
 }
