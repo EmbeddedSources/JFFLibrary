@@ -1,3 +1,4 @@
+//can not be under arc
 #import <Foundation/Foundation.h>
 
 #import <JFFUtils/NSObject/NSObject+RuntimeExtensions.h>
@@ -23,10 +24,10 @@
 
 +(void)load
 {
-   [ self hookMethodForClass: [ NSObject class ]
-                withSelector: @selector( dealloc )
-     prototypeMethodSelector: @selector( deallocRemoveAssociatedObjectsPrototype )
-          hookMethodSelector: @selector( deallocRemoveAssociatedObjectsHook ) ];
+   [ self hookInstanceMethodForClass: [ NSObject class ]
+                        withSelector: @selector( dealloc )
+             prototypeMethodSelector: @selector( deallocRemoveAssociatedObjectsPrototype )
+                  hookMethodSelector: @selector( deallocRemoveAssociatedObjectsHook ) ];
 }
 
 @end

@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		534C739A1431E1410085B41E /* NSMutableArray+ChangeCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */; };
-		534C739B1431E1410085B41E /* NSMutableArray+ChangeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */; };
+		1B2A683F143F54F700BC284F /* NSObject+InstancesCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2A683D143F54F700BC284F /* NSObject+InstancesCount.h */; };
+		1B2A6840143F54F700BC284F /* NSObject+InstancesCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A683E143F54F700BC284F /* NSObject+InstancesCount.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1B3CDDD91445D75700733BE5 /* NSString+XQueryComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3CDDD71445D75700733BE5 /* NSString+XQueryComponents.h */; };
+		1B3CDDDA1445D75700733BE5 /* NSString+XQueryComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDD81445D75700733BE5 /* NSString+XQueryComponents.m */; };
+		1B3CDDDD1445D9FD00733BE5 /* NSURL+XQueryComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3CDDDB1445D9FD00733BE5 /* NSURL+XQueryComponents.h */; };
+		1B3CDDDE1445D9FD00733BE5 /* NSURL+XQueryComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDDC1445D9FD00733BE5 /* NSURL+XQueryComponents.m */; };
+		1B3CDDE11445DA7E00733BE5 /* NSDictionary+XQueryComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3CDDDF1445DA7E00733BE5 /* NSDictionary+XQueryComponents.h */; };
+		1B3CDDE21445DA7E00733BE5 /* NSDictionary+XQueryComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDE01445DA7E00733BE5 /* NSDictionary+XQueryComponents.m */; };
+		1B3CDDE51445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3CDDE31445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h */; };
+		1B3CDDE61445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDE41445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m */; };
+		1B76089A1444912F0059E977 /* JGCDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7608981444912F0059E977 /* JGCDAdditions.h */; };
+		1B76089B1444912F0059E977 /* JGCDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7608991444912F0059E977 /* JGCDAdditions.m */; };
+		1BCDF9E514320B3200CEB6E7 /* NSMutableArray+ChangeCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCDF9E314320B3200CEB6E7 /* NSMutableArray+ChangeCount.h */; };
+		1BCDF9E614320B3200CEB6E7 /* NSMutableArray+ChangeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDF9E414320B3200CEB6E7 /* NSMutableArray+ChangeCount.m */; };
+		1BD01FB61444824100A627B1 /* JFFResultContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD01FB41444824100A627B1 /* JFFResultContext.h */; };
+		1BD01FB71444824100A627B1 /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB51444824100A627B1 /* JFFResultContext.m */; };
+		1BE75CFF1434B3450076E068 /* NSObject+Const0.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE75CFD1434B3450076E068 /* NSObject+Const0.h */; };
+		1BE75D001434B3450076E068 /* NSObject+Const0.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE75CFE1434B3450076E068 /* NSObject+Const0.m */; };
 		53BCF8E0143239D100E896B3 /* NSArray+RemoveDuplicates.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */; };
 		53BCF8E1143239D100E896B3 /* NSArray+RemoveDuplicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */; };
 		53BCF8E314323A4800E896B3 /* JUArrayHelperBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */; };
@@ -19,12 +35,6 @@
 		651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */; };
 		651BE0B91390496200DD6890 /* NSArray+BlocksAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0AB1390496200DD6890 /* NSArray+BlocksAdditions.h */; };
 		651BE0BA1390496200DD6890 /* NSArray+BlocksAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */; };
-		651BE0BB1390496200DD6890 /* UITableView+WithinUpdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0AF1390496200DD6890 /* UITableView+WithinUpdates.h */; };
-		651BE0BC1390496200DD6890 /* UITableView+WithinUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0B01390496200DD6890 /* UITableView+WithinUpdates.m */; };
-		651BE0BD1390496200DD6890 /* UIView+AnimationWithBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0B21390496200DD6890 /* UIView+AnimationWithBlocks.h */; };
-		651BE0BE1390496200DD6890 /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0B31390496200DD6890 /* UIView+AnimationWithBlocks.m */; };
-		651BE11D1391041400DD6890 /* NSObject+PerformBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE11B1391041400DD6890 /* NSObject+PerformBlock.h */; };
-		651BE11E1391041400DD6890 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */; };
 		651BE139139107EA00DD6890 /* NSObject+Ownerships.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE137139107EA00DD6890 /* NSObject+Ownerships.h */; };
 		651BE13A139107EA00DD6890 /* NSObject+Ownerships.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE138139107EA00DD6890 /* NSObject+Ownerships.m */; };
 		651BE19D1391969A00DD6890 /* NSString+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE19B1391969A00DD6890 /* NSString+Search.h */; };
@@ -40,8 +50,7 @@
 		65648BE213924326001E163C /* JFFError.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BE013924326001E163C /* JFFError.m */; };
 		65648BF0139243FF001E163C /* NSThread+AssertMainThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */; };
 		65648BF1139243FF001E163C /* NSThread+AssertMainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */; };
-		65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */; };
-		8D1DE50C13AB8123001FD56F /* NSURLNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */; };
+		65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */; };
 		8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
 		8D713C6D13F3F62B007268DF /* JFFMutableAssignArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713C6B13F3F62B007268DF /* JFFMutableAssignArray.h */; };
@@ -54,13 +63,27 @@
 		8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */; };
 		AA747D9F0F9514B9006C5449 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		B694846B1429E39700B8247E /* JULoadMoreCellscalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = B69484691429E39700B8247E /* JULoadMoreCellscalculator.h */; };
-		B694846C1429E39700B8247E /* JULoadMoreCellscalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B694846A1429E39700B8247E /* JULoadMoreCellscalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ChangeCount.h"; sourceTree = "<group>"; };
-		534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ChangeCount.m"; sourceTree = "<group>"; };
+		1B2A683D143F54F700BC284F /* NSObject+InstancesCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InstancesCount.h"; sourceTree = "<group>"; };
+		1B2A683E143F54F700BC284F /* NSObject+InstancesCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+InstancesCount.m"; sourceTree = "<group>"; };
+		1B3CDDD71445D75700733BE5 /* NSString+XQueryComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XQueryComponents.h"; sourceTree = "<group>"; };
+		1B3CDDD81445D75700733BE5 /* NSString+XQueryComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XQueryComponents.m"; sourceTree = "<group>"; };
+		1B3CDDDB1445D9FD00733BE5 /* NSURL+XQueryComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+XQueryComponents.h"; sourceTree = "<group>"; };
+		1B3CDDDC1445D9FD00733BE5 /* NSURL+XQueryComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+XQueryComponents.m"; sourceTree = "<group>"; };
+		1B3CDDDF1445DA7E00733BE5 /* NSDictionary+XQueryComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+XQueryComponents.h"; sourceTree = "<group>"; };
+		1B3CDDE01445DA7E00733BE5 /* NSDictionary+XQueryComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+XQueryComponents.m"; sourceTree = "<group>"; };
+		1B3CDDE31445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NoThrowObjectAtIndex.h"; sourceTree = "<group>"; };
+		1B3CDDE41445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NoThrowObjectAtIndex.m"; sourceTree = "<group>"; };
+		1B7608981444912F0059E977 /* JGCDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCDAdditions.h; sourceTree = "<group>"; };
+		1B7608991444912F0059E977 /* JGCDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCDAdditions.m; sourceTree = "<group>"; };
+		1BCDF9E314320B3200CEB6E7 /* NSMutableArray+ChangeCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ChangeCount.h"; sourceTree = "<group>"; };
+		1BCDF9E414320B3200CEB6E7 /* NSMutableArray+ChangeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ChangeCount.m"; sourceTree = "<group>"; };
+		1BD01FB41444824100A627B1 /* JFFResultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFResultContext.h; sourceTree = "<group>"; };
+		1BD01FB51444824100A627B1 /* JFFResultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFResultContext.m; sourceTree = "<group>"; };
+		1BE75CFD1434B3450076E068 /* NSObject+Const0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Const0.h"; sourceTree = "<group>"; };
+		1BE75CFE1434B3450076E068 /* NSObject+Const0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Const0.m"; sourceTree = "<group>"; };
 		53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RemoveDuplicates.h"; sourceTree = "<group>"; };
 		53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RemoveDuplicates.m"; sourceTree = "<group>"; };
 		53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUArrayHelperBlocks.h; sourceTree = "<group>"; };
@@ -71,12 +94,6 @@
 		651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolder.m; sourceTree = "<group>"; };
 		651BE0AB1390496200DD6890 /* NSArray+BlocksAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BlocksAdditions.h"; sourceTree = "<group>"; };
 		651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BlocksAdditions.m"; sourceTree = "<group>"; };
-		651BE0AF1390496200DD6890 /* UITableView+WithinUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WithinUpdates.h"; sourceTree = "<group>"; };
-		651BE0B01390496200DD6890 /* UITableView+WithinUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WithinUpdates.m"; sourceTree = "<group>"; };
-		651BE0B21390496200DD6890 /* UIView+AnimationWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationWithBlocks.h"; sourceTree = "<group>"; };
-		651BE0B31390496200DD6890 /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationWithBlocks.m"; sourceTree = "<group>"; };
-		651BE11B1391041400DD6890 /* NSObject+PerformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformBlock.h"; sourceTree = "<group>"; };
-		651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		651BE137139107EA00DD6890 /* NSObject+Ownerships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ownerships.h"; sourceTree = "<group>"; };
 		651BE138139107EA00DD6890 /* NSObject+Ownerships.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Ownerships.m"; sourceTree = "<group>"; };
 		651BE19B1391969A00DD6890 /* NSString+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Search.h"; sourceTree = "<group>"; };
@@ -93,7 +110,6 @@
 		65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+AssertMainThread.h"; sourceTree = "<group>"; };
 		65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+AssertMainThread.m"; sourceTree = "<group>"; };
 		65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRuntimeInitializer.m; sourceTree = "<group>"; };
-		8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLNewFeaturesRuntime.m; sourceTree = "<group>"; };
 		8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeExtensions.h"; sourceTree = "<group>"; };
 		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
 		8D713C6B13F3F62B007268DF /* JFFMutableAssignArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFMutableAssignArray.h; sourceTree = "<group>"; };
@@ -106,8 +122,6 @@
 		8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAssignProxy.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFUtils_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B69484691429E39700B8247E /* JULoadMoreCellscalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JULoadMoreCellscalculator.h; sourceTree = "<group>"; };
-		B694846A1429E39700B8247E /* JULoadMoreCellscalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JULoadMoreCellscalculator.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libJFFUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +164,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1B3CDDD51445D73A00733BE5 /* XQueryComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1B3CDDD71445D75700733BE5 /* NSString+XQueryComponents.h */,
+				1B3CDDD81445D75700733BE5 /* NSString+XQueryComponents.m */,
+				1B3CDDDB1445D9FD00733BE5 /* NSURL+XQueryComponents.h */,
+				1B3CDDDC1445D9FD00733BE5 /* NSURL+XQueryComponents.m */,
+				1B3CDDDF1445DA7E00733BE5 /* NSDictionary+XQueryComponents.h */,
+				1B3CDDE01445DA7E00733BE5 /* NSDictionary+XQueryComponents.m */,
+			);
+			path = XQueryComponents;
+			sourceTree = "<group>";
+		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,15 +200,17 @@
 		651BE0AA1390496200DD6890 /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
+				53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */,
+				1BCDF9E314320B3200CEB6E7 /* NSMutableArray+ChangeCount.h */,
+				1BCDF9E414320B3200CEB6E7 /* NSMutableArray+ChangeCount.m */,
 				651BE0AB1390496200DD6890 /* NSArray+BlocksAdditions.h */,
 				651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */,
-				534C73981431E1410085B41E /* NSMutableArray+ChangeCount.h */,
-				534C73991431E1410085B41E /* NSMutableArray+ChangeCount.m */,
 				53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */,
 				53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */,
-				53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */,
 				53E366C61433760A002AB0B9 /* NSArray+IsEmpty.h */,
 				53E366C71433760A002AB0B9 /* NSArray+IsEmpty.m */,
+				1B3CDDE31445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h */,
+				1B3CDDE41445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -189,48 +218,28 @@
 		651BE0AD1390496200DD6890 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
-				651BE11B1391041400DD6890 /* NSObject+PerformBlock.h */,
-				651BE11C1391041400DD6890 /* NSObject+PerformBlock.m */,
 				651BE137139107EA00DD6890 /* NSObject+Ownerships.h */,
 				651BE138139107EA00DD6890 /* NSObject+Ownerships.m */,
 				651BE1CB1391A36800DD6890 /* NSObject+OnDeallocBlock.h */,
 				651BE1CC1391A36800DD6890 /* NSObject+OnDeallocBlock.m */,
 				8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */,
 				8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */,
+				1BE75CFD1434B3450076E068 /* NSObject+Const0.h */,
+				1BE75CFE1434B3450076E068 /* NSObject+Const0.m */,
+				1B2A683D143F54F700BC284F /* NSObject+InstancesCount.h */,
+				1B2A683E143F54F700BC284F /* NSObject+InstancesCount.m */,
 			);
 			path = NSObject;
-			sourceTree = "<group>";
-		};
-		651BE0AE1390496200DD6890 /* UITableView */ = {
-			isa = PBXGroup;
-			children = (
-				B69484691429E39700B8247E /* JULoadMoreCellscalculator.h */,
-				B694846A1429E39700B8247E /* JULoadMoreCellscalculator.m */,
-				651BE0AF1390496200DD6890 /* UITableView+WithinUpdates.h */,
-				651BE0B01390496200DD6890 /* UITableView+WithinUpdates.m */,
-			);
-			path = UITableView;
-			sourceTree = "<group>";
-		};
-		651BE0B11390496200DD6890 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				651BE0B21390496200DD6890 /* UIView+AnimationWithBlocks.h */,
-				651BE0B31390496200DD6890 /* UIView+AnimationWithBlocks.m */,
-			);
-			path = UIView;
 			sourceTree = "<group>";
 		};
 		651BE0BF1390496700DD6890 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B3CDDD51445D73A00733BE5 /* XQueryComponents */,
 				651BE0A41390496200DD6890 /* Blocks */,
-				8D1DE50813AB808D001FD56F /* NSURL */,
 				651BE19A1391969300DD6890 /* NSString */,
 				651BE0AA1390496200DD6890 /* NSArray */,
 				651BE0AD1390496200DD6890 /* NSObject */,
-				651BE0AE1390496200DD6890 /* UITableView */,
-				651BE0B11390496200DD6890 /* UIView */,
 				65648BDF13924326001E163C /* JFFError.h */,
 				65648BE013924326001E163C /* JFFError.m */,
 				65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */,
@@ -242,6 +251,10 @@
 				8D713C6C13F3F62B007268DF /* JFFMutableAssignArray.m */,
 				8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */,
 				8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */,
+				1BD01FB41444824100A627B1 /* JFFResultContext.h */,
+				1BD01FB51444824100A627B1 /* JFFResultContext.m */,
+				1B7608981444912F0059E977 /* JGCDAdditions.h */,
+				1B7608991444912F0059E977 /* JGCDAdditions.m */,
 				651BE27B1391BD7800DD6890 /* JFFUtils.h */,
 			);
 			name = Classes;
@@ -260,14 +273,6 @@
 			path = NSString;
 			sourceTree = "<group>";
 		};
-		8D1DE50813AB808D001FD56F /* NSURL */ = {
-			isa = PBXGroup;
-			children = (
-				8D1DE50A13AB8123001FD56F /* NSURLNewFeaturesRuntime.m */,
-			);
-			path = NSURL;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -279,9 +284,6 @@
 				651BE0B41390496200DD6890 /* JFFUtilsBlockDefinitions.h in Headers */,
 				651BE0B71390496200DD6890 /* JFFSimpleBlockHolder.h in Headers */,
 				651BE0B91390496200DD6890 /* NSArray+BlocksAdditions.h in Headers */,
-				651BE0BB1390496200DD6890 /* UITableView+WithinUpdates.h in Headers */,
-				651BE0BD1390496200DD6890 /* UIView+AnimationWithBlocks.h in Headers */,
-				651BE11D1391041400DD6890 /* NSObject+PerformBlock.h in Headers */,
 				651BE139139107EA00DD6890 /* NSObject+Ownerships.h in Headers */,
 				651BE19D1391969A00DD6890 /* NSString+Search.h in Headers */,
 				651BE1C31391A25500DD6890 /* JFFOnDeallocBlockOwner.h in Headers */,
@@ -295,11 +297,18 @@
 				8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */,
 				8D713C6D13F3F62B007268DF /* JFFMutableAssignArray.h in Headers */,
 				8D713CC713F539A5007268DF /* NSString+PathExtensions.h in Headers */,
-				B694846B1429E39700B8247E /* JULoadMoreCellscalculator.h in Headers */,
-				534C739A1431E1410085B41E /* NSMutableArray+ChangeCount.h in Headers */,
+				1BCDF9E514320B3200CEB6E7 /* NSMutableArray+ChangeCount.h in Headers */,
 				53BCF8E0143239D100E896B3 /* NSArray+RemoveDuplicates.h in Headers */,
 				53BCF8E314323A4800E896B3 /* JUArrayHelperBlocks.h in Headers */,
 				53E366C81433760A002AB0B9 /* NSArray+IsEmpty.h in Headers */,
+				1BE75CFF1434B3450076E068 /* NSObject+Const0.h in Headers */,
+				1B2A683F143F54F700BC284F /* NSObject+InstancesCount.h in Headers */,
+				1BD01FB61444824100A627B1 /* JFFResultContext.h in Headers */,
+				1B76089A1444912F0059E977 /* JGCDAdditions.h in Headers */,
+				1B3CDDD91445D75700733BE5 /* NSString+XQueryComponents.h in Headers */,
+				1B3CDDDD1445D9FD00733BE5 /* NSURL+XQueryComponents.h in Headers */,
+				1B3CDDE11445DA7E00733BE5 /* NSDictionary+XQueryComponents.h in Headers */,
+				1B3CDDE51445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,9 +367,6 @@
 			files = (
 				651BE0B81390496200DD6890 /* JFFSimpleBlockHolder.m in Sources */,
 				651BE0BA1390496200DD6890 /* NSArray+BlocksAdditions.m in Sources */,
-				651BE0BC1390496200DD6890 /* UITableView+WithinUpdates.m in Sources */,
-				651BE0BE1390496200DD6890 /* UIView+AnimationWithBlocks.m in Sources */,
-				651BE11E1391041400DD6890 /* NSObject+PerformBlock.m in Sources */,
 				651BE13A139107EA00DD6890 /* NSObject+Ownerships.m in Sources */,
 				651BE19E1391969A00DD6890 /* NSString+Search.m in Sources */,
 				651BE1C41391A25500DD6890 /* JFFOnDeallocBlockOwner.m in Sources */,
@@ -368,17 +374,23 @@
 				65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */,
 				65648BE213924326001E163C /* JFFError.m in Sources */,
 				65648BF1139243FF001E163C /* NSThread+AssertMainThread.m in Sources */,
-				8D1DE50C13AB8123001FD56F /* NSURLNewFeaturesRuntime.m in Sources */,
 				8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */,
 				65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */,
 				8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */,
 				8DB67B2013E980B70024EA6C /* JFFAssignProxy.m in Sources */,
 				8D713C6E13F3F62B007268DF /* JFFMutableAssignArray.m in Sources */,
 				8D713CC813F539A5007268DF /* NSString+PathExtensions.m in Sources */,
-				B694846C1429E39700B8247E /* JULoadMoreCellscalculator.m in Sources */,
-				534C739B1431E1410085B41E /* NSMutableArray+ChangeCount.m in Sources */,
+				1BCDF9E614320B3200CEB6E7 /* NSMutableArray+ChangeCount.m in Sources */,
 				53BCF8E1143239D100E896B3 /* NSArray+RemoveDuplicates.m in Sources */,
 				53E366C91433760A002AB0B9 /* NSArray+IsEmpty.m in Sources */,
+				1BE75D001434B3450076E068 /* NSObject+Const0.m in Sources */,
+				1B2A6840143F54F700BC284F /* NSObject+InstancesCount.m in Sources */,
+				1BD01FB71444824100A627B1 /* JFFResultContext.m in Sources */,
+				1B76089B1444912F0059E977 /* JGCDAdditions.m in Sources */,
+				1B3CDDDA1445D75700733BE5 /* NSString+XQueryComponents.m in Sources */,
+				1B3CDDDE1445D9FD00733BE5 /* NSURL+XQueryComponents.m in Sources */,
+				1B3CDDE21445DA7E00733BE5 /* NSDictionary+XQueryComponents.m in Sources */,
+				1B3CDDE61445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +402,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/JFFUtils.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -397,10 +410,12 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFUtils_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = JFFUtils;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -409,13 +424,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DSTROOT = /tmp/JFFUtils.dst;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFUtils_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = JFFUtils;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -429,6 +447,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
@@ -443,6 +462,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};

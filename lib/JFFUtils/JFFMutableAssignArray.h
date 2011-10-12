@@ -10,4 +10,6 @@
 -(void)removeObject:( id )object_;
 -(void)removeAllObjects;
 
+-(NSUInteger)count;
+
 @end

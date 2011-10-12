@@ -116,4 +116,9 @@
    [ _mutable_array removeAllObjects ];
 }
 
+-(NSUInteger)count
+{
+   return [ _mutable_array count ];
+}
+
 @end

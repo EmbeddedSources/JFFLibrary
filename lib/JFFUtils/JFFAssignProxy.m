@@ -11,9 +11,9 @@
    return self;
 }
 
-+(id)assignProxyWithTarget:( id )delegate_
++(id)assignProxyWithTarget:( id )target_
 {
-   return [ [ [ self alloc ] initWithTarget: delegate_ ] autorelease ];
+   return [ [ [ self alloc ] initWithTarget: target_ ] autorelease ];
 }
 
 -(void)forwardInvocation:( NSInvocation* )invocation_
@@ -27,16 +27,6 @@
 -(NSMethodSignature*)methodSignatureForSelector:( SEL )selector_
 {
    return [ self.target methodSignatureForSelector: selector_ ];
-}
-
--(BOOL)isEqual:( id )object_
-{
-   return [ self.target isEqual: [ object_ target ] ];
-}
-
--(NSUInteger)hash
-{
-   return [ self.target hash ];
 }
 
 @end

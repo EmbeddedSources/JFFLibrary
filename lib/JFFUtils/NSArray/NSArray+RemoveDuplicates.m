@@ -14,7 +14,6 @@
    return [ self uniqueBy: predicate_ ];
 }
 
-
 -(NSArray*)unique
 {
    NSUInteger items_count_ = [ self count ];

@@ -1,6 +1,5 @@
 #import "NSMutableArray+ChangeCount.h"
 
-
 @implementation NSMutableArray ( ChangeCount )
 
 -(void)shrinkToSize:( NSUInteger )new_size_
@@ -13,16 +12,7 @@
       return;
    }
 
-   NSUInteger size_diff_ = count_ - new_size_;
-   if ( 0 == size_diff_ )
-   {
-      return;
-   }
-
-   NSUInteger removal_location_ = new_size_;
-   NSRange removal_range_ = NSMakeRange( removal_location_, size_diff_ );
-   
-   [ self removeObjectsInRange: removal_range_ ];
+   [ self setArray: [ self subarrayWithRange: NSMakeRange( 0, new_size_ ) ] ];
 }
 
 @end
