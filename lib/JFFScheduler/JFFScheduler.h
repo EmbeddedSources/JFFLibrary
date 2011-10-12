@@ -10,7 +10,7 @@ typedef void (^JFFScheduledBlock) ( JFFCancelScheduledBlock cancel_ );
 }
 
 //returns new scheduler
-+(id)scheduler;
++(id)scheduler NS_DEPRECATED_IPHONE(2_0, 2_0);
 
 //returns the shared scheduler
 +(id)sharedScheduler;
