@@ -3,8 +3,6 @@
 #import "JFFActiveLoaderData.h"
 #import "JFFPedingLoaderData.h"
 
-#import <JFFUtils/NSArray/NSArray+BlocksAdditions.h>
-
 @interface JFFContextLoaders ()
 
 @property ( nonatomic, retain ) NSMutableArray* activeLoadersData;

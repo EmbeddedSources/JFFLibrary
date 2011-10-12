@@ -6,8 +6,7 @@
 #import "JFFAsyncOperationProgressBlockHolder.h"
 #import "JFFCancelAyncOperationBlockHolder.h"
 #import "JFFDidFinishAsyncOperationBlockHolder.h"
-
-#import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
+#import "JFFAsyncOperationsPredefinedBlocks.h"
 
 static const NSUInteger max_operation_count_ = 5;
 static const NSUInteger total_max_operation_count_ = 7;

@@ -3,5 +3,7 @@
 //
 
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
+   #import <JFFUtils/JFFUtils.h>
+
+   #import <Foundation/Foundation.h>
 #endif

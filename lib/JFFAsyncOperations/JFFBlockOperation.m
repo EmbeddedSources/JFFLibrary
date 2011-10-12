@@ -1,7 +1,6 @@
 #import "JFFBlockOperation.h"
 
 #import "JFFOperationQueue.h"
-#import "JFFResultContext.h"
 
 #import <JFFUtils/JFFError.h>
 #import <JFFUtils/NSThread+AssertMainThread.h>

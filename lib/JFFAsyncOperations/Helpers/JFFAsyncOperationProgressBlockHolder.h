@@ -3,10 +3,6 @@
 #import <Foundation/Foundation.h>
 
 @interface JFFAsyncOperationProgressBlockHolder : NSObject
-{
-@private
-   JFFAsyncOperationProgressHandler _progress_block;
-}
 
 @property ( nonatomic, copy ) JFFAsyncOperationProgressHandler progressBlock;
 

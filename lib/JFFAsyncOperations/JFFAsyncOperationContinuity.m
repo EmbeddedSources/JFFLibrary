@@ -1,7 +1,7 @@
 #import "JFFAsyncOperationContinuity.h"
 
-#import "JFFResultContext.h"
 #import "JFFCancelAyncOperationBlockHolder.h"
+#import "JFFAsyncOperationsPredefinedBlocks.h"
 
 #import <Foundation/Foundation.h>
 
@@ -170,7 +170,7 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL loaded_ = NO;
-      JFFResultContext* error_holder_ = [ JFFResultContext resultContext ];
+      JFFResultContext* error_holder_ = [ [ JFFResultContext new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       JFFDidFinishAsyncOperationHandler result_block_ = ^void( id result_, NSError* error_ )

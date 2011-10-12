@@ -1,5 +1,7 @@
 #import "NSObject+WeakAsyncOperation.h"
 
+#import "JFFAsyncOperationsPredefinedBlocks.h"
+
 #import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>

@@ -5,8 +5,6 @@
 
 #import "NSObject+PropertyExtractor.h"
 
-#import <JFFUtils/NSString/NSString+PropertyName.h>
-
 @interface JFFPropertyExtractor ()
 
 @property ( nonatomic, retain ) JFFObjectRelatedPropertyData* objectPropertyData;
@@ -92,7 +90,7 @@
    JFFObjectRelatedPropertyData* data_ = [ self.object propertyDataForPropertPath: self.propertyPath ];
    if ( !data_ )
    {
-      data_ = [ JFFObjectRelatedPropertyData extractPropertyData ];
+      data_ = [ [ JFFObjectRelatedPropertyData new ] autorelease ];
       [ self.object setPropertyData: data_ forPropertPath: self.propertyPath ];
    }
    return data_;
