@@ -1,22 +1,29 @@
 #import "JFFNetworkBlocksFunctions.h"
 
+#import "JNConnectionsFactory.h"
 #import "JFFURLConnection.h"
 
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
 
-static const NSTimeInterval timeout_ = 60.0;
-
-JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
-                                           , NSData* post_data_
-                                           , NSDictionary* headers_ )
+JFFAsyncOperation genericChunkedURLResponseLoader( 
+     NSURL* url_
+   , NSData* post_data_
+   , NSDictionary* headers_ 
+   , BOOL use_live_connection_)
 {
    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFURLConnection* connection_ = [ JFFURLConnection connectionWithURL: url_
-                                                                  postData: post_data_
-                                                                   headers: headers_ ];
+      JNConnectionsFactory* factory_ = [ [ JNConnectionsFactory alloc ] initWithUrl: url_
+                                                                           postData: post_data_
+                                                                            headers: headers_ ];
+      [ factory_ autorelease ];
+
+      
+      id< JNUrlConnection > connection_ = use_live_connection_ 
+                                             ? [ factory_ createFastConnection     ]
+                                             : [ factory_ createStandardConnection ];
 
       progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
       connection_.didReceiveDataBlock = ^( NSData* data_ )
@@ -25,7 +32,7 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
             progress_callback_( data_ );
       };
 
-      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
+      JFFResultContext* result_context_ = [ JFFResultContext resultContext ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )
@@ -34,35 +41,37 @@ JFFAsyncOperation chunkedURLResponseLoader( NSURL* url_
             done_callback_( error_ ? nil : result_context_.result, error_ );
       };
 
-      connection_.didReceiveResponseBlock = ^( JFFURLResponse* response_ )
+      connection_.didReceiveResponseBlock = ^( id/*< JNUrlResponse >*/ response_ )
       {
          result_context_.result = response_;
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
-      cancel_callback_block_holder_.cancelBlock = ^void( BOOL canceled_ )
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      cancel_callback_block_holder_.cancelBlock = cancel_callback_;
+
+      [ connection_ start ];
+
+      return [ [ ^void( BOOL canceled_ )
       {
          if ( canceled_ )
             [ connection_ cancel ];
 
-         cancel_callback_( canceled_ );
-      };
-
-      [ connection_ start ];
-
-      return cancel_callback_block_holder_.onceCancelBlock;
+         [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
+      } copy ] autorelease ];
    } copy ] autorelease ];
 }
 
-JFFAsyncOperation dataURLResponseLoader( NSURL* url_
-                                        , NSData* post_data_
-                                        , NSDictionary* headers_ )
+JFFAsyncOperation genericDataURLResponseLoader( 
+     NSURL* url_
+   , NSData* post_data_
+   , NSDictionary* headers_
+   , BOOL use_live_connection_)
 {
    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFAsyncOperation loader_ = chunkedURLResponseLoader( url_, post_data_, headers_ );
+      JFFAsyncOperation loader_ = genericChunkedURLResponseLoader( url_, post_data_, headers_, use_live_connection_ );
 
       NSMutableData* response_data_ = [ NSMutableData data ];
       JFFAsyncOperationProgressHandler data_progress_callback_ = ^void( id progress_info_ )
@@ -81,4 +90,39 @@ JFFAsyncOperation dataURLResponseLoader( NSURL* url_
 
       return loader_( data_progress_callback_, cancel_callback_, done_callback_ );
    } copy ] autorelease ];
+}
+
+#pragma mark -
+#pragma mark Compatibility
+
+JFFAsyncOperation chunkedURLResponseLoader( 
+   NSURL* url_
+   , NSData* post_data_
+   , NSDictionary* headers_ )
+{
+   return genericChunkedURLResponseLoader( url_,post_data_, headers_, NO );
+}
+
+JFFAsyncOperation dataURLResponseLoader( 
+   NSURL* url_
+   , NSData* post_data_
+   , NSDictionary* headers_ )
+{
+   return genericDataURLResponseLoader( url_,post_data_, headers_, NO );
+}
+
+JFFAsyncOperation liveChunkedURLResponseLoader( 
+   NSURL* url_
+   , NSData* post_data_
+   , NSDictionary* headers_ )
+{
+   return genericChunkedURLResponseLoader( url_,post_data_, headers_, YES );
+}
+
+JFFAsyncOperation liveDataURLResponseLoader(
+   NSURL* url_
+   , NSData* post_data_
+   , NSDictionary* headers_ )
+{
+   return genericDataURLResponseLoader( url_,post_data_, headers_, NO );
 }

@@ -113,7 +113,7 @@
          [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInteger: 0 ] forKey: class_name_ ];
 
          {
-            BOOL method_added_ = [ [ self class ] addClassMethodIfNeedWithSelector: @selector( allocWithZoneToAdding: )
+            BOOL method_added_ = [ [ self class ] addClassMethodIfNeedWithSelector: @selector( alloCWithZoneToAdding: )
                                                                            toClass: class_
                                                                  newMethodSelector: @selector( allocWithZone: ) ];
 
@@ -123,7 +123,7 @@
                [ [ self class ] hookClassMethodForClass: class_
                                            withSelector: @selector( allocWithZone: )
                                 prototypeMethodSelector: @selector( alloCWithZonePrototype: )
-                                     hookMethodSelector: @selector( alloCWithZoneToAdding: ) ];
+                                     hookMethodSelector: @selector( allocWithZoneHook: ) ];
             }
          }
       }

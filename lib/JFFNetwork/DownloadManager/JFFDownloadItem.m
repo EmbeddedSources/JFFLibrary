@@ -327,16 +327,18 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
       progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
       connection_.didReceiveDataBlock = ^( NSData* data_ )
       {
-         [ self didReceiveData: data_ progressHandler: progress_callback_ ];
+         [ self didReceiveData: data_ 
+               progressHandler: progress_callback_ ];
       };
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )
       {
-         [ self didFinishLoadedWithError: error_ doneCallback: done_callback_ ];
+         [ self didFinishLoadedWithError: error_ 
+                            doneCallback: done_callback_ ];
       };
 
-      connection_.didReceiveResponseBlock = ^( JFFURLResponse* response_ )
+      connection_.didReceiveResponseBlock = ^( id/*< JNUrlResponse >*/ response_ )
       {
          [ self didReceiveResponse: response_ ];
       };

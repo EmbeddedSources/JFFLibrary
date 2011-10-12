@@ -7,6 +7,8 @@
 @synthesize statusCode = _status_code;
 @synthesize allHeaderFields = _all_header_fields;
 
+@dynamic expectedContentLength;
+
 -(void)dealloc
 {
    [ _all_header_fields release ];
@@ -23,7 +25,8 @@
 #pragma mark NSObject
 -(NSString*)description
 {
-   return [ JFFUrlResponseLogger descriptionStringForUrlResponse: self ];
+   NSString* custom_ = [ JFFUrlResponseLogger descriptionStringForUrlResponse: self ];
+   return [ NSString stringWithFormat: @"%@ \n   %@", [ super description ], custom_ ];
 }
 
 @end
