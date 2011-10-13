@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1BD9C8BB1445F2E10099223D /* JFFAsyncOperationsPredefinedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD9C8B91445F2E10099223D /* JFFAsyncOperationsPredefinedBlocks.h */; };
 		1BD9C8BC1445F2E10099223D /* JFFAsyncOperationsPredefinedBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD9C8BA1445F2E10099223D /* JFFAsyncOperationsPredefinedBlocks.m */; };
-		1BD9C9031445F5410099223D /* libJFFScheduler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD9C9001445F5340099223D /* libJFFScheduler.a */; };
 		651BE1621391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */; };
 		651BE1671391928400DD6890 /* JFFAsyncOperationContinuity.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1651391928400DD6890 /* JFFAsyncOperationContinuity.h */; };
 		651BE1681391928400DD6890 /* JFFAsyncOperationContinuity.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1661391928400DD6890 /* JFFAsyncOperationContinuity.m */; };
@@ -125,7 +124,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD9C9031445F5410099223D /* libJFFScheduler.a in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
