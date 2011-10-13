@@ -124,5 +124,5 @@ JFFAsyncOperation liveDataURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ )
 {
-   return genericDataURLResponseLoader( url_,post_data_, headers_, NO );
+   return genericDataURLResponseLoader( url_,post_data_, headers_, YES );
 }
