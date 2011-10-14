@@ -29,8 +29,8 @@
                ++perform_block_count_;
          };
 
-         [ holder_ performBlockOnce ];
-         [ holder_ performBlockOnce ];
+         holder_.onceSimpleBlock();
+         holder_.onceSimpleBlock();
 
          [ block_context_ release ];
       }
