@@ -45,18 +45,20 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
          result_context_.result = response_;
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
-      cancel_callback_block_holder_.cancelBlock = cancel_callback_;
-
-      [ connection_ start ];
-
-      return [ [ ^void( BOOL canceled_ )
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
+      cancel_callback_block_holder_.cancelBlock = [ [ ^void( BOOL canceled_ )
       {
          if ( canceled_ )
             [ connection_ cancel ];
 
-         [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
+         if ( cancel_callback_ )
+            cancel_callback_( canceled_ );
       } copy ] autorelease ];
+
+      [ connection_ start ];
+
+      return cancel_callback_block_holder_.onceCancelBlock;
    } copy ] autorelease ];
 }
 
