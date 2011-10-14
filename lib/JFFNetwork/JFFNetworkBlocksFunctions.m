@@ -31,7 +31,7 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
             progress_callback_( data_ );
       };
 
-      JFFResultContext* result_context_ = [ JFFResultContext resultContext ];
+      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )
@@ -123,5 +123,5 @@ JFFAsyncOperation liveDataURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ )
 {
-   return genericDataURLResponseLoader( url_,post_data_, headers_, NO );
+   return genericDataURLResponseLoader( url_,post_data_, headers_, YES );
 }

@@ -1,12 +1,12 @@
 
 #ifdef NS_BLOCK_ASSERTIONS
 
-#undef NSAssert(condition, desc )
-#undef NSAssert1(condition, desc, x1)
-#undef NSAssert2(condition, desc, x1, x2)
-#undef NSAssert3(condition, desc, x1, x2, x3)
-#undef NSAssert4(condition, desc, x1, x2, x3, x4)
-#undef NSAssert5(condition, desc, x1, x2, x3, x4, x5)
+#undef NSAssert
+#undef NSAssert1
+#undef NSAssert2
+#undef NSAssert3
+#undef NSAssert4
+#undef NSAssert5
 
 #define NSAssert(condition, desc ) \
     if ( !(condition) )            \

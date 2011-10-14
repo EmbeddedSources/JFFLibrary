@@ -1,12 +1,6 @@
 
 #ifdef __OBJC__
-   #import <JFFNetwork/ContentEncodings/JNGzipDecoder.h>
-   #import <JFFNetwork/ContentEncodings/JNZipDecoder.h>
-   #import <JFFNetwork/ContentEncodings/JNStubDecoder.h>
-   #import <JFFNetwork/ContentEncodings/JNHttpEncodingsFactory.h>
-   #import <JFFNetwork/ContentEncodings/JNGzipErrorsLogger.h>
-   #import <JFFNetwork/ContentEncodings/JNGzipCustomErrors.h>
-
+   #import <JFFNetwork/JFFNetwork.h>
    #import "JNTestBundleManager.h"
 
    #import <zlib.h>
