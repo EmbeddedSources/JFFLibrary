@@ -11,6 +11,7 @@
 #import <JFFUtils/NSString/NSString+Search.h>
 #import <JFFUtils/NSString/NSString+PathExtensions.h>
 #import <JFFUtils/NSString/NSString+PropertyName.h>
+#import <JFFUtils/NSString/NSString+Trimm.h>
 
 #import <JFFUtils/XQueryComponents/NSString+XQueryComponents.h>
 #import <JFFUtils/XQueryComponents/NSURL+XQueryComponents.h>
