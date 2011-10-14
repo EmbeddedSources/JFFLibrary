@@ -4,6 +4,6 @@
 
 @property ( nonatomic, assign, readonly ) id target;
 
-+(id)assignProxyWithTarget:( id )delegate_;
++(id)assignProxyWithTarget:( id )target_;
 
 @end

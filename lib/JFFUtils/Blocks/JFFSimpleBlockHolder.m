@@ -27,4 +27,12 @@
    [ block_ release ];
 }
 
+-(JFFSimpleBlock)onceSimpleBlock
+{
+   return [ [ ^void( void )
+   {
+      [ self performBlockOnce ];
+   } copy ] autorelease ];
+}
+
 @end
