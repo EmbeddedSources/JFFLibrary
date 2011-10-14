@@ -20,7 +20,6 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
                                                                             headers: headers_ ];
       [ factory_ autorelease ];
 
-      
       id< JNUrlConnection > connection_ = use_live_connection_ 
                                              ? [ factory_ createFastConnection     ]
                                              : [ factory_ createStandardConnection ];

@@ -1,22 +1,26 @@
 #import "JFFScheduler.h"
 
+#import <JFFUtils/NSThread+AssertMainThread.h>
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
 
 @interface JFFScheduler ()
 
 @property ( nonatomic, retain ) NSMutableArray* cancelBlocks;
+@property ( nonatomic, unsafe_unretained ) dispatch_queue_t queue;
 
 @end
 
 @implementation JFFScheduler
 
-@synthesize cancelBlocks = _cancel_blocks;
+@synthesize cancelBlocks;
+@synthesize queue;
 
 -(void)dealloc
 {
    [ self cancelAllScheduledOperations ];
 
-   [ _cancel_blocks release ];
+   dispatch_release( queue );
+   [ cancelBlocks release ];
 
    [ super dealloc ];
 }
@@ -27,6 +31,8 @@
 
    if ( self )
    {
+      queue = dispatch_get_current_queue();
+      dispatch_retain( queue );
       self.cancelBlocks = [ NSMutableArray array ];
    }
 
@@ -40,6 +46,7 @@
 
 +(id)sharedScheduler
 {
+   [ NSThread assertMainThread ];
    static id instance_ = nil;
    if ( !instance_ )
    {
@@ -55,13 +62,12 @@
    if ( !action_block_ )
       return [ [ ^(){ /* do nothing */ } copy ] autorelease ];
 
-   dispatch_queue_t queue_ = dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 );
+   dispatch_source_t timer_ = dispatch_source_create( DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue );
 
-   dispatch_source_t timer_ = dispatch_source_create( DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue_ );
-
+   int64_t delta_ = duration_ * NSEC_PER_SEC;
    dispatch_source_set_timer( timer_
-                             , dispatch_time( DISPATCH_TIME_NOW, duration_ * NSEC_PER_SEC )
-                             , DISPATCH_TIME_FOREVER
+                             , dispatch_time( DISPATCH_TIME_NOW, delta_ )
+                             , delta_
                              , 0 );
 
    __block JFFScheduler* self_ = self;
