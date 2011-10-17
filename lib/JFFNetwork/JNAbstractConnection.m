@@ -6,12 +6,14 @@
 @synthesize didReceiveResponseBlock = _did_receive_response_block;
 @synthesize didReceiveDataBlock     = _did_receive_data_block    ;
 @synthesize didFinishLoadingBlock   = _did_finish_loading_block  ;
+@synthesize shouldAcceptCertificateBlock = _should_accept_certificate_block ;
 
 -(void)dealloc
 {
    [ _did_receive_response_block release ];
    [ _did_receive_data_block     release ];
    [ _did_finish_loading_block   release ];
+   [ _should_accept_certificate_block release ];
    
    [ super dealloc ];
 }
@@ -46,6 +48,7 @@
    self.didReceiveResponseBlock = nil;
    self.didReceiveDataBlock     = nil;
    self.didFinishLoadingBlock   = nil;
+   self.shouldAcceptCertificateBlock = nil;
 }
 
 @end
