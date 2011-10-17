@@ -328,7 +328,10 @@
 				1B3CDDDD1445D9FD00733BE5 /* NSURL+XQueryComponents.h in Headers */,
 				1B3CDDE11445DA7E00733BE5 /* NSDictionary+XQueryComponents.h in Headers */,
 				1B3CDDE51445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h in Headers */,
+<<<<<<< HEAD
 				D6C6246B1448268800FD7135 /* NSObject+PerformBlock.h in Headers */,
+=======
+>>>>>>> ae3e6369282ecdf8ee7b557eec4e3e9738ad7d56
 				1B6AAD8E1447039B00EA1D96 /* NSString+Trimm.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,7 +416,10 @@
 				1B3CDDDE1445D9FD00733BE5 /* NSURL+XQueryComponents.m in Sources */,
 				1B3CDDE21445DA7E00733BE5 /* NSDictionary+XQueryComponents.m in Sources */,
 				1B3CDDE61445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m in Sources */,
+<<<<<<< HEAD
 				D6C6246A1448268800FD7135 /* NSObject+PerformBlock.m in Sources */,
+=======
+>>>>>>> ae3e6369282ecdf8ee7b557eec4e3e9738ad7d56
 				1B6AAD8F1447039B00EA1D96 /* NSString+Trimm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
