@@ -1,5 +1,5 @@
-#ifndef ES_NETWORK_BLOCKS_FUNCTIONS_INCLUDED
-#define ES_NETWORK_BLOCKS_FUNCTIONS_INCLUDED
+#ifndef JFF_NETWORK_BLOCKS_FUNCTIONS_INCLUDED
+#define JFF_NETWORK_BLOCKS_FUNCTIONS_INCLUDED
 
 #import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
 
@@ -40,4 +40,4 @@ JFFAsyncOperation liveDataURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ );
 
-#endif //ES_NETWORK_BLOCKS_FUNCTIONS_INCLUDED
+#endif //JFF_NETWORK_BLOCKS_FUNCTIONS_INCLUDED

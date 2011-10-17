@@ -45,9 +45,6 @@ JFFAsyncOperation asyncOperationBlockWithSuccessResultAfterDelay( NSTimeInterval
             cancel_callback_( cancel_ );
       };
 
-      return [ [ ^void( BOOL canceled_ )
-      {
-         [ cancel_holder_ performCancelBlockOnceWithArgument: canceled_ ];
-      } copy ] autorelease ];
+      return cancel_holder_.onceCancelBlock;
    } copy ] autorelease ];
 }

@@ -27,4 +27,12 @@
    [ block_ release ];
 }
 
+-(JFFCancelAsyncOperation)onceCancelBlock
+{
+   return [ [ ^void( BOOL cancel_ )
+   {
+      [ self performCancelBlockOnceWithArgument: cancel_ ];
+   } copy ] autorelease ];
+}
+
 @end

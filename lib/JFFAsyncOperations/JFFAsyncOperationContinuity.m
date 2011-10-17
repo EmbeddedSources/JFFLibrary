@@ -51,7 +51,7 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       JFFCancelAsyncOperation first_cancel_ = first_loader_( progress_callback_
@@ -72,10 +72,7 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
       if ( !block_holder_.cancelBlock )
          block_holder_.cancelBlock = first_cancel_;
 
-      return [ [ ^void( BOOL cancel_ )
-      {
-         [ block_holder_ performCancelBlockOnceWithArgument: cancel_ ];
-      } copy ] autorelease ];
+      return block_holder_.onceCancelBlock;
    } copy ] autorelease ];
 }
 
@@ -114,7 +111,7 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
 
@@ -132,10 +129,7 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
       if ( !block_holder_.cancelBlock )
          block_holder_.cancelBlock = first_cancel_;
 
-      return [ [ ^void( BOOL cancel_ )
-      {
-         [ block_holder_ performCancelBlockOnceWithArgument: cancel_ ];
-      } copy ] autorelease ];
+      return block_holder_.onceCancelBlock;
    } copy ] autorelease ];
 }
 
@@ -186,18 +180,18 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
          error_holder_.error = error_;
       };
 
-      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
-      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
 
-      __block BOOL caneled_ = NO;
+      __block BOOL block_canceled_ = NO;
 
       cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
       JFFCancelAsyncOperationHandler cancel_callback1_ = [ [ ^void( BOOL canceled_ )
       {
-         if ( !caneled_ )
+         if ( !block_canceled_ )
          {
-            caneled_ = YES;
-            [ cancel_holder2_ performCancelBlockOnceWithArgument: canceled_ ];
+            block_canceled_ = YES;
+            cancel_holder2_.onceCancelBlock( canceled_ );
             if ( cancel_callback_ )
                cancel_callback_( canceled_ );
          }
@@ -205,10 +199,10 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
 
       JFFCancelAsyncOperationHandler cancel_callback2_ = [ [ ^void( BOOL canceled_ )
       {
-         if ( !caneled_ )
+         if ( !block_canceled_ )
          {
-            caneled_ = YES;
-            [ cancel_holder1_ performCancelBlockOnceWithArgument: canceled_ ];
+            block_canceled_ = YES;
+            cancel_holder1_.onceCancelBlock( block_canceled_ );
             if ( cancel_callback_ )
                cancel_callback_( canceled_ );
          }
@@ -219,11 +213,11 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
        
       return [ [ ^void( BOOL cancel_ )
       {
-         if ( !caneled_ )
+         if ( !block_canceled_ )
          {
-            caneled_ = YES;
-            [ cancel_holder1_ performCancelBlockOnceWithArgument: cancel_ ];
-            [ cancel_holder2_ performCancelBlockOnceWithArgument: cancel_ ];
+            block_canceled_ = YES;
+            cancel_holder1_.onceCancelBlock( cancel_ );
+            cancel_holder2_.onceCancelBlock( cancel_ );
             if ( cancel_callback_ )
                cancel_callback_( cancel_ );
          }
@@ -284,8 +278,8 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
       __block BOOL loaded_ = NO;
       __block BOOL done_ = NO;
 
-      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
-      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       JFFDidFinishAsyncOperationHandler result_block_ = ^void( id result_, NSError* error_ )
@@ -295,8 +289,8 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
          {
             if ( first_error_ )
             {
-               [ cancel_holder1_ performCancelBlockOnceWithArgument: YES ];
-               [ cancel_holder2_ performCancelBlockOnceWithArgument: YES ];
+               cancel_holder1_.onceCancelBlock( YES );
+               cancel_holder2_.onceCancelBlock( YES );
             }
 
             done_ = YES;
@@ -307,15 +301,15 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
          loaded_ = YES;
       };
 
-      __block BOOL caneled_ = NO;
+      __block BOOL block_canceled_ = NO;
 
       cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
       JFFCancelAsyncOperationHandler cancel_callback1_ = [ [ ^void( BOOL canceled_ )
       {
-         if ( !caneled_ )
+         if ( !block_canceled_ )
          {
-            caneled_ = YES;
-            [ cancel_holder2_ performCancelBlockOnceWithArgument: canceled_ ];
+            block_canceled_ = YES;
+            cancel_holder2_.onceCancelBlock( canceled_ );
             if ( cancel_callback_ )
                cancel_callback_( canceled_ );
          }
@@ -323,10 +317,10 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
 
       JFFCancelAsyncOperationHandler cancel_callback2_ = [ [ ^void( BOOL canceled_ )
       {
-         if ( !caneled_ )
+         if ( !block_canceled_ )
          {
-            caneled_ = YES;
-            [ cancel_holder1_ performCancelBlockOnceWithArgument: canceled_ ];
+            block_canceled_ = YES;
+            cancel_holder1_.onceCancelBlock( canceled_ );
             if ( cancel_callback_ )
                cancel_callback_( canceled_ );
          }
@@ -348,11 +342,11 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
 
       return [ [ ^void( BOOL cancel_ )
       {
-         if ( !caneled_ )
+         if ( !block_canceled_ )
          {
-            caneled_ = YES;
-            [ cancel_holder1_ performCancelBlockOnceWithArgument: cancel_ ];
-            [ cancel_holder2_ performCancelBlockOnceWithArgument: cancel_ ];
+            block_canceled_ = YES;
+            cancel_holder1_.onceCancelBlock( cancel_ );
+            cancel_holder2_.onceCancelBlock( cancel_ );
             if ( cancel_callback_ )
                cancel_callback_( cancel_ );
          }

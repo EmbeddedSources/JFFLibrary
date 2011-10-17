@@ -187,7 +187,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
                                        , JFFDidFinishAsyncOperationHandler native_done_callback_ )
    {
       //progress holder for unsubscribe
-      JFFAsyncOperationProgressBlockHolder* progress_block_holder_ = [ JFFAsyncOperationProgressBlockHolder asyncOperationProgressBlockHolder ];
+      JFFAsyncOperationProgressBlockHolder* progress_block_holder_ = [ [ JFFAsyncOperationProgressBlockHolder new ] autorelease ];
       progress_block_holder_.progressBlock = native_progress_callback_;
       JFFAsyncOperationProgressHandler wrapped_progress_callback_ = ^void( id progress_info_ )
       {
@@ -200,21 +200,21 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
       __block BOOL done_ = NO;
 
       //cancel holder for unsubscribe
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ JFFCancelAyncOperationBlockHolder cancelAyncOperationBlockHolder ];
+      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       cancel_callback_block_holder_.cancelBlock = native_cancel_callback_;
       JFFCancelAsyncOperation wrapped_cancel_callback_ = ^void( BOOL canceled_ )
       {
          done_ = YES;
-         [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: canceled_ ];
+         cancel_callback_block_holder_.onceCancelBlock( canceled_ );
       };
 
       //finish holder for unsubscribe
-      JFFDidFinishAsyncOperationBlockHolder* finish_block_holder_ = [ JFFDidFinishAsyncOperationBlockHolder didFinishAyncOperationBlockHolder ];
+      JFFDidFinishAsyncOperationBlockHolder* finish_block_holder_ = [ [ JFFDidFinishAsyncOperationBlockHolder new ] autorelease ];
       finish_block_holder_.didFinishBlock = native_done_callback_;
       JFFDidFinishAsyncOperationHandler wrapped_done_callback_ = ^void( id result_, NSError* error_ )
       {
          done_ = YES;
-         [ finish_block_holder_ performDidFinishBlockOnceWithResult: result_ error: error_ ];
+         finish_block_holder_.onceDidFinishBlock( result_, error_ );
       };
 
       wrapped_cancel_callback_ = cancelCallbackWrapper( wrapped_cancel_callback_
@@ -245,7 +245,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
          }
          else
          {
-            [ cancel_callback_block_holder_ performCancelBlockOnceWithArgument: NO ];
+            cancel_callback_block_holder_.onceCancelBlock( NO );
 
             progress_block_holder_.progressBlock = nil;
             finish_block_holder_.didFinishBlock = nil;

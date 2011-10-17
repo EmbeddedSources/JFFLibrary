@@ -8,18 +8,13 @@
 JFFAsyncOperation asyncOperationWithSyncOperation( JFFSyncOperation load_data_block_ )
 {
    load_data_block_ = [ [ load_data_block_ copy ] autorelease ];
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler pregress_info_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
+   JFFSyncOperationWithProgress progress_load_data_block_ = ^id( NSError** error_
+                                                                , JFFAsyncOperationProgressHandler progress_callback_ )
    {
-      JFFBlockOperation* operation_ = [ JFFBlockOperation performOperationWithLoadDataBlock: load_data_block_
-                                                                             didCancelBlock: cancel_callback_
-                                                                           didLoadDataBlock: done_callback_ ];
-      return [ [ ^void( BOOL cancel_ )
-      {
-         [ operation_ cancel: cancel_ ];
-      } copy ] autorelease ];
-   } copy ] autorelease ];
+      return load_data_block_( error_ );
+   };
+
+   return asyncOperationWithSyncOperationWithProgressBlock( progress_load_data_block_ );
 }
 
 JFFAsyncOperation asyncOperationWithSyncOperationWithProgressBlock( JFFSyncOperationWithProgress progress_load_data_block_ )
@@ -29,7 +24,7 @@ JFFAsyncOperation asyncOperationWithSyncOperationWithProgressBlock( JFFSyncOpera
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFAsyncOperationProgressBlockHolder* holder_ = [ JFFAsyncOperationProgressBlockHolder asyncOperationProgressBlockHolder ];
+      JFFAsyncOperationProgressBlockHolder* holder_ = [ [ JFFAsyncOperationProgressBlockHolder new ] autorelease ];
       holder_.progressBlock = ^void( id progress_info_ )
       {
          [ ^void( void )
