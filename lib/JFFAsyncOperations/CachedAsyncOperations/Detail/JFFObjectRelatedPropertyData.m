@@ -7,11 +7,6 @@
 @synthesize didFinishBlock = _did_finish_block;
 @synthesize cancelBlock = _cancel_block;
 
-+(id)extractPropertyData
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)dealloc
 {
    [ _delegates release ];

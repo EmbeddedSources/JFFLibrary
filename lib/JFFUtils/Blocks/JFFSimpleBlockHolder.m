@@ -11,11 +11,6 @@
    [ super dealloc ];
 }
 
-+(id)simpleBlockHolder
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)performBlockOnce
 {
    if ( !self.simpleBlock )

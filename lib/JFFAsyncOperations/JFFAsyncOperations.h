@@ -7,6 +7,6 @@
 #import <JFFAsyncOperations/CachedAsyncOperations/JFFPropertyExtractor.h>
 #import <JFFAsyncOperations/CachedAsyncOperations/NSObject+AsyncPropertyReader.h>
 
-#import <JFFAsyncOperations/NSObject+WeakAsyncOperation.h>
+#import <JFFAsyncOperations/NSObject+AutoCancelAsyncOperation.h>
 #import <JFFAsyncOperations/JFFAsyncOperationContinuity.h>
 #import <JFFAsyncOperations/LoadBalancer/JFFAsyncOperationLoadBalancer.h>

@@ -1,4 +1,4 @@
-#import "NSObject+WeakAsyncOperation.h"
+#import "NSObject+AutoCancelAsyncOperation.h"
 
 #import "JFFAsyncOperationsPredefinedBlocks.h"
 #import "JFFAsyncOperationProgressBlockHolder.h"

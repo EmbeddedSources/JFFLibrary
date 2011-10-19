@@ -11,11 +11,6 @@
    [ super dealloc ];
 }
 
-+(id)cancelAyncOperationBlockHolder
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)performCancelBlockOnceWithArgument:( BOOL )cancel_
 {
    if ( !self.cancelBlock )

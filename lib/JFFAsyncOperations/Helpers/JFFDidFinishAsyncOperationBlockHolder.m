@@ -11,11 +11,6 @@
    [ super dealloc ];
 }
 
-+(id)didFinishAyncOperationBlockHolder
-{
-   return [ [ self new ] autorelease ];
-}
-
 -(void)performDidFinishBlockOnceWithResult:( id )result_ error:( NSError* )error_
 {
    if ( !self.didFinishBlock )
