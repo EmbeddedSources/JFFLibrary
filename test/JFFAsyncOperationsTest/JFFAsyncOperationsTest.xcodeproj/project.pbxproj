@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B12CB3B144D5C5900DFE2B1 /* JFFAsyncOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B12CB3A144D5C5900DFE2B1 /* JFFAsyncOperationManager.m */; };
 		1B2A67C5143F418A00BC284F /* CommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A67C4143F418A00BC284F /* CommonTests.m */; };
 		1B793B33142C851C00B43DC8 /* WeakAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */; };
 		1B835A25142C8BC400FC004C /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */; };
@@ -15,6 +16,7 @@
 		1BA255361443283C00C9B2BE /* SequenceOfAsyncOperationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA2551F1443114300C9B2BE /* SequenceOfAsyncOperationsTest.m */; };
 		1BA25537144328F700C9B2BE /* JFFDidFinishAsyncOperationBlockHolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A67C8143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m */; };
 		1BA25538144328FA00C9B2BE /* JFFCancelAyncOperationBlockHolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A680C143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m */; };
+		1BA27739144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA27738144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m */; };
 		8D29EF8D13BE066900041B6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8C13BE066900041B6A /* UIKit.framework */; };
 		8D29EF8F13BE066900041B6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8E13BE066900041B6A /* Foundation.framework */; };
 		8D29EF9113BE066900041B6A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF9013BE066900041B6A /* CoreGraphics.framework */; };
@@ -69,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B12CB39144D5C5900DFE2B1 /* JFFAsyncOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationManager.h; sourceTree = "<group>"; };
+		1B12CB3A144D5C5900DFE2B1 /* JFFAsyncOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationManager.m; sourceTree = "<group>"; };
 		1B2A67C3143F418A00BC284F /* CommonTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTests.h; sourceTree = "<group>"; };
 		1B2A67C4143F418A00BC284F /* CommonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTests.m; sourceTree = "<group>"; };
 		1B2A67C8143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFDidFinishAsyncOperationBlockHolderTest.m; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../../lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
 		1B835B52142CD17300FC004C /* JFFScheduler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFScheduler.xcodeproj; path = ../../lib/JFFScheduler/JFFScheduler.xcodeproj; sourceTree = "<group>"; };
 		1BA2551F1443114300C9B2BE /* SequenceOfAsyncOperationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceOfAsyncOperationsTest.m; sourceTree = "<group>"; };
+		1BA27738144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrySequenceOfAsyncOperationsTest.m; sourceTree = "<group>"; };
 		8D29EF8813BE066900041B6A /* JFFAsyncOperationsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFAsyncOperationsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D29EF8C13BE066900041B6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8D29EF8E13BE066900041B6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +187,7 @@
 				1B2A680C143F514C00BC284F /* JFFCancelAyncOperationBlockHolderTest.m */,
 				1B793B32142C851C00B43DC8 /* WeakAsyncOperationTest.m */,
 				1BA2551F1443114300C9B2BE /* SequenceOfAsyncOperationsTest.m */,
+				1BA27738144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m */,
 			);
 			path = JFFAsyncOperationsTest;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 				8D29EF9513BE066900041B6A /* InfoPlist.strings */,
 				8D29EF9813BE066900041B6A /* main.m */,
 				8D29EF9A13BE066900041B6A /* JFFAsyncOperationsTest-Prefix.pch */,
+				1B12CB39144D5C5900DFE2B1 /* JFFAsyncOperationManager.h */,
+				1B12CB3A144D5C5900DFE2B1 /* JFFAsyncOperationManager.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -305,6 +313,8 @@
 				1BA255361443283C00C9B2BE /* SequenceOfAsyncOperationsTest.m in Sources */,
 				1BA25537144328F700C9B2BE /* JFFDidFinishAsyncOperationBlockHolderTest.m in Sources */,
 				1BA25538144328FA00C9B2BE /* JFFCancelAyncOperationBlockHolderTest.m in Sources */,
+				1B12CB3B144D5C5900DFE2B1 /* JFFAsyncOperationManager.m in Sources */,
+				1BA27739144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
