@@ -33,7 +33,7 @@
       NSURLConnection* native_connection_ = [ [ NSURLConnection alloc ] initWithRequest: request_
                                                                                delegate: self
                                                                        startImmediately: NO ];
-      
+
       self.nativeConnection = native_connection_;
       [ native_connection_ release ];
    }

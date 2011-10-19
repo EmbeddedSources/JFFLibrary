@@ -7,6 +7,7 @@
 
 @property ( nonatomic, copy ) JFFAsyncOperation loader;
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationBlockHolder* loaderFinishBlock;
+@property ( nonatomic, copy ) JFFCancelAyncOperationBlockHolder* loaderCancelBlock;
 
 @property ( nonatomic, assign ) BOOL finished;
 @property ( nonatomic, assign ) BOOL canceled;
@@ -18,6 +19,7 @@
 
 @synthesize loader;
 @synthesize loaderFinishBlock;
+@synthesize loaderCancelBlock;
 @synthesize finished;
 @synthesize canceled;
 @synthesize cancelFlag;
@@ -28,6 +30,7 @@
 {
    [ loader release ];
    [ loaderFinishBlock release ];
+   [ loaderCancelBlock release ];
 
    [ super dealloc ];
 }
@@ -48,6 +51,7 @@
 {
    self.loader = nil;
    self.loaderFinishBlock = nil;
+   self.loaderCancelBlock = nil;
    self.finished = NO;
 }
 
@@ -79,10 +83,13 @@
          }
 
          JFFCancelAyncOperationBlockHolder* cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+         cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
          cancel_holder_.cancelBlock = ^( BOOL canceled_ )
          {
             self_.canceled = YES;
             self_.cancelFlag = canceled_;
+            if ( cancel_callback_ )
+               cancel_callback_( canceled_ );
          };
          return cancel_holder_.onceCancelBlock;
       };
