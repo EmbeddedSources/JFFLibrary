@@ -56,7 +56,7 @@ static NSInteger first_action_index_ = 1;
 
 @property ( nonatomic, retain ) NSMutableArray* alertButtons;
 
-+(void)activeActionSheetsAddSheet:( UIActionSheet* )action_sheet_ withView:( UIView* )view_;
++(void)activeActionSheetsAddSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_;
 +(void)activeActionSheetsRemoveSheet:( UIActionSheet* )action_sheet_;
 +(JFFActiveActionSheet*)objectToRemove:( UIActionSheet* )action_sheet_;
 -(void)forceShowInView:( UIView* )view_;
@@ -77,14 +77,14 @@ static NSInteger first_action_index_ = 1;
    [ super dealloc ];
 }
 
-+(void)activeActionSheetsAddSheet:( UIActionSheet* )action_sheet_ withView:( UIView* )view_
++(void)activeActionSheetsAddSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_
 {
    if ( !active_action_sheets_ )
    {
       active_action_sheets_ = [ [ NSMutableArray alloc ] initWithCapacity: 1 ];
    }
    
-   JFFActiveActionSheet* action_sheets_struct_ = [ JFFActiveActionSheet activeActionSheet:( JFFActionSheet* )action_sheet_ withView: view_ ];
+   JFFActiveActionSheet* action_sheets_struct_ = [ JFFActiveActionSheet activeActionSheet: action_sheet_ withView: view_ ];
 
    [ active_action_sheets_ addObject: action_sheets_struct_ ];
 }
