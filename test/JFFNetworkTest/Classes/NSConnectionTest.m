@@ -1,9 +1,21 @@
 @interface NSConnectionTest : GHAsyncTestCase
 
+@property ( nonatomic, retain ) id< JNUrlConnection > connection;
+
 @end
 
 
 @implementation NSConnectionTest
+
+@synthesize connection = _connection;
+
+-(void)dealloc
+{
+   [ _connection release ];
+   
+   [ super dealloc ];
+}
+
 
 -(void)testValidDownloadCompletesCorrectly
 {
@@ -34,6 +46,8 @@
    
    connection_.didFinishLoadingBlock = ^( NSError* error_ )
    {
+      self.connection = nil;
+
       if ( nil != error_ )
       {
          [ self notify: kGHUnitWaitStatusFailure
@@ -41,11 +55,19 @@
          return;
       }
       
-      GHAssertTrue( [ expected_data_ isEqualToData: total_data_ ], @"packet mismatch" );
-      [ self notify: kGHUnitWaitStatusSuccess 
-        forSelector: _cmd ];
+      if ( [ expected_data_ isEqualToData: total_data_ ] )
+      {
+         [ self notify: kGHUnitWaitStatusSuccess 
+           forSelector: _cmd ];
+      }
+      else
+      {
+         [ self notify: kGHUnitWaitStatusFailure 
+           forSelector: _cmd ];
+      }
    };
 
+   self.connection = connection_;
    [ connection_ start ];
    [ self waitForStatus: kGHUnitWaitStatusSuccess
                 timeout: 30. ];
@@ -76,6 +98,8 @@
    };
    connection_.didFinishLoadingBlock = ^( NSError* error_ )
    {
+      self.connection = nil;
+
       if ( nil != error_ )
       {
          [ self notify: kGHUnitWaitStatusSuccess 
@@ -83,10 +107,11 @@
          return;
       }
       
-      [ self notify: kGHUnitWaitStatusFailure
+      [ self notify: kGHUnitWaitStatusFailure 
         forSelector: _cmd ];
    };
    
+   self.connection = connection_;
    [ connection_ start ];
    [ self waitForStatus: kGHUnitWaitStatusSuccess
                 timeout: 30. ];

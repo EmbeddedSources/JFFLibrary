@@ -18,6 +18,8 @@
 		5310BAF2141F51F100A3E2B1 /* libJFFNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5310BA95141F51AD00A3E2B1 /* libJFFNetwork.a */; };
 		5310BB23141F538400A3E2B1 /* GzipDecoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310BB22141F538400A3E2B1 /* GzipDecoderTest.m */; };
 		5310BB4E141F575F00A3E2B1 /* JFFNetworkTestData.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5310BB46141F574300A3E2B1 /* JFFNetworkTestData.bundle */; };
+		531ABC5F144C96AC007269BB /* JNLiveLoaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 531ABC5E144C96AC007269BB /* JNLiveLoaderTest.m */; };
+		531ABC62144C9893007269BB /* JnNsLoaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 531ABC61144C9893007269BB /* JnNsLoaderTest.m */; };
 		532284331445C65C00F0E723 /* NSConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 532284321445C65C00F0E723 /* NSConnectionTest.m */; };
 		532284361445CDE000F0E723 /* JFFConectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 532284351445CDE000F0E723 /* JFFConectionTest.m */; };
 		53435961141F585600BE9563 /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5343595F141F585600BE9563 /* 1.txt */; };
@@ -116,6 +118,8 @@
 		5310BB22141F538400A3E2B1 /* GzipDecoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GzipDecoderTest.m; sourceTree = "<group>"; };
 		5310BB46141F574300A3E2B1 /* JFFNetworkTestData.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JFFNetworkTestData.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		5310BB47141F574300A3E2B1 /* JFFNetworkTestData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JFFNetworkTestData-Info.plist"; sourceTree = "<group>"; };
+		531ABC5E144C96AC007269BB /* JNLiveLoaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNLiveLoaderTest.m; sourceTree = "<group>"; };
+		531ABC61144C9893007269BB /* JnNsLoaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JnNsLoaderTest.m; sourceTree = "<group>"; };
 		532284321445C65C00F0E723 /* NSConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConnectionTest.m; sourceTree = "<group>"; };
 		532284351445CDE000F0E723 /* JFFConectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFConectionTest.m; sourceTree = "<group>"; };
 		5343595F141F585600BE9563 /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
@@ -166,13 +170,15 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				53A33F21141F600300469DAA /* JNTestBundleManager.h */,
+				53A33F22141F600300469DAA /* JNTestBundleManager.m */,
 				539A55A51445BC3800FC2770 /* ConnectionsFactoryTest.m */,
 				53A33F3D141F809E00469DAA /* EncodingsFactoryTest.m */,
 				5310BB22141F538400A3E2B1 /* GzipDecoderTest.m */,
 				53A33F40141F80B400469DAA /* GzipErrorsLoggerTest.m */,
 				532284351445CDE000F0E723 /* JFFConectionTest.m */,
-				53A33F21141F600300469DAA /* JNTestBundleManager.h */,
-				53A33F22141F600300469DAA /* JNTestBundleManager.m */,
+				531ABC5E144C96AC007269BB /* JNLiveLoaderTest.m */,
+				531ABC61144C9893007269BB /* JnNsLoaderTest.m */,
 				532284321445C65C00F0E723 /* NSConnectionTest.m */,
 				53A33F3A141F806A00469DAA /* StubDecoderTest.m */,
 				53A33F31141F6AC400469DAA /* ZipDecoderTest.m */,
@@ -456,6 +462,8 @@
 				539A55A61445BC3800FC2770 /* ConnectionsFactoryTest.m in Sources */,
 				532284331445C65C00F0E723 /* NSConnectionTest.m in Sources */,
 				532284361445CDE000F0E723 /* JFFConectionTest.m in Sources */,
+				531ABC5F144C96AC007269BB /* JNLiveLoaderTest.m in Sources */,
+				531ABC62144C9893007269BB /* JnNsLoaderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
