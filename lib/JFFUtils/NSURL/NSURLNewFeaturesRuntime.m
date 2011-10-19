@@ -22,8 +22,8 @@
 +(void)load
 {
    //for ios 3.x only
-   [ self addMethodIfNeedWithSelector: @selector( pathComponents )
-                              toClass: [ NSURL class ] ];
+   [ self addInstanceMethodIfNeedWithSelector: @selector( pathComponents )
+                                      toClass: [ NSURL class ] ];
 }
 
 @end
