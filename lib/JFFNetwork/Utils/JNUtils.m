@@ -2,8 +2,6 @@
 
 @implementation JNUtils
 
-
-
 +(NSDictionary*)headersDictionadyWithContentType:( NSString* )content_type_
 {
    return [ NSDictionary dictionaryWithObject: content_type_
@@ -26,7 +24,5 @@
 {
    return [ self headersDictionadyWithContentType: [ self utf8XmlContentType ] ];
 }
-
-
 
 @end

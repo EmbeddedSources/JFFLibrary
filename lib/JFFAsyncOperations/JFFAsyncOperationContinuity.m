@@ -60,7 +60,8 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
       {
          if ( error_ )
          {
-            done_callback_( nil, error_ );
+            if ( done_callback_ )
+               done_callback_( nil, error_ );
          }
          else
          {
@@ -91,9 +92,9 @@ JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JF
    return first_block_;
 }
 
-JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* blocks_ )
+JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* loaders_ )
 {
-   return MergeLoaders( sequenceOfAsyncOperationsPair, blocks_ );
+   return MergeLoaders( sequenceOfAsyncOperationsPair, loaders_ );
 }
 
 static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
@@ -123,7 +124,8 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
          }
          else
          {
-            done_callback_( result_, nil );
+            if ( done_callback_ )
+               done_callback_( result_, nil );
          }
       } );
       if ( !block_holder_.cancelBlock )
@@ -146,6 +148,11 @@ JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_,
    va_end( args );
 
    return first_block_;
+}
+
+JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ )
+{
+   return MergeLoaders( trySequenceOfAsyncOperationsPair, loaders_ );
 }
 
 static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )

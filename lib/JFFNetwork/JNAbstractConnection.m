@@ -1,6 +1,5 @@
 #import "JNAbstractConnection.h"
 
-
 @implementation JNAbstractConnection
 
 @synthesize didReceiveResponseBlock = _did_receive_response_block;

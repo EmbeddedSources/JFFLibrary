@@ -9,13 +9,15 @@
 JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                             , JFFAsyncOperation second_loader_, ... );
 
-JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* blocks_ );
+JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
 /////////////////////////////////// TRY SEQUENCE ///////////////////////////////////
 
 //calls loaders untill success
 JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                                , JFFAsyncOperation second_loader_, ... );
+
+JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
 /////////////////////////////////////// GROUP //////////////////////////////////////
 
@@ -24,7 +26,7 @@ JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_
 JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation first_loader_
                                          , JFFAsyncOperation second_loader_, ... );
 
-JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* blocks_ );
+JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* loaders_ );
 
 ///////////////////////////// FAIL ON FIRST ERROR GROUP ////////////////////////////
 
@@ -33,7 +35,7 @@ JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* blocks_ );
 JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation first_loader_
                                                          , JFFAsyncOperation second_loader_, ... );
 
-JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* blocks_ );
+JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* loaders_ );
 
 ///////////////////////// ADD OBSERVERS OF ASYNC OP. RESULT ////////////////////////
 

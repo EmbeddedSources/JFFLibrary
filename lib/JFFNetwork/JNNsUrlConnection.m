@@ -129,7 +129,6 @@ didReceiveResponse:( NSHTTPURLResponse* )response_
    }
 }
 
-       
 #pragma mark -
 #pragma mark https
 -(BOOL)connection:(NSURLConnection *)connection_ 
@@ -137,7 +136,6 @@ canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protection_space_
 {
    return [ protection_space_.authenticationMethod isEqualToString: NSURLAuthenticationMethodServerTrust ];
 }
-
 
 //http://stackoverflow.com/questions/933331/how-to-use-nsurlconnection-to-connect-with-ssl-for-an-untrusted-cert
 -(void)connection:(NSURLConnection *)connection_

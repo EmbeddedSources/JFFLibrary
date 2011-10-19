@@ -6,7 +6,6 @@
 
 @class NSURL, NSData, NSString;
 
-
 JFFAsyncOperation genericChunkedURLResponseLoader(
    NSURL* url_
    , NSData* post_data_

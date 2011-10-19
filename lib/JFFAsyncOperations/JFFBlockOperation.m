@@ -3,7 +3,7 @@
 #import "JFFOperationQueue.h"
 
 #import <JFFUtils/JFFError.h>
-#import <JFFUtils/NSThread+AssertMainThread.h>
+#import <JFFUtils/Extensions/NSThread+AssertMainThread.h>
 
 @interface JFFBlockOperation ()
 
