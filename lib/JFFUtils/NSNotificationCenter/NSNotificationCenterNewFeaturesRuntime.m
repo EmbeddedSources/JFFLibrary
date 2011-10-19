@@ -59,7 +59,7 @@ typedef void (^JFFNotificationCenterBlock)( NSNotification* notification_ );
 -(id)addObserverForName:( NSString* )name_
                  object:( id )object_
                   queue:( NSOperationQueue* )queue_
-             usingBlock:( void (^)(NSNotification *) )block_
+             usingBlock:( void (^)(NSNotification*) )block_
 {
    JFFNotificationCenterBlockHolder* observer_ = [ JFFNotificationCenterBlockHolder new ];
    observer_.block = block_;

@@ -21,6 +21,14 @@
 		1B6AAD8F1447039B00EA1D96 /* NSString+Trimm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6AAD8D1447039B00EA1D96 /* NSString+Trimm.m */; };
 		1B76089A1444912F0059E977 /* JGCDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7608981444912F0059E977 /* JGCDAdditions.h */; };
 		1B76089B1444912F0059E977 /* JGCDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7608991444912F0059E977 /* JGCDAdditions.m */; };
+		1BA676BB144C3FE900B14D49 /* UIWebView+UserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BA676B9144C3FE900B14D49 /* UIWebView+UserAgent.h */; };
+		1BA676BC144C3FE900B14D49 /* UIWebView+UserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676BA144C3FE900B14D49 /* UIWebView+UserAgent.m */; };
+		1BA676BF144C409F00B14D49 /* NSThread+AssertMainThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BA676BD144C409E00B14D49 /* NSThread+AssertMainThread.h */; };
+		1BA676C0144C409F00B14D49 /* NSThread+AssertMainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676BE144C409F00B14D49 /* NSThread+AssertMainThread.m */; };
+		1BA676CE144C474500B14D49 /* NSString+ToURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BA676CC144C474500B14D49 /* NSString+ToURL.h */; };
+		1BA676CF144C474500B14D49 /* NSString+ToURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676CD144C474500B14D49 /* NSString+ToURL.m */; };
+		1BA676D2144C476600B14D49 /* NSURL+ToURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BA676D0144C476600B14D49 /* NSURL+ToURL.h */; };
+		1BA676D3144C476600B14D49 /* NSURL+ToURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676D1144C476600B14D49 /* NSURL+ToURL.m */; };
 		1BCDF9E514320B3200CEB6E7 /* NSMutableArray+ChangeCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCDF9E314320B3200CEB6E7 /* NSMutableArray+ChangeCount.h */; };
 		1BCDF9E614320B3200CEB6E7 /* NSMutableArray+ChangeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDF9E414320B3200CEB6E7 /* NSMutableArray+ChangeCount.m */; };
 		1BD01FB114447B7600A627B1 /* JFFSingleThreadProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD01FAF14447B7600A627B1 /* JFFSingleThreadProxy.h */; };
@@ -54,8 +62,6 @@
 		65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B7D13923EC4001E163C /* NSString+PropertyName.m */; };
 		65648BE113924326001E163C /* JFFError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BDF13924326001E163C /* JFFError.h */; };
 		65648BE213924326001E163C /* JFFError.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BE013924326001E163C /* JFFError.m */; };
-		65648BF0139243FF001E163C /* NSThread+AssertMainThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */; };
-		65648BF1139243FF001E163C /* NSThread+AssertMainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */; };
 		65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */; };
 		8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
@@ -88,6 +94,14 @@
 		1B6AAD8D1447039B00EA1D96 /* NSString+Trimm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trimm.m"; sourceTree = "<group>"; };
 		1B7608981444912F0059E977 /* JGCDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCDAdditions.h; sourceTree = "<group>"; };
 		1B7608991444912F0059E977 /* JGCDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCDAdditions.m; sourceTree = "<group>"; };
+		1BA676B9144C3FE900B14D49 /* UIWebView+UserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+UserAgent.h"; sourceTree = "<group>"; };
+		1BA676BA144C3FE900B14D49 /* UIWebView+UserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+UserAgent.m"; sourceTree = "<group>"; };
+		1BA676BD144C409E00B14D49 /* NSThread+AssertMainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+AssertMainThread.h"; sourceTree = "<group>"; };
+		1BA676BE144C409F00B14D49 /* NSThread+AssertMainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+AssertMainThread.m"; sourceTree = "<group>"; };
+		1BA676CC144C474500B14D49 /* NSString+ToURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ToURL.h"; sourceTree = "<group>"; };
+		1BA676CD144C474500B14D49 /* NSString+ToURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ToURL.m"; sourceTree = "<group>"; };
+		1BA676D0144C476600B14D49 /* NSURL+ToURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ToURL.h"; sourceTree = "<group>"; };
+		1BA676D1144C476600B14D49 /* NSURL+ToURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ToURL.m"; sourceTree = "<group>"; };
 		1BCDF9E314320B3200CEB6E7 /* NSMutableArray+ChangeCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ChangeCount.h"; sourceTree = "<group>"; };
 		1BCDF9E414320B3200CEB6E7 /* NSMutableArray+ChangeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ChangeCount.m"; sourceTree = "<group>"; };
 		1BD01FAF14447B7600A627B1 /* JFFSingleThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFSingleThreadProxy.h; sourceTree = "<group>"; };
@@ -121,8 +135,6 @@
 		65648B7D13923EC4001E163C /* NSString+PropertyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PropertyName.m"; sourceTree = "<group>"; };
 		65648BDF13924326001E163C /* JFFError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFError.h; sourceTree = "<group>"; };
 		65648BE013924326001E163C /* JFFError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFError.m; sourceTree = "<group>"; };
-		65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+AssertMainThread.h"; sourceTree = "<group>"; };
-		65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+AssertMainThread.m"; sourceTree = "<group>"; };
 		65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRuntimeInitializer.m; sourceTree = "<group>"; };
 		8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeExtensions.h"; sourceTree = "<group>"; };
 		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
@@ -191,6 +203,28 @@
 				1B3CDDE01445DA7E00733BE5 /* NSDictionary+XQueryComponents.m */,
 			);
 			path = XQueryComponents;
+			sourceTree = "<group>";
+		};
+		1BA676B7144C3FB600B14D49 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1BA676B9144C3FE900B14D49 /* UIWebView+UserAgent.h */,
+				1BA676BA144C3FE900B14D49 /* UIWebView+UserAgent.m */,
+				1BA676BD144C409E00B14D49 /* NSThread+AssertMainThread.h */,
+				1BA676BE144C409F00B14D49 /* NSThread+AssertMainThread.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1BA676CB144C473500B14D49 /* ToURL */ = {
+			isa = PBXGroup;
+			children = (
+				1BA676CC144C474500B14D49 /* NSString+ToURL.h */,
+				1BA676CD144C474500B14D49 /* NSString+ToURL.m */,
+				1BA676D0144C476600B14D49 /* NSURL+ToURL.h */,
+				1BA676D1144C476600B14D49 /* NSURL+ToURL.m */,
+			);
+			path = ToURL;
 			sourceTree = "<group>";
 		};
 		1BED0512144ECD2600B8DC2A /* NSURL */ = {
@@ -269,6 +303,8 @@
 		651BE0BF1390496700DD6890 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1BA676CB144C473500B14D49 /* ToURL */,
+				1BA676B7144C3FB600B14D49 /* Extensions */,
 				1BED0516144ECD8B00B8DC2A /* NSNotificationCenter */,
 				1BED0512144ECD2600B8DC2A /* NSURL */,
 				1B3CDDD51445D73A00733BE5 /* XQueryComponents */,
@@ -352,6 +388,10 @@
 				1B3CDDE51445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.h in Headers */,
 				D6C6246B1448268800FD7135 /* NSObject+PerformBlock.h in Headers */,
 				1B6AAD8E1447039B00EA1D96 /* NSString+Trimm.h in Headers */,
+				1BA676BB144C3FE900B14D49 /* UIWebView+UserAgent.h in Headers */,
+				1BA676BF144C409F00B14D49 /* NSThread+AssertMainThread.h in Headers */,
+				1BA676CE144C474500B14D49 /* NSString+ToURL.h in Headers */,
+				1BA676D2144C476600B14D49 /* NSURL+ToURL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +479,10 @@
 				1B6AAD8F1447039B00EA1D96 /* NSString+Trimm.m in Sources */,
 				1BED0514144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m in Sources */,
 				1BED051A144ECDAB00B8DC2A /* NSNotificationCenterNewFeaturesRuntime.m in Sources */,
+				1BA676BC144C3FE900B14D49 /* UIWebView+UserAgent.m in Sources */,
+				1BA676C0144C409F00B14D49 /* NSThread+AssertMainThread.m in Sources */,
+				1BA676CF144C474500B14D49 /* NSString+ToURL.m in Sources */,
+				1BA676D3144C476600B14D49 /* NSURL+ToURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
