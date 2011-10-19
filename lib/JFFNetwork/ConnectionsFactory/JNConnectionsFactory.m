@@ -42,8 +42,8 @@
 {
    if ( nil == url_ )
    {
-      [ self release ];
       NSAssert( url_, @"[!!! ERROR !!!] JNConnectionsFactory->init : A required URL parameter is nil" );
+      [ self release ];
 
       return nil;
    }
