@@ -5,4 +5,7 @@
 +(NSDictionary*)headersDictionadyWithContentType:( NSString* )content_type_;
 +(NSDictionary*)headersDictionadyWithUploadContentType;
 
++(NSString*)utf8XmlContentType;
++(NSDictionary*)headersDictionadyWithUtf8XmlContentType;
+
 @end

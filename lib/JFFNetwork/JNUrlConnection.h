@@ -13,4 +13,5 @@
    @property ( nonatomic, copy ) ESDidReceiveDataHandler     didReceiveDataBlock    ;
    @property ( nonatomic, copy ) ESDidFinishLoadingHandler   didFinishLoadingBlock  ;
    @property ( nonatomic, copy ) ShouldAcceptCertificateForHost shouldAcceptCertificateBlock;
+
 @end
