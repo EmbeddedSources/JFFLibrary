@@ -1,6 +1,6 @@
 #import "JFFScheduler.h"
 
-#import <JFFUtils/NSThread+AssertMainThread.h>
+#import <JFFUtils/Extensions/NSThread+AssertMainThread.h>
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
 
 @interface JFFScheduler ()

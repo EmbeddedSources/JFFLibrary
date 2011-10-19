@@ -6,7 +6,7 @@
 
 @interface JFFNSObjectInstancesCounter : NSObject
 
-@property ( nonatomic, strong ) NSMutableDictionary* instancesNumberByClassName;
+@property ( nonatomic, retain ) NSMutableDictionary* instancesNumberByClassName;
 
 @end
 
@@ -41,7 +41,8 @@
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
       NSUInteger instances_count_ = [ number_ unsignedIntValue ];
-      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: ++instances_count_ ] forKey: class_name_ ];
+      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: ++instances_count_ ]
+                                           forKey: class_name_ ];
    }
 }
 
@@ -52,7 +53,8 @@
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
       NSUInteger instances_count_ = [ number_ unsignedIntValue ];
-      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: --instances_count_ ] forKey: class_name_ ];
+      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: --instances_count_ ]
+                                           forKey: class_name_ ];
    }
 }
 

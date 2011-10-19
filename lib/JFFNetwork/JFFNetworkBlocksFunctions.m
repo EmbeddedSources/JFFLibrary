@@ -9,7 +9,8 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
      NSURL* url_
    , NSData* post_data_
    , NSDictionary* headers_ 
-   , BOOL use_live_connection_)
+   , BOOL use_live_connection_
+   , ShouldAcceptCertificateForHost certificate_callback_ )
 {
    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
@@ -23,6 +24,8 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
       id< JNUrlConnection > connection_ = use_live_connection_ 
                                              ? [ factory_ createFastConnection     ]
                                              : [ factory_ createStandardConnection ];
+
+      connection_.shouldAcceptCertificateBlock = certificate_callback_;
 
       progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
       connection_.didReceiveDataBlock = ^( NSData* data_ )
@@ -66,13 +69,15 @@ JFFAsyncOperation genericDataURLResponseLoader(
      NSURL* url_
    , NSData* post_data_
    , NSDictionary* headers_
-   , BOOL use_live_connection_)
+   , BOOL use_live_connection_
+   , ShouldAcceptCertificateForHost certificate_callback_)
 {
    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFAsyncOperation loader_ = genericChunkedURLResponseLoader( url_, post_data_, headers_, use_live_connection_ );
+      JFFAsyncOperation loader_ = genericChunkedURLResponseLoader( 
+         url_, post_data_, headers_, use_live_connection_, certificate_callback_ );
 
       NSMutableData* response_data_ = [ NSMutableData data ];
       JFFAsyncOperationProgressHandler data_progress_callback_ = ^void( id progress_info_ )
@@ -101,7 +106,7 @@ JFFAsyncOperation chunkedURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ )
 {
-   return genericChunkedURLResponseLoader( url_,post_data_, headers_, NO );
+   return genericChunkedURLResponseLoader( url_,post_data_, headers_, NO, nil );
 }
 
 JFFAsyncOperation dataURLResponseLoader( 
@@ -109,7 +114,7 @@ JFFAsyncOperation dataURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ )
 {
-   return genericDataURLResponseLoader( url_,post_data_, headers_, NO );
+   return genericDataURLResponseLoader( url_,post_data_, headers_, NO, nil );
 }
 
 JFFAsyncOperation liveChunkedURLResponseLoader( 
@@ -117,7 +122,7 @@ JFFAsyncOperation liveChunkedURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ )
 {
-   return genericChunkedURLResponseLoader( url_,post_data_, headers_, YES );
+   return genericChunkedURLResponseLoader( url_,post_data_, headers_, YES, nil );
 }
 
 JFFAsyncOperation liveDataURLResponseLoader(
@@ -125,5 +130,5 @@ JFFAsyncOperation liveDataURLResponseLoader(
    , NSData* post_data_
    , NSDictionary* headers_ )
 {
-   return genericDataURLResponseLoader( url_,post_data_, headers_, YES );
+   return genericDataURLResponseLoader( url_,post_data_, headers_, YES, nil );
 }

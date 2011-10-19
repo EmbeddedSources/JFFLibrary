@@ -13,14 +13,19 @@
 #import <JFFUtils/NSString/NSString+PropertyName.h>
 #import <JFFUtils/NSString/NSString+Trimm.h>
 
+#import <JFFUtils/ToURL/NSString+ToURL.h>
+#import <JFFUtils/ToURL/NSURL+ToURL.h>
+
 #import <JFFUtils/XQueryComponents/NSString+XQueryComponents.h>
 #import <JFFUtils/XQueryComponents/NSURL+XQueryComponents.h>
-
-#import <JFFUtils/NSThread+AssertMainThread.h>
 
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
 
+#import <JFFUtils/Extensions/NSThread+AssertMainThread.h>
+#import <JFFUtils/Extensions/UIWebView+UserAgent.h>
+
+#import <JFFUtils/JGCDAdditions.h>
 #import <JFFUtils/JFFMulticastDelegate.h>
 #import <JFFUtils/JFFResultContext.h>
 #import <JFFUtils/JFFSingleThreadProxy.h>

@@ -5,17 +5,17 @@
 
 #import <Foundation/Foundation.h>
 
-/*typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOperation );
+typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOperation );
 
 static JFFAsyncOperation createEmptyLoaderBlock()
 {
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
+   return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                   , JFFCancelAsyncOperationHandler cancel_callback_
+                                   , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       done_callback_( [ NSNull null ], nil );
       return JFFEmptyCancelAsyncOperationBlock;
-   } copy ] autorelease ];
+   };
 }
 
 static JFFAsyncOperation MergeLoaders( MergeTwoLoadersPtr merger_, NSArray* blocks_ )
@@ -41,26 +41,27 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
    if ( first_loader_ == nil )
       return createEmptyLoaderBlock();
 
-   first_loader_ = [ [ first_loader_ copy ] autorelease ];
-   second_loader_ = [ [ second_loader_ copy ] autorelease ];
+   first_loader_ = [ first_loader_ copy ];
+   second_loader_ = [ second_loader_ copy ];
 
    if ( second_loader_ == nil )
       return first_loader_;
 
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
+   return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                   , JFFCancelAsyncOperationHandler cancel_callback_
+                                   , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
 
-      done_callback_ = [ [ done_callback_ copy ] autorelease ];
+      done_callback_ = [ done_callback_ copy ];
       JFFCancelAsyncOperation first_cancel_ = first_loader_( progress_callback_
                                                            , cancel_callback_
                                                            , ^void( id result_, NSError* error_ )
       {
          if ( error_ )
          {
-            done_callback_( nil, error_ );
+            if ( done_callback_ )
+               done_callback_( nil, error_ );
          }
          else
          {
@@ -73,7 +74,7 @@ static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_
          block_holder_.cancelBlock = first_cancel_;
 
       return block_holder_.onceCancelBlock;
-   } copy ] autorelease ];
+   };
 }
 
 JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
@@ -91,9 +92,9 @@ JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JF
    return first_block_;
 }
 
-JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* blocks_ )
+JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* loaders_ )
 {
-   return MergeLoaders( sequenceOfAsyncOperationsPair, blocks_ );
+   return MergeLoaders( sequenceOfAsyncOperationsPair, loaders_ );
 }
 
 static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
@@ -101,19 +102,19 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
    if ( first_loader_ == nil )
       return createEmptyLoaderBlock();
 
-   first_loader_ = [ [ first_loader_ copy ] autorelease ];
-   second_loader_ = [ [ second_loader_ copy ] autorelease ];
+   first_loader_ = [ first_loader_ copy ];
+   second_loader_ = [ second_loader_ copy ];
 
    if ( second_loader_ == nil )
       return first_loader_;
 
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
+   return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                   , JFFCancelAsyncOperationHandler cancel_callback_
+                                   , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
 
-      done_callback_ = [ [ done_callback_ copy ] autorelease ];
+      done_callback_ = [ done_callback_ copy ];
 
       JFFCancelAsyncOperation first_cancel_ = first_loader_( progress_callback_, cancel_callback_, ^void( id result_, NSError* error_ )
       {
@@ -123,14 +124,15 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
          }
          else
          {
-            done_callback_( result_, nil );
+            if ( done_callback_ )
+               done_callback_( result_, nil );
          }
       } );
       if ( !block_holder_.cancelBlock )
          block_holder_.cancelBlock = first_cancel_;
 
       return block_holder_.onceCancelBlock;
-   } copy ] autorelease ];
+   };
 }
 
 JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
@@ -148,7 +150,12 @@ JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_,
    return first_block_;
 }
 
-static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
+JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ )
+{
+   return MergeLoaders( trySequenceOfAsyncOperationsPair, loaders_ );
+}
+
+/*static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
 {
    if ( first_loader_ == nil )
       return createEmptyLoaderBlock();

@@ -12,6 +12,7 @@
    #import <JFFAsyncOperations/JFFAsyncOperations.h>
    #import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
    #import <JFFUtils/NSObject/NSObject+InstancesCount.h>
+   #import <JFFUtils/JFFUtils.h>
    #import <GHUnitIOS/GHUnit.h>
 
    #import <UIKit/UIKit.h>
