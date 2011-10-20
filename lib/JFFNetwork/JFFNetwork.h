@@ -23,3 +23,6 @@
 #import <JFFNetwork/JNUrlConnectionCallbacks.h>
 #import <JFFNetwork/Utils/JNUtils.h>
 #import <JFFNetwork/JNConstants.h>
+
+#import <JFFNetwork/Extensions/NSURL+Cookies.h>
+
