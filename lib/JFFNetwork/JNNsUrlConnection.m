@@ -21,6 +21,7 @@
 
 -(id)initWithRequest:( NSURLRequest* )request_
 {
+#ifndef __clang_analyzer__
    self = [ super privateInit ];
    if ( nil == self )
    {
@@ -33,12 +34,15 @@
       NSURLConnection* native_connection_ = [ [ NSURLConnection alloc ] initWithRequest: request_
                                                                                delegate: self
                                                                        startImmediately: NO ];
-      
+
       self.nativeConnection = native_connection_;
       [ native_connection_ release ];
    }
 
    return self;
+#else
+   return nil;
+#endif
 }
 
 #pragma mark -

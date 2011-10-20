@@ -8,7 +8,7 @@ static NSString* user_agent_ = nil;
 {
    if ( !user_agent_ )
    {
-      UIWebView* web_view_ = [ UIWebView new ];
+      UIWebView* web_view_ = [ [  UIWebView new ] autorelease ];
       user_agent_ = [ web_view_ stringByEvaluatingJavaScriptFromString: @"navigator.userAgent" ];
    }
    return user_agent_;
