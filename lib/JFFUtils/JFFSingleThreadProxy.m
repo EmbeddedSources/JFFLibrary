@@ -48,10 +48,10 @@
    dispatchQueue = dispatch_queue_;
    dispatch_retain( dispatchQueue );
 
-   factory_ = [ factory_ copy ];
+   factory_ = [ [ factory_ copy ] autorelease ];
    void (^release_listener_)( void ) = ^void( void )
    {
-      self.container = [ JFFProxyObjectContainer new ];
+      self.container = [ [ JFFProxyObjectContainer new ] autorelease ];
       self.container.target = factory_();
    };
    dispatch_async( dispatchQueue, release_listener_ );
@@ -62,8 +62,10 @@
 +(id)singleThreadProxyWithTargetFactory:( JFFObjectFactory )factory_
                           dispatchQueue:( dispatch_queue_t )dispatch_queue_
 {
-   return [ [ self alloc ] initWithTargetFactory: factory_
-                                   dispatchQueue: dispatch_queue_ ];
+   JFFSingleThreadProxy* result_ = [ [ self alloc ] initWithTargetFactory: factory_
+                                                            dispatchQueue: dispatch_queue_ ];
+
+   return [ result_ autorelease ];
 }
 
 -(void)forwardInvocation:( NSInvocation* )invocation_

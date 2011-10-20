@@ -4,6 +4,6 @@
 
 @interface JNAbstractConnection( Constructor )
 
--(id)privateInit;
+-(id)privateInit NS_RETURNS_RETAINED;
 
 @end

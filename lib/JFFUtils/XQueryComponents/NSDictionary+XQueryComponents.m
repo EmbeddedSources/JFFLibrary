@@ -6,7 +6,8 @@
 
 -(NSString*)stringFromQueryComponents
 {
-   NSString* result_;
+   NSString* result_ = nil;
+
    for ( NSString* key_ in [ self allKeys ] )
    {
       key_ = [ key_ stringByEncodingURLFormat ];
@@ -17,18 +18,26 @@
          {
             value_ = [ [ value_ description ] stringByEncodingURLFormat ];
             if( !result_ )
+            {
                result_ = [ NSString stringWithFormat: @"%@=%@", key_, value_ ];
+            }
             else 
+            {
                result_ = [ result_ stringByAppendingFormat: @"&%@=%@", key_, value_ ];
+            }
          }
       }
       else
       {
          NSString* value_ = [ [ all_values_ description ] stringByEncodingURLFormat ];
          if( !result_ )
+         {
             result_ = [ NSString stringWithFormat:@"%@=%@", key_, value_ ];
+         }
          else 
+         {
             result_ = [ result_ stringByAppendingFormat:@"&%@=%@", key_, value_ ];
+         }
       }
    }
    return result_;

@@ -18,7 +18,7 @@
 
 -(NSDictionary*)dictionaryFromQueryComponents
 {
-   NSMutableDictionary* query_components_ = [ NSMutableDictionary new ];
+   NSMutableDictionary* query_components_ = [ [ NSMutableDictionary new ] autorelease ];
    for ( NSString* key_value_pair_string_ in [ self componentsSeparatedByString: @"&" ] )
    {
       NSArray* key_value_pair_array_ = [ key_value_pair_string_ componentsSeparatedByString: @"=" ];
@@ -32,7 +32,7 @@
       NSMutableArray* results_ = [ query_components_ objectForKey: key_ ]; // URL spec says that multiple values are allowed per key
       if( !results_ )// First object
       {
-         results_ = [ [ NSMutableArray alloc ] initWithCapacity: 1 ];
+         results_ = [ [ [ NSMutableArray alloc ] initWithCapacity: 1 ] autorelease ];
          [ query_components_ setObject: results_ forKey: key_ ];
       }
       [ results_ addObject: value_ ];
