@@ -17,13 +17,12 @@
 @synthesize postData = _post_data;
 @synthesize headers  = _headers  ;
 
-
 -(void)dealloc
 {
    [ _url       release ];
    [ _post_data release ];
    [ _headers   release ];
-   
+
    [ super dealloc ];
 }
 
@@ -42,25 +41,24 @@
 {
    if ( nil == url_ )
    {
-      [ self release ];
       NSAssert( url_, @"[!!! ERROR !!!] JNConnectionsFactory->init : A required URL parameter is nil" );
+      [ self release ];
 
       return nil;
    }
-   
+
    self = [ super init ];
    if ( nil == self )
    {
       return nil;
    }
-   
+
    self.url      = url_      ;
    self.postData = post_data_;
    self.headers  = headers_  ;
-   
+
    return self;
 }
-
 
 #pragma mark -
 #pragma mark Factory
@@ -78,9 +76,8 @@
                                                             cachePolicy: NSURLRequestReloadIgnoringLocalCacheData 
                                                         timeoutInterval: timeout_ ];
 
-   
    NSString* http_method_ = self.postData ? @"POST" : @"GET";
-   
+
    [ request_ setHTTPBody           : self.postData ];
    [ request_ setAllHTTPHeaderFields: self.headers  ];
    [ request_ setHTTPMethod         : http_method_  ];
