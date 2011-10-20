@@ -39,11 +39,6 @@
    return self;
 }
 
-+(id)scheduler
-{
-   return [ [ self new ] autorelease ];
-}
-
 +(id)sharedScheduler
 {
    [ NSThread assertMainThread ];

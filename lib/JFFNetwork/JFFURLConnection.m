@@ -163,7 +163,6 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    CFStringRef method_ = (CFStringRef) ( data_ ? @"POST" : @"GET" );
    CFHTTPMessageRef http_request_ = CFHTTPMessageCreateRequest( NULL, method_, (CFURLRef)self.url, kCFHTTPVersion1_1 );
 
-
    [ self applyCookiesForHTTPRequest: http_request_ ];
 
    if ( data_ )
