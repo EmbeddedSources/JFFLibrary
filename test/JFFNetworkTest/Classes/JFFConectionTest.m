@@ -8,8 +8,7 @@
 {
    [ self prepare ];
    
-   NSURL* data_url_ = [ [ JNTestBundleManager decodersDataBundle ] URLForResource: @"1" 
-                                                                    withExtension: @"txt" ];
+   NSURL* data_url_ = [ NSURL URLWithString: @"http://10.28.9.57:9000/about/" ];
    
    JNConnectionsFactory* factory_ = [ [ JNConnectionsFactory alloc ] initWithUrl: data_url_
                                                                         postData: nil
@@ -33,14 +32,8 @@
    
    connection_.didFinishLoadingBlock = ^( NSError* error_ )
    {
-      if ( nil != error_ )
-      {
-         [ self notify: kGHUnitWaitStatusFailure
-           forSelector: _cmd ];
-         return;
-      }
-      
-      GHAssertTrue( [ expected_data_ isEqualToData: total_data_ ], @"packet mismatch" );
+      GHAssertNil( error_, @"Unexpected error - %@", error_ );    
+      GHAssertTrue( [ expected_data_ length ] == [ total_data_ length ], @"packet mismatch" );
       [ self notify: kGHUnitWaitStatusSuccess 
         forSelector: _cmd ];
    };

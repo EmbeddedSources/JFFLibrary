@@ -17,7 +17,6 @@
 @synthesize postData = _post_data;
 @synthesize headers  = _headers  ;
 
-
 -(void)dealloc
 {
    [ _url       release ];
@@ -42,8 +41,8 @@
 {
    if ( nil == url_ )
    {
-      [ self release ];
       NSAssert( url_, @"[!!! ERROR !!!] JNConnectionsFactory->init : A required URL parameter is nil" );
+      [ self release ];
 
       return nil;
    }
@@ -61,7 +60,6 @@
    return self;
 }
 
-
 #pragma mark -
 #pragma mark Factory
 -(id< JNUrlConnection >)createFastConnection
@@ -73,12 +71,11 @@
 
 -(id< JNUrlConnection >)createStandardConnection
 {
-   static const NSTimeInterval timeout_ = 10.;
+   static const NSTimeInterval timeout_ = 25.;
    NSMutableURLRequest* request_ = [ NSMutableURLRequest requestWithURL: self.url
                                                             cachePolicy: NSURLRequestReloadIgnoringLocalCacheData 
                                                         timeoutInterval: timeout_ ];
 
-   
    NSString* http_method_ = self.postData ? @"POST" : @"GET";
    
    [ request_ setHTTPBody           : self.postData ];

@@ -36,6 +36,8 @@
 		53A33F38141F7E1D00469DAA /* JNGzipErrorsLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */; };
 		53CB3D6114457E0D00D7E447 /* JNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 53CB3D5F14457E0D00D7E447 /* JNUtils.h */; };
 		53CB3D6214457E0D00D7E447 /* JNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CB3D6014457E0D00D7E447 /* JNUtils.m */; };
+		53E074BE144EFBA000CB146F /* NSURL+Cookies.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E074BC144EFBA000CB146F /* NSURL+Cookies.h */; };
+		53E074BF144EFBA000CB146F /* NSURL+Cookies.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E074BD144EFBA000CB146F /* NSURL+Cookies.m */; };
 		8D5AE6DF13F3E6C600EB6143 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */; };
 		8D5AE6F213F3E80B00EB6143 /* JFFURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */; };
 		8D5AE6F313F3E80B00EB6143 /* JFFURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F113F3E80B00EB6143 /* JFFURLConnection.m */; };
@@ -88,6 +90,8 @@
 		53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNGzipErrorsLogger.m; sourceTree = "<group>"; };
 		53CB3D5F14457E0D00D7E447 /* JNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUtils.h; sourceTree = "<group>"; };
 		53CB3D6014457E0D00D7E447 /* JNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUtils.m; sourceTree = "<group>"; };
+		53E074BC144EFBA000CB146F /* NSURL+Cookies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Cookies.h"; sourceTree = "<group>"; };
+		53E074BD144EFBA000CB146F /* NSURL+Cookies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Cookies.m"; sourceTree = "<group>"; };
 		8D5AE6DB13F3E6C600EB6143 /* libJFFNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D5AE6E213F3E6C700EB6143 /* JFFNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFNetwork-Prefix.pch"; sourceTree = "<group>"; };
@@ -171,6 +175,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		53E074BB144EFB3500CB146F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53E074BC144EFBA000CB146F /* NSURL+Cookies.h */,
+				53E074BD144EFBA000CB146F /* NSURL+Cookies.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8D5AE6D013F3E6C500EB6143 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +227,7 @@
 				53834209141E684F00473CF2 /* ContentEncodings */,
 				534BEF1C14448DAD005D745F /* Detail */,
 				8D713CB413F52FBA007268DF /* DownloadManager */,
+				53E074BB144EFB3500CB146F /* Extensions */,
 				53CB3D5E14457DEB00D7E447 /* Utils */,
 				534BEEDA14448782005D745F /* JNUrlResponse.h */,
 				8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */,
@@ -298,6 +312,7 @@
 				534BEF1F14448DC9005D745F /* JNAbstractConnection+Constructor.h in Headers */,
 				534BEF9514449AF5005D745F /* JNConnectionsFactory.h in Headers */,
 				53CB3D6114457E0D00D7E447 /* JNUtils.h in Headers */,
+				53E074BE144EFBA000CB146F /* NSURL+Cookies.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +385,7 @@
 				534BEF2014448DC9005D745F /* JNAbstractConnection+Constructor.m in Sources */,
 				534BEF9614449AF5005D745F /* JNConnectionsFactory.m in Sources */,
 				53CB3D6214457E0D00D7E447 /* JNUtils.m in Sources */,
+				53E074BF144EFBA000CB146F /* NSURL+Cookies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +407,6 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -408,7 +423,6 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
