@@ -17,6 +17,7 @@
    [ JFFAsyncOperationManager enableInstancesCounting ];
 }
 
+//TODO test that can not finish "second" before finishing "first"
 -(void)testTrySequenceOfAsyncOperations
 {
    @autoreleasepool

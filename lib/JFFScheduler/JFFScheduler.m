@@ -1,6 +1,7 @@
 #import "JFFScheduler.h"
 
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
+#import <JFFUtils/Extensions/NSThread+AssertMainThread.h>
 
 @interface JFFScheduler ()
 
@@ -11,6 +12,15 @@
 @implementation JFFScheduler
 
 @synthesize cancelBlocks = _cancel_blocks;
+
+-(void)dealloc
+{
+   [ self cancelAllScheduledOperations ];
+
+   [ _cancel_blocks release ];
+
+   [ super dealloc ];
+}
 
 -(id)init
 {
@@ -24,28 +34,15 @@
    return self;
 }
 
-+(id)scheduler
-{
-   return [ [ self new ] autorelease ];
-}
-
 +(id)sharedScheduler
 {
+   [ NSThread assertMainThread ];
    static id instance_ = nil;
    if ( !instance_ )
    {
       instance_ = [ self new ];
    }
    return instance_;
-}
-
--(void)dealloc
-{
-   [ self cancelAllScheduledOperations ];
-
-   [ _cancel_blocks release ];
-
-   [ super dealloc ];
 }
 
 -(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )block_

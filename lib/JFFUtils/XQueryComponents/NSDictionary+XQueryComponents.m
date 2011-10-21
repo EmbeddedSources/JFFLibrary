@@ -7,7 +7,6 @@
 -(NSString*)stringFromQueryComponents
 {
    NSString* result_ = nil;
-
    for ( NSString* key_ in [ self allKeys ] )
    {
       key_ = [ key_ stringByEncodingURLFormat ];
