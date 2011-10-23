@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0857D114516077001DDE0A /* FailOnFirstErrorGroupOfAsyncOperationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0857D014516076001DDE0A /* FailOnFirstErrorGroupOfAsyncOperationsTest.m */; };
 		1B12CB3B144D5C5900DFE2B1 /* JFFAsyncOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B12CB3A144D5C5900DFE2B1 /* JFFAsyncOperationManager.m */; };
 		1B835A25142C8BC400FC004C /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */; };
 		1B835A26142C8BC400FC004C /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B835A16142C8BAB00FC004C /* libJFFUtils.a */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0857D014516076001DDE0A /* FailOnFirstErrorGroupOfAsyncOperationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailOnFirstErrorGroupOfAsyncOperationsTest.m; sourceTree = "<group>"; };
 		1B12CB39144D5C5900DFE2B1 /* JFFAsyncOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationManager.h; sourceTree = "<group>"; };
 		1B12CB3A144D5C5900DFE2B1 /* JFFAsyncOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationManager.m; sourceTree = "<group>"; };
 		1B2A67C8143F474300BC284F /* JFFDidFinishAsyncOperationBlockHolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFDidFinishAsyncOperationBlockHolderTest.m; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				1BA2551F1443114300C9B2BE /* SequenceOfAsyncOperationsTest.m */,
 				1BA27738144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m */,
 				1BED04FF144EBF2800B8DC2A /* GroupOfAsyncOperationsTest.m */,
+				1B0857D014516076001DDE0A /* FailOnFirstErrorGroupOfAsyncOperationsTest.m */,
 			);
 			path = JFFAsyncOperationsTest;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				1BE632E914505AFF007ADB5B /* WeakAsyncOperationTest.m in Sources */,
 				1BE632EA14505B11007ADB5B /* TrySequenceOfAsyncOperationsTest.m in Sources */,
 				1BE632EB14505B14007ADB5B /* GroupOfAsyncOperationsTest.m in Sources */,
+				1B0857D114516077001DDE0A /* FailOnFirstErrorGroupOfAsyncOperationsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
