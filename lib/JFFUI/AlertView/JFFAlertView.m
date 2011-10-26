@@ -11,7 +11,7 @@ static NSInteger first_alert_index_ = 1;
 @interface JFFAlertView ()
 
 @property ( nonatomic, assign ) BOOL exclusive;
-@property ( nonatomic, retain ) NSMutableArray* alertButtons;
+@property ( nonatomic, strong ) NSMutableArray* alertButtons;
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_;
 +(void)activeAlertsRemoveAlert:( UIAlertView* )alert_view_;
@@ -28,10 +28,6 @@ static NSInteger first_alert_index_ = 1;
 -(void)dealloc
 {
    [ [ NSNotificationCenter defaultCenter ] removeObserver: self ];
-
-   [ _alert_buttons release ];
-
-   [ super dealloc ];
 }
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_
@@ -53,7 +49,6 @@ static NSInteger first_alert_index_ = 1;
 
    if ( ![ active_alerts_ count ] )
    {
-      [ active_alerts_ release ];
       active_alerts_ = nil;
    }
 }
@@ -76,9 +71,6 @@ static NSInteger first_alert_index_ = 1;
       [ alert_view_ forceDismiss ];
    }
 
-   [ temporary_active_alerts_ release ];
-
-   [ active_alerts_ release ];
    active_alerts_ = nil;
 }
 
@@ -205,10 +197,10 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
       [ other_alert_buttons_ insertObject: cancel_button_ atIndex: 0 ];
    }
 
-   JFFAlertView* alert_view_ = [ [ [ self alloc ] initWithTitle: title_
-                                                        message: message_
-                                              cancelButtonTitle: cancel_button_.title
-                                         otherButtonTitlesArray: other_alert_string_titles_ ] autorelease ];
+   JFFAlertView* alert_view_ = [ [ self alloc ] initWithTitle: title_
+                                                       message: message_
+                                             cancelButtonTitle: cancel_button_.title
+                                        otherButtonTitlesArray: other_alert_string_titles_ ];
 
    alert_view_.alertButtons = other_alert_buttons_;
 

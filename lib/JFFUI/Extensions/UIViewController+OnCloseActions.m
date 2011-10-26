@@ -60,23 +60,21 @@ static char did_close_action_key_;
 {
    JFFWillCloseActionBlock will_close_block_ = self.actController.willCloseAction;
 
-   JFFDidCloseActionBlock did_close_block_ = [ self.actController.didCloseAction copy ];
+   JFFDidCloseActionBlock did_close_block_ = self.actController.didCloseAction;
    self.actController.didCloseAction = nil;
 
-   ESCloseSelfBlock close_action_ = [ self.actController.closeAction copy ];
+   ESCloseSelfBlock close_action_ = self.actController.closeAction;
    self.actController.closeAction = nil;
 
    if ( close_action_ )
    {
       close_action_( will_close_block_ ? will_close_block_() : YES );
-      [ close_action_ release ];
       self.actController.willCloseAction = nil;
    }
 
    if ( did_close_block_ )
    {
       did_close_block_( ok_ );
-      [ did_close_block_ release ];
    }
 }
 
@@ -89,7 +87,7 @@ static char did_close_action_key_;
 
 -(void)presentModalViewControllerPrototype:( UIViewController* )modal_view_controller_ animated:( BOOL )animated_
 {
-   __block UIViewController* controller_to_close_ = modal_view_controller_;
+   __unsafe_unretained UIViewController* controller_to_close_ = modal_view_controller_;
    controller_to_close_.closeAction = ^void( BOOL animated_ )
    {
       [ controller_to_close_ dismissModalViewControllerAnimated: animated_ ];
@@ -102,7 +100,7 @@ static char did_close_action_key_;
 {
    if ( view_controller_.navigationController.topViewController )
    {
-      __block UIViewController* controller_to_close_ = view_controller_;
+      __unsafe_unretained UIViewController* controller_to_close_ = view_controller_;
       controller_to_close_.closeAction = ^void( BOOL animated_ )
       {
          [ controller_to_close_.navigationController popViewControllerAnimated: animated_ ];

@@ -12,20 +12,13 @@ static char property_key_;
 
 @interface JUIWebViewDelegateProxy : NSObject < UIWebViewDelegate >
 
-@property ( nonatomic, retain ) UIWebView* webView;
+@property ( nonatomic, strong ) UIWebView* webView;
 
 @end
 
 @implementation JUIWebViewDelegateProxy
 
 @synthesize webView = _webView;
-
--(void)dealloc
-{
-   [ _webView release ];
-
-   [ super dealloc ];
-}
 
 #pragma mark UIWebViewDelegate
 
@@ -65,7 +58,7 @@ static char property_key_;
 {
    if ( !self.proxy )
    {
-      self.proxy = [ [ JUIWebViewDelegateProxy new ] autorelease ];
+      self.proxy = [ JUIWebViewDelegateProxy new ];
       self.proxy.webView = self;
    }
    self.delegate = self.proxy;

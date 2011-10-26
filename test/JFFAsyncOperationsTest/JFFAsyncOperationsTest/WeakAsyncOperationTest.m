@@ -166,6 +166,8 @@
          return [ [ ^void( BOOL cancel_ )
          {
             native_cancel_block_called_ = YES;
+            if ( cancel_callback_ )
+               cancel_callback_( cancel_ );
          } copy ] autorelease ];
       };
 
@@ -208,6 +210,8 @@
       GHAssertFalse( native_cancel_block_called_, @"Native cancel block should not be called" );
       GHAssertTrue( deallocated_, @"owned_by_callbacks_ objet should be deallocated" );
       GHAssertTrue( cancel_callback_called_, @"cancel callback should ba called" );
+
+      [ operation_owner_ release ];
    }
 
    GHAssertTrue( 0 == [ JFFSimpleBlockHolder                  instancesCount ], @"All object of this class should be deallocated" );
@@ -229,9 +233,9 @@
 
       @autoreleasepool
       {
-         JFFAsyncOperation operation_ = [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                                                     , JFFCancelAsyncOperationHandler cancel_callback_
-                                                                     , JFFDidFinishAsyncOperationHandler done_callback_ )
+         operation_ = [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                                   , JFFCancelAsyncOperationHandler cancel_callback_
+                                                   , JFFDidFinishAsyncOperationHandler done_callback_ )
          {
             return [ [ ^void( BOOL cancel_ )
             {

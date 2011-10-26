@@ -9,7 +9,7 @@ typedef void (^JFFNotificationCenterBlock)( NSNotification* notification_ );
 @interface JFFNotificationCenterBlockHolder : NSObject
 
 @property ( nonatomic, copy ) JFFNotificationCenterBlock block;
-@property ( nonatomic, retain ) NSOperationQueue* queue;
+@property ( nonatomic, strong ) NSOperationQueue* queue;
 
 @end
 
@@ -17,19 +17,12 @@ typedef void (^JFFNotificationCenterBlock)( NSNotification* notification_ );
 
 @synthesize block, queue;
 
--(void)dealloc
-{
-   [ block release ];
-   [ queue release ];
-
-   [ super dealloc ];
-}
-
 -(void)notifyBlockWithNotification:( NSNotification* )notification_
 {
    if ( self.queue )
    {
-      [ self.queue addOperationWithBlock: ^void( void )
+      NSOperationQueue* queue_ = self.queue;
+      [ queue_ addOperationWithBlock: ^void( void )
       {
          self.block( notification_ );
       } ];
@@ -72,7 +65,7 @@ typedef void (^JFFNotificationCenterBlock)( NSNotification* notification_ );
                  name: name_
                object: object_ ];
 
-   return [ observer_ autorelease ];
+   return observer_;
 }
 
 -(void)removeObserverWithBlockHolder:( id )observer_
