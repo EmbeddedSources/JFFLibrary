@@ -12,7 +12,7 @@
 
 @property ( nonatomic, assign, readonly ) BOOL hasNoElements;
 @property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;
-@property ( nonatomic, retain, readonly ) NSIndexPath* loadMoreIndexPath;
+@property ( nonatomic, strong, readonly ) NSIndexPath* loadMoreIndexPath;
 
 -(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_;
 

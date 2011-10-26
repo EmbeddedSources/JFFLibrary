@@ -22,6 +22,9 @@
 		1B7F589C1435D58000FF06EC /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */; };
 		1B81FAEF14330E4400997278 /* UINib+FirstObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAED14330E4400997278 /* UINib+FirstObject.h */; };
 		1B81FAF014330E4400997278 /* UINib+FirstObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAEE14330E4400997278 /* UINib+FirstObject.m */; };
+		1BD361691455A0630036F786 /* JFFPageSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD361671455A0630036F786 /* JFFPageSlider.h */; };
+		1BD3616A1455A0630036F786 /* JFFPageSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD361681455A0630036F786 /* JFFPageSlider.m */; };
+		1BD3616C1455A2F80036F786 /* JFFStripeViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD3616B1455A2F80036F786 /* JFFStripeViewDelegate.h */; };
 		655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
 		655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
 		655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
@@ -53,6 +56,9 @@
 		1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationWithBlocks.m"; sourceTree = "<group>"; };
 		1B81FAED14330E4400997278 /* UINib+FirstObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINib+FirstObject.h"; path = "Extensions/UINib+FirstObject.h"; sourceTree = SOURCE_ROOT; };
 		1B81FAEE14330E4400997278 /* UINib+FirstObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINib+FirstObject.m"; path = "Extensions/UINib+FirstObject.m"; sourceTree = SOURCE_ROOT; };
+		1BD361671455A0630036F786 /* JFFPageSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPageSlider.h; sourceTree = "<group>"; };
+		1BD361681455A0630036F786 /* JFFPageSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPageSlider.m; sourceTree = "<group>"; };
+		1BD3616B1455A2F80036F786 /* JFFStripeViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFStripeViewDelegate.h; sourceTree = "<group>"; };
 		655E9DB21392E8C00074BD61 /* JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertButton.h; sourceTree = "<group>"; };
 		655E9DB31392E8C00074BD61 /* JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertButton.m; sourceTree = "<group>"; };
 		655E9DB41392E8C00074BD61 /* JFFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertView.h; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1BD361651455A04B0036F786 /* StripeView */,
 				1B295556143DCB0500532BD7 /* UITableView */,
 				1B7F58941435D50F00FF06EC /* UIView */,
 				1B7F583B1435BDC000FF06EC /* UIWebView */,
@@ -163,6 +170,16 @@
 				1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		1BD361651455A04B0036F786 /* StripeView */ = {
+			isa = PBXGroup;
+			children = (
+				1BD361671455A0630036F786 /* JFFPageSlider.h */,
+				1BD361681455A0630036F786 /* JFFPageSlider.m */,
+				1BD3616B1455A2F80036F786 /* JFFStripeViewDelegate.h */,
+			);
+			path = StripeView;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -219,6 +236,8 @@
 				1B7F589B1435D58000FF06EC /* UIView+AnimationWithBlocks.h in Headers */,
 				1B29555A143DCB3A00532BD7 /* JULoadMoreCellscalculator.h in Headers */,
 				1B29555F143DCB7300532BD7 /* UITableView+WithinUpdates.h in Headers */,
+				1BD361691455A0630036F786 /* JFFPageSlider.h in Headers */,
+				1BD3616C1455A2F80036F786 /* JFFStripeViewDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +307,7 @@
 				1B49CFA8143C6D3500E8AACE /* UIWebViewNewFeaturesRuntime.m in Sources */,
 				1B29555B143DCB3A00532BD7 /* JULoadMoreCellscalculator.m in Sources */,
 				1B295560143DCB7300532BD7 /* UITableView+WithinUpdates.m in Sources */,
+				1BD3616A1455A0630036F786 /* JFFPageSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +319,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/JFFUI.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -306,6 +327,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFUI_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
@@ -318,10 +340,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/JFFUI.dst;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JFFUI_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ../;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;

@@ -12,3 +12,6 @@
 
 #import <JFFUI/UITableView/JULoadMoreCellscalculator.h>
 #import <JFFUI/UITableView/UITableView+WithinUpdates.h>
+
+#import <JFFUI/StripeView/JFFPageSlider.h>
+#import <JFFUI/StripeView/JFFStripeViewDelegate.h>

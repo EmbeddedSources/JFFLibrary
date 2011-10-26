@@ -2,16 +2,8 @@
 
 @implementation JFFAlertButton
 
-@synthesize title = _title;
-@synthesize action = _action;
-
--(void)dealloc
-{
-   [ _title release ];
-   [ _action release ];
-
-   [ super dealloc ];
-}
+@synthesize title;
+@synthesize action;
 
 -(id)initButton:( NSString* )title_ action:( JFFSimpleBlock )action_
 {
@@ -28,7 +20,7 @@
 
 +(id)alertButton:( NSString* )title_ action:( JFFSimpleBlock )action_
 {
-   return [ [ [ self alloc ] initButton: title_ action: action_ ] autorelease ];
+   return [ [ self alloc ] initButton: title_ action: action_ ];
 }
 
 @end

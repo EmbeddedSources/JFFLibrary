@@ -140,7 +140,7 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
 JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_, ... )
 {
    JFFAsyncOperation first_block_ = first_loader_;
-
+   
    va_list args;
    va_start( args, second_loader_ );
    for ( JFFAsyncOperation second_block_ = second_loader_; second_block_ != nil; second_block_ = va_arg( args, JFFAsyncOperation ) )
@@ -148,7 +148,7 @@ JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_,
       first_block_ = trySequenceOfAsyncOperationsPair( first_block_, second_block_ );
    }
    va_end( args );
-
+   
    return first_block_;
 }
 

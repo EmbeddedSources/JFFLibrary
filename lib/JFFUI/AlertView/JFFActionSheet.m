@@ -10,8 +10,8 @@ static NSInteger first_action_index_ = 1;
 
 @interface JFFActiveActionSheet : NSObject
 
-@property( nonatomic, retain ) JFFActionSheet* actionSheet;
-@property( nonatomic, retain ) UIView* view;
+@property( nonatomic, strong ) JFFActionSheet* actionSheet;
+@property( nonatomic, strong ) UIView* view;
 
 +(id)activeActionSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_;
 -(id)initActionSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_;
@@ -22,15 +22,6 @@ static NSInteger first_action_index_ = 1;
 
 @synthesize actionSheet = _action_sheet;
 @synthesize view = _view;
-
-
--(void)dealloc
-{
-   [ _action_sheet release ];
-   [ _view release ];
-   
-   [ super dealloc ];
-}
 
 -(id)initActionSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_
 {
@@ -47,14 +38,14 @@ static NSInteger first_action_index_ = 1;
 
 +(id)activeActionSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_
 {
-   return [ [ [ self alloc ] initActionSheet: action_sheet_ withView: view_ ] autorelease ];
+   return [ [ self alloc ] initActionSheet: action_sheet_ withView: view_ ];
 }
 
 @end
 
 @interface JFFActionSheet () < UIActionSheetDelegate >
 
-@property ( nonatomic, retain ) NSMutableArray* alertButtons;
+@property ( nonatomic, strong ) NSMutableArray* alertButtons;
 
 +(void)activeActionSheetsAddSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_;
 +(void)activeActionSheetsRemoveSheet:( UIActionSheet* )action_sheet_;
@@ -71,10 +62,6 @@ static NSInteger first_action_index_ = 1;
 -(void)dealloc
 {
    [ [ NSNotificationCenter defaultCenter ] removeObserver: self ];
-
-   [ _alert_buttons release ];
-
-   [ super dealloc ];
 }
 
 +(void)activeActionSheetsAddSheet:( JFFActionSheet* )action_sheet_ withView:( UIView* )view_
@@ -98,7 +85,6 @@ static NSInteger first_action_index_ = 1;
 
    if ( ![ active_action_sheets_ count ] )
    {
-      [ active_action_sheets_ release ];
       active_action_sheets_ = nil;
    }
 }
@@ -130,8 +116,6 @@ static NSInteger first_action_index_ = 1;
    {
       [ action_sheet_ dismissWithClickedButtonIndex: [ action_sheet_ cancelButtonIndex ] animated: NO ];
    }
-
-   [ temporary_active_action_sheets_ release ];
 }
 
 -(id)initWithTitle:( NSString* )title_
@@ -215,10 +199,10 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
    JFFAlertButton* cancel_button_ = [ cancel_button_title_ toAlertButton ];
 
-   JFFActionSheet* action_sheet_ = [ [ [ self alloc ] initWithTitle: title_
-                                                  cancelButtonTitle: cancel_button_.title
-                                             destructiveButtonTitle: destructive_button_title_
-                                             otherButtonTitlesArray: other_action_string_titles_ ] autorelease ];
+   JFFActionSheet* action_sheet_ = [ [ self alloc ] initWithTitle: title_
+                                                cancelButtonTitle: cancel_button_.title
+                                           destructiveButtonTitle: destructive_button_title_
+                                           otherButtonTitlesArray: other_action_string_titles_ ];
 
    if ( cancel_button_ )
    {
