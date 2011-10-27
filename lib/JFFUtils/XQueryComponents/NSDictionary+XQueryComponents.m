@@ -1,45 +1,56 @@
 #import "NSDictionary+XQueryComponents.h"
 
 #import "NSString+XQueryComponents.h"
+#import "NSArray+BlocksAdditions.h"
+
+static NSString* const query_component_format_ = @"%@=%@";
+static NSString* const query_component_separator_ = @"&";
+
+@interface NSObject (XQueryComponents)
+
+-(NSArray*)arrayOfQueryComponentsForKey:( NSString* )key_;
+
+@end
+
+@implementation NSObject (XQueryComponents)
+
+-(NSString*)stringFromQueryComponentAndKey:( NSString* )key_
+{
+   NSString* value_ = [ [ self description ] stringByEncodingURLFormat ];
+   return [ NSString stringWithFormat: query_component_format_, key_, value_ ];
+}
+
+-(NSArray*)arrayOfQueryComponentsForKey:( NSString* )key_
+{
+   NSString* component_ = [ self stringFromQueryComponentAndKey: key_ ];
+   return [ NSArray arrayWithObject: component_ ];
+}
+
+@end
+
+@implementation NSArray (XQueryComponents)
+
+-(NSArray*)arrayOfQueryComponentsForKey:( NSString* )key_
+{
+   return [ self map: ^id( id value_ )
+   {
+      return [ value_ stringFromQueryComponentAndKey: key_ ];;
+   } ];
+}
+
+@end
 
 @implementation NSDictionary (XQueryComponents)
 
 -(NSString*)stringFromQueryComponents
 {
-   NSString* result_ = nil;
-   for ( NSString* key_ in [ self allKeys ] )
+   NSArray* result_ = [ [ self allKeys ] flatten: ^NSArray*( id key_ )
    {
       key_ = [ key_ stringByEncodingURLFormat ];
-      NSArray* all_values_ = [ self objectForKey: key_ ];
-      if ( [ all_values_ isKindOfClass: [ NSArray class ] ] )
-      {
-         for ( NSString* value_ in all_values_ )
-         {
-            value_ = [ [ value_ description ] stringByEncodingURLFormat ];
-            if( !result_ )
-            {
-               result_ = [ NSString stringWithFormat: @"%@=%@", key_, value_ ];
-            }
-            else 
-            {
-               result_ = [ result_ stringByAppendingFormat: @"&%@=%@", key_, value_ ];
-            }
-         }
-      }
-      else
-      {
-         NSString* value_ = [ [ all_values_ description ] stringByEncodingURLFormat ];
-         if( !result_ )
-         {
-            result_ = [ NSString stringWithFormat:@"%@=%@", key_, value_ ];
-         }
-         else 
-         {
-            result_ = [ result_ stringByAppendingFormat:@"&%@=%@", key_, value_ ];
-         }
-      }
-   }
-   return result_;
+      NSObject* values_ = [ self objectForKey: key_ ];
+      return [ values_ arrayOfQueryComponentsForKey: key_ ];
+   } ];
+   return [ result_ componentsJoinedByString: query_component_separator_ ];
 }
 
 @end
