@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+#include <assert.h>
+
 typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOperation );
 
 static JFFAsyncOperation createEmptyLoaderBlock()
@@ -411,7 +413,8 @@ JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loade
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       return loader_( progress_callback_, cancel_callback_, ^void( id result_, NSError* error_ )
       {
-         finish_callback_block_( result_, error_ );
+         if ( finish_callback_block_ )
+            finish_callback_block_( result_, error_ );
          if ( done_callback_ )
             done_callback_( result_, error_ );
       } );
@@ -421,6 +424,7 @@ JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loade
 JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
                                                     , JFFDidFinishAsyncOperationHook finish_callback_hook_ )
 {
+   assert( finish_callback_hook_ );// should not be nil"
    finish_callback_hook_ = [ [ finish_callback_hook_ copy ] autorelease ];
    loader_ = [ [ loader_ copy ] autorelease ];
    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_

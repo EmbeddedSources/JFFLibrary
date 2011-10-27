@@ -29,7 +29,8 @@ typedef void (^JFFNotificationCenterBlock)( NSNotification* notification_ );
 {
    if ( self.queue )
    {
-      [ self.queue addOperationWithBlock: ^void( void )
+      NSOperationQueue* queue_ = self.queue;
+      [ queue_ addOperationWithBlock: ^void( void )
       {
          self.block( notification_ );
       } ];
