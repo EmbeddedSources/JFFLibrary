@@ -154,9 +154,9 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    }
 }
 
-//TODO add timeout
-//TODO test invalid url
-//TODO test no internet connection
+//JTODO add timeout
+//JTODO test invalid url
+//JTODO test no internet connection
 -(void)startConnectionWithPostData:( NSData* )data_
                            headers:( NSDictionary* )headers_
 {

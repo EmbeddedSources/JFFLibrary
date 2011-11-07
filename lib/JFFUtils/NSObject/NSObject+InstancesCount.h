@@ -2,7 +2,7 @@
 
 @interface NSObject (InstancesCount)
 
-//TODO hook also copy methods
+//JTODO hook also copy methods
 +(void)enableInstancesCounting;
 
 +(NSUInteger)instancesCount;

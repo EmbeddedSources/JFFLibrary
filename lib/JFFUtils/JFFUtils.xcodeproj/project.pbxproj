@@ -37,7 +37,6 @@
 		1BD01FB71444824100A627B1 /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB51444824100A627B1 /* JFFResultContext.m */; };
 		1BE75CFF1434B3450076E068 /* NSObject+Const0.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE75CFD1434B3450076E068 /* NSObject+Const0.h */; };
 		1BE75D001434B3450076E068 /* NSObject+Const0.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE75CFE1434B3450076E068 /* NSObject+Const0.m */; };
-		1BED051A144ECDAB00B8DC2A /* NSNotificationCenterNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BED0518144ECDAB00B8DC2A /* NSNotificationCenterNewFeaturesRuntime.m */; };
 		53BCF8E0143239D100E896B3 /* NSArray+RemoveDuplicates.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */; };
 		53BCF8E1143239D100E896B3 /* NSArray+RemoveDuplicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */; };
 		53BCF8E314323A4800E896B3 /* JUArrayHelperBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */; };
@@ -107,7 +106,6 @@
 		1BD01FB51444824100A627B1 /* JFFResultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFResultContext.m; sourceTree = "<group>"; };
 		1BE75CFD1434B3450076E068 /* NSObject+Const0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Const0.h"; sourceTree = "<group>"; };
 		1BE75CFE1434B3450076E068 /* NSObject+Const0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Const0.m"; sourceTree = "<group>"; };
-		1BED0518144ECDAB00B8DC2A /* NSNotificationCenterNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterNewFeaturesRuntime.m; sourceTree = "<group>"; };
 		53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RemoveDuplicates.h"; sourceTree = "<group>"; };
 		53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RemoveDuplicates.m"; sourceTree = "<group>"; };
 		53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUArrayHelperBlocks.h; sourceTree = "<group>"; };
@@ -221,14 +219,6 @@
 			path = ToURL;
 			sourceTree = "<group>";
 		};
-		1BED0516144ECD8B00B8DC2A /* NSNotificationCenter */ = {
-			isa = PBXGroup;
-			children = (
-				1BED0518144ECDAB00B8DC2A /* NSNotificationCenterNewFeaturesRuntime.m */,
-			);
-			path = NSNotificationCenter;
-			sourceTree = "<group>";
-		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,7 +279,6 @@
 			children = (
 				1BA676CB144C473500B14D49 /* ToURL */,
 				1BA676B7144C3FB600B14D49 /* Extensions */,
-				1BED0516144ECD8B00B8DC2A /* NSNotificationCenter */,
 				1B3CDDD51445D73A00733BE5 /* XQueryComponents */,
 				651BE0A41390496200DD6890 /* Blocks */,
 				651BE19A1391969300DD6890 /* NSString */,
@@ -454,7 +443,6 @@
 				1B3CDDE21445DA7E00733BE5 /* NSDictionary+XQueryComponents.m in Sources */,
 				1B3CDDE61445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m in Sources */,
 				1B6AAD8F1447039B00EA1D96 /* NSString+Trimm.m in Sources */,
-				1BED051A144ECDAB00B8DC2A /* NSNotificationCenterNewFeaturesRuntime.m in Sources */,
 				1BA676BC144C3FE900B14D49 /* UIWebView+UserAgent.m in Sources */,
 				1BA676C0144C409F00B14D49 /* NSThread+AssertMainThread.m in Sources */,
 				1BA676CF144C474500B14D49 /* NSString+ToURL.m in Sources */,

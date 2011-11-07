@@ -198,8 +198,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				53A33F2A141F65F700469DAA /* CFNetwork.framework */,
-				53A33F28141F64CC00469DAA /* libz.dylib */,
 				5310BA84141F51AD00A3E2B1 /* JFFAsyncOperations.xcodeproj */,
 				5310BA87141F51AD00A3E2B1 /* JFFNetwork.xcodeproj */,
 				5310BA8A141F51AD00A3E2B1 /* JFFScheduler.xcodeproj */,
@@ -235,6 +233,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53A33F2A141F65F700469DAA /* CFNetwork.framework */,
+				53A33F28141F64CC00469DAA /* libz.dylib */,
 				5310BA44141F4D7800A3E2B1 /* GHUnitIOS.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,

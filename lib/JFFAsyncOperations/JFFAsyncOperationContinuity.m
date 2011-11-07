@@ -173,20 +173,20 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
                                    , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL loaded_ = NO;
-      JFFResultContext* error_holder_ = [ JFFResultContext new ];
+      __block NSError* error_holder_;
 
       done_callback_ = [ done_callback_ copy ];
       JFFDidFinishAsyncOperationHandler result_block_ = ^void( id result_, NSError* error_ )
       {
          if ( loaded_ )
          {
-            error_ = error_ ? error_ : error_holder_.error;
+            error_ = error_ ? error_ : error_holder_;
             if ( done_callback_ )
                done_callback_( error_ ? nil : [ NSNull null ], error_ );
             return;
          }
          loaded_ = YES;
-         error_holder_.error = error_;
+         error_holder_ = error_;
       };
 
       __block BOOL block_canceled_ = NO;

@@ -74,7 +74,7 @@
          cancel_( cancel_native_async_op_ );
       };
 
-      //TODO assert retain count
+      //JTODO assert retain count
       [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
 
       JFFCancelAyncOperationBlockHolder* main_cancel_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
