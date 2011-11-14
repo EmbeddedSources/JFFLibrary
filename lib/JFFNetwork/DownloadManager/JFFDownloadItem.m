@@ -17,6 +17,7 @@
 #import <JFFUtils/JFFError.h>
 
 #import <JFFAsyncOperations/CachedAsyncOperations/NSObject+AsyncPropertyReader.h>
+#import <JFFAsyncOperations/JFFAsyncOperationContinuity.h>
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
 
 static JFFMutableAssignArray* download_items_ = nil;
@@ -251,21 +252,20 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
    [ self.trafficCalculator stop ];
 }
 
+-(void)notifyFinishWithError:( NSError* )error_
+{
+   if ( error_ )
+      [ self.multicastDelegate didFailLoadingOfDownloadItem: self error: error_ ];
+   else
+      [ self.multicastDelegate didFinishLoadingOfDownloadItem: self ];
+}
+
 -(void)didFinishLoadedWithError:( NSError* )error_
-                   doneCallback:( JFFDidFinishAsyncOperationHandler )done_callback_
 {
    id downloaded_flag_ = error_ ? nil : [ NSNull null ];
    self.downloadedFlag = downloaded_flag_;
 
    [ self finalizeLoading ];
-
-   if ( error_ )
-      [ self.multicastDelegate didFailLoadingOfDownloadItem: self error: error_ ];
-   else
-      [ self.multicastDelegate didFinishLoadingOfDownloadItem: self ];
-
-   if ( done_callback_ )
-      done_callback_( downloaded_flag_, error_ );
 }
 
 -(void)didCancelWithFlag:( BOOL )canceled_
@@ -334,8 +334,10 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )
       {
-         [ self didFinishLoadedWithError: error_ 
-                            doneCallback: done_callback_ ];
+         [ self didFinishLoadedWithError: error_ ];
+
+          if ( done_callback_ )
+            done_callback_( error_ ? nil : [ NSNull null ], error_ );
       };
 
       connection_.didReceiveResponseBlock = ^( id/*< JNUrlResponse >*/ response_ )
@@ -367,8 +369,15 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
       return self.stopBlock;
    };
 
-   //???
-   return [ self asyncOperationForPropertyWithName: @"downloadedFlag" asyncOperation: loader_ ];
+   loader_ = [ self asyncOperationForPropertyWithName: @"downloadedFlag"
+                                       asyncOperation: loader_ ];
+
+   JFFDidFinishAsyncOperationHandler did_finish_operation_ = ^void( id result_, NSError* error_ )
+   {
+      [ self notifyFinishWithError: error_ ];
+   };
+   return asyncOperationWithFinishCallbackBlock( loader_
+                                                , did_finish_operation_ );
 }
 
 #pragma mark JFFTrafficCalculatorDelegate
