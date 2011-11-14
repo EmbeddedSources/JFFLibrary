@@ -70,29 +70,34 @@
 
 -(void)main
 {
-   NSAutoreleasePool* pool_ = [ NSAutoreleasePool new ];
-
-   JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
-
-   @try
+   @autoreleasepool
    {
+      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
+
       NSError* local_error_ = nil;
-      result_context_.result = self.loadDataBlock( &local_error_ );
-      result_context_.error = local_error_;
-   }
-   @catch ( NSException* ex_ )
-   {
-      NSLog( @"critical error: %@", ex_ );
-      result_context_.result = nil;
-      JFFError* error_ = [ JFFError errorWithDescription: [ NSString stringWithFormat: @"exception: %@, reason: %@", ex_.name, ex_.reason ] ];
-      result_context_.error = error_;
-   }
+      @try
+      {
+         result_context_.result = self.loadDataBlock( &local_error_ );
+         result_context_.error = local_error_;
+      }
+      @catch ( NSException* ex_ )
+      {
+         NSLog( @"critical error: %@", ex_ );
+         result_context_.result = nil;
+         NSString* description_ = [ NSString stringWithFormat: @"exception: %@, reason: %@"
+                                   , ex_.name
+                                   , ex_.reason ];
+         result_context_.error = [ JFFError errorWithDescription:description_  ];
+      }
+      @finally
+      {
+         local_error_ = nil;
+      }
 
-   [ self performSelectorOnMainThread: @selector( didFinishOperationWithResultContext: )
-                           withObject: result_context_
-                        waitUntilDone: YES ];
-
-   [ pool_ release ];
+      [ self performSelectorOnMainThread: @selector( didFinishOperationWithResultContext: )
+                              withObject: result_context_
+                           waitUntilDone: YES ];
+   };
 }
 
 @end

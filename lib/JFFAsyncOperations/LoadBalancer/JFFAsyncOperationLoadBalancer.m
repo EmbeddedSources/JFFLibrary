@@ -262,7 +262,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
 static BOOL canPeformAsyncOperationForContext( JFFContextLoaders* context_loaders_ )
 {
-   //TODO check condition yet
+   //JTODO check condition yet
    BOOL is_active_context_ = [ sharedBalancer().activeContextName isEqualToString: context_loaders_.name ];
    return ( ( is_active_context_ && context_loaders_.activeLoadersNumber < max_operation_count_ )
            || 0 == global_active_number_ )
