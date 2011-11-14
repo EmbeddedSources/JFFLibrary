@@ -30,7 +30,16 @@
 -(void)clearData
 {
    self.objectPropertyData = nil;
-   self.object = nil;
+
+   //JTODO cover by test
+   //Scenario:
+   //1. Crealte property loader
+   //2. Wrap it by unsubscribe on dealloc
+   //3. Release owner
+   //4. Finish loader -> crash
+   [ [ self.object retain ] autorelease ];
+
+   self.object = nil;//release but not dont remove write now
    //self.propertyPath = nil;
 }
 
