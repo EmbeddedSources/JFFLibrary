@@ -30,7 +30,7 @@
 
    {
       //!c self is retained by native_connection_
-      //TODO : break the cycle
+      //JTODO : break the cycle
       NSURLConnection* native_connection_ = [ [ NSURLConnection alloc ] initWithRequest: request_
                                                                                delegate: self
                                                                        startImmediately: NO ];

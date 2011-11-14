@@ -2,6 +2,7 @@
 
 #import "NSString+XQueryComponents.h"
 #import "NSArray+BlocksAdditions.h"
+#import "NSArray+NoThrowObjectAtIndex.h"
 
 static NSString* const query_component_format_ = @"%@=%@";
 static NSString* const query_component_separator_ = @"&";
@@ -51,6 +52,11 @@ static NSString* const query_component_separator_ = @"&";
       return [ values_ arrayOfQueryComponentsForKey: key_ ];
    } ];
    return [ result_ componentsJoinedByString: query_component_separator_ ];
+}
+
+-(NSString*)firstValueIfExsistsForKey:( NSString* )key_
+{
+   return [ [ self objectForKey: key_ ] noThrowObjectAtIndex: 0 ];
 }
 
 @end
