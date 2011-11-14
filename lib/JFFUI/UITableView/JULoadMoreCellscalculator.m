@@ -1,17 +1,32 @@
 #import "JULoadMoreCellscalculator.h"
 
+#import "UITableView+WithinUpdates.h"
+
+#undef SHOW_DEBUG_LOGS
+#import <JFFLibrary/JDebugLog.h>
+
 @implementation JULoadMoreCellscalculator
 
 @synthesize currentCount = _current_count;
 @synthesize pageSize = _page_size;
 @synthesize totalElementsCount = _total_elements_count;
 
+@dynamic isPagingDisabled;
+@dynamic isPagingEnabled ;
+@dynamic numberOfRows    ;
+
 @dynamic hasNoElements;
 @dynamic allElementsLoaded;
 @dynamic loadMoreIndexPath;
 
-static const NSUInteger RIUndefinedElementsCount = NSUIntegerMax;
+#warning More Unit tests required
 
+static const NSUInteger RIUndefinedElementsCount = NSUIntegerMax;
+static const NSUInteger RIPagingDisabled         = 0;
+
+
+#pragma mark -
+#pragma mark Helper conditions
 -(BOOL)hasNoElements
 {
    return ( self.totalElementsCount == 0  ) || ( self.totalElementsCount == RIUndefinedElementsCount );
@@ -22,6 +37,21 @@ static const NSUInteger RIUndefinedElementsCount = NSUIntegerMax;
    return ( self.currentCount >=  self.totalElementsCount );
 }
 
+-(BOOL)isPagingDisabled
+{
+   BOOL result_ = ( RIPagingDisabled == self.pageSize );
+   //NSLog( @"result[%d] : %d == %d", result_, RIPagingDisabled, self.pageSize );
+
+   return result_;
+}
+
+-(BOOL)isPagingEnabled
+{
+   return !self.isPagingDisabled;
+}
+
+#pragma mark -
+#pragma mark Load More
 -(NSIndexPath*)loadMoreIndexPath
 {
    return [ NSIndexPath indexPathForRow: self.currentCount
@@ -65,37 +95,169 @@ static const NSUInteger RIUndefinedElementsCount = NSUIntegerMax;
    {
       return 0;
    }
-   if ( self.allElementsLoaded )
+   else if ( self.allElementsLoaded )
    {
       *out_is_overflow_ = YES;
       return 0;
    }
-   if ( [ self noNeedToLoadElementAtIndexPath: index_path_ ] )
+   else if ( [ self noNeedToLoadElementAtIndexPath: index_path_ ] )
    {
       return 0;
-   }
-   
-   static const NSUInteger load_more_placeholder_size_ = 1;
-   NSUInteger rest_of_the_pages_ = self.totalElementsCount - self.currentCount;
-   BOOL is_paging_disabled_ = ( self.pageSize == 0 );   
-   if ( is_paging_disabled_ )
+   }  
+   else if ( self.isPagingDisabled )
    {
-      return rest_of_the_pages_ - load_more_placeholder_size_;
+      return self.totalElementsCount - self.currentCount;
    }
-   
+
+   static const NSUInteger load_more_placeholder_size_ = 1;
+   NSUInteger rest_of_the_items_ = self.totalElementsCount - self.currentCount;
+
    float items_count_for_index_path_ = 1 + index_path_.row;
    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
-   
+
    //check if paging disabled
    BOOL is_overflow_ = ( elements_expected_ >= self.totalElementsCount );
    if ( is_overflow_ )
    {
       *out_is_overflow_ = YES;
-      return rest_of_the_pages_ - load_more_placeholder_size_;
+      return rest_of_the_items_ - load_more_placeholder_size_;
+   }
+
+   return elements_expected_ - self.currentCount;
+}
+
+
+#pragma mark -
+#pragma mark TableViewHelper
+-(NSUInteger)numberOfRows
+{
+   NSUInteger result_ = self.totalElementsCount;
+
+   if ( self.hasNoElements )
+   {
+      // "Loading" cell or "No clips" cell.
+      result_ = 1;
+   }
+   else if ( self.isPagingEnabled && !self.allElementsLoaded )
+   {
+      result_ =  self.currentCount + 1/*More shows cell*/;
    }
    
-   return elements_expected_ - self.currentCount;
+   return  result_;
+}
+
+-(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_
+{
+   self.currentCount = 0;
+   self.totalElementsCount = total_elements_count_;
+
+   if ( total_elements_count_ > 0 )
+   {      
+      self.currentCount = self.isPagingEnabled
+         ? fmin( total_elements_count_, self.pageSize )
+         : total_elements_count_;
+   }
+
+   return self.currentCount;
+}
+
+
+-(void)insertToTableView:( id<JUTableViewHolder> )table_view_holder_
+             bottomCells:(NSUInteger)cells_count_
+         overflowOccured:( BOOL )is_overflow_
+{
+   NSDebugLog( @"[BEGIN] : insertToBottomCells" ); 
+   if ( 0 == cells_count_ )
+   {
+      NSDebugLog( @"NO cells to insert" );
+      NSDebugLog( @"[END] : insertToBottomCells" );
+      return;
+   }
+   
+   NSArray* index_paths_ = [ self prepareIndexPathEntriesForBottomCells: cells_count_ ];
+   
+   NSDebugLog( @"index_path_[%d] : %@ .. %@", [ index_paths_ count ], [ index_paths_ objectAtIndex: 0 ], [ index_paths_ lastObject ] );
+   NSDebugLog( @"page size : %d", [ self pageSize ] );
+   NSDebugLog( @"numberOfRowsInSection : %d", [ self.tableView numberOfRowsInSection: 0 ] );
+   
+   [ table_view_holder_.tableView withinUpdates: ^void()
+    {
+       NSDebugLog( @"beginUpdates" );      
+       NSArray* load_more_path_array_ = [ NSArray arrayWithObject: self.loadMoreIndexPath ];
+       
+       [ table_view_holder_.tableView reloadRowsAtIndexPaths: load_more_path_array_
+                                            withRowAnimation: UITableViewRowAnimationNone ];
+       
+       
+       [ table_view_holder_.tableView insertRowsAtIndexPaths: index_paths_ 
+                                            withRowAnimation: UITableViewRowAnimationNone ];
+       
+       
+       NSDebugLog( @"Updating currentCount..." );
+       self.currentCount += cells_count_;
+       if ( is_overflow_ && ( self.currentCount < self.totalElementsCount ) )
+       {
+          ++self.currentCount;
+       }
+       table_view_holder_.currentCount = self.currentCount;
+       
+       NSDebugLog( @"currentCount : %d", self.currentCount );
+       NSDebugLog( @"endUpdates" );
+    } ];
+   
+   NSDebugLog( @"[END] : insertToBottomCells" );
+}
+
+-(void)autoLoadingScrollTableView:( id<JUTableViewHolder> )table_view_holder_
+                 toRowAtIndexPath:( NSIndexPath* )index_path_ 
+                 atScrollPosition:( UITableViewScrollPosition )scroll_position_ 
+                         animated:( BOOL )animated_
+{
+   NSDebugLog( @"[BEGIN] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );
+   NSDebugLog( @"  totalClipsCount == %d", self.totalElementsCount );
+   NSDebugLog( @"  currentCount    == %d", self.currentCount );
+
+   if ( [ self hasNoElements ] )
+   {
+      NSDebugLog( @"   No clips available" );
+      NSDebugLog( @"[END] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );      
+      return;
+   }
+
+   BOOL is_overflow_ = NO;
+   NSUInteger clips_to_add_ = [ self suggestElementsToAddCountForIndexPath: index_path_ 
+                                                           overflowOccured: &is_overflow_];
+   NSDebugLog( @"  clips_to_add_   == %d", clips_to_add_ );
+
+   if ( 0 != clips_to_add_ )
+   {
+      NSDebugLog( @"   inserting cells" );   
+      [ self insertToTableView: table_view_holder_
+                   bottomCells: clips_to_add_ 
+               overflowOccured: is_overflow_ ];
+
+      NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
+                                                      inSection: 0 ];
+
+      NSDebugLog( @"   scrolling down to [%@]", destination_ );
+      [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
+                                           atScrollPosition: scroll_position_
+                                                   animated: animated_ ];
+   }
+
+   NSDebugLog( @"[END] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );   
+}
+
+#pragma mark -
+#pragma mark Utils
++(NSArray*)defaultUpdateScopeForIndex:( NSUInteger )index_
+{
+   NSIndexPath* index_path_ = [ NSIndexPath indexPathForRow: index_
+                                                  inSection: 0 ];
+   NSArray* result_ = [ NSArray arrayWithObject: index_path_ ];
+   
+   return result_;
 }
 
 @end
