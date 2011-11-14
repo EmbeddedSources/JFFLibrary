@@ -72,6 +72,8 @@
 
       ondealloc_block_holder_.simpleBlock = ^void( void )
       {
+         //! ensure the ondealloc block is removed. As cancel_() may not call cancel_callback_wrapper_.
+         remove_ondealloc_block_holder_.onceSimpleBlock();
          cancel_( NO );
       };
 
@@ -82,10 +84,13 @@
       main_cancel_holder_.cancelBlock = ^void( BOOL canceled_ )
       {
          if ( finished_ )
+         {
             return;
+         }
 
          progress_callback_holder_.progressBlock = nil;
          done_callback_holder_.didFinishBlock = nil;
+
          //cancel_callback_holder_.cancelBlock will be nilled here
          cancel_callback_holder_.onceCancelBlock( canceled_ );
       };
