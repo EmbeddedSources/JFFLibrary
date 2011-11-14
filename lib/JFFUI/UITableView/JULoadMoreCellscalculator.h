@@ -1,10 +1,24 @@
 #import <Foundation/Foundation.h>
 
+@class UITableView;
+
+@protocol JUTableViewHolder <NSObject>
+
+@required
+   @property ( nonatomic, retain, readonly ) UITableView* tableView  ;
+   @property ( nonatomic, assign           ) NSInteger   currentCount;
+
+@end
+
 @interface JULoadMoreCellscalculator : NSObject
 
 @property ( nonatomic, assign ) NSUInteger currentCount;
 @property ( nonatomic, assign ) NSUInteger pageSize;
 @property ( nonatomic, assign ) NSUInteger totalElementsCount;
+
+@property ( nonatomic, assign, readonly ) BOOL       isPagingDisabled;
+@property ( nonatomic, assign, readonly ) BOOL       isPagingEnabled ;
+@property ( nonatomic, assign, readonly ) NSUInteger numberOfRows    ;
 
 -(NSArray*)prepareIndexPathEntriesForBottomCells:( NSUInteger )cells_count_;
 -(NSUInteger)suggestElementsToAddCountForIndexPath:( NSIndexPath* )index_path_
@@ -12,8 +26,17 @@
 
 @property ( nonatomic, assign, readonly ) BOOL hasNoElements;
 @property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;
-@property ( nonatomic, strong, readonly ) NSIndexPath* loadMoreIndexPath;
+@property ( nonatomic, retain, readonly ) NSIndexPath* loadMoreIndexPath;
 
 -(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_;
+-(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_;
+
++(NSArray*)defaultUpdateScopeForIndex:( NSUInteger )index_;
+
+
+-(void)autoLoadingScrollTableView:( id<JUTableViewHolder> )table_view_holder_
+                 toRowAtIndexPath:( NSIndexPath* )index_path_ 
+                 atScrollPosition:( UITableViewScrollPosition )scroll_position_ 
+                         animated:( BOOL )animated_;
 
 @end
