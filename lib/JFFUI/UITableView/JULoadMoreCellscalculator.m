@@ -58,6 +58,13 @@ static const NSUInteger RIPagingDisabled         = 0;
                               inSection: 0 ];
 }
 
+-(BOOL)isLoadMoreIndexPath:( NSIndexPath* )index_path_
+{
+   return 
+      ( self.isPagingEnabled ) &&
+      ( self.currentCount == index_path_.row );
+}
+
 -(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_
 {
    return ( index_path_.row < self.currentCount );
@@ -205,7 +212,7 @@ static const NSUInteger RIPagingDisabled         = 0;
        NSDebugLog( @"currentCount : %d", self.currentCount );
        NSDebugLog( @"endUpdates" );
     } ];
-   
+
    NSDebugLog( @"[END] : insertToBottomCells" );
 }
 
