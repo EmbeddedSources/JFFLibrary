@@ -23,12 +23,16 @@
 -(NSArray*)prepareIndexPathEntriesForBottomCells:( NSUInteger )cells_count_;
 -(NSUInteger)suggestElementsToAddCountForIndexPath:( NSIndexPath* )index_path_
                                    overflowOccured:( BOOL* )is_overflow_;
+-(NSUInteger)suggestElementsToAddCountForIndex:( NSUInteger )index_
+                               overflowOccured:( BOOL* )out_is_overflow_;
+
+
 
 @property ( nonatomic, assign, readonly ) BOOL hasNoElements;
 @property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;
 @property ( nonatomic, retain, readonly ) NSIndexPath* loadMoreIndexPath;
+-(BOOL)isLoadMoreIndexPath:( NSIndexPath* )index_path_;
 
--(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_;
 -(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_;
 
 +(NSArray*)defaultUpdateScopeForIndex:( NSUInteger )index_;
