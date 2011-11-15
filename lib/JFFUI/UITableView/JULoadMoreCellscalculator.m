@@ -40,8 +40,6 @@ static const NSUInteger RIPagingDisabled         = 0;
 -(BOOL)isPagingDisabled
 {
    BOOL result_ = ( RIPagingDisabled == self.pageSize );
-   //NSLog( @"result[%d] : %d == %d", result_, RIPagingDisabled, self.pageSize );
-
    return result_;
 }
 
@@ -127,7 +125,6 @@ static const NSUInteger RIPagingDisabled         = 0;
 
    static const NSUInteger load_more_placeholder_size_ = 1;
    NSUInteger rest_of_the_items_ = self.totalElementsCount - self.currentCount;
-
 
    float items_count_for_index_path_ = 1 + index_;
    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
@@ -258,6 +255,7 @@ static const NSUInteger RIPagingDisabled         = 0;
 
       NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
                                                       inSection: 0 ];
+
       NSDebugLog( @"   scrolling down to [%@]", destination_ );
       [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
                                            atScrollPosition: scroll_position_

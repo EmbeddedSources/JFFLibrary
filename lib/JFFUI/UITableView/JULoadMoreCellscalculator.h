@@ -20,6 +20,16 @@
 
 @end
 
+@class UITableView;
+
+@protocol JUTableViewHolder <NSObject>
+
+@required
+   @property ( nonatomic, retain, readonly ) UITableView* tableView  ;
+   @property ( nonatomic, assign           ) NSInteger   currentCount;
+
+@end
+
 @interface JULoadMoreCellscalculator : NSObject
 
 @property ( nonatomic, assign ) NSUInteger currentCount;
