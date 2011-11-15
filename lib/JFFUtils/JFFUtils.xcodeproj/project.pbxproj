@@ -295,7 +295,6 @@
 			children = (
 				1BA676CB144C473500B14D49 /* ToURL */,
 				1BA676B7144C3FB600B14D49 /* Extensions */,
-				1BED0516144ECD8B00B8DC2A /* NSNotificationCenter */,
 				1BED0512144ECD2600B8DC2A /* NSURL */,
 				1B3CDDD51445D73A00733BE5 /* XQueryComponents */,
 				651BE0A41390496200DD6890 /* Blocks */,
@@ -482,7 +481,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/JFFUtils.dst;
@@ -504,7 +502,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				DSTROOT = /tmp/JFFUtils.dst;
 				GCC_MODEL_TUNING = G5;
