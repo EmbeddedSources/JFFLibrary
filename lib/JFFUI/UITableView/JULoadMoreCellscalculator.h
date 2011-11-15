@@ -27,6 +27,7 @@
 @property ( nonatomic, assign, readonly ) BOOL hasNoElements;
 @property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;
 @property ( nonatomic, retain, readonly ) NSIndexPath* loadMoreIndexPath;
+-(BOOL)isLoadMoreIndexPath:( NSIndexPath* )index_path_;
 
 -(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_;
 -(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_;
