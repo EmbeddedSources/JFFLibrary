@@ -30,6 +30,16 @@
 
 @end
 
+@class UITableView;
+
+@protocol JUTableViewHolder <NSObject>
+
+@required
+   @property ( nonatomic, retain, readonly ) UITableView* tableView  ;
+   @property ( nonatomic, assign           ) NSInteger   currentCount;
+
+@end
+
 @interface JULoadMoreCellscalculator : NSObject
 
 @property ( nonatomic, assign ) NSUInteger currentCount;
@@ -51,9 +61,16 @@
 @property ( nonatomic, assign, readonly ) BOOL hasNoElements;
 @property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;
 @property ( nonatomic, retain, readonly ) NSIndexPath* loadMoreIndexPath;
+-(BOOL)isLoadMoreIndexPath:( NSIndexPath* )index_path_;
 
+<<<<<<< HEAD
 -(BOOL)isLoadMoreIndexPath:( NSIndexPath* )index_path_;
 -(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_;
+=======
+-(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_;
+-(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_;
+
+>>>>>>> b1faa8014a7c6e92b281ea30fb3eff12a0adb963
 +(NSArray*)defaultUpdateScopeForIndex:( NSUInteger )index_;
 
 
