@@ -154,15 +154,14 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
    }
 }
 
-//TODO add timeout
-//TODO test invalid url
-//TODO test no internet connection
+//JTODO add timeout
+//JTODO test invalid url
+//JTODO test no internet connection
 -(void)startConnectionWithPostData:( NSData* )data_
                            headers:( NSDictionary* )headers_
 {
    CFStringRef method_ = (CFStringRef) ( data_ ? @"POST" : @"GET" );
    CFHTTPMessageRef http_request_ = CFHTTPMessageCreateRequest( NULL, method_, (CFURLRef)self.url, kCFHTTPVersion1_1 );
-
 
    [ self applyCookiesForHTTPRequest: http_request_ ];
 

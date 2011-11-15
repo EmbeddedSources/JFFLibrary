@@ -128,6 +128,7 @@ static const NSUInteger RIPagingDisabled         = 0;
    static const NSUInteger load_more_placeholder_size_ = 1;
    NSUInteger rest_of_the_items_ = self.totalElementsCount - self.currentCount;
 
+
    float items_count_for_index_path_ = 1 + index_;
    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
@@ -235,37 +236,34 @@ static const NSUInteger RIPagingDisabled         = 0;
    NSDebugLog( @"[BEGIN] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );
    NSDebugLog( @"  totalClipsCount == %d", self.totalElementsCount );
    NSDebugLog( @"  currentCount    == %d", self.currentCount );
-   
-   
+
    if ( [ self hasNoElements ] )
    {
       NSDebugLog( @"   No clips available" );
       NSDebugLog( @"[END] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );      
       return;
    }
-   
+
    BOOL is_overflow_ = NO;
    NSUInteger clips_to_add_ = [ self suggestElementsToAddCountForIndexPath: index_path_ 
                                                            overflowOccured: &is_overflow_];
    NSDebugLog( @"  clips_to_add_   == %d", clips_to_add_ );
-   
+
    if ( 0 != clips_to_add_ )
    {
       NSDebugLog( @"   inserting cells" );   
       [ self insertToTableView: table_view_holder_
                    bottomCells: clips_to_add_ 
                overflowOccured: is_overflow_ ];
-      
-      
+
       NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
                                                       inSection: 0 ];
-      
       NSDebugLog( @"   scrolling down to [%@]", destination_ );
       [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
                                            atScrollPosition: scroll_position_
                                                    animated: animated_ ];
    }
-   
+
    NSDebugLog( @"[END] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );   
 }
 

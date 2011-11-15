@@ -4,7 +4,7 @@
 
 #import <JFFScheduler/JFFScheduler.h>
 
-//TODO rename to JFFStubCancelAsyncOperationBlock
+//JTODO rename to JFFStubCancelAsyncOperationBlock
 JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock = ^void( BOOL cancel_ ){ /*do nothing*/ };
 
 JFFAsyncOperation JFFAsyncOperationBlockWithSuccessResult =

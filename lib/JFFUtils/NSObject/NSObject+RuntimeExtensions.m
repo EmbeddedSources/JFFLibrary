@@ -83,7 +83,7 @@ typedef BOOL (^JFFPredicate)();
                                 methodGetter: method_getter_ ];
 }
 
-//TODO check if class contains hooked method
+//JTODO check if class contains hooked method
 //typedef Class (^JFFClassForClass)( Class cls_ );
 +(void)hookMethodForClass:( Class )class_
             classForClass:( JFFClassForClass )class_for_class_

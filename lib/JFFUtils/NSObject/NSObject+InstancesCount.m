@@ -121,7 +121,7 @@
 
             if ( !method_added_ )
             {
-               //TODO create name allocWithZoneHook dynamicaly and allocWithZonePrototype use block instead
+               //JTODO create name allocWithZoneHook dynamicaly and allocWithZonePrototype use block instead
                [ [ self class ] hookClassMethodForClass: class_
                                            withSelector: @selector( allocWithZone: )
                                 prototypeMethodSelector: @selector( alloCWithZonePrototype: )

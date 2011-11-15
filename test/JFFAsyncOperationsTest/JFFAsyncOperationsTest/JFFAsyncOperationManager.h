@@ -2,6 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class JFFCancelAyncOperationBlockHolder;
 @class JFFDidFinishAsyncOperationBlockHolder;
 
 @interface JFFAsyncOperationManager : NSObject
@@ -10,7 +11,8 @@
 @property ( nonatomic, assign ) BOOL failAtLoading;
 
 @property ( nonatomic, copy, readonly ) JFFAsyncOperation loader;
-@property ( nonatomic, copy, readonly ) JFFDidFinishAsyncOperationBlockHolder* loaderFinishBlock;
+@property ( nonatomic, retain, readonly ) JFFDidFinishAsyncOperationBlockHolder* loaderFinishBlock;
+@property ( nonatomic, retain, readonly ) JFFCancelAyncOperationBlockHolder* loaderCancelBlock;
 
 @property ( nonatomic, assign, readonly ) BOOL finished;
 @property ( nonatomic, assign, readonly ) BOOL canceled;

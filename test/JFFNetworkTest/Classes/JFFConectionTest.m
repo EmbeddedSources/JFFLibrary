@@ -7,9 +7,9 @@
 -(void)testValidDownloadCompletesCorrectly
 {
    [ self prepare ];
-   
+
    NSURL* data_url_ = [ NSURL URLWithString: @"http://10.28.9.57:9000/about/" ];
-   
+
    JNConnectionsFactory* factory_ = [ [ JNConnectionsFactory alloc ] initWithUrl: data_url_
                                                                         postData: nil
                                                                          headers: nil ];

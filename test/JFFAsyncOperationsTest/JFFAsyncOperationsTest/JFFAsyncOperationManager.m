@@ -5,8 +5,8 @@
 
 @interface JFFAsyncOperationManager ()
 
-@property ( nonatomic, copy ) JFFAsyncOperation loader;
-@property ( nonatomic, copy ) JFFDidFinishAsyncOperationBlockHolder* loaderFinishBlock;
+@property ( nonatomic, retain ) JFFDidFinishAsyncOperationBlockHolder* loaderFinishBlock;
+@property ( nonatomic, retain ) JFFCancelAyncOperationBlockHolder* loaderCancelBlock;
 
 @property ( nonatomic, assign ) BOOL finished;
 @property ( nonatomic, assign ) BOOL canceled;
@@ -16,8 +16,8 @@
 
 @implementation JFFAsyncOperationManager
 
-@synthesize loader;
 @synthesize loaderFinishBlock;
+@synthesize loaderCancelBlock;
 @synthesize finished;
 @synthesize canceled;
 @synthesize cancelFlag;
@@ -26,8 +26,8 @@
 
 -(void)dealloc
 {
-   [ loader release ];
    [ loaderFinishBlock release ];
+   [ loaderCancelBlock release ];
 
    [ super dealloc ];
 }
@@ -39,6 +39,7 @@
    if ( self )
    {
       loaderFinishBlock = [ JFFDidFinishAsyncOperationBlockHolder new ];
+      loaderCancelBlock = [ JFFCancelAyncOperationBlockHolder new ];
    }
 
    return self;
@@ -46,48 +47,51 @@
 
 -(void)clear
 {
-   self.loader = nil;
    self.loaderFinishBlock = nil;
+   self.loaderCancelBlock = nil;
    self.finished = NO;
 }
 
 -(JFFAsyncOperation)loader
 {
-   if ( !loader )
+   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                       , JFFCancelAsyncOperationHandler cancel_callback_
+                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
+      done_callback_ = [ done_callback_ copy ];
+
       __block JFFAsyncOperationManager* self_ = self;
-      self.loader = ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                             , JFFCancelAsyncOperationHandler cancel_callback_
-                                             , JFFDidFinishAsyncOperationHandler done_callback_ )
+
+      self.loaderFinishBlock.didFinishBlock = ^( id result_, NSError* error_ )
       {
-         done_callback_ = [ done_callback_ copy ];
-         self_.loaderFinishBlock.didFinishBlock = ^( id result_, NSError* error_ )
-         {
-            self_.finished = YES;
-            if ( done_callback_ )
-               done_callback_( result_, error_ );
-         };
-         [ done_callback_ release ];
-
-         if ( self_.finishAtLoading || self_.failAtLoading )
-         {
-            if ( self_.finishAtLoading )
-               self_.loaderFinishBlock.didFinishBlock( [ NSNull null ], nil );
-            else
-               self_.loaderFinishBlock.didFinishBlock( nil, [ JFFError errorWithDescription: @"some error" ] );
-            return JFFEmptyCancelAsyncOperationBlock;
-         }
-
-         JFFCancelAyncOperationBlockHolder* cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
-         cancel_holder_.cancelBlock = ^( BOOL canceled_ )
-         {
-            self_.canceled = YES;
-            self_.cancelFlag = canceled_;
-         };
-         return cancel_holder_.onceCancelBlock;
+         //TODO use self instead of self_
+         self_.loaderCancelBlock.cancelBlock = nil;
+         self_.finished = YES;
+         if ( done_callback_ )
+            done_callback_( result_, error_ );
       };
-   }
-   return loader;
+      [ done_callback_ release ];
+
+      if ( self.finishAtLoading || self.failAtLoading )
+      {
+         if ( self.finishAtLoading )
+            self.loaderFinishBlock.didFinishBlock( [ NSNull null ], nil );
+         else
+            self.loaderFinishBlock.didFinishBlock( nil, [ JFFError errorWithDescription: @"some error" ] );
+         return JFFEmptyCancelAsyncOperationBlock;
+      }
+
+      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
+      self.loaderCancelBlock.cancelBlock = ^( BOOL canceled_ )
+      {
+         self.loaderFinishBlock.didFinishBlock = nil;
+         self.canceled = YES;
+         self.cancelFlag = canceled_;
+         if ( cancel_callback_ )
+            cancel_callback_( canceled_ );
+      };
+      return self.loaderCancelBlock.onceCancelBlock;
+   } copy ] autorelease ];
 }
 
 @end

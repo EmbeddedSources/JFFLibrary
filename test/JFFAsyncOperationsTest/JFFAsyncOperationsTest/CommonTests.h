@@ -1,6 +1,0 @@
-#ifndef JFFAsyncOperationsTest_CommonAsyncTests_h
-#define JFFAsyncOperationsTest_CommonAsyncTests_h
-
-#import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
-
-#endif
