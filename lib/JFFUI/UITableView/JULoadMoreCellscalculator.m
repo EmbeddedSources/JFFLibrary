@@ -2,7 +2,8 @@
 
 #import "UITableView+WithinUpdates.h"
 
-#undef SHOW_DEBUG_LOGS
+//#undef SHOW_DEBUG_LOGS
+#define SHOW_DEBUG_LOGS
 #import <JFFLibrary/JDebugLog.h>
 
 @implementation JULoadMoreCellscalculator
@@ -197,7 +198,6 @@ static const NSUInteger RIPagingDisabled         = 0;
    
    NSDebugLog( @"index_path_[%d] : %@ .. %@", [ index_paths_ count ], [ index_paths_ objectAtIndex: 0 ], [ index_paths_ lastObject ] );
    NSDebugLog( @"page size : %d", [ self pageSize ] );
-   NSDebugLog( @"numberOfRowsInSection : %d", [ self.tableView numberOfRowsInSection: 0 ] );
    
    [ table_view_holder_.tableView withinUpdates: ^void()
     {
@@ -249,22 +249,17 @@ static const NSUInteger RIPagingDisabled         = 0;
                                                            overflowOccured: &is_overflow_];
    NSDebugLog( @"  clips_to_add_   == %d", clips_to_add_ );
    
-   NSIndexPath* destination_ = nil;
+    nil;
    if ( 0 != clips_to_add_ )
    {
       NSDebugLog( @"   inserting cells" );   
       [ self insertToTableView: table_view_holder_
                    bottomCells: clips_to_add_ 
                overflowOccured: is_overflow_ ];
-      
-      
-      destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
-                                         inSection: 0 ];      
    }
-   else
-   {
-      destination_ = index_path_;
-   }
+   NSUInteger target_index_ = MIN( self.currentCount - clips_to_add_, index_path_.row );
+   NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: target_index_
+                                                   inSection: index_path_.section ];
    
    NSDebugLog( @"   scrolling down to [%@]", destination_ );
    [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
