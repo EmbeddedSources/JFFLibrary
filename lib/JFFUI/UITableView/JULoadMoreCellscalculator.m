@@ -249,6 +249,7 @@ static const NSUInteger RIPagingDisabled         = 0;
                                                            overflowOccured: &is_overflow_];
    NSDebugLog( @"  clips_to_add_   == %d", clips_to_add_ );
    
+   NSIndexPath* destination_ = nil;
    if ( 0 != clips_to_add_ )
    {
       NSDebugLog( @"   inserting cells" );   
@@ -257,14 +258,18 @@ static const NSUInteger RIPagingDisabled         = 0;
                overflowOccured: is_overflow_ ];
       
       
-      NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
-                                                      inSection: 0 ];
-      
-      NSDebugLog( @"   scrolling down to [%@]", destination_ );
-      [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
-                                           atScrollPosition: scroll_position_
-                                                   animated: animated_ ];
+      destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
+                                         inSection: 0 ];      
    }
+   else
+   {
+      destination_ = index_path_;
+   }
+   
+   NSDebugLog( @"   scrolling down to [%@]", destination_ );
+   [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
+                                        atScrollPosition: scroll_position_
+                                                animated: animated_ ];
    
    NSDebugLog( @"[END] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );   
 }
