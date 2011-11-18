@@ -34,18 +34,18 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
             progress_callback_( data_ );
       };
 
-      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
+      __block id result_context_ = nil;
 
       done_callback_ = [ [ done_callback_ copy ] autorelease ];
       connection_.didFinishLoadingBlock = ^( NSError* error_ )
       {
          if ( done_callback_ )
-            done_callback_( error_ ? nil : result_context_.result, error_ );
+            done_callback_( error_ ? nil : result_context_, error_ );
       };
 
       connection_.didReceiveResponseBlock = ^( id/*< JNUrlResponse >*/ response_ )
       {
-         result_context_.result = response_;
+         result_context_ = response_;
       };
 
       JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];

@@ -11,11 +11,6 @@
    return self;
 }
 
-+(id)assignProxyWithTarget:( id )target_
-{
-   return [ [ self alloc ] initWithTarget: target_ ];
-}
-
 -(void)forwardInvocation:( NSInvocation* )invocation_
 {
    SEL selector_ = [ invocation_ selector ];

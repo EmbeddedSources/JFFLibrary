@@ -1,6 +1,5 @@
 #import "JFFSingleThreadProxy.h"
 
-#import "JFFResultContext.h"
 #include "JGCDAdditions.h"
 
 @interface JFFProxyObjectContainer : NSObject
@@ -76,13 +75,13 @@
 
 -(NSMethodSignature*)methodSignatureForSelector:( SEL )selector_
 {
-   JFFResultContext* context_ = [ JFFResultContext new ];
+   __block id resut_ = nil;
    void (^method_signature_)( void ) = ^void( void )
    {
-      context_.result = [ self.container.target methodSignatureForSelector: selector_ ];
+      resut_ = [ self.container.target methodSignatureForSelector: selector_ ];
    };
    safe_dispatch_sync( dispatchQueue, method_signature_ );
-   return context_.result;
+   return resut_;
 }
 
 @end

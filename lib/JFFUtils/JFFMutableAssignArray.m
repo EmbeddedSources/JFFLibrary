@@ -1,10 +1,11 @@
 #import "JFFMutableAssignArray.h"
 
 #import "JFFAssignProxy.h"
-#import "JFFUtilsBlockDefinitions.h"
 
 #import "NSArray+BlocksAdditions.h"
 #import "NSObject+OnDeallocBlock.h"
+
+#include "JFFUtilsBlockDefinitions.h"
 
 @interface JFFAutoRemoveAssignProxy : JFFAssignProxy
 
@@ -15,11 +16,6 @@
 @implementation JFFAutoRemoveAssignProxy
 
 @synthesize onDeallocBlock = _on_dealloc_block;
-
--(void)dealloc
-{
-   _on_dealloc_block = nil;
-}
 
 -(void)onAddToMutableAssignArray:( JFFMutableAssignArray* )array_
 {
@@ -72,7 +68,7 @@
 
 -(void)addObject:( id )object_
 {
-   JFFAutoRemoveAssignProxy* proxy_ = [ JFFAutoRemoveAssignProxy assignProxyWithTarget: object_ ];
+   JFFAutoRemoveAssignProxy* proxy_ = [ [ JFFAutoRemoveAssignProxy alloc ] initWithTarget: object_ ];
    [ self.mutableArray addObject: proxy_ ];
    [ proxy_ onAddToMutableAssignArray: self ];
 }

@@ -12,12 +12,14 @@
 #import <JFFUtils/NSString/NSString+PathExtensions.h>
 #import <JFFUtils/NSString/NSString+PropertyName.h>
 #import <JFFUtils/NSString/NSString+Trimm.h>
+#import <JFFUtils/NSString/NSString+UUIDCreation.h>
 
 #import <JFFUtils/ToURL/NSString+ToURL.h>
 #import <JFFUtils/ToURL/NSURL+ToURL.h>
 
 #import <JFFUtils/XQueryComponents/NSString+XQueryComponents.h>
 #import <JFFUtils/XQueryComponents/NSURL+XQueryComponents.h>
+#import <JFFUtils/XQueryComponents/NSDictionary+XQueryComponents.h>
 
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 #import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>

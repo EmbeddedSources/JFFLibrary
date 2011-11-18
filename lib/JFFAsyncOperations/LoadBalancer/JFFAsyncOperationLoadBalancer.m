@@ -69,7 +69,7 @@ static BOOL performLoaderFromContextIfPossible( JFFContextLoaders* context_loade
    {
       JFFPedingLoaderData* pending_loader_data_ = [ context_loaders_ popPendingLoaderData ];
       performInBalancerPedingLoaderData( pending_loader_data_, context_loaders_ );
-      //TODO remove empty context_loaders_ (without tasks)
+      //JTODO remove empty context_loaders_ (without tasks)
       return YES;
    }
    return NO;
@@ -225,7 +225,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
                                                    , native_loader_
                                                    , context_loaders_ );
 
-      //TODO check native loader no within balancer !!!
+      //JTODO check native loader no within balancer !!!
       JFFCancelAsyncOperation cancel_block_ = native_loader_( wrapped_progress_callback_
                                                              , wrapped_cancel_callback_
                                                              , wrapped_done_callback_ );
@@ -262,7 +262,7 @@ static JFFAsyncOperation wrappedAsyncOperationWithContext( JFFAsyncOperation nat
 
 static BOOL canPeformAsyncOperationForContext( JFFContextLoaders* context_loaders_ )
 {
-   //TODO check condition yet
+   //JTODO check condition yet
    BOOL is_active_context_ = [ sharedBalancer().activeContextName isEqualToString: context_loaders_.name ];
    return ( ( is_active_context_ && context_loaders_.activeLoadersNumber < max_operation_count_ )
            || 0 == global_active_number_ )

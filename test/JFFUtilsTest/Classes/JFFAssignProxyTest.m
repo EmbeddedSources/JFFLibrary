@@ -31,7 +31,7 @@
          target_deallocated_ = YES;
       } ];
 
-      proxy_ = [ [ JFFAssignProxy assignProxyWithTarget: target_ ] retain ];
+      proxy_ = [ [ JFFAssignProxy alloc ] initWithTarget: target_ ];
 
       [ target_ release ];
    }
@@ -45,8 +45,9 @@
 {
    ProxyTargetTest* target_ = [ ProxyTargetTest new ];
 
-   id proxy_ = [ JFFAssignProxy assignProxyWithTarget: target_ ];
+   id proxy_ = [ [ JFFAssignProxy alloc ] initWithTarget: target_ ];
    GHAssertTrue( 5 == [ proxy_ justReturnFiveNumber ], @"Target should be dealloced" );
+   [ proxy_ release ];
 
    [ target_ release ];
 }

@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-//TODO remove
+//JTODO remove
 @interface JFFBlockOperation : NSOperation
 {
 @private
