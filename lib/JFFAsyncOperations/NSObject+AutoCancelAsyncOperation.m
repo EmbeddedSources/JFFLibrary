@@ -42,23 +42,39 @@
       JFFAsyncOperationProgressHandler progress_callback_wrapper_ = ^void( id progress_info_ )
       {
          if ( progress_callback_holder_.progressBlock )
+         {
             progress_callback_holder_.progressBlock( progress_info_ );
+         }
       };
 
       JFFCancelAyncOperationBlockHolder* cancel_callback_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       cancel_callback_holder_.cancelBlock = cancel_callback_;
       JFFCancelAsyncOperationHandler cancel_callback_wrapper_ = ^void( BOOL cancel_op_ )
       {
-         remove_ondealloc_block_holder_.onceSimpleBlock();
+         if ( finished_ )
+         {
+            //avoid crashes in callback invokations
+            return;
+         }
+
+         //! the order is sufficient
          cancel_callback_holder_.onceCancelBlock( cancel_op_ );
+         remove_ondealloc_block_holder_.onceSimpleBlock();
       };
 
       JFFDidFinishAsyncOperationBlockHolder* done_callback_holder_ = [ [ JFFDidFinishAsyncOperationBlockHolder new ] autorelease ];
       done_callback_holder_.didFinishBlock = done_callback_;
       JFFDidFinishAsyncOperationHandler done_callback_wrapper_ = ^void( id result_, NSError* error_ )
       {
-         remove_ondealloc_block_holder_.onceSimpleBlock();
+         if ( finished_ )
+         {
+            //avoid crashes in callback invokations
+            return;
+         }
+
+         //! the order is sufficient
          done_callback_holder_.onceDidFinishBlock( result_, error_ );
+         remove_ondealloc_block_holder_.onceSimpleBlock();
       };
 
       JFFCancelAsyncOperation cancel_ = native_async_op_( progress_callback_wrapper_
@@ -73,8 +89,9 @@
       ondealloc_block_holder_.simpleBlock = ^void( void )
       {
          //! ensure the ondealloc block is removed. As cancel_() may not call cancel_callback_wrapper_.
-         remove_ondealloc_block_holder_.onceSimpleBlock();
+         //! the order is sufficient
          cancel_( NO );
+         remove_ondealloc_block_holder_.onceSimpleBlock();
       };
 
       //TODO assert retain count
