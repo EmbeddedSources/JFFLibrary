@@ -2,8 +2,7 @@
 
 #import "UITableView+WithinUpdates.h"
 
-//#undef SHOW_DEBUG_LOGS
-#define SHOW_DEBUG_LOGS
+#undef SHOW_DEBUG_LOGS
 #import <JFFLibrary/JDebugLog.h>
 
 @implementation JULoadMoreCellscalculator
@@ -248,8 +247,6 @@ static const NSUInteger RIPagingDisabled         = 0;
    NSUInteger clips_to_add_ = [ self suggestElementsToAddCountForIndexPath: index_path_ 
                                                            overflowOccured: &is_overflow_];
    NSDebugLog( @"  clips_to_add_   == %d", clips_to_add_ );
-   
-    nil;
    if ( 0 != clips_to_add_ )
    {
       NSDebugLog( @"   inserting cells" );   
