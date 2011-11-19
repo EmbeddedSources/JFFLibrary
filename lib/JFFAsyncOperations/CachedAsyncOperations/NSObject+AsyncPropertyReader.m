@@ -220,9 +220,10 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
       property_extractor_.asyncLoader = async_operation_;
       property_extractor_.didFinishBlock = did_finish_operation_;
 
-      JFFCallbacksBlocksHolder* callbacks_ = [ [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: progress_callback_
-                                                                                              onCancelBlock: cancel_callback_
-                                                                                           didLoadDataBlock: done_callback_ ] autorelease ];
+      JFFCallbacksBlocksHolder* callbacks_ =
+         [ [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: progress_callback_
+                                                          onCancelBlock: cancel_callback_
+                                                       didLoadDataBlock: done_callback_ ] autorelease ];
 
       if ( nil == property_extractor_.delegates )
       {
@@ -232,7 +233,6 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
       if ( property_extractor_.cancelBlock != nil )
       {
          [ property_extractor_.delegates addObject: callbacks_ ];
-
          return cancelBlock( property_extractor_, callbacks_ );
       }
 

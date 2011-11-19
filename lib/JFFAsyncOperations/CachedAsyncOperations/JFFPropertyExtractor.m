@@ -33,7 +33,7 @@
 
    //JTODO cover by test
    //Scenario:
-   //1. Crealte property loader
+   //1. Create property loader
    //2. Wrap it by unsubscribe on dealloc
    //3. Release owner
    //4. Finish loader -> crash
