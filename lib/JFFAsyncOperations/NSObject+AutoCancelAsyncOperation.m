@@ -51,30 +51,17 @@
       cancel_callback_holder_.cancelBlock = cancel_callback_;
       JFFCancelAsyncOperationHandler cancel_callback_wrapper_ = ^void( BOOL cancel_op_ )
       {
-         if ( finished_ )
-         {
-            //avoid crashes in callback invokations
-            return;
-         }
-
-         //! the order is sufficient
-         cancel_callback_holder_.onceCancelBlock( cancel_op_ );
          remove_ondealloc_block_holder_.onceSimpleBlock();
+         cancel_callback_holder_.onceCancelBlock( cancel_op_ );
       };
 
       JFFDidFinishAsyncOperationBlockHolder* done_callback_holder_ = [ [ JFFDidFinishAsyncOperationBlockHolder new ] autorelease ];
       done_callback_holder_.didFinishBlock = done_callback_;
-      JFFDidFinishAsyncOperationHandler done_callback_wrapper_ = ^void( id result_, NSError* error_ )
+      JFFDidFinishAsyncOperationHandler done_callback_wrapper_ = ^void( id result_
+                                                                       , NSError* error_ )
       {
-         if ( finished_ )
-         {
-            //avoid crashes in callback invokations
-            return;
-         }
-
-         //! the order is sufficient
-         done_callback_holder_.onceDidFinishBlock( result_, error_ );
          remove_ondealloc_block_holder_.onceSimpleBlock();
+         done_callback_holder_.onceDidFinishBlock( result_, error_ );
       };
 
       JFFCancelAsyncOperation cancel_ = native_async_op_( progress_callback_wrapper_
@@ -91,25 +78,15 @@
          //! ensure the ondealloc block is removed. As cancel_() may not call cancel_callback_wrapper_.
          //! the order is sufficient
          cancel_( NO );
-         remove_ondealloc_block_holder_.onceSimpleBlock();
       };
 
-      //TODO assert retain count
+      //JTODO assert retain count
       [ self addOnDeallocBlock: ondealloc_block_holder_.simpleBlock ];
 
       JFFCancelAyncOperationBlockHolder* main_cancel_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       main_cancel_holder_.cancelBlock = ^void( BOOL canceled_ )
       {
-         if ( finished_ )
-         {
-            return;
-         }
-
-         progress_callback_holder_.progressBlock = nil;
-         done_callback_holder_.didFinishBlock = nil;
-
-         //cancel_callback_holder_.cancelBlock will be nilled here
-         cancel_callback_holder_.onceCancelBlock( canceled_ );
+         cancel_( canceled_ );
       };
 
       return main_cancel_holder_.onceCancelBlock;
