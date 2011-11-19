@@ -221,12 +221,12 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
 
       JFFDidFinishAsyncOperationHandler done_callback1_ = ^void( id result_, NSError* error_ )
       {
-         cancel_holder2_.cancelBlock = nil;
+         cancel_holder1_.cancelBlock = nil;
          result_block_( result_, error_ );
       };
       JFFDidFinishAsyncOperationHandler done_callback2_ = ^void( id result_, NSError* error_ )
       {
-         cancel_holder1_.cancelBlock = nil;
+         cancel_holder2_.cancelBlock = nil;
          result_block_( result_, error_ );
       };
 
