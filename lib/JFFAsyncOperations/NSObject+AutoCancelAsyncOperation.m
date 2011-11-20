@@ -80,13 +80,7 @@
       JFFCancelAyncOperationBlockHolder* main_cancel_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
       main_cancel_holder_.cancelBlock = ^void( BOOL canceled_ )
       {
-         if ( finished_ )
-            return;
-
-         progress_callback_holder_.progressBlock = nil;
-         done_callback_holder_.didFinishBlock = nil;
-         //cancel_callback_holder_.cancelBlock will be nilled here
-         cancel_callback_holder_.onceCancelBlock( canceled_ );
+         cancel_( canceled_ );
       };
 
       return main_cancel_holder_.onceCancelBlock;

@@ -65,9 +65,9 @@ static const NSUInteger RIPagingDisabled         = 0;
       ( self.currentCount == index_path_.row );
 }
 
--(BOOL)noNeedToLoadElementAtIndexPath:( NSIndexPath* )index_path_
+-(BOOL)noNeedToLoadElementAtIndex:( NSUInteger )index_
 {
-   return ( index_path_.row < self.currentCount );
+   return ( index_ < self.currentCount );
 }
 
 -(NSArray*)prepareIndexPathEntriesForBottomCells:(NSUInteger)cells_count_
@@ -94,6 +94,13 @@ static const NSUInteger RIPagingDisabled         = 0;
 -(NSUInteger)suggestElementsToAddCountForIndexPath:( NSIndexPath* )index_path_
                                    overflowOccured:( BOOL* )out_is_overflow_
 {
+   return [ self suggestElementsToAddCountForIndex: index_path_.row
+                                   overflowOccured: out_is_overflow_ ];
+}
+
+-(NSUInteger)suggestElementsToAddCountForIndex:( NSUInteger )index_
+                               overflowOccured:( BOOL* )out_is_overflow_
+{
    NSAssert( out_is_overflow_, @"is_overflow_ is not optional" );
    *out_is_overflow_ = NO;
    
@@ -107,7 +114,7 @@ static const NSUInteger RIPagingDisabled         = 0;
       *out_is_overflow_ = YES;
       return 0;
    }
-   else if ( [ self noNeedToLoadElementAtIndexPath: index_path_ ] )
+   else if ( [ self noNeedToLoadElementAtIndex: index_ ] )
    {
       return 0;
    }
@@ -119,7 +126,7 @@ static const NSUInteger RIPagingDisabled         = 0;
    static const NSUInteger load_more_placeholder_size_ = 1;
    NSUInteger rest_of_the_items_ = self.totalElementsCount - self.currentCount;
 
-   float items_count_for_index_path_ = 1 + index_path_.row;
+   float items_count_for_index_path_ = 1 + index_;
    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
    
@@ -156,14 +163,16 @@ static const NSUInteger RIPagingDisabled         = 0;
 
 -(NSInteger)currentCountToStartWith:( NSInteger )total_elements_count_
 {
-   self.currentCount = 0;
-   self.totalElementsCount = total_elements_count_;
-
    if ( total_elements_count_ > 0 )
    {      
-      self.currentCount = self.isPagingEnabled
-         ? fmin( total_elements_count_, self.pageSize )
-         : total_elements_count_;
+      if ( [ self isPagingDisabled ] )
+      {
+         self.currentCount = total_elements_count_;
+      }
+
+      NSUInteger current_count_ = MAX( self.pageSize, self.currentCount );
+      current_count_ = MIN( current_count_, total_elements_count_ );      
+      self.currentCount = current_count_;
    }
 
    return self.currentCount;
@@ -186,7 +195,6 @@ static const NSUInteger RIPagingDisabled         = 0;
    
    NSDebugLog( @"index_path_[%d] : %@ .. %@", [ index_paths_ count ], [ index_paths_ objectAtIndex: 0 ], [ index_paths_ lastObject ] );
    NSDebugLog( @"page size : %d", [ self pageSize ] );
-   NSDebugLog( @"numberOfRowsInSection : %d", [ self.tableView numberOfRowsInSection: 0 ] );
    
    [ table_view_holder_.tableView withinUpdates: ^void()
     {
@@ -243,15 +251,15 @@ static const NSUInteger RIPagingDisabled         = 0;
       [ self insertToTableView: table_view_holder_
                    bottomCells: clips_to_add_ 
                overflowOccured: is_overflow_ ];
-
-      NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: self.currentCount - 1
-                                                      inSection: 0 ];
-
-      NSDebugLog( @"   scrolling down to [%@]", destination_ );
-      [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
-                                           atScrollPosition: scroll_position_
-                                                   animated: animated_ ];
    }
+   NSUInteger target_index_ = MIN( self.currentCount - clips_to_add_, index_path_.row );
+   NSIndexPath* destination_ = [ NSIndexPath indexPathForRow: target_index_
+                                                   inSection: index_path_.section ];
+   
+   NSDebugLog( @"   scrolling down to [%@]", destination_ );
+   [ table_view_holder_.tableView scrollToRowAtIndexPath: destination_
+                                        atScrollPosition: scroll_position_
+                                                animated: animated_ ];
 
    NSDebugLog( @"[END] : autoLoadingScrollToRowAtIndexPath:[%d]", index_path_.row );   
 }

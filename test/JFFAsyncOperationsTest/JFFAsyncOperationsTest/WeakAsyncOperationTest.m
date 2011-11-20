@@ -115,6 +115,8 @@
    {
       NSObject* obj_ = [ NSObject new ];
 
+      __block BOOL cancel_block_called_ = NO;
+
       JFFAsyncOperation operation_ = ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                                               , JFFCancelAsyncOperationHandler cancel_callback_
                                                               , JFFDidFinishAsyncOperationHandler done_callback_ )
@@ -122,6 +124,7 @@
          cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
          return [ [ ^void( BOOL cancel_ )
          {
+            cancel_block_called_ = cancel_;
             if ( cancel_callback_ )
                cancel_callback_( cancel_ );
          } copy ] autorelease ];
@@ -139,6 +142,7 @@
       cancel_( YES );
 
       GHAssertTrue( cancel_callback_called_, @"Cancel callback should not be called after dealloc" );
+      GHAssertTrue( cancel_block_called_, @"Cancel callback should not be called after dealloc" );
 
       [ obj_ release ];
    }

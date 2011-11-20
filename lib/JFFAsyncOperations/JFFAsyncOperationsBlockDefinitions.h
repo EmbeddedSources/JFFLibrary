@@ -1,3 +1,6 @@
+#ifndef __JASYNC__BLOCK_DEFINITIONS_H__
+#define __JASYNC__BLOCK_DEFINITIONS_H__
+
 #import <Foundation/Foundation.h>
 
 @class NSError;
@@ -27,3 +30,5 @@ typedef JFFCancelAsyncOperation (^JFFAsyncOperation)( JFFAsyncOperationProgressH
 typedef void (^JFFDidFinishAsyncOperationHook)( id result_
                                                , NSError* error_
                                                , JFFDidFinishAsyncOperationHandler done_callback_ );
+
+#endif //__JASYNC__BLOCK_DEFINITIONS_H__
