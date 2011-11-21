@@ -12,6 +12,14 @@
 @synthesize name = _name;
 @synthesize key = _key;
 
+-(void)dealloc
+{
+   [ _name release ];
+   [ _key release ];
+
+   [ super dealloc ];
+}
+
 -(id)initWithName:( NSString* )name_
               key:( id< NSCopying, NSObject > )key_
 {
@@ -30,14 +38,6 @@
                       key:( id< NSCopying, NSObject > )key_
 {
    return [ [ [ self alloc ] initWithName: name_ key: key_ ] autorelease ];
-}
-
--(void)dealloc
-{
-   [ _name release ];
-   [ _key release ];
-
-   [ super dealloc ];
 }
 
 -(NSString*)description

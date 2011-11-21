@@ -8,13 +8,12 @@
 static NSMutableArray* active_alerts_ = nil;
 static NSInteger first_alert_index_ = 1;
 
-@interface JFFAlertView ()
+@interface JFFAlertView () < UIAlertViewDelegate >
 
 @property ( nonatomic, assign ) BOOL exclusive;
 @property ( nonatomic, strong ) NSMutableArray* alertButtons;
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_;
-+(void)activeAlertsRemoveAlert:( UIAlertView* )alert_view_;
 -(void)forceShow;
 
 @end
@@ -24,6 +23,7 @@ static NSInteger first_alert_index_ = 1;
 @synthesize dismissBeforeEnterBackground = _dismiss_before_enter_background;
 @synthesize exclusive = _exclusive;
 @synthesize alertButtons = _alert_buttons;
+@synthesize didPresentHandler = _didPresentHandler;
 
 -(void)dealloc
 {
@@ -40,17 +40,28 @@ static NSInteger first_alert_index_ = 1;
    [ active_alerts_ addObject: alert_view_ ];
 }
 
-+(void)activeAlertsRemoveAlert:( UIAlertView* )alert_view_
++(BOOL)activeAlertsRemoveAlert:( UIAlertView* )alert_view_
 {
    if ( !active_alerts_ )
-      return;
+      return NO;
 
-   [ active_alerts_ removeObject: alert_view_ ];
+   NSUInteger result_ = [ active_alerts_ indexOfObject: alert_view_ ];
+   if ( result_ != NSNotFound )
+      [ active_alerts_ removeObjectAtIndex: result_ ];
 
    if ( ![ active_alerts_ count ] )
    {
       active_alerts_ = nil;
    }
+
+   return result_ != NSNotFound;
+}
+
+-(void)dismissWithClickedButtonIndex:( NSInteger )buttonIndex_ animated:( BOOL )animated_
+{
+   [ super dismissWithClickedButtonIndex: buttonIndex_ animated: NO ];
+
+   [ self alertView: self didDismissWithButtonIndex: buttonIndex_ ];
 }
 
 -(void)forceDismiss
@@ -236,28 +247,35 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
    }
 }
 
+-(void)forceShow
+{
+   [ super show ];
+}
+
 #pragma mark UIAlertViewDelegate
 
--(void)alertView:( UIAlertView* )alert_view_ clickedButtonAtIndex:( NSInteger )button_index_
+-(void)alertView:( UIAlertView* )alertView_ clickedButtonAtIndex:( NSInteger )buttonIndex_
 {
-   JFFAlertButton* alert_button_ = [ self.alertButtons objectAtIndex: button_index_ ];
+   JFFAlertButton* alert_button_ = [ self.alertButtons objectAtIndex: buttonIndex_ ];
    if ( alert_button_ )
       alert_button_.action();
 }
 
--(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_
+-(void)didPresentAlertView:( UIAlertView* )alertView_
 {
-   [ [ self class ] activeAlertsRemoveAlert: self ];
+   if ( _didPresentHandler )
+      _didPresentHandler();
+}
+
+-(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )buttonIndex_
+{
+   BOOL removed_ = [ [ self class ] activeAlertsRemoveAlert: self ];
 
    if ( [ active_alerts_ count ] <= 0 )
       return;
 
-   [ [ active_alerts_ objectAtIndex: 0 ] forceShow ];
-}
-
--(void)forceShow
-{
-   [ super show ];
+   if ( removed_ )
+      [ [ active_alerts_ objectAtIndex: 0 ] forceShow ];
 }
 
 @end

@@ -120,7 +120,6 @@ static NSString* const create_records_ =
    return self;
 }
 
-
 -(NSTimeInterval)currentTime
 {
    return [ [ NSDate date ] timeIntervalSince1970 ];
