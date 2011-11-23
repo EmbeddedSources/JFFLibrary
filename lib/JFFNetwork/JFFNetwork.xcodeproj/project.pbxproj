@@ -244,8 +244,8 @@
 				5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */,
 				5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */,
 				5310B9EF141F489200A3E2B1 /* JNConstants.h */,
-				8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */,
 				534BEED414448698005D745F /* JNUrlConnectionCallbacks.h */,
+				8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

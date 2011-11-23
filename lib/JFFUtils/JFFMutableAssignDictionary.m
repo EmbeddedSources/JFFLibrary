@@ -87,9 +87,25 @@
 
 -(void)setObject:( id )object_ forKey:( id )key_
 {
+   id previous_object_ = [ self objectForKey: key_ ];
+   if ( previous_object_ )
+   {
+      [ self removeObjectForKey: key_ ];
+   }
+
    JFFAutoRemoveFromDictAssignProxy* proxy_ = [ [ JFFAutoRemoveFromDictAssignProxy alloc ] initWithTarget: object_ ];
    [ self.mutableDictionary setObject: proxy_ forKey: key_ ];
    [ proxy_ onAddToMutableAssignDictionary: self key: key_ ];
+}
+
+-(NSString*)description
+{
+   return [ mutableDictionary description ];
+}
+
+-(NSArray*)allKeys
+{
+   return [ mutableDictionary allKeys ];
 }
 
 @end

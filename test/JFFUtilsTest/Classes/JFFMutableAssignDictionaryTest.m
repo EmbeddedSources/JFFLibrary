@@ -83,18 +83,35 @@
 
    @autoreleasepool
    {
-      NSObject* replaced_object_ = [ NSObject new ];
-      NSObject* object_ = [ NSObject new ];
+      __block BOOL replaced_object_dealloced_ = NO;
+      NSObject* object_ = nil;
 
-      [ dict_ setObject: replaced_object_ forKey: @"1" ];
+      @autoreleasepool
+      {
+         NSObject* replaced_object_ = [ NSObject new ];
+         [ replaced_object_ addOnDeallocBlock: ^void()
+         {
+            replaced_object_dealloced_ = YES;
+         } ];
 
-      GHAssertTrue( [ dict_ objectForKey: @"1" ] == replaced_object_, @"Dict contains object_" );
-      GHAssertTrue( [ dict_ objectForKey: @"2" ] == nil, @"Dict no contains object for key \"2\"" );
+         object_ = [ NSObject new ];
 
-      [ dict_ setObject: object_ forKey: @"1" ];
-      GHAssertTrue( [ dict_ objectForKey: @"1" ] == object_, @"Dict contains object_" );
+         [ dict_ setObject: replaced_object_ forKey: @"1" ];
 
-      [ replaced_object_ release ];
+         GHAssertTrue( [ dict_ objectForKey: @"1" ] == replaced_object_, @"Dict contains object_" );
+         GHAssertTrue( [ dict_ objectForKey: @"2" ] == nil, @"Dict no contains object for key \"2\"" );
+
+         [ dict_ setObject: object_ forKey: @"1" ];
+         GHAssertTrue( [ dict_ objectForKey: @"1" ] == object_, @"Dict contains object_" );
+
+         [ replaced_object_ release ];
+      }
+
+      GHAssertTrue( replaced_object_dealloced_, @"OK" );
+
+      NSObject* current_object_ = [ dict_ objectForKey: @"1" ];
+      GHAssertTrue( current_object_ == object_, @"OK" );
+
       [ object_ release ];
    }
 

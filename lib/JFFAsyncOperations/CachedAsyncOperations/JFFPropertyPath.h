@@ -10,6 +10,10 @@
 @property ( nonatomic, retain, readonly ) NSString* name;
 @property ( nonatomic, retain, readonly ) id< NSCopying, NSObject > key;
 
+-(id)initWithName:( NSString* )name_
+              key:( id< NSCopying, NSObject > )key_;
+
+//JTODO deprecated
 +(id)propertyPathWithName:( NSString* )name_
                       key:( id< NSCopying, NSObject > )key_;
 
