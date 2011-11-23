@@ -5,6 +5,7 @@
 @interface JFFAlertView : UIAlertView
 
 @property ( nonatomic, assign ) BOOL dismissBeforeEnterBackground;
+@property ( nonatomic, copy ) JFFSimpleBlock didPresentHandler;
 
 //cancelButtonTitle, otherButtonTitles - pass NSString(button title) or JFFAlertButton
 +(id)alertWithTitle:( NSString* )title_
