@@ -13,7 +13,14 @@
 
 @implementation JFFAutoRemoveFromDictAssignProxy
 
-@synthesize onDeallocBlock;
+@synthesize onDeallocBlock = _onDeallocBlock;
+
+-(void)dealloc
+{
+   [ _onDeallocBlock release ];
+
+   [ super dealloc ];
+}
 
 -(void)onAddToMutableAssignDictionary:( JFFMutableAssignDictionary* )dict_
                                   key:( id )key_
@@ -36,17 +43,20 @@
 
 @interface JFFMutableAssignDictionary ()
 
-@property ( nonatomic, strong ) NSMutableDictionary* mutableDictionary;
+@property ( nonatomic, retain ) NSMutableDictionary* mutableDictionary;
 
 @end
 
 @implementation JFFMutableAssignDictionary
 
-@synthesize mutableDictionary;
+@synthesize mutableDictionary = _mutableDictionary;
 
 -(void)dealloc
 {
    [ self removeAllObjects ];
+   [ _mutableDictionary release ];
+
+   [ super dealloc ];
 }
 
 -(void)removeAllObjects
@@ -87,9 +97,26 @@
 
 -(void)setObject:( id )object_ forKey:( id )key_
 {
+   id previous_object_ = [ self objectForKey: key_ ];
+   if ( previous_object_ )
+   {
+      [ self removeObjectForKey: key_ ];
+   }
+
    JFFAutoRemoveFromDictAssignProxy* proxy_ = [ [ JFFAutoRemoveFromDictAssignProxy alloc ] initWithTarget: object_ ];
    [ self.mutableDictionary setObject: proxy_ forKey: key_ ];
    [ proxy_ onAddToMutableAssignDictionary: self key: key_ ];
+   [ proxy_ release ];
+}
+
+-(NSString*)description
+{
+   return [ mutableDictionary description ];
+}
+
+-(NSArray*)allKeys
+{
+   return [ mutableDictionary allKeys ];
 }
 
 @end

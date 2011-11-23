@@ -10,4 +10,6 @@
 
 -(void)removeAllObjects;
 
+-(NSArray*)allKeys;
+
 @end
