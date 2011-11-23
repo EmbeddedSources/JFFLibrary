@@ -15,6 +15,7 @@ static NSInteger first_alert_index_ = 1;
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_;
 -(void)forceShow;
+-(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_;
 
 @end
 
@@ -277,7 +278,7 @@ otherButtonTitlesArray:( NSArray* )other_button_titles_
 
 -(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_
 {
-   [ [ self class ] activeAlertsRemoveAlert: self ];
+   BOOL removed_ = [ [ self class ] activeAlertsRemoveAlert: self ];
 
    if ( [ active_alerts_ count ] <= 0 )
       return;
