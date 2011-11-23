@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B16830F146AD4C800832839 /* NSString+UUIDCreation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B16830D146AD4C800832839 /* NSString+UUIDCreation.h */; };
+		1B168310146AD4C800832839 /* NSString+UUIDCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B16830E146AD4C800832839 /* NSString+UUIDCreation.m */; };
 		1B2A683F143F54F700BC284F /* NSObject+InstancesCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2A683D143F54F700BC284F /* NSObject+InstancesCount.h */; };
 		1B2A6840143F54F700BC284F /* NSObject+InstancesCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A683E143F54F700BC284F /* NSObject+InstancesCount.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1B3CDDD91445D75700733BE5 /* NSString+XQueryComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3CDDD71445D75700733BE5 /* NSString+XQueryComponents.h */; };
@@ -35,6 +37,8 @@
 		1BD01FB214447B7600A627B1 /* JFFSingleThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB014447B7600A627B1 /* JFFSingleThreadProxy.m */; };
 		1BD01FB61444824100A627B1 /* JFFResultContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD01FB41444824100A627B1 /* JFFResultContext.h */; };
 		1BD01FB71444824100A627B1 /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB51444824100A627B1 /* JFFResultContext.m */; };
+		1BD1820D1467D71B0033BEFF /* JFFMutableAssignDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BD1820B1467D71B0033BEFF /* JFFMutableAssignDictionary.h */; };
+		1BD1820E1467D71B0033BEFF /* JFFMutableAssignDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */; };
 		1BE75CFF1434B3450076E068 /* NSObject+Const0.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE75CFD1434B3450076E068 /* NSObject+Const0.h */; };
 		1BE75D001434B3450076E068 /* NSObject+Const0.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE75CFE1434B3450076E068 /* NSObject+Const0.m */; };
 		1BED0514144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BED0513144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m */; };
@@ -79,6 +83,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B16830D146AD4C800832839 /* NSString+UUIDCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUIDCreation.h"; sourceTree = "<group>"; };
+		1B16830E146AD4C800832839 /* NSString+UUIDCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUIDCreation.m"; sourceTree = "<group>"; };
 		1B2A683D143F54F700BC284F /* NSObject+InstancesCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InstancesCount.h"; sourceTree = "<group>"; };
 		1B2A683E143F54F700BC284F /* NSObject+InstancesCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+InstancesCount.m"; sourceTree = "<group>"; };
 		1B3CDDD71445D75700733BE5 /* NSString+XQueryComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XQueryComponents.h"; sourceTree = "<group>"; };
@@ -107,6 +113,8 @@
 		1BD01FB014447B7600A627B1 /* JFFSingleThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSingleThreadProxy.m; sourceTree = "<group>"; };
 		1BD01FB41444824100A627B1 /* JFFResultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFResultContext.h; sourceTree = "<group>"; };
 		1BD01FB51444824100A627B1 /* JFFResultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFResultContext.m; sourceTree = "<group>"; };
+		1BD1820B1467D71B0033BEFF /* JFFMutableAssignDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFMutableAssignDictionary.h; sourceTree = "<group>"; };
+		1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignDictionary.m; sourceTree = "<group>"; };
 		1BE75CFD1434B3450076E068 /* NSObject+Const0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Const0.h"; sourceTree = "<group>"; };
 		1BE75CFE1434B3450076E068 /* NSObject+Const0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Const0.m"; sourceTree = "<group>"; };
 		1BED0513144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLNewFeaturesRuntime.m; sourceTree = "<group>"; };
@@ -312,6 +320,8 @@
 				1BD01FB014447B7600A627B1 /* JFFSingleThreadProxy.m */,
 				8D713C6B13F3F62B007268DF /* JFFMutableAssignArray.h */,
 				8D713C6C13F3F62B007268DF /* JFFMutableAssignArray.m */,
+				1BD1820B1467D71B0033BEFF /* JFFMutableAssignDictionary.h */,
+				1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */,
 				8DB67B1813E97FCF0024EA6C /* JFFMulticastDelegate.h */,
 				8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */,
 				1BD01FB41444824100A627B1 /* JFFResultContext.h */,
@@ -334,6 +344,8 @@
 				8D713CC613F539A5007268DF /* NSString+PathExtensions.m */,
 				1B6AAD8C1447039B00EA1D96 /* NSString+Trimm.h */,
 				1B6AAD8D1447039B00EA1D96 /* NSString+Trimm.m */,
+				1B16830D146AD4C800832839 /* NSString+UUIDCreation.h */,
+				1B16830E146AD4C800832839 /* NSString+UUIDCreation.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -381,6 +393,8 @@
 				1BA676BF144C409F00B14D49 /* NSThread+AssertMainThread.h in Headers */,
 				1BA676CE144C474500B14D49 /* NSString+ToURL.h in Headers */,
 				1BA676D2144C476600B14D49 /* NSURL+ToURL.h in Headers */,
+				1BD1820D1467D71B0033BEFF /* JFFMutableAssignDictionary.h in Headers */,
+				1B16830F146AD4C800832839 /* NSString+UUIDCreation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +485,8 @@
 				1BA676C0144C409F00B14D49 /* NSThread+AssertMainThread.m in Sources */,
 				1BA676CF144C474500B14D49 /* NSString+ToURL.m in Sources */,
 				1BA676D3144C476600B14D49 /* NSURL+ToURL.m in Sources */,
+				1BD1820E1467D71B0033BEFF /* JFFMutableAssignDictionary.m in Sources */,
+				1B168310146AD4C800832839 /* NSString+UUIDCreation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
