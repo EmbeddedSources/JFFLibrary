@@ -41,7 +41,9 @@
       JFFAsyncOperationProgressHandler progress_callback_wrapper_ = ^void( id progress_info_ )
       {
          if ( progress_callback_holder_.progressBlock )
+         {
             progress_callback_holder_.progressBlock( progress_info_ );
+         }
       };
 
       JFFCancelAyncOperationBlockHolder* cancel_callback_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
@@ -54,7 +56,8 @@
 
       JFFDidFinishAsyncOperationBlockHolder* done_callback_holder_ = [ JFFDidFinishAsyncOperationBlockHolder new ];
       done_callback_holder_.didFinishBlock = done_callback_;
-      JFFDidFinishAsyncOperationHandler done_callback_wrapper_ = ^void( id result_, NSError* error_ )
+      JFFDidFinishAsyncOperationHandler done_callback_wrapper_ = ^void( id result_
+                                                                       , NSError* error_ )
       {
          remove_ondealloc_block_holder_.onceSimpleBlock();
          done_callback_holder_.onceDidFinishBlock( result_, error_ );
