@@ -75,8 +75,6 @@
 
       ondealloc_block_holder_.simpleBlock = ^void( void )
       {
-         //! ensure the ondealloc block is removed. As cancel_() may not call cancel_callback_wrapper_.
-         //! the order is sufficient
          cancel_( NO );
       };
 
