@@ -5,10 +5,10 @@
 +(NSString*)createUuid
 {
    CFUUIDRef uuid_ = CFUUIDCreate( NULL );
-   NSString* result_ = (__bridge_transfer NSString *)CFUUIDCreateString( NULL, uuid_ );
+   NSString* result_ = [ (NSString*)CFUUIDCreateString( NULL, uuid_ ) retain ];
    CFRelease( uuid_ );
 
-   return result_;
+   return [ result_ autorelease ];
 }
 
 @end
