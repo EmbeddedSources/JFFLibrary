@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-@class UITableView;
 
+@class UITableView;
 
 @protocol JUTableViewHolder <NSObject>
 
@@ -25,8 +25,6 @@
                                    overflowOccured:( BOOL* )is_overflow_;
 -(NSUInteger)suggestElementsToAddCountForIndex:( NSUInteger )index_
                                overflowOccured:( BOOL* )out_is_overflow_;
-
-
 
 @property ( nonatomic, assign, readonly ) BOOL hasNoElements;
 @property ( nonatomic, assign, readonly ) BOOL allElementsLoaded;

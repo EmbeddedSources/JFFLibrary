@@ -91,8 +91,6 @@ static const NSUInteger RIPagingDisabled         = 0;
    return index_paths_;
 }
 
-
-
 -(NSUInteger)suggestElementsToAddCountForIndexPath:( NSIndexPath* )index_path_
                                    overflowOccured:( BOOL* )out_is_overflow_
 {
@@ -235,7 +233,6 @@ static const NSUInteger RIPagingDisabled         = 0;
    NSDebugLog( @"  totalClipsCount == %d", self.totalElementsCount );
    NSDebugLog( @"  currentCount    == %d", self.currentCount );
    
-   
    if ( [ self hasNoElements ] )
    {
       NSDebugLog( @"   No clips available" );
@@ -247,6 +244,7 @@ static const NSUInteger RIPagingDisabled         = 0;
    NSUInteger clips_to_add_ = [ self suggestElementsToAddCountForIndexPath: index_path_ 
                                                            overflowOccured: &is_overflow_];
    NSDebugLog( @"  clips_to_add_   == %d", clips_to_add_ );
+
    if ( 0 != clips_to_add_ )
    {
       NSDebugLog( @"   inserting cells" );   
