@@ -3,6 +3,8 @@
 #import "JFFCancelAyncOperationBlockHolder.h"
 #import "JFFAsyncOperationsPredefinedBlocks.h"
 
+#import <JFFScheduler/JFFScheduler.h>
+
 #import <Foundation/Foundation.h>
 
 #include <assert.h>
@@ -469,5 +471,87 @@ JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
             done_callback_( result_, error_ );
       };
       return loader_( progress_callback_, cancel_callback_, done_callback_ );
+   } copy ] autorelease ];
+}
+
+JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation native_loader_
+                                       , PredicateBlock predicate_
+                                       , NSTimeInterval delay_
+                                       , NSUInteger max_repeat_count_ )
+{
+   assert( native_loader_ );// can not be nil
+
+   native_loader_ = [ [ native_loader_ copy ] autorelease ];
+   predicate_     = [ [ predicate_     copy ] autorelease ];
+
+   return [ [ ^( JFFAsyncOperationProgressHandler progress_callback_
+                , JFFCancelAsyncOperationHandler cancel_callback_
+                , JFFDidFinishAsyncOperationHandler done_callback_ )
+   {
+      JFFCancelAyncOperationBlockHolder* holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+
+      JFFDidFinishAsyncOperationHook finish_callback_hook_ = ^( id result_
+                                                               , NSError* error_
+                                                               , JFFDidFinishAsyncOperationHandler done_callback_ )
+      {
+         JFFResultContext* context_ = [ [ JFFResultContext new ] autorelease ];
+         context_.result = result_;
+         context_.error  = error_ ;
+         if ( !predicate_( context_ ) || max_repeat_count_ == 0 )
+         {
+            if ( done_callback_ )
+               done_callback_( result_, error_ );
+         }
+         else
+         {
+            JFFScheduler* scheduler_ = [ [ JFFScheduler new ] autorelease ];
+            JFFCancelAyncOperationBlockHolder* lc_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+            JFFCancelScheduledBlock sch_cancel_ = [ scheduler_ addBlock: ^( JFFCancelScheduledBlock sch_cancel_ )
+            {
+               sch_cancel_();
+               //GTODO test this
+               JFFAsyncOperation loader_ = repeatAsyncOperation( native_loader_
+                                                                , predicate_
+                                                                , delay_
+                                                                , max_repeat_count_ - 1 );
+               lc_holder_.cancelBlock = loader_( progress_callback_
+                                                , cancel_callback_
+                                                , done_callback_ );
+            } duration: delay_ ];
+
+            __block BOOL block_canceled_ = NO;
+            holder_.cancelBlock = ^( BOOL canceled_ )
+            {
+               if ( block_canceled_ )
+                  return;
+               block_canceled_ = YES;
+
+               if ( canceled_ )
+               {
+                  sch_cancel_();
+               }
+               if ( lc_holder_.cancelBlock )
+               {
+                  lc_holder_.onceCancelBlock( canceled_ );
+               }
+               else
+               {
+                  cancel_callback_( canceled_ );
+               }
+            };
+         }
+      };
+
+      JFFAsyncOperation loader_ = asyncOperationWithFinishHookBlock( native_loader_
+                                                                    , finish_callback_hook_ );
+
+      holder_.cancelBlock = loader_( progress_callback_
+                                    , cancel_callback_
+                                    , done_callback_ );
+
+      return [ [ ^( BOOL canceled_ )
+      {
+         holder_.onceCancelBlock( canceled_ );
+      } copy ] autorelease ];
    } copy ] autorelease ];
 }

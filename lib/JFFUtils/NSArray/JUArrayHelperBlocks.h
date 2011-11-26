@@ -1,9 +1,10 @@
 #ifndef __JU_ARRAY_HELPER_BLOCKS_H__
 #define __JU_ARRAY_HELPER_BLOCKS_H__
 
+#import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
+
 #import <Foundation/Foundation.h>
 
-typedef BOOL (^PredicateBlock)( id object_ );
 typedef void (^ActionBlock)( id object_ );
 typedef id (^MappingBlock)( id object_ );
 typedef id (^ProducerBlock)( NSUInteger index_ );
