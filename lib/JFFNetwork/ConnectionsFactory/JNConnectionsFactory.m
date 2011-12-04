@@ -46,17 +46,17 @@
 
       return nil;
    }
-   
+
    self = [ super init ];
    if ( nil == self )
    {
       return nil;
    }
-   
+
    self.url      = url_      ;
    self.postData = post_data_;
    self.headers  = headers_  ;
-   
+
    return self;
 }
 
@@ -77,7 +77,7 @@
                                                         timeoutInterval: timeout_ ];
 
    NSString* http_method_ = self.postData ? @"POST" : @"GET";
-   
+
    [ request_ setHTTPBody           : self.postData ];
    [ request_ setAllHTTPHeaderFields: self.headers  ];
    [ request_ setHTTPMethod         : http_method_  ];

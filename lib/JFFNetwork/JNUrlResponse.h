@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 
-
 /**
  A protocol for JFFURLResponse and NSHTTPURLResponse
  */

@@ -38,6 +38,56 @@
 		53CB3D6214457E0D00D7E447 /* JNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CB3D6014457E0D00D7E447 /* JNUtils.m */; };
 		53E074BE144EFBA000CB146F /* NSURL+Cookies.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E074BC144EFBA000CB146F /* NSURL+Cookies.h */; };
 		53E074BF144EFBA000CB146F /* NSURL+Cookies.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E074BD144EFBA000CB146F /* NSURL+Cookies.m */; };
+		65802B24148BFC230040A93A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65802B23148BFC230040A93A /* Cocoa.framework */; };
+		65802B32148BFC2C0040A93A /* JFFUrlResponseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316F432141E151C00C3D9A9 /* JFFUrlResponseLogger.m */; };
+		65802B33148BFC2F0040A93A /* JNConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5310B9EF141F489200A3E2B1 /* JNConstants.h */; };
+		65802B34148BFC320040A93A /* JNUrlConnectionCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEED414448698005D745F /* JNUrlConnectionCallbacks.h */; };
+		65802B35148BFC350040A93A /* JFFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F413F3E8AF00EB6143 /* JFFNetwork.h */; };
+		65802B36148BFC3E0040A93A /* JFFUrlResponseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5316F431141E151C00C3D9A9 /* JFFUrlResponseLogger.h */; };
+		65802B38148BFC4B0040A93A /* JFFURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F713F3E93000EB6143 /* JFFURLResponse.h */; };
+		65802B39148BFC4B0040A93A /* JFFURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F813F3E93000EB6143 /* JFFURLResponse.m */; };
+		65802B3A148BFC4B0040A93A /* JNUrlConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEED0144485A6005D745F /* JNUrlConnection.h */; };
+		65802B3B148BFC4B0040A93A /* JFFURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */; };
+		65802B3C148BFC4B0040A93A /* JFFURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F113F3E80B00EB6143 /* JFFURLConnection.m */; };
+		65802B3D148BFC4B0040A93A /* JNAbstractConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF1814448D44005D745F /* JNAbstractConnection.h */; };
+		65802B3E148BFC4B0040A93A /* JNAbstractConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF1914448D44005D745F /* JNAbstractConnection.m */; };
+		65802B3F148BFC4B0040A93A /* JNNsUrlConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF1414448BBA005D745F /* JNNsUrlConnection.h */; };
+		65802B40148BFC4B0040A93A /* JNNsUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF1514448BBA005D745F /* JNNsUrlConnection.m */; };
+		65802B41148BFC4B0040A93A /* JFFNetworkBlocksFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD565FE13F3EC1100A4538D /* JFFNetworkBlocksFunctions.h */; };
+		65802B42148BFC4B0040A93A /* JFFNetworkBlocksFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD565FF13F3EC1100A4538D /* JFFNetworkBlocksFunctions.m */; };
+		65802B43148BFC580040A93A /* JNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 53CB3D5F14457E0D00D7E447 /* JNUtils.h */; };
+		65802B44148BFC580040A93A /* JNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CB3D6014457E0D00D7E447 /* JNUtils.m */; };
+		65802B45148BFC5D0040A93A /* NSURL+Cookies.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E074BC144EFBA000CB146F /* NSURL+Cookies.h */; };
+		65802B46148BFC5D0040A93A /* NSURL+Cookies.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E074BD144EFBA000CB146F /* NSURL+Cookies.m */; };
+		65802B47148BFC6E0040A93A /* JFFDownloadItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CB513F52FBA007268DF /* JFFDownloadItem.h */; };
+		65802B48148BFC6E0040A93A /* JFFDownloadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9813F54AE7004C90A9 /* JFFDownloadItem.m */; };
+		65802B49148BFC6E0040A93A /* JFFDownloadItemDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CB913F52FE2007268DF /* JFFDownloadItemDelegate.h */; };
+		65802B4A148BFC790040A93A /* JFFFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CCA13F53D78007268DF /* JFFFileManager.h */; };
+		65802B4B148BFC790040A93A /* JFFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CCB13F53D78007268DF /* JFFFileManager.m */; };
+		65802B4C148BFC790040A93A /* NSMutableSet+DownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D713CBC13F538D0007268DF /* NSMutableSet+DownloadManager.h */; };
+		65802B4D148BFC790040A93A /* NSMutableSet+DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CBD13F538D0007268DF /* NSMutableSet+DownloadManager.m */; };
+		65802B4E148BFC790040A93A /* JFFTrafficCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9013F5492C004C90A9 /* JFFTrafficCalculator.h */; };
+		65802B4F148BFC790040A93A /* JFFTrafficCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9113F5492C004C90A9 /* JFFTrafficCalculator.m */; };
+		65802B50148BFC790040A93A /* JFFTrafficCalculatorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9513F54948004C90A9 /* JFFTrafficCalculatorDelegate.h */; };
+		65802B51148BFC790040A93A /* NSMutableDictionary+DownloadingFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DD71E9A13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.h */; };
+		65802B52148BFC790040A93A /* NSMutableDictionary+DownloadingFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD71E9B13F55505004C90A9 /* NSMutableDictionary+DownloadingFileInfo.m */; };
+		65802B53148BFC7F0040A93A /* JNAbstractConnection+Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF1D14448DC9005D745F /* JNAbstractConnection+Constructor.h */; };
+		65802B54148BFC7F0040A93A /* JNAbstractConnection+Constructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF1E14448DC9005D745F /* JNAbstractConnection+Constructor.m */; };
+		65802B55148BFC8F0040A93A /* JNHttpDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5383420A141E689E00473CF2 /* JNHttpDecoder.h */; };
+		65802B56148BFC8F0040A93A /* JNHttpEncodingsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834212141E691900473CF2 /* JNHttpEncodingsFactory.h */; };
+		65802B57148BFC8F0040A93A /* JNHttpEncodingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834213141E691900473CF2 /* JNHttpEncodingsFactory.m */; };
+		65802B58148BFC8F0040A93A /* JNGzipDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834216141E69E300473CF2 /* JNGzipDecoder.h */; };
+		65802B59148BFC8F0040A93A /* JNGzipDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834217141E69E300473CF2 /* JNGzipDecoder.m */; };
+		65802B5A148BFC8F0040A93A /* JNStubDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53834248141E713900473CF2 /* JNStubDecoder.h */; };
+		65802B5B148BFC8F0040A93A /* JNStubDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53834249141E713900473CF2 /* JNStubDecoder.m */; };
+		65802B5C148BFC8F0040A93A /* JNZipDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F24141F631500469DAA /* JNZipDecoder.h */; };
+		65802B5D148BFC8F0040A93A /* JNZipDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F25141F631500469DAA /* JNZipDecoder.m */; };
+		65802B5E148BFC8F0040A93A /* JNGzipCustomErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F33141F7C2B00469DAA /* JNGzipCustomErrors.h */; };
+		65802B5F148BFC8F0040A93A /* JNGzipErrorsLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A33F35141F7E1D00469DAA /* JNGzipErrorsLogger.h */; };
+		65802B60148BFC8F0040A93A /* JNGzipErrorsLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F36141F7E1D00469DAA /* JNGzipErrorsLogger.m */; };
+		65802B61148BFC930040A93A /* JNConnectionsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEF9314449AF5005D745F /* JNConnectionsFactory.h */; };
+		65802B62148BFC930040A93A /* JNConnectionsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 534BEF9414449AF5005D745F /* JNConnectionsFactory.m */; };
+		65802B63148BFCB20040A93A /* JNUrlResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 534BEEDA14448782005D745F /* JNUrlResponse.h */; };
 		8D5AE6DF13F3E6C600EB6143 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */; };
 		8D5AE6F213F3E80B00EB6143 /* JFFURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5AE6F013F3E80B00EB6143 /* JFFURLConnection.h */; };
 		8D5AE6F313F3E80B00EB6143 /* JFFURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AE6F113F3E80B00EB6143 /* JFFURLConnection.m */; };
@@ -92,6 +142,12 @@
 		53CB3D6014457E0D00D7E447 /* JNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUtils.m; sourceTree = "<group>"; };
 		53E074BC144EFBA000CB146F /* NSURL+Cookies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Cookies.h"; sourceTree = "<group>"; };
 		53E074BD144EFBA000CB146F /* NSURL+Cookies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Cookies.m"; sourceTree = "<group>"; };
+		65802B22148BFC230040A93A /* libJFFNetworkMacOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFNetworkMacOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		65802B23148BFC230040A93A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		65802B26148BFC230040A93A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		65802B27148BFC230040A93A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		65802B28148BFC230040A93A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		65802B2B148BFC230040A93A /* JFFNetworkMacOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFNetworkMacOS-Prefix.pch"; sourceTree = "<group>"; };
 		8D5AE6DB13F3E6C600EB6143 /* libJFFNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D5AE6E213F3E6C700EB6143 /* JFFNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFNetwork-Prefix.pch"; sourceTree = "<group>"; };
@@ -117,6 +173,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		65802B1F148BFC230040A93A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65802B24148BFC230040A93A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D5AE6D813F3E6C600EB6143 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,11 +248,38 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		65802B25148BFC230040A93A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65802B26148BFC230040A93A /* AppKit.framework */,
+				65802B27148BFC230040A93A /* CoreData.framework */,
+				65802B28148BFC230040A93A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		65802B29148BFC230040A93A /* JFFNetworkMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				65802B2A148BFC230040A93A /* Supporting Files */,
+			);
+			path = JFFNetworkMacOS;
+			sourceTree = "<group>";
+		};
+		65802B2A148BFC230040A93A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65802B2B148BFC230040A93A /* JFFNetworkMacOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8D5AE6D013F3E6C500EB6143 = {
 			isa = PBXGroup;
 			children = (
 				8D5AE6EF13F3E7EE00EB6143 /* Classes */,
 				8D5AE6E113F3E6C700EB6143 /* Supporting Files */,
+				65802B29148BFC230040A93A /* JFFNetworkMacOS */,
 				8D5AE6DD13F3E6C600EB6143 /* Frameworks */,
 				8D5AE6DC13F3E6C600EB6143 /* Products */,
 			);
@@ -198,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				8D5AE6DB13F3E6C600EB6143 /* libJFFNetwork.a */,
+				65802B22148BFC230040A93A /* libJFFNetworkMacOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +299,8 @@
 			children = (
 				8D5AE6DE13F3E6C600EB6143 /* Foundation.framework */,
 				5383421A141E6A3B00473CF2 /* libz.dylib */,
+				65802B23148BFC230040A93A /* Cocoa.framework */,
+				65802B25148BFC230040A93A /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -280,6 +374,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		65802B20148BFC230040A93A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65802B33148BFC2F0040A93A /* JNConstants.h in Headers */,
+				65802B34148BFC320040A93A /* JNUrlConnectionCallbacks.h in Headers */,
+				65802B35148BFC350040A93A /* JFFNetwork.h in Headers */,
+				65802B36148BFC3E0040A93A /* JFFUrlResponseLogger.h in Headers */,
+				65802B38148BFC4B0040A93A /* JFFURLResponse.h in Headers */,
+				65802B3A148BFC4B0040A93A /* JNUrlConnection.h in Headers */,
+				65802B3B148BFC4B0040A93A /* JFFURLConnection.h in Headers */,
+				65802B3D148BFC4B0040A93A /* JNAbstractConnection.h in Headers */,
+				65802B3F148BFC4B0040A93A /* JNNsUrlConnection.h in Headers */,
+				65802B41148BFC4B0040A93A /* JFFNetworkBlocksFunctions.h in Headers */,
+				65802B43148BFC580040A93A /* JNUtils.h in Headers */,
+				65802B45148BFC5D0040A93A /* NSURL+Cookies.h in Headers */,
+				65802B47148BFC6E0040A93A /* JFFDownloadItem.h in Headers */,
+				65802B49148BFC6E0040A93A /* JFFDownloadItemDelegate.h in Headers */,
+				65802B4A148BFC790040A93A /* JFFFileManager.h in Headers */,
+				65802B4C148BFC790040A93A /* NSMutableSet+DownloadManager.h in Headers */,
+				65802B4E148BFC790040A93A /* JFFTrafficCalculator.h in Headers */,
+				65802B50148BFC790040A93A /* JFFTrafficCalculatorDelegate.h in Headers */,
+				65802B51148BFC790040A93A /* NSMutableDictionary+DownloadingFileInfo.h in Headers */,
+				65802B53148BFC7F0040A93A /* JNAbstractConnection+Constructor.h in Headers */,
+				65802B55148BFC8F0040A93A /* JNHttpDecoder.h in Headers */,
+				65802B56148BFC8F0040A93A /* JNHttpEncodingsFactory.h in Headers */,
+				65802B58148BFC8F0040A93A /* JNGzipDecoder.h in Headers */,
+				65802B5A148BFC8F0040A93A /* JNStubDecoder.h in Headers */,
+				65802B5C148BFC8F0040A93A /* JNZipDecoder.h in Headers */,
+				65802B5E148BFC8F0040A93A /* JNGzipCustomErrors.h in Headers */,
+				65802B5F148BFC8F0040A93A /* JNGzipErrorsLogger.h in Headers */,
+				65802B61148BFC930040A93A /* JNConnectionsFactory.h in Headers */,
+				65802B63148BFCB20040A93A /* JNUrlResponse.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D5AE6D913F3E6C600EB6143 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,6 +449,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		65802B21148BFC230040A93A /* JFFNetworkMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65802B2F148BFC230040A93A /* Build configuration list for PBXNativeTarget "JFFNetworkMacOS" */;
+			buildPhases = (
+				65802B1E148BFC230040A93A /* Sources */,
+				65802B1F148BFC230040A93A /* Frameworks */,
+				65802B20148BFC230040A93A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFFNetworkMacOS;
+			productName = JFFNetworkMacOS;
+			productReference = 65802B22148BFC230040A93A /* libJFFNetworkMacOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		8D5AE6DA13F3E6C600EB6143 /* JFFNetwork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D5AE6E813F3E6C700EB6143 /* Build configuration list for PBXNativeTarget "JFFNetwork" */;
@@ -342,7 +489,7 @@
 		8D5AE6D213F3E6C500EB6143 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 8D5AE6D513F3E6C500EB6143 /* Build configuration list for PBXProject "JFFNetwork" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -357,11 +504,39 @@
 			projectRoot = "";
 			targets = (
 				8D5AE6DA13F3E6C600EB6143 /* JFFNetwork */,
+				65802B21148BFC230040A93A /* JFFNetworkMacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		65802B1E148BFC230040A93A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65802B32148BFC2C0040A93A /* JFFUrlResponseLogger.m in Sources */,
+				65802B39148BFC4B0040A93A /* JFFURLResponse.m in Sources */,
+				65802B3C148BFC4B0040A93A /* JFFURLConnection.m in Sources */,
+				65802B3E148BFC4B0040A93A /* JNAbstractConnection.m in Sources */,
+				65802B40148BFC4B0040A93A /* JNNsUrlConnection.m in Sources */,
+				65802B42148BFC4B0040A93A /* JFFNetworkBlocksFunctions.m in Sources */,
+				65802B44148BFC580040A93A /* JNUtils.m in Sources */,
+				65802B46148BFC5D0040A93A /* NSURL+Cookies.m in Sources */,
+				65802B48148BFC6E0040A93A /* JFFDownloadItem.m in Sources */,
+				65802B4B148BFC790040A93A /* JFFFileManager.m in Sources */,
+				65802B4D148BFC790040A93A /* NSMutableSet+DownloadManager.m in Sources */,
+				65802B4F148BFC790040A93A /* JFFTrafficCalculator.m in Sources */,
+				65802B52148BFC790040A93A /* NSMutableDictionary+DownloadingFileInfo.m in Sources */,
+				65802B54148BFC7F0040A93A /* JNAbstractConnection+Constructor.m in Sources */,
+				65802B57148BFC8F0040A93A /* JNHttpEncodingsFactory.m in Sources */,
+				65802B59148BFC8F0040A93A /* JNGzipDecoder.m in Sources */,
+				65802B5B148BFC8F0040A93A /* JNStubDecoder.m in Sources */,
+				65802B5D148BFC8F0040A93A /* JNZipDecoder.m in Sources */,
+				65802B60148BFC8F0040A93A /* JNGzipErrorsLogger.m in Sources */,
+				65802B62148BFC930040A93A /* JNConnectionsFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D5AE6D713F3E6C600EB6143 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,12 +567,54 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		65802B30148BFC230040A93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JFFNetworkMacOS/JFFNetworkMacOS-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		65802B31148BFC230040A93A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JFFNetworkMacOS/JFFNetworkMacOS-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		8D5AE6E613F3E6C700EB6143 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -407,11 +624,11 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				SDKROOT = iphoneos;
+				HEADER_SEARCH_PATHS = ../;
 			};
 			name = Debug;
 		};
@@ -420,14 +637,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				HEADER_SEARCH_PATHS = ../;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -439,10 +656,10 @@
 				DSTROOT = /tmp/JFFNetwork.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFNetwork/JFFNetwork-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -454,10 +671,10 @@
 				DSTROOT = /tmp/JFFNetwork.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFNetwork/JFFNetwork-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -465,6 +682,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65802B2F148BFC230040A93A /* Build configuration list for PBXNativeTarget "JFFNetworkMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65802B30148BFC230040A93A /* Debug */,
+				65802B31148BFC230040A93A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8D5AE6D513F3E6C500EB6143 /* Build configuration list for PBXProject "JFFNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
