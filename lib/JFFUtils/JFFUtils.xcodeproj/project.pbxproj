@@ -41,7 +41,6 @@
 		1BD1820E1467D71B0033BEFF /* JFFMutableAssignDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */; };
 		1BE75CFF1434B3450076E068 /* NSObject+Const0.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE75CFD1434B3450076E068 /* NSObject+Const0.h */; };
 		1BE75D001434B3450076E068 /* NSObject+Const0.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE75CFE1434B3450076E068 /* NSObject+Const0.m */; };
-		1BED0514144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BED0513144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m */; };
 		53BCF8E0143239D100E896B3 /* NSArray+RemoveDuplicates.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */; };
 		53BCF8E1143239D100E896B3 /* NSArray+RemoveDuplicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */; };
 		53BCF8E314323A4800E896B3 /* JUArrayHelperBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */; };
@@ -65,6 +64,41 @@
 		65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B7D13923EC4001E163C /* NSString+PropertyName.m */; };
 		65648BE113924326001E163C /* JFFError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BDF13924326001E163C /* JFFError.h */; };
 		65648BE213924326001E163C /* JFFError.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BE013924326001E163C /* JFFError.m */; };
+		65802A5D148BF2930040A93A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65802A5C148BF2930040A93A /* Cocoa.framework */; };
+		65802A67148BF2930040A93A /* JFFUtilsMacOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 65802A66148BF2930040A93A /* JFFUtilsMacOS.m */; };
+		65802A6B148BF2B10040A93A /* JFFUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE27B1391BD7800DD6890 /* JFFUtils.h */; };
+		65802A6C148BF2B50040A93A /* JGCDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7608991444912F0059E977 /* JGCDAdditions.m */; };
+		65802A6D148BF2B80040A93A /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB51444824100A627B1 /* JFFResultContext.m */; };
+		65802A6E148BF2BA0040A93A /* JFFMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1913E97FCF0024EA6C /* JFFMulticastDelegate.m */; };
+		65802A6F148BF2BE0040A93A /* JFFMutableAssignDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */; };
+		65802A70148BF2C10040A93A /* JFFMutableAssignArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713C6C13F3F62B007268DF /* JFFMutableAssignArray.m */; };
+		65802A71148BF2C30040A93A /* JFFSingleThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB014447B7600A627B1 /* JFFSingleThreadProxy.m */; };
+		65802A72148BF2C80040A93A /* JFFAssignProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */; };
+		65802A73148BF2CB0040A93A /* ESRuntimeInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		65802A74148BF2CE0040A93A /* JFFError.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BE013924326001E163C /* JFFError.m */; };
+		65802A95148BF4610040A93A /* NSString+ToURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676CD144C474500B14D49 /* NSString+ToURL.m */; };
+		65802A97148BF4640040A93A /* NSURL+ToURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676D1144C476600B14D49 /* NSURL+ToURL.m */; };
+		65802A98148BF4700040A93A /* NSThread+AssertMainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA676BE144C409F00B14D49 /* NSThread+AssertMainThread.m */; };
+		65802A99148BF4750040A93A /* NSString+XQueryComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDD81445D75700733BE5 /* NSString+XQueryComponents.m */; };
+		65802A9A148BF4780040A93A /* NSURL+XQueryComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDDC1445D9FD00733BE5 /* NSURL+XQueryComponents.m */; };
+		65802A9B148BF47A0040A93A /* NSDictionary+XQueryComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDE01445DA7E00733BE5 /* NSDictionary+XQueryComponents.m */; };
+		65802A9C148BF4800040A93A /* JFFSimpleBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0A91390496200DD6890 /* JFFSimpleBlockHolder.m */; };
+		65802A9D148BF4820040A93A /* JFFOnDeallocBlockOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1C21391A25500DD6890 /* JFFOnDeallocBlockOwner.m */; };
+		65802A9E148BF4870040A93A /* NSString+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE19C1391969A00DD6890 /* NSString+Search.m */; };
+		65802A9F148BF4890040A93A /* NSString+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648B7D13923EC4001E163C /* NSString+PropertyName.m */; };
+		65802AA0148BF48F0040A93A /* NSString+PathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D713CC613F539A5007268DF /* NSString+PathExtensions.m */; };
+		65802AA1148BF4920040A93A /* NSString+Trimm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6AAD8D1447039B00EA1D96 /* NSString+Trimm.m */; };
+		65802AA2148BF4960040A93A /* NSString+UUIDCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B16830E146AD4C800832839 /* NSString+UUIDCreation.m */; };
+		65802AA3148BF49B0040A93A /* NSMutableArray+ChangeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDF9E414320B3200CEB6E7 /* NSMutableArray+ChangeCount.m */; };
+		65802AA4148BF49D0040A93A /* NSArray+BlocksAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE0AC1390496200DD6890 /* NSArray+BlocksAdditions.m */; };
+		65802AA5148BF4A00040A93A /* NSArray+RemoveDuplicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */; };
+		65802AA6148BF4A30040A93A /* NSArray+IsEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E366C71433760A002AB0B9 /* NSArray+IsEmpty.m */; };
+		65802AA7148BF4A60040A93A /* NSArray+NoThrowObjectAtIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CDDE41445DFD300733BE5 /* NSArray+NoThrowObjectAtIndex.m */; };
+		65802AA8148BF4AB0040A93A /* NSObject+Ownerships.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE138139107EA00DD6890 /* NSObject+Ownerships.m */; };
+		65802AA9148BF4AE0040A93A /* NSObject+OnDeallocBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1CC1391A36800DD6890 /* NSObject+OnDeallocBlock.m */; };
+		65802AAA148BF4B00040A93A /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
+		65802AAB148BF4B20040A93A /* NSObject+Const0.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE75CFE1434B3450076E068 /* NSObject+Const0.m */; };
+		65802AAC148BF4B50040A93A /* NSObject+InstancesCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A683E143F54F700BC284F /* NSObject+InstancesCount.m */; };
 		65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */; };
 		8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */; };
@@ -115,7 +149,6 @@
 		1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignDictionary.m; sourceTree = "<group>"; };
 		1BE75CFD1434B3450076E068 /* NSObject+Const0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Const0.h"; sourceTree = "<group>"; };
 		1BE75CFE1434B3450076E068 /* NSObject+Const0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Const0.m"; sourceTree = "<group>"; };
-		1BED0513144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLNewFeaturesRuntime.m; sourceTree = "<group>"; };
 		53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RemoveDuplicates.h"; sourceTree = "<group>"; };
 		53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RemoveDuplicates.m"; sourceTree = "<group>"; };
 		53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUArrayHelperBlocks.h; sourceTree = "<group>"; };
@@ -139,6 +172,14 @@
 		65648B7D13923EC4001E163C /* NSString+PropertyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PropertyName.m"; sourceTree = "<group>"; };
 		65648BDF13924326001E163C /* JFFError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFError.h; sourceTree = "<group>"; };
 		65648BE013924326001E163C /* JFFError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFError.m; sourceTree = "<group>"; };
+		65802A5B148BF2930040A93A /* libJFFUtilsMacOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFUtilsMacOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		65802A5C148BF2930040A93A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		65802A5F148BF2930040A93A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		65802A60148BF2930040A93A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		65802A61148BF2930040A93A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		65802A64148BF2930040A93A /* JFFUtilsMacOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFUtilsMacOS-Prefix.pch"; sourceTree = "<group>"; };
+		65802A65148BF2930040A93A /* JFFUtilsMacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JFFUtilsMacOS.h; sourceTree = "<group>"; };
+		65802A66148BF2930040A93A /* JFFUtilsMacOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFFUtilsMacOS.m; sourceTree = "<group>"; };
 		65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRuntimeInitializer.m; sourceTree = "<group>"; };
 		8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeExtensions.h"; sourceTree = "<group>"; };
 		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
@@ -156,6 +197,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		65802A58148BF2930040A93A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65802A5D148BF2930040A93A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -171,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AAC07E0554694100DB518D /* libJFFUtils.a */,
+				65802A5B148BF2930040A93A /* libJFFUtilsMacOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +230,7 @@
 			children = (
 				651BE0BF1390496700DD6890 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
+				65802A62148BF2930040A93A /* JFFUtilsMacOS */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
@@ -190,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				65802A5C148BF2930040A93A /* Cocoa.framework */,
+				65802A5E148BF2930040A93A /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,14 +280,6 @@
 				1BA676D1144C476600B14D49 /* NSURL+ToURL.m */,
 			);
 			path = ToURL;
-			sourceTree = "<group>";
-		};
-		1BED0512144ECD2600B8DC2A /* NSURL */ = {
-			isa = PBXGroup;
-			children = (
-				1BED0513144ECD2600B8DC2A /* NSURLNewFeaturesRuntime.m */,
-			);
-			path = NSURL;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -304,8 +349,6 @@
 				651BE0AD1390496200DD6890 /* NSObject */,
 				65648BDF13924326001E163C /* JFFError.h */,
 				65648BE013924326001E163C /* JFFError.m */,
-				65648BEE139243FF001E163C /* NSThread+AssertMainThread.h */,
-				65648BEF139243FF001E163C /* NSThread+AssertMainThread.m */,
 				65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */,
 				8DB67B1D13E980B70024EA6C /* JFFAssignProxy.h */,
 				8DB67B1E13E980B70024EA6C /* JFFAssignProxy.m */,
@@ -343,9 +386,45 @@
 			path = NSString;
 			sourceTree = "<group>";
 		};
+		65802A5E148BF2930040A93A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65802A5F148BF2930040A93A /* AppKit.framework */,
+				65802A60148BF2930040A93A /* CoreData.framework */,
+				65802A61148BF2930040A93A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		65802A62148BF2930040A93A /* JFFUtilsMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				65802A65148BF2930040A93A /* JFFUtilsMacOS.h */,
+				65802A66148BF2930040A93A /* JFFUtilsMacOS.m */,
+				65802A63148BF2930040A93A /* Supporting Files */,
+			);
+			path = JFFUtilsMacOS;
+			sourceTree = "<group>";
+		};
+		65802A63148BF2930040A93A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65802A64148BF2930040A93A /* JFFUtilsMacOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		65802A59148BF2930040A93A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65802A6B148BF2B10040A93A /* JFFUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,7 +440,6 @@
 				651BE27C1391BD7800DD6890 /* JFFUtils.h in Headers */,
 				65648B7E13923EC4001E163C /* NSString+PropertyName.h in Headers */,
 				65648BE113924326001E163C /* JFFError.h in Headers */,
-				65648BF0139243FF001E163C /* NSThread+AssertMainThread.h in Headers */,
 				8D1DE52B13AB8269001FD56F /* NSObject+RuntimeExtensions.h in Headers */,
 				8DB67B1A13E97FCF0024EA6C /* JFFMulticastDelegate.h in Headers */,
 				8DB67B1F13E980B70024EA6C /* JFFAssignProxy.h in Headers */,
@@ -393,6 +471,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		65802A5A148BF2930040A93A /* JFFUtilsMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65802A68148BF2930040A93A /* Build configuration list for PBXNativeTarget "JFFUtilsMacOS" */;
+			buildPhases = (
+				65802A57148BF2930040A93A /* Sources */,
+				65802A58148BF2930040A93A /* Frameworks */,
+				65802A59148BF2930040A93A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFFUtilsMacOS;
+			productName = JFFUtilsMacOS;
+			productReference = 65802A5B148BF2930040A93A /* libJFFUtilsMacOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D2AAC07D0554694100DB518D /* JFFUtils */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFUtils" */;
@@ -416,7 +511,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFUtils" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -434,11 +529,52 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* JFFUtils */,
+				65802A5A148BF2930040A93A /* JFFUtilsMacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		65802A57148BF2930040A93A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65802A67148BF2930040A93A /* JFFUtilsMacOS.m in Sources */,
+				65802A6C148BF2B50040A93A /* JGCDAdditions.m in Sources */,
+				65802A6D148BF2B80040A93A /* JFFResultContext.m in Sources */,
+				65802A6E148BF2BA0040A93A /* JFFMulticastDelegate.m in Sources */,
+				65802A6F148BF2BE0040A93A /* JFFMutableAssignDictionary.m in Sources */,
+				65802A70148BF2C10040A93A /* JFFMutableAssignArray.m in Sources */,
+				65802A71148BF2C30040A93A /* JFFSingleThreadProxy.m in Sources */,
+				65802A72148BF2C80040A93A /* JFFAssignProxy.m in Sources */,
+				65802A73148BF2CB0040A93A /* ESRuntimeInitializer.m in Sources */,
+				65802A74148BF2CE0040A93A /* JFFError.m in Sources */,
+				65802A95148BF4610040A93A /* NSString+ToURL.m in Sources */,
+				65802A97148BF4640040A93A /* NSURL+ToURL.m in Sources */,
+				65802A98148BF4700040A93A /* NSThread+AssertMainThread.m in Sources */,
+				65802A99148BF4750040A93A /* NSString+XQueryComponents.m in Sources */,
+				65802A9A148BF4780040A93A /* NSURL+XQueryComponents.m in Sources */,
+				65802A9B148BF47A0040A93A /* NSDictionary+XQueryComponents.m in Sources */,
+				65802A9C148BF4800040A93A /* JFFSimpleBlockHolder.m in Sources */,
+				65802A9D148BF4820040A93A /* JFFOnDeallocBlockOwner.m in Sources */,
+				65802A9E148BF4870040A93A /* NSString+Search.m in Sources */,
+				65802A9F148BF4890040A93A /* NSString+PropertyName.m in Sources */,
+				65802AA0148BF48F0040A93A /* NSString+PathExtensions.m in Sources */,
+				65802AA1148BF4920040A93A /* NSString+Trimm.m in Sources */,
+				65802AA2148BF4960040A93A /* NSString+UUIDCreation.m in Sources */,
+				65802AA3148BF49B0040A93A /* NSMutableArray+ChangeCount.m in Sources */,
+				65802AA4148BF49D0040A93A /* NSArray+BlocksAdditions.m in Sources */,
+				65802AA5148BF4A00040A93A /* NSArray+RemoveDuplicates.m in Sources */,
+				65802AA6148BF4A30040A93A /* NSArray+IsEmpty.m in Sources */,
+				65802AA7148BF4A60040A93A /* NSArray+NoThrowObjectAtIndex.m in Sources */,
+				65802AA8148BF4AB0040A93A /* NSObject+Ownerships.m in Sources */,
+				65802AA9148BF4AE0040A93A /* NSObject+OnDeallocBlock.m in Sources */,
+				65802AAA148BF4B00040A93A /* NSObject+RuntimeExtensions.m in Sources */,
+				65802AAB148BF4B20040A93A /* NSObject+Const0.m in Sources */,
+				65802AAC148BF4B50040A93A /* NSObject+InstancesCount.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,7 +587,6 @@
 				651BE1CE1391A36800DD6890 /* NSObject+OnDeallocBlock.m in Sources */,
 				65648B7F13923EC4001E163C /* NSString+PropertyName.m in Sources */,
 				65648BE213924326001E163C /* JFFError.m in Sources */,
-				65648BF1139243FF001E163C /* NSThread+AssertMainThread.m in Sources */,
 				8D1DE52C13AB8269001FD56F /* NSObject+RuntimeExtensions.m in Sources */,
 				65E1A88A13CD764A000578CC /* ESRuntimeInitializer.m in Sources */,
 				8DB67B1B13E97FCF0024EA6C /* JFFMulticastDelegate.m in Sources */,
@@ -554,6 +689,60 @@
 			};
 			name = Release;
 		};
+		65802A69148BF2930040A93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JFFUtilsMacOS/JFFUtilsMacOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		65802A6A148BF2930040A93A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JFFUtilsMacOS/JFFUtilsMacOS-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -571,6 +760,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65802A68148BF2930040A93A /* Build configuration list for PBXNativeTarget "JFFUtilsMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65802A69148BF2930040A93A /* Debug */,
+				65802A6A148BF2930040A93A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

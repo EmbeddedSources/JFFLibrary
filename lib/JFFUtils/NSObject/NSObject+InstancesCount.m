@@ -40,8 +40,9 @@
    {
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
-      NSUInteger instances_count_ = [ number_ unsignedIntValue ];
-      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: ++instances_count_ ]
+      NSUInteger instances_count_  = [ number_ unsignedIntValue ];
+      NSNumber* instancesCountNum_ = [ NSNumber numberWithUnsignedInteger: ++instances_count_ ];
+      [ self.instancesNumberByClassName setObject: instancesCountNum_
                                            forKey: class_name_ ];
    }
 }
@@ -52,8 +53,9 @@
    {
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
-      NSUInteger instances_count_ = [ number_ unsignedIntValue ];
-      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: --instances_count_ ]
+      NSUInteger instances_count_  = [ number_ unsignedIntValue ];
+      NSNumber* instancesCountNum_ = [ NSNumber numberWithUnsignedInteger: --instances_count_ ];
+      [ self.instancesNumberByClassName setObject: instancesCountNum_
                                            forKey: class_name_ ];
    }
 }
