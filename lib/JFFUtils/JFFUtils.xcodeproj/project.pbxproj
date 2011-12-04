@@ -65,7 +65,6 @@
 		65648BE113924326001E163C /* JFFError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648BDF13924326001E163C /* JFFError.h */; };
 		65648BE213924326001E163C /* JFFError.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648BE013924326001E163C /* JFFError.m */; };
 		65802A5D148BF2930040A93A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65802A5C148BF2930040A93A /* Cocoa.framework */; };
-		65802A67148BF2930040A93A /* JFFUtilsMacOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 65802A66148BF2930040A93A /* JFFUtilsMacOS.m */; };
 		65802A6B148BF2B10040A93A /* JFFUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE27B1391BD7800DD6890 /* JFFUtils.h */; };
 		65802A6C148BF2B50040A93A /* JGCDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7608991444912F0059E977 /* JGCDAdditions.m */; };
 		65802A6D148BF2B80040A93A /* JFFResultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD01FB51444824100A627B1 /* JFFResultContext.m */; };
@@ -178,8 +177,6 @@
 		65802A60148BF2930040A93A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		65802A61148BF2930040A93A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65802A64148BF2930040A93A /* JFFUtilsMacOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JFFUtilsMacOS-Prefix.pch"; sourceTree = "<group>"; };
-		65802A65148BF2930040A93A /* JFFUtilsMacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JFFUtilsMacOS.h; sourceTree = "<group>"; };
-		65802A66148BF2930040A93A /* JFFUtilsMacOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFFUtilsMacOS.m; sourceTree = "<group>"; };
 		65E1A88913CD764A000578CC /* ESRuntimeInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRuntimeInitializer.m; sourceTree = "<group>"; };
 		8D1DE52913AB8269001FD56F /* NSObject+RuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeExtensions.h"; sourceTree = "<group>"; };
 		8D1DE52A13AB8269001FD56F /* NSObject+RuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeExtensions.m"; sourceTree = "<group>"; };
@@ -399,8 +396,6 @@
 		65802A62148BF2930040A93A /* JFFUtilsMacOS */ = {
 			isa = PBXGroup;
 			children = (
-				65802A65148BF2930040A93A /* JFFUtilsMacOS.h */,
-				65802A66148BF2930040A93A /* JFFUtilsMacOS.m */,
 				65802A63148BF2930040A93A /* Supporting Files */,
 			);
 			path = JFFUtilsMacOS;
@@ -539,7 +534,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65802A67148BF2930040A93A /* JFFUtilsMacOS.m in Sources */,
 				65802A6C148BF2B50040A93A /* JGCDAdditions.m in Sources */,
 				65802A6D148BF2B80040A93A /* JFFResultContext.m in Sources */,
 				65802A6E148BF2BA0040A93A /* JFFMulticastDelegate.m in Sources */,
