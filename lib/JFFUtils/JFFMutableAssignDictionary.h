@@ -2,6 +2,8 @@
 
 @interface JFFMutableAssignDictionary : NSObject
 
+@property ( nonatomic, copy, readonly ) NSDictionary* dictionary;
+
 -(NSUInteger)count;
 -(id)objectForKey:( id )key_;
 
@@ -11,5 +13,6 @@
 -(void)removeAllObjects;
 
 -(NSArray*)allKeys;
+-(NSArray*)allValues;
 
 @end

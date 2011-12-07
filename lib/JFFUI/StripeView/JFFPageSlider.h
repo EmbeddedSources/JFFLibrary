@@ -1,3 +1,5 @@
+#import <JFFUtils/JSignedRange.h>
+
 #import <UIKit/UIKit.h>
 
 @protocol JFFPageSliderDelegate;
@@ -29,5 +31,9 @@
 
 -(void)slideToIndex:( NSInteger )index_ animated:(BOOL)animated_;
 -(void)slideToIndex:( NSInteger )index_;
+
+-(UIView*)viewAtIndex:( NSInteger )index_;
+
+-(void)removeViewsInRange:( JSignedRange )range_;
 
 @end

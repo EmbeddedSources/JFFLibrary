@@ -56,7 +56,7 @@
    scrollView = [ [ UIScrollView alloc ] initWithFrame: self.bounds ];
    scrollView.backgroundColor = [ UIColor clearColor ];
    scrollView.delegate = self;
-   scrollView.clipsToBounds = NO;
+   scrollView.clipsToBounds = YES;
    scrollView.pagingEnabled = YES;
    scrollView.bounces = NO;
    scrollView.scrollEnabled = NO;
@@ -95,6 +95,12 @@
                                        self.bounds.size.height );
 }
 
+-(UIView*)viewAtIndex:( NSInteger )index_
+{
+   NSNumber* index_number_ = [ [ NSNumber alloc ] initWithInteger: index_ ];
+   return [ viewByIndex objectForKey: index_number_ ];
+}
+
 -(void)cacheAndPositionView:( UIView* )view_
                     toIndex:( NSInteger )index_
 {
@@ -125,21 +131,32 @@
       return;
    }
 
-   activeIndex = fmin( activeIndex, self.lastIndex );
+   self.activeIndex = fmin( activeIndex, self.lastIndex );
 
    [ self addViewForIndex: activeIndex ];
 
    [ self updateScrollViewContentSize ];
 }
 
+-(CGPoint)offsetForIndex:( NSInteger )index_
+{
+   return CGPointMake( ( index_ - firstIndex ) * scrollView.bounds.size.width
+                      , scrollView.contentOffset.y );
+}
+
 -(void)layoutSubviews
 {
+   [ super layoutSubviews ];
+
    for ( NSNumber* index_ in viewByIndex )
    {
       UIView* view_ = [ viewByIndex objectForKey: index_ ];
       view_.frame = [ self elementFrameForIndex: [ index_ integerValue ] ];
    }
    [ self updateScrollViewContentSize ];
+
+   CGPoint offset_ = [ self offsetForIndex: activeIndex ];
+   [ scrollView setContentOffset: offset_ animated: NO ];
 }
 
 -(UIView*)elementAtIndex:( NSInteger )index_
@@ -166,10 +183,42 @@
 
 -(void)slideToIndex:( NSInteger )index_ animated:( BOOL )animated_
 {
-   activeIndex = index_;
-   CGPoint offset_ = CGPointMake( ( index_ - firstIndex ) * scrollView.bounds.size.width
-                                 , scrollView.contentOffset.y );
+   self.activeIndex = index_;
+   CGPoint offset_ = [ self offsetForIndex: index_ ];
    [ scrollView setContentOffset: offset_ animated: animated_ ];
+}
+
+-(void)removeViewAtIndex:( NSInteger )index_
+{
+   NSAssert( index_ != activeIndex, @"Can not remove View at active index" );
+
+   if ( index_ < activeIndex )
+   {
+      self.firstIndex += 1;
+   }
+
+   NSNumber* numberIndex_ = [ NSNumber numberWithInteger: index_ ];
+   UIView* view_ = [ viewByIndex objectForKey: numberIndex_ ];
+   [ view_ removeFromSuperview ];
+   [ viewByIndex removeObjectForKey: numberIndex_ ];
+}
+
+-(void)removeViewsInRange:( JSignedRange )range_
+{
+   for ( NSInteger index_ = range_.location;
+        index_ < range_.location + range_.length;
+        ++index_ )
+   {
+      [ self removeViewAtIndex: index_ ];
+   }
+
+   NSInteger last_elements_count_ = cachedNumberOfElements;
+   cachedNumberOfElements = [ self.delegate numberOfElementsInStripeView: self ];
+   NSAssert( cachedNumberOfElements == last_elements_count_ - range_.length, @"invalid elements count" );
+
+   [ self updateScrollViewContentSize ];
+   CGPoint offset_ = [ self offsetForIndex: activeIndex ];
+   [ scrollView setContentOffset: offset_ animated: NO ];
 }
 
 -(void)slideToIndex:( NSInteger )index_
@@ -181,6 +230,7 @@
 {
    NSInteger first_index_ = floorf( scrollView.contentOffset.x / scrollView.bounds.size.width ) + firstIndex;
    NSInteger last_index_ = ceilf( scrollView.contentOffset.x / scrollView.bounds.size.width ) + firstIndex;
+   last_index_ = fmin( last_index_, self.lastIndex );
 
    previousVisiableIndexesRange = NSMakeRange( first_index_, last_index_ - first_index_ + 1 );
    return previousVisiableIndexesRange;
@@ -214,7 +264,7 @@
    NSAssert( cachedNumberOfElements - 1 == last_elements_count_, @"invalid elements count" );
    NSAssert( ( index_ >= firstIndex - 1 ) && ( index_ <= self.lastIndex + 1 ), @"invalid index" );
 
-   firstIndex = fmin( firstIndex, index_ );
+   self.firstIndex = fmin( firstIndex, index_ );
    if ( index_ <= prev_last_index_ )
       [ self shiftRightElementsFromIndex: index_ toIndex: prev_last_index_ ];
 
@@ -257,7 +307,7 @@
 
 -(void)scrollViewDidEndDecelerating:( UIScrollView* )scrollView_
 {
-   activeIndex = floor( scrollView.contentOffset.x / scrollView.bounds.size.width ) + firstIndex;
+   self.activeIndex = floor( scrollView.contentOffset.x / scrollView.bounds.size.width ) + firstIndex;
 }
 
 -(void)scrollViewDidEndScrollingAnimation:( UIScrollView* )scrollView_

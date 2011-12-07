@@ -108,4 +108,16 @@
    return [ mutableDictionary allKeys ];
 }
 
+-(NSArray*)allValues
+{
+   return [ mutableDictionary allValues ];
+}
+
+-(NSDictionary*)dictionary
+{
+   return mutableDictionary
+      ? [ NSDictionary dictionaryWithDictionary: mutableDictionary ]
+      : nil;
+}
+
 @end
