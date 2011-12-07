@@ -203,11 +203,13 @@
          [ owned_by_callbacks_ class ];
       };
 
-      JFFCancelAsyncOperation cancel_ = auto_cancel_operation_( progress_callback_, cancel_callback_, done_callback_ );
+      JFFCancelAsyncOperation cancel_ = auto_cancel_operation_( progress_callback_
+                                                               , cancel_callback_
+                                                               , done_callback_ );
 
       [ owned_by_callbacks_ release ];
 
-      GHAssertFalse( deallocated_, @"owned_by_callbacks_ objet should not be deallocated" );
+      GHAssertFalse( deallocated_, @"owned_by_callbacks_ object should not be deallocated" );
 
       cancel_( NO );
 
