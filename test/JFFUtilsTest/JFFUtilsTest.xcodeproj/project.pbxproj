@@ -17,6 +17,8 @@
 		1B90269F143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */; };
 		534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */; };
 		53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */; };
+		53F5E5B41491F719009D2B5A /* EmptyStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5E5B31491F719009D2B5A /* EmptyStringTest.m */; };
+		B64247FD147AB3520026090E /* JFFStringFormatTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B64247FC147AB3520026090E /* JFFStringFormatTest.m */; };
 		B69483EC1429C88400B8247E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EB1429C88400B8247E /* UIKit.framework */; };
 		B69483EE1429C88400B8247E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483ED1429C88400B8247E /* Foundation.framework */; };
 		B69483F01429C88400B8247E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EF1429C88400B8247E /* CoreGraphics.framework */; };
@@ -27,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5366ECE31491F5D70070854C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B694845D1429E24B00B8247E /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B18423814852046000C8181;
+			remoteInfo = "JFFUtils-clang";
+		};
 		B69484641429E24B00B8247E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B694845D1429E24B00B8247E /* JFFUtils.xcodeproj */;
@@ -54,6 +63,8 @@
 		1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMulticastDelegateTest.m; sourceTree = "<group>"; };
 		534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUMutableArrayTest.m; sourceTree = "<group>"; };
 		53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayAdditionsTest.m; sourceTree = "<group>"; };
+		53F5E5B31491F719009D2B5A /* EmptyStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStringTest.m; sourceTree = "<group>"; };
+		B64247FC147AB3520026090E /* JFFStringFormatTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFStringFormatTest.m; sourceTree = "<group>"; };
 		B69483E71429C88400B8247E /* JFFUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69483EB1429C88400B8247E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B69483ED1429C88400B8247E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +155,8 @@
 				1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */,
 				1B80C1DF1442CE5A007D4309 /* NSObjectRuntimeExtensionsTest.m */,
 				1B80C23F14430049007D4309 /* NSObjectInstancesCountTest.m */,
+				B64247FC147AB3520026090E /* JFFStringFormatTest.m */,
+				53F5E5B31491F719009D2B5A /* EmptyStringTest.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -152,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				B69484651429E24B00B8247E /* libJFFUtils.a */,
+				5366ECE41491F5D70070854C /* libJFFUtils-clang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +224,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5366ECE41491F5D70070854C /* libJFFUtils-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFUtils-clang.a";
+			remoteRef = 5366ECE31491F5D70070854C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B69484651429E24B00B8247E /* libJFFUtils.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -262,6 +283,8 @@
 				1B90269F143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m in Sources */,
 				1B80C1E01442CE5A007D4309 /* NSObjectRuntimeExtensionsTest.m in Sources */,
 				1B80C24014430049007D4309 /* NSObjectInstancesCountTest.m in Sources */,
+				B64247FD147AB3520026090E /* JFFStringFormatTest.m in Sources */,
+				53F5E5B41491F719009D2B5A /* EmptyStringTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
