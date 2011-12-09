@@ -47,6 +47,20 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = JFFUtils;
 		};
+		53F5E5C11491FBF1009D2B5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B29554D143DCA8300532BD7 /* JFFUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B8119F3148695FB001B46D8;
+			remoteInfo = "JFFUI-clang";
+		};
+		53F5E5C41491FBF1009D2B5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B295564143DCCAE00532BD7 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B18423814852046000C8181;
+			remoteInfo = "JFFUtils-clang";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				1B295555143DCA8300532BD7 /* libJFFUI.a */,
+				53F5E5C21491FBF1009D2B5A /* libJFFUI-clang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				1B295569143DCCAE00532BD7 /* libJFFUtils.a */,
+				53F5E5C51491FBF1009D2B5A /* libJFFUtils-clang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +243,20 @@
 			remoteRef = 1B295568143DCCAE00532BD7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		53F5E5C21491FBF1009D2B5A /* libJFFUI-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFUI-clang.a";
+			remoteRef = 53F5E5C11491FBF1009D2B5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53F5E5C51491FBF1009D2B5A /* libJFFUtils-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFUtils-clang.a";
+			remoteRef = 53F5E5C41491FBF1009D2B5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -293,7 +323,6 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -313,7 +342,6 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -335,7 +363,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFUITest/JFFUITest-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JFFUITest/JFFUITest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -351,7 +378,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFUITest/JFFUITest-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JFFUITest/JFFUITest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

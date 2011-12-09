@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1B835B3F142CC5F100FC004C /* JFFScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1041390559900DD6890 /* JFFScheduler.m */; };
+		5B81173114869565001B46D8 /* JFFScheduler_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFScheduler_Prefix.pch */; };
+		5B81173214869565001B46D8 /* JFFScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1031390559900DD6890 /* JFFScheduler.h */; };
+		5B81173314869565001B46D8 /* NSObject+Scheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE196139195E500DD6890 /* NSObject+Scheduler.h */; };
+		5B81173514869565001B46D8 /* NSObject+Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE197139195E500DD6890 /* NSObject+Scheduler.m */; };
+		5B81173614869565001B46D8 /* JFFScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE1041390559900DD6890 /* JFFScheduler.m */; };
+		5B81173814869565001B46D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		651BE1051390559900DD6890 /* JFFScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1031390559900DD6890 /* JFFScheduler.h */; };
 		651BE198139195E500DD6890 /* NSObject+Scheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE196139195E500DD6890 /* NSObject+Scheduler.h */; };
 		651BE199139195E500DD6890 /* NSObject+Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 651BE197139195E500DD6890 /* NSObject+Scheduler.m */; };
@@ -16,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B81173C14869565001B46D8 /* libJFFScheduler-clang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libJFFScheduler-clang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		651BE1031390559900DD6890 /* JFFScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFScheduler.h; sourceTree = "<group>"; };
 		651BE1041390559900DD6890 /* JFFScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFScheduler.m; sourceTree = "<group>"; };
 		651BE196139195E500DD6890 /* NSObject+Scheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Scheduler.h"; sourceTree = "<group>"; };
@@ -26,6 +33,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5B81173714869565001B46D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B81173814869565001B46D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AAC07E0554694100DB518D /* libJFFScheduler.a */,
+				5B81173C14869565001B46D8 /* libJFFScheduler-clang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +102,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5B81173014869565001B46D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B81173114869565001B46D8 /* JFFScheduler_Prefix.pch in Headers */,
+				5B81173214869565001B46D8 /* JFFScheduler.h in Headers */,
+				5B81173314869565001B46D8 /* NSObject+Scheduler.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,6 +125,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5B81172F14869565001B46D8 /* JFFScheduler-clang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B81173914869565001B46D8 /* Build configuration list for PBXNativeTarget "JFFScheduler-clang" */;
+			buildPhases = (
+				5B81173014869565001B46D8 /* Headers */,
+				5B81173414869565001B46D8 /* Sources */,
+				5B81173714869565001B46D8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JFFScheduler-clang";
+			productName = JFFScheduler;
+			productReference = 5B81173C14869565001B46D8 /* libJFFScheduler-clang.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D2AAC07D0554694100DB518D /* JFFScheduler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFScheduler" */;
@@ -140,11 +183,21 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* JFFScheduler */,
+				5B81172F14869565001B46D8 /* JFFScheduler-clang */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5B81173414869565001B46D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B81173514869565001B46D8 /* NSObject+Scheduler.m in Sources */,
+				5B81173614869565001B46D8 /* JFFScheduler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +270,39 @@
 			};
 			name = Release;
 		};
+		5B81173A14869565001B46D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JFFScheduler.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFScheduler_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = "JFFScheduler-clang";
+			};
+			name = Debug;
+		};
+		5B81173B14869565001B46D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/JFFScheduler.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFScheduler_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = "JFFScheduler-clang";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -234,6 +320,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B81173914869565001B46D8 /* Build configuration list for PBXNativeTarget "JFFScheduler-clang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B81173A14869565001B46D8 /* Debug */,
+				5B81173B14869565001B46D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
