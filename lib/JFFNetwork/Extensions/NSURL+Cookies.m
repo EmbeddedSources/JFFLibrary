@@ -4,7 +4,7 @@
 
 -(void)logCookies
 {
-   NSMutableString* cookies_log_ = [ NSMutableString stringWithFormat: @"Cookies for url: %@/n", self ];
+   NSMutableString* cookies_log_ = [ NSMutableString stringWithFormat: @"Cookies for url: %@\n", self ];
    
    NSArray* cookies_ = [ [ NSHTTPCookieStorage sharedHTTPCookieStorage ] cookiesForURL: self ];
    for ( NSHTTPCookie* cookie_ in cookies_ )

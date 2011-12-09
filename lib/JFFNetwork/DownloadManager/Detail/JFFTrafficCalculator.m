@@ -4,9 +4,6 @@
 
 #import <JFFScheduler/JFFScheduler.h>
 
-static float calculate_speed_interval_ = 1.f;
-static float average_speed_duration_ = 3.f;
-
 @interface ESDownloadedBytesPerDate : NSObject
 
 @property ( nonatomic, retain ) NSDate* date;
@@ -89,6 +86,8 @@ static float average_speed_duration_ = 3.f;
 
 -(void)removeOldItemsFromDownloadingSpeedInfo
 {
+   static NSTimeInterval average_speed_duration_ = 3.0;
+
    ESDownloadedBytesPerDate* last_item_ = [ self.downloadingSpeedInfo lastObject ];
    while ( last_item_ && ( [ [ NSDate date ] timeIntervalSince1970 ] - [ last_item_.date timeIntervalSince1970 ] > average_speed_duration_ ) )
    {
@@ -142,6 +141,8 @@ static float average_speed_duration_ = 3.f;
 
 -(void)startLoading
 {
+   static NSTimeInterval calculate_speed_interval_ = 1.0;
+
    [ self stopScheduling ];
 
    __block JFFTrafficCalculator* self_ = self;

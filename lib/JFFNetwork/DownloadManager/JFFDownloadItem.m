@@ -283,7 +283,7 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
 -(void)didReceiveData:( NSData* )data_
       progressHandler:( JFFAsyncOperationProgressHandler )progress_callback_
 {
-   if ( _traffic_calculator )
+   if ( !_traffic_calculator )
       [ self.trafficCalculator startLoading ];
 
    if ( !self.file )
