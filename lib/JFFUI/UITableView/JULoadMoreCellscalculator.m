@@ -196,16 +196,15 @@ static const NSUInteger RIPagingDisabled         = 0;
    NSDebugLog( @"index_path_[%d] : %@ .. %@", [ index_paths_ count ], [ index_paths_ objectAtIndex: 0 ], [ index_paths_ lastObject ] );
    NSDebugLog( @"page size : %d", [ self pageSize ] );
    
-   [ table_view_holder_.tableView withinUpdates: ^void()
-    {
+   [ table_view_holder_.tableView withinUpdates: ^{
        NSDebugLog( @"beginUpdates" );      
        NSArray* load_more_path_array_ = [ NSArray arrayWithObject: self.loadMoreIndexPath ];
        
-       [ table_view_holder_.tableView reloadRowsAtIndexPaths: load_more_path_array_
+       [ [ table_view_holder_ tableView ] reloadRowsAtIndexPaths: load_more_path_array_
                                             withRowAnimation: UITableViewRowAnimationNone ];
        
        
-       [ table_view_holder_.tableView insertRowsAtIndexPaths: index_paths_ 
+       [ [ table_view_holder_ tableView ] insertRowsAtIndexPaths: index_paths_ 
                                             withRowAnimation: UITableViewRowAnimationNone ];
        
        
@@ -215,7 +214,7 @@ static const NSUInteger RIPagingDisabled         = 0;
        {
           ++self.currentCount;
        }
-       table_view_holder_.currentCount = self.currentCount;
+       [ table_view_holder_ setCurrentCount: self.currentCount ];
        
        NSDebugLog( @"currentCount : %d", self.currentCount );
        NSDebugLog( @"endUpdates" );
