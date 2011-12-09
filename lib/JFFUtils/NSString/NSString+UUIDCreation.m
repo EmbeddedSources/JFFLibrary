@@ -4,11 +4,17 @@
 
 +(NSString*)createUuid
 {
+   NSString* result_ = nil;
+   
    CFUUIDRef uuid_ = CFUUIDCreate( NULL );
-   NSString* result_ = [ (NSString*)CFUUIDCreateString( NULL, uuid_ ) retain ];
+   CFStringRef raw_result_ = CFUUIDCreateString( NULL, uuid_ );
+   {
+      result_ = [ NSString stringWithString: (NSString*)raw_result_ ];
+   }
    CFRelease( uuid_ );
+   CFRelease( raw_result_ );
 
-   return [ result_ autorelease ];
+   return result_;
 }
 
 @end
