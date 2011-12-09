@@ -13,3 +13,5 @@
 
 #import <JFFUI/UITableView/JULoadMoreCellscalculator.h>
 #import <JFFUI/UITableView/UITableView+WithinUpdates.h>
+
+#import <JFFUI/Preview/NSURL+QLPreviewControllerDataSource.h>

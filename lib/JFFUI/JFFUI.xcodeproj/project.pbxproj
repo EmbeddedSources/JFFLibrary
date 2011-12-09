@@ -24,6 +24,41 @@
 		1B7F589C1435D58000FF06EC /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */; };
 		1B81FAEF14330E4400997278 /* UINib+FirstObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAED14330E4400997278 /* UINib+FirstObject.h */; };
 		1B81FAF014330E4400997278 /* UINib+FirstObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAEE14330E4400997278 /* UINib+FirstObject.m */; };
+		538849EC147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 538849EA147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.h */; };
+		538849ED147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 538849EB147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.m */; };
+		538849EF147E96DC0046FB62 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538849EE147E96DC0046FB62 /* QuickLook.framework */; };
+		53D7A5E41491036B008960B2 /* UIView+AllSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3853147683E9007D8C10 /* UIView+AllSubviews.m */; };
+		5B8119CF148695FB001B46D8 /* JFFUI_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUI_Prefix.pch */; };
+		5B8119D0148695FB001B46D8 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
+		5B8119D1148695FB001B46D8 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
+		5B8119D2148695FB001B46D8 /* NSError+Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB61392E8C00074BD61 /* NSError+Alert.h */; };
+		5B8119D3148695FB001B46D8 /* JFFUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9E4A1392ED360074BD61 /* JFFUI.h */; };
+		5B8119D4148695FB001B46D8 /* JFFActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D996F16139F5D370075A325 /* JFFActionSheet.h */; };
+		5B8119D5148695FB001B46D8 /* NSObject+JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D996F1C139F61200075A325 /* NSObject+JFFAlertButton.h */; };
+		5B8119D6148695FB001B46D8 /* UIViewController+OnCloseActions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B793A61142B7F5F00B43DC8 /* UIViewController+OnCloseActions.h */; };
+		5B8119D7148695FB001B46D8 /* UINib+FirstObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B81FAED14330E4400997278 /* UINib+FirstObject.h */; };
+		5B8119D8148695FB001B46D8 /* UIWebView+HideWhenLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F583E1435BDC000FF06EC /* UIWebView+HideWhenLoading.h */; };
+		5B8119D9148695FB001B46D8 /* UIView+AddSubviewAndScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F58951435D53300FF06EC /* UIView+AddSubviewAndScale.h */; };
+		5B8119DA148695FB001B46D8 /* UIView+AnimationWithBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F58991435D58000FF06EC /* UIView+AnimationWithBlocks.h */; };
+		5B8119DB148695FB001B46D8 /* JULoadMoreCellscalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B295558143DCB3A00532BD7 /* JULoadMoreCellscalculator.h */; };
+		5B8119DC148695FB001B46D8 /* UITableView+WithinUpdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B29555D143DCB7300532BD7 /* UITableView+WithinUpdates.h */; };
+		5B8119DD148695FB001B46D8 /* NSURL+QLPreviewControllerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 538849EA147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.h */; };
+		5B8119DF148695FB001B46D8 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
+		5B8119E0148695FB001B46D8 /* JFFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB51392E8C00074BD61 /* JFFAlertView.m */; };
+		5B8119E1148695FB001B46D8 /* NSError+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB71392E8C00074BD61 /* NSError+Alert.m */; };
+		5B8119E2148695FB001B46D8 /* JFFActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F17139F5D370075A325 /* JFFActionSheet.m */; };
+		5B8119E3148695FB001B46D8 /* NSObject+JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D996F1D139F61200075A325 /* NSObject+JFFAlertButton.m */; };
+		5B8119E4148695FB001B46D8 /* UIViewController+OnCloseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793A62142B7F5F00B43DC8 /* UIViewController+OnCloseActions.m */; };
+		5B8119E5148695FB001B46D8 /* UINib+FirstObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81FAEE14330E4400997278 /* UINib+FirstObject.m */; };
+		5B8119E6148695FB001B46D8 /* UIWebView+HideWhenLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F583F1435BDC000FF06EC /* UIWebView+HideWhenLoading.m */; };
+		5B8119E7148695FB001B46D8 /* UIView+AddSubviewAndScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F58961435D53300FF06EC /* UIView+AddSubviewAndScale.m */; };
+		5B8119E8148695FB001B46D8 /* UIView+AnimationWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */; };
+		5B8119E9148695FB001B46D8 /* UIWebViewNewFeaturesRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B49CFA6143C6D3400E8AACE /* UIWebViewNewFeaturesRuntime.m */; };
+		5B8119EA148695FB001B46D8 /* JULoadMoreCellscalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B295559143DCB3A00532BD7 /* JULoadMoreCellscalculator.m */; };
+		5B8119EB148695FB001B46D8 /* UITableView+WithinUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B29555E143DCB7300532BD7 /* UITableView+WithinUpdates.m */; };
+		5B8119EC148695FB001B46D8 /* NSURL+QLPreviewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 538849EB147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.m */; };
+		5B8119EE148695FB001B46D8 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538849EE147E96DC0046FB62 /* QuickLook.framework */; };
+		5B8119EF148695FB001B46D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		655E9DB81392E8C00074BD61 /* JFFAlertButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB21392E8C00074BD61 /* JFFAlertButton.h */; };
 		655E9DB91392E8C00074BD61 /* JFFAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E9DB31392E8C00074BD61 /* JFFAlertButton.m */; };
 		655E9DBA1392E8C00074BD61 /* JFFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E9DB41392E8C00074BD61 /* JFFAlertView.h */; };
@@ -57,6 +92,10 @@
 		1B7F589A1435D58000FF06EC /* UIView+AnimationWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationWithBlocks.m"; sourceTree = "<group>"; };
 		1B81FAED14330E4400997278 /* UINib+FirstObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINib+FirstObject.h"; path = "Extensions/UINib+FirstObject.h"; sourceTree = SOURCE_ROOT; };
 		1B81FAEE14330E4400997278 /* UINib+FirstObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINib+FirstObject.m"; path = "Extensions/UINib+FirstObject.m"; sourceTree = SOURCE_ROOT; };
+		538849EA147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+QLPreviewControllerDataSource.h"; sourceTree = "<group>"; };
+		538849EB147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+QLPreviewControllerDataSource.m"; sourceTree = "<group>"; };
+		538849EE147E96DC0046FB62 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		5B8119F3148695FB001B46D8 /* libJFFUI-clang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libJFFUI-clang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E9DB21392E8C00074BD61 /* JFFAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertButton.h; sourceTree = "<group>"; };
 		655E9DB31392E8C00074BD61 /* JFFAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAlertButton.m; sourceTree = "<group>"; };
 		655E9DB41392E8C00074BD61 /* JFFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAlertView.h; sourceTree = "<group>"; };
@@ -74,10 +113,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5B8119ED148695FB001B46D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B8119EE148695FB001B46D8 /* QuickLook.framework in Frameworks */,
+				5B8119EF148695FB001B46D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538849EF147E96DC0046FB62 /* QuickLook.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AAC07E0554694100DB518D /* libJFFUI.a */,
+				5B8119F3148695FB001B46D8 /* libJFFUI-clang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +146,7 @@
 		0867D691FE84028FC02AAC07 /* JFFUI */ = {
 			isa = PBXGroup;
 			children = (
+				538849EE147E96DC0046FB62 /* QuickLook.framework */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -115,11 +166,12 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				655E9DB11392E8C00074BD61 /* AlertView */,
+				1B793977142B76FD00B43DC8 /* Extensions */,
+				538849E9147E965E0046FB62 /* Preview */,
 				1B295556143DCB0500532BD7 /* UITableView */,
 				1B7F58941435D50F00FF06EC /* UIView */,
 				1B7F583B1435BDC000FF06EC /* UIWebView */,
-				1B793977142B76FD00B43DC8 /* Extensions */,
-				655E9DB11392E8C00074BD61 /* AlertView */,
 				655E9E4A1392ED360074BD61 /* JFFUI.h */,
 			);
 			name = Classes;
@@ -179,6 +231,15 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		538849E9147E965E0046FB62 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				538849EA147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.h */,
+				538849EB147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.m */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
 		655E9DB11392E8C00074BD61 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +268,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5B8119CE148695FB001B46D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B8119CF148695FB001B46D8 /* JFFUI_Prefix.pch in Headers */,
+				5B8119D0148695FB001B46D8 /* JFFAlertButton.h in Headers */,
+				5B8119D1148695FB001B46D8 /* JFFAlertView.h in Headers */,
+				5B8119D2148695FB001B46D8 /* NSError+Alert.h in Headers */,
+				5B8119D3148695FB001B46D8 /* JFFUI.h in Headers */,
+				5B8119D4148695FB001B46D8 /* JFFActionSheet.h in Headers */,
+				5B8119D5148695FB001B46D8 /* NSObject+JFFAlertButton.h in Headers */,
+				5B8119D6148695FB001B46D8 /* UIViewController+OnCloseActions.h in Headers */,
+				5B8119D7148695FB001B46D8 /* UINib+FirstObject.h in Headers */,
+				5B8119D8148695FB001B46D8 /* UIWebView+HideWhenLoading.h in Headers */,
+				5B8119D9148695FB001B46D8 /* UIView+AddSubviewAndScale.h in Headers */,
+				5B8119DA148695FB001B46D8 /* UIView+AnimationWithBlocks.h in Headers */,
+				5B8119DB148695FB001B46D8 /* JULoadMoreCellscalculator.h in Headers */,
+				5B8119DC148695FB001B46D8 /* UITableView+WithinUpdates.h in Headers */,
+				5B8119DD148695FB001B46D8 /* NSURL+QLPreviewControllerDataSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +308,7 @@
 				1B7F589B1435D58000FF06EC /* UIView+AnimationWithBlocks.h in Headers */,
 				1B29555A143DCB3A00532BD7 /* JULoadMoreCellscalculator.h in Headers */,
 				1B29555F143DCB7300532BD7 /* UITableView+WithinUpdates.h in Headers */,
+				538849EC147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.h in Headers */,
 				1B3A3854147683E9007D8C10 /* UIView+AllSubviews.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +316,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5B8119CD148695FB001B46D8 /* JFFUI-clang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B8119F0148695FB001B46D8 /* Build configuration list for PBXNativeTarget "JFFUI-clang" */;
+			buildPhases = (
+				5B8119CE148695FB001B46D8 /* Headers */,
+				5B8119DE148695FB001B46D8 /* Sources */,
+				5B8119ED148695FB001B46D8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JFFUI-clang";
+			productName = JFFUI;
+			productReference = 5B8119F3148695FB001B46D8 /* libJFFUI-clang.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D2AAC07D0554694100DB518D /* JFFUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "JFFUI" */;
@@ -273,11 +374,34 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* JFFUI */,
+				5B8119CD148695FB001B46D8 /* JFFUI-clang */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5B8119DE148695FB001B46D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B8119DF148695FB001B46D8 /* JFFAlertButton.m in Sources */,
+				5B8119E0148695FB001B46D8 /* JFFAlertView.m in Sources */,
+				5B8119E1148695FB001B46D8 /* NSError+Alert.m in Sources */,
+				5B8119E2148695FB001B46D8 /* JFFActionSheet.m in Sources */,
+				5B8119E3148695FB001B46D8 /* NSObject+JFFAlertButton.m in Sources */,
+				5B8119E4148695FB001B46D8 /* UIViewController+OnCloseActions.m in Sources */,
+				5B8119E5148695FB001B46D8 /* UINib+FirstObject.m in Sources */,
+				5B8119E6148695FB001B46D8 /* UIWebView+HideWhenLoading.m in Sources */,
+				5B8119E7148695FB001B46D8 /* UIView+AddSubviewAndScale.m in Sources */,
+				5B8119E8148695FB001B46D8 /* UIView+AnimationWithBlocks.m in Sources */,
+				5B8119E9148695FB001B46D8 /* UIWebViewNewFeaturesRuntime.m in Sources */,
+				5B8119EA148695FB001B46D8 /* JULoadMoreCellscalculator.m in Sources */,
+				5B8119EB148695FB001B46D8 /* UITableView+WithinUpdates.m in Sources */,
+				5B8119EC148695FB001B46D8 /* NSURL+QLPreviewControllerDataSource.m in Sources */,
+				53D7A5E41491036B008960B2 /* UIView+AllSubviews.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +419,7 @@
 				1B49CFA8143C6D3500E8AACE /* UIWebViewNewFeaturesRuntime.m in Sources */,
 				1B29555B143DCB3A00532BD7 /* JULoadMoreCellscalculator.m in Sources */,
 				1B295560143DCB7300532BD7 /* UITableView+WithinUpdates.m in Sources */,
+				538849ED147E96A30046FB62 /* NSURL+QLPreviewControllerDataSource.m in Sources */,
 				1B3A3855147683E9007D8C10 /* UIView+AllSubviews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +487,39 @@
 			};
 			name = Release;
 		};
+		5B8119F1148695FB001B46D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JFFUI.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFUI_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = "JFFUI-clang";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Debug;
+		};
+		5B8119F2148695FB001B46D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/JFFUI.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JFFUI_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = "JFFUI-clang";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -379,6 +537,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B8119F0148695FB001B46D8 /* Build configuration list for PBXNativeTarget "JFFUI-clang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B8119F1148695FB001B46D8 /* Debug */,
+				5B8119F2148695FB001B46D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
