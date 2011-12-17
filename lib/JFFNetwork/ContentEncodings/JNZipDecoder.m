@@ -4,6 +4,8 @@
 #import "JNConstants.h"
 #import "JNGzipErrorsLogger.h"
 
+#include <zconf.h>
+
 @implementation JNZipDecoder
 
 -(NSData*)decodeData:( NSData*   )encoded_data_

@@ -8,8 +8,6 @@
 #import "JNConstants.h"
 
 #import <JFFUtils/JFFError.h>
-#include <CFNetwork/CFNetwork.h>
-
 
 @interface JFFURLConnection ()
 
@@ -294,7 +292,7 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
 
       if ( self.didReceiveResponseBlock )
       {
-         UInt32 error_code_ = CFHTTPMessageGetResponseStatusCode( response_ );
+         CFIndex error_code_ = CFHTTPMessageGetResponseStatusCode( response_ );
                  
          JFFURLResponse* url_response_ = [ JFFURLResponse new ];
          url_response_.statusCode = error_code_;

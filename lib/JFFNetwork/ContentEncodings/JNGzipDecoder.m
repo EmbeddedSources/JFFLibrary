@@ -20,8 +20,8 @@ NSString* kGzipErrorDomain = @"gzip.error";
       return encoded_data_;
    }
 
-   unsigned full_length_ = [encoded_data_ length];
-   unsigned half_length_ = [encoded_data_ length] / 2;
+   NSUInteger full_length_ = [ encoded_data_ length ];
+   NSUInteger half_length_ = [ encoded_data_ length ] / 2;
 
    NSMutableData* decompressed_ = [ NSMutableData dataWithLength: full_length_ + half_length_ ];
    BOOL done_   = NO;
@@ -29,7 +29,7 @@ NSString* kGzipErrorDomain = @"gzip.error";
 
    z_stream strm  = {0};
    strm.next_in   = (Bytef *)[ encoded_data_ bytes ];
-   strm.avail_in  = [ encoded_data_ length ];
+   strm.avail_in  = (uInt)[ encoded_data_ length ];
    strm.total_out = 0;
    strm.zalloc    = Z_NULL;
    strm.zfree     = Z_NULL;
@@ -52,7 +52,7 @@ NSString* kGzipErrorDomain = @"gzip.error";
          [decompressed_ increaseLengthBy: half_length_];
       }
       strm.next_out = [decompressed_ mutableBytes] + strm.total_out;
-      strm.avail_out = [decompressed_ length] - strm.total_out;
+      strm.avail_out = (uInt)( [decompressed_ length] - strm.total_out );
 
       // Inflate another chunk.
       status_ = inflate (&strm, Z_SYNC_FLUSH);

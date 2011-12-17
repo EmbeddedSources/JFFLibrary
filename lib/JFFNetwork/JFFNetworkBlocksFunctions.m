@@ -76,8 +76,11 @@ JFFAsyncOperation genericDataURLResponseLoader(
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      JFFAsyncOperation loader_ = genericChunkedURLResponseLoader( 
-         url_, post_data_, headers_, use_live_connection_, certificate_callback_ );
+      JFFAsyncOperation loader_ = genericChunkedURLResponseLoader( url_
+                                                                  , post_data_
+                                                                  , headers_
+                                                                  , use_live_connection_
+                                                                  , certificate_callback_ );
 
       NSMutableData* response_data_ = [ NSMutableData data ];
       JFFAsyncOperationProgressHandler data_progress_callback_ = ^void( id progress_info_ )
