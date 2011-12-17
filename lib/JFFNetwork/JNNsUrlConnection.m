@@ -167,4 +167,10 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge_
    [ challenge_.sender continueWithoutCredentialForAuthenticationChallenge: challenge_ ];
 }
 
+-(NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                 willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+   return nil;
+}
+
 @end
