@@ -79,6 +79,8 @@
 		65648C3A1392490F001E163C /* JFFAsyncOperationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C381392490F001E163C /* JFFAsyncOperationUtils.h */; };
 		65648C3B1392490F001E163C /* JFFAsyncOperationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 65648C391392490F001E163C /* JFFAsyncOperationUtils.m */; };
 		65648C5113924A77001E163C /* JFFAsyncOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 65648C5013924A77001E163C /* JFFAsyncOperations.h */; };
+		6596AFA9149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6596AFA7149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.h */; };
+		6596AFAA149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6596AFA8149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.m */; };
 		8D1B3D2B13B87A4900410ECB /* JFFPedingLoaderData.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B3D2913B87A4900410ECB /* JFFPedingLoaderData.h */; };
 		8D1B3D2C13B87A4900410ECB /* JFFPedingLoaderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B3D2A13B87A4900410ECB /* JFFPedingLoaderData.m */; };
 		8D1B3D6F13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B3D6D13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.h */; };
@@ -159,6 +161,8 @@
 		65648C381392490F001E163C /* JFFAsyncOperationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationUtils.h; sourceTree = "<group>"; };
 		65648C391392490F001E163C /* JFFAsyncOperationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationUtils.m; sourceTree = "<group>"; };
 		65648C5013924A77001E163C /* JFFAsyncOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations.h; sourceTree = "<group>"; };
+		6596AFA7149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFDidFinishAsyncOperationHookHolder.h; sourceTree = "<group>"; };
+		6596AFA8149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFDidFinishAsyncOperationHookHolder.m; sourceTree = "<group>"; };
 		8D1B3D2913B87A4900410ECB /* JFFPedingLoaderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPedingLoaderData.h; sourceTree = "<group>"; };
 		8D1B3D2A13B87A4900410ECB /* JFFPedingLoaderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPedingLoaderData.m; sourceTree = "<group>"; };
 		8D1B3D6D13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFDidFinishAsyncOperationBlockHolder.h; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				6534804B13B822F00002CF73 /* JFFAsyncOperationProgressBlockHolder.m */,
 				8D1B3D6D13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.h */,
 				8D1B3D6E13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.m */,
+				6596AFA7149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.h */,
+				6596AFA8149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				8D61CD3113F2BCE40003AC4A /* NSObject+PropertyExtractor.h in Headers */,
 				1BD9C8BB1445F2E10099223D /* JFFAsyncOperationsPredefinedBlocks.h in Headers */,
 				1BED04D5144EBD0200B8DC2A /* NSObject+AutoCancelAsyncOperation.h in Headers */,
+				6596AFA9149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +562,7 @@
 				8D61CD3213F2BCE40003AC4A /* NSObject+PropertyExtractor.m in Sources */,
 				1BD9C8BC1445F2E10099223D /* JFFAsyncOperationsPredefinedBlocks.m in Sources */,
 				1BED04D6144EBD0200B8DC2A /* NSObject+AutoCancelAsyncOperation.m in Sources */,
+				6596AFAA149D19D9005E734F /* JFFDidFinishAsyncOperationHookHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +586,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/JFFAsyncOperations.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -596,6 +608,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				DSTROOT = /tmp/JFFAsyncOperations.dst;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -610,7 +626,10 @@
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -624,6 +643,10 @@
 		1DEB922408733DC00010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;

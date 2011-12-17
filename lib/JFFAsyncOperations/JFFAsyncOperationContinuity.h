@@ -51,9 +51,14 @@ JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
 JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
                                               , JFFSimpleBlock done_callback_hook_ );
 
+JFFAsyncOperation asyncOperationWithResult( id result_ );
+
 ///////////////////////// AUTO REPEAT CIRCLE ////////////////////////
 
 JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation loader_
                                        , PredicateBlock predicate_
                                        , NSTimeInterval delay_
-                                       , NSUInteger max_repeat_count_ );
+                                       , NSInteger max_repeat_count_ );
+
+JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
+                                           , JFFAsyncOperation loader_ );

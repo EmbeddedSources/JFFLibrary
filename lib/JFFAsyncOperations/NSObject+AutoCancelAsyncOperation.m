@@ -1,17 +1,15 @@
 #import "NSObject+AutoCancelAsyncOperation.h"
 
 #import "JFFAsyncOperationsPredefinedBlocks.h"
-#import "JFFAsyncOperationProgressBlockHolder.h"
-#import "JFFCancelAyncOperationBlockHolder.h"
-#import "JFFDidFinishAsyncOperationBlockHolder.h"
 
-#import <JFFUtils/NSObject/NSObject+OnDeallocBlock.h>
-#import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
-#import <JFFUtils/Blocks/JFFSimpleBlockHolder.h>
+#import "JFFCancelAyncOperationBlockHolder.h"
+#import "JFFAsyncOperationProgressBlockHolder.h"
+#import "JFFDidFinishAsyncOperationBlockHolder.h"
 
 @implementation NSObject (WeakAsyncOperation)
 
--(JFFAsyncOperation)weakAsyncOperation:( JFFAsyncOperation )native_async_op_
+-(JFFAsyncOperation)autoUnsibscribeOrCancelAsyncOperation:( JFFAsyncOperation )native_async_op_
+                                                   cancel:( BOOL )cancel_native_async_op_
 {
    NSAssert( native_async_op_, @"native async operation should not be nil" );
 
@@ -75,7 +73,7 @@
 
       ondealloc_block_holder_.simpleBlock = ^void( void )
       {
-         cancel_( NO );
+         cancel_( cancel_native_async_op_ );
       };
 
       //JTODO assert retain count
@@ -89,6 +87,18 @@
 
       return main_cancel_holder_.onceCancelBlock;
    } copy ] autorelease ];
+}
+
+-(JFFAsyncOperation)weakAsyncOperation:( JFFAsyncOperation )native_async_op_
+{
+   return [ self autoUnsibscribeOrCancelAsyncOperation: native_async_op_
+                                                cancel: NO ];
+}
+
+-(JFFAsyncOperation)autoCancelOnDeallocAsyncOperation:( JFFAsyncOperation )native_async_op_
+{
+   return [ self autoUnsibscribeOrCancelAsyncOperation: native_async_op_
+                                                cancel: YES ];
 }
 
 @end

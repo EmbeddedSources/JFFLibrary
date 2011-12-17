@@ -6,4 +6,6 @@
 
 -(JFFAsyncOperation)weakAsyncOperation:( JFFAsyncOperation )async_op_;
 
+-(JFFAsyncOperation)autoCancelOnDeallocAsyncOperation:( JFFAsyncOperation )async_op_;
+
 @end

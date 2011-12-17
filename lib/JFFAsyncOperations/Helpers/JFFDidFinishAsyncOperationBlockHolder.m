@@ -2,11 +2,11 @@
 
 @implementation JFFDidFinishAsyncOperationBlockHolder
 
-@synthesize didFinishBlock = _did_finish_blcok;
+@synthesize didFinishBlock = _did_finish_block;
 
 -(void)dealloc
 {
-   [ _did_finish_blcok release ];
+   [ _did_finish_block release ];
 
    [ super dealloc ];
 }
