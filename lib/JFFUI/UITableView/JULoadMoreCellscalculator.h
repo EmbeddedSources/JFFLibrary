@@ -5,14 +5,15 @@
 @protocol JUTableViewHolder <NSObject>
 
 @required
-   @property ( nonatomic, retain, readonly ) UITableView* tableView  ;
-   @property ( nonatomic, assign           ) NSInteger   currentCount;
+-(UITableView*)tableView;
+-(NSInteger)currentCount;
+-(void)setCurrentCount:( NSInteger )count_;
 
 @end
 
 @interface JULoadMoreCellscalculator : NSObject
 
-@property ( nonatomic, assign ) NSUInteger currentCount;
+@property ( nonatomic, assign ) NSInteger currentCount;
 @property ( nonatomic, assign ) NSUInteger pageSize;
 @property ( nonatomic, assign ) NSUInteger totalElementsCount;
 
