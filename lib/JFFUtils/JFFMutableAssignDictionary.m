@@ -116,7 +116,7 @@
 -(NSDictionary*)dictionary
 {
    return mutableDictionary
-      ? [ NSDictionary dictionaryWithDictionary: mutableDictionary ]
+      ? [ [ NSDictionary alloc ] initWithDictionary: mutableDictionary ]
       : nil;
 }
 

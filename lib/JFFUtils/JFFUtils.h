@@ -9,6 +9,7 @@
 #import <JFFUtils/NSArray/NSMutableArray+ChangeCount.h>
 #import <JFFUtils/NSArray/NSArray+NoThrowObjectAtIndex.h>
 
+#import <JFFUtils/NSString/NSString+Format.h>
 #import <JFFUtils/NSString/NSString+Search.h>
 #import <JFFUtils/NSString/NSString+PathExtensions.h>
 #import <JFFUtils/NSString/NSString+PropertyName.h>
