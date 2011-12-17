@@ -15,7 +15,6 @@ static NSInteger first_alert_index_ = 1;
 
 +(void)activeAlertsAddAlert:( UIAlertView* )alert_view_;
 -(void)forceShow;
--(void)alertView:( UIAlertView* )alert_view_ didDismissWithButtonIndex:( NSInteger )button_index_;
 
 @end
 

@@ -25,7 +25,7 @@
 -(void)onAddToMutableAssignDictionary:( JFFMutableAssignDictionary* )dict_
                                   key:( id )key_
 {
-   __unsafe_unretained JFFMutableAssignDictionary* assign_dict_ = dict_;
+   __block JFFMutableAssignDictionary* assign_dict_ = dict_;
    _onDeallocBlock = ^void( void )
    {
       [ assign_dict_ removeObjectForKey: key_ ];
@@ -117,6 +117,18 @@
 -(NSArray*)allKeys
 {
    return [ _mutableDictionary allKeys ];
+}
+
+-(NSArray*)allValues
+{
+   return [ _mutableDictionary allValues ];
+}
+
+-(NSDictionary*)dictionary
+{
+   return _mutableDictionary
+      ? [ NSDictionary dictionaryWithDictionary: _mutableDictionary ]
+      : nil;
 }
 
 @end

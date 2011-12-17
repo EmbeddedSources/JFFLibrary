@@ -41,7 +41,8 @@
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
       NSUInteger instances_count_ = [ number_ unsignedIntValue ];
-      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: ++instances_count_ ]
+      NSNumber* instancesCountNum_ = [ NSNumber numberWithUnsignedInteger: ++instances_count_ ];
+      [ self.instancesNumberByClassName setObject: instancesCountNum_
                                            forKey: class_name_ ];
    }
 }
@@ -53,7 +54,8 @@
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
       NSUInteger instances_count_ = [ number_ unsignedIntValue ];
-      [ self.instancesNumberByClassName setObject: [ NSNumber numberWithInt: --instances_count_ ]
+      NSNumber* instancesCountNum_ = [ NSNumber numberWithUnsignedInteger: --instances_count_ ];
+      [ self.instancesNumberByClassName setObject: instancesCountNum_
                                            forKey: class_name_ ];
    }
 }
@@ -73,7 +75,7 @@
 {
    [ JFFNSObjectInstancesCounter incrementInstancesCountForClass: class_ ];
    NSObject* result_ = native_();
-   [ result_ addOnDeallocBlock: ^void()
+   [ result_ addOnDeallocBlock: ^void( void )
    {
       [ JFFNSObjectInstancesCounter decrementInstancesCountForClass: class_ ];
    } ];
