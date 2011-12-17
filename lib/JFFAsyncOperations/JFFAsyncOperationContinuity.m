@@ -3,6 +3,8 @@
 #import "JFFCancelAyncOperationBlockHolder.h"
 #import "JFFAsyncOperationsPredefinedBlocks.h"
 
+#import <JFFScheduler/JFFScheduler.h>
+
 #import <Foundation/Foundation.h>
 
 #include <assert.h>
@@ -470,5 +472,124 @@ JFFAsyncOperation asyncOperationWithResult( id result_ )
       if ( done_callback_ )
          done_callback_( result_, nil );
       return JFFEmptyCancelAsyncOperationBlock;
+   };
+}
+
+JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation native_loader_
+                                       , PredicateBlock predicate_
+                                       , NSTimeInterval delay_
+                                       , NSInteger max_repeat_count_ )
+{
+   assert( native_loader_ );// can not be nil
+   assert( predicate_     );// can not be nil
+
+   native_loader_ = [ native_loader_ copy ];
+   predicate_     = [ predicate_     copy ];
+
+   return ^( JFFAsyncOperationProgressHandler progress_callback_
+            , JFFCancelAsyncOperationHandler cancel_callback_
+            , JFFDidFinishAsyncOperationHandler done_callback_ )
+   {
+      progress_callback_ = [ progress_callback_ copy ];
+      cancel_callback_   = [ cancel_callback_   copy ];
+      done_callback_     = [ done_callback_     copy ];
+
+      JFFCancelAyncOperationBlockHolder* holder_ = [ JFFCancelAyncOperationBlockHolder new ];
+
+      __block JFFDidFinishAsyncOperationHook hoolHolder_ = nil;
+
+      __block NSInteger currentLeftCount = max_repeat_count_;
+
+      JFFDidFinishAsyncOperationHook finish_callback_hook_ = ^( id result_
+                                                               , NSError* error_
+                                                               , JFFDidFinishAsyncOperationHandler done_callback_ )
+      {
+         JFFResultContext* context_ = [ JFFResultContext new ];
+         context_.result = result_;
+         context_.error  = error_ ;
+         if ( !predicate_( context_ ) || currentLeftCount == 0 )
+         {
+            hoolHolder_ = nil;
+            if ( done_callback_ )
+               done_callback_( result_, error_ );
+         }
+         else
+         {
+            currentLeftCount = currentLeftCount > 0
+               ? currentLeftCount - 1
+               : currentLeftCount;
+
+            JFFAsyncOperation loader_ = asyncOperationWithFinishHookBlock( native_loader_
+                                                                          , hoolHolder_ );
+            loader_ = asyncOperationAfterDelay( delay_, loader_ );
+
+            holder_.cancelBlock = loader_( progress_callback_, cancel_callback_, done_callback_ );
+         }
+      };
+
+      hoolHolder_ = [ finish_callback_hook_ copy ];
+
+      JFFAsyncOperation loader_ = asyncOperationWithFinishHookBlock( native_loader_
+                                                                    , finish_callback_hook_ );
+
+      holder_.cancelBlock = loader_( progress_callback_
+                                    , cancel_callback_
+                                    , done_callback_ );
+
+      return ^( BOOL canceled_ )
+      {
+         hoolHolder_ = nil;
+         holder_.onceCancelBlock( canceled_ );
+      };
+   };
+}
+
+JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
+                                           , JFFAsyncOperation loader_ )
+{
+   loader_ = [ loader_ copy ];
+   return ^( JFFAsyncOperationProgressHandler progress_callback_
+            , JFFCancelAsyncOperationHandler cancel_callback_
+            , JFFDidFinishAsyncOperationHandler done_callback_ )
+   {
+      progress_callback_ = [ progress_callback_ copy ];
+      cancel_callback_   = [ cancel_callback_   copy ];
+      done_callback_     = [ done_callback_     copy ];
+
+      JFFCancelAyncOperationBlockHolder* lc_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
+
+      __block JFFScheduler* scheduler_ = [ JFFScheduler new ];
+
+      __block BOOL unsubscribed_ = NO;
+
+      JFFCancelScheduledBlock sch_cancel_ = [ scheduler_ addBlock: ^( JFFCancelScheduledBlock sch_cancel_ )
+      {
+         #pragma GCC diagnostic push
+         #pragma GCC diagnostic ignored "-Warc-retain-cycles"
+         scheduler_ = nil;
+         #pragma GCC diagnostic pop
+         sch_cancel_();
+
+         lc_holder_.cancelBlock = unsubscribed_
+            ? loader_( nil, nil, nil )
+            : loader_( progress_callback_, cancel_callback_, done_callback_ );
+      } duration: delay_ ];
+
+      lc_holder_.cancelBlock = ^( BOOL canceled_ )
+      {
+         if ( canceled_ )
+         {
+            scheduler_ = nil;
+            sch_cancel_();
+         }
+         else
+         {
+            unsubscribed_ = YES;
+         }
+         if ( cancel_callback_ )
+            cancel_callback_( canceled_ );
+      };
+
+      return lc_holder_.onceCancelBlock;
    };
 }

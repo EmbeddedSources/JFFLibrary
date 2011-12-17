@@ -1,7 +1,6 @@
 #import "NSObject+AutoCancelAsyncOperation.h"
 
 #import "JFFAsyncOperationsPredefinedBlocks.h"
-#import "JFFAsyncOperationContinuity.h"
 
 #import "JFFCancelAyncOperationBlockHolder.h"
 #import "JFFAsyncOperationProgressBlockHolder.h"
