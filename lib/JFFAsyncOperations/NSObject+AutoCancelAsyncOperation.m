@@ -3,7 +3,6 @@
 #import "JFFAsyncOperationsPredefinedBlocks.h"
 
 #import "JFFCancelAyncOperationBlockHolder.h"
-#import "JFFAsyncOperationProgressBlockHolder.h"
 #import "JFFDidFinishAsyncOperationBlockHolder.h"
 
 @implementation NSObject (WeakAsyncOperation)
@@ -35,16 +34,6 @@
          }
       };
 
-      JFFAsyncOperationProgressBlockHolder* progress_callback_holder_ = [ JFFAsyncOperationProgressBlockHolder new ];
-      progress_callback_holder_.progressBlock = progress_callback_;
-      JFFAsyncOperationProgressHandler progress_callback_wrapper_ = ^void( id progress_info_ )
-      {
-         if ( progress_callback_holder_.progressBlock )
-         {
-            progress_callback_holder_.progressBlock( progress_info_ );
-         }
-      };
-
       JFFCancelAyncOperationBlockHolder* cancel_callback_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
       cancel_callback_holder_.cancelBlock = cancel_callback_;
       JFFCancelAsyncOperationHandler cancel_callback_wrapper_ = ^void( BOOL cancel_op_ )
@@ -62,7 +51,7 @@
          done_callback_holder_.onceDidFinishBlock( result_, error_ );
       };
 
-      JFFCancelAsyncOperation cancel_ = native_async_op_( progress_callback_wrapper_
+      JFFCancelAsyncOperation cancel_ = native_async_op_( progress_callback_
                                                          , cancel_callback_wrapper_
                                                          , done_callback_wrapper_ );
 

@@ -106,7 +106,7 @@ static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation fir
    if ( first_loader_ == nil )
       return createEmptyLoaderBlock();
 
-   first_loader_ = [ first_loader_ copy ];
+   first_loader_  = [ first_loader_ copy ];
    second_loader_ = [ second_loader_ copy ];
 
    if ( second_loader_ == nil )
@@ -496,7 +496,7 @@ JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation native_loader_
 
       JFFCancelAyncOperationBlockHolder* holder_ = [ JFFCancelAyncOperationBlockHolder new ];
 
-      __block JFFDidFinishAsyncOperationHook hoolHolder_ = nil;
+      __block JFFDidFinishAsyncOperationHook finishHookHolder_ = nil;
 
       __block NSInteger currentLeftCount = max_repeat_count_;
 
@@ -509,7 +509,7 @@ JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation native_loader_
          context_.error  = error_ ;
          if ( !predicate_( context_ ) || currentLeftCount == 0 )
          {
-            hoolHolder_ = nil;
+            finishHookHolder_ = nil;
             if ( done_callback_ )
                done_callback_( result_, error_ );
          }
@@ -520,25 +520,23 @@ JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation native_loader_
                : currentLeftCount;
 
             JFFAsyncOperation loader_ = asyncOperationWithFinishHookBlock( native_loader_
-                                                                          , hoolHolder_ );
+                                                                          , finishHookHolder_ );
             loader_ = asyncOperationAfterDelay( delay_, loader_ );
 
             holder_.cancelBlock = loader_( progress_callback_, cancel_callback_, done_callback_ );
          }
       };
 
-      hoolHolder_ = [ finish_callback_hook_ copy ];
+      finishHookHolder_ = [ finish_callback_hook_ copy ];
 
       JFFAsyncOperation loader_ = asyncOperationWithFinishHookBlock( native_loader_
-                                                                    , finish_callback_hook_ );
+                                                                    , finishHookHolder_ );
 
-      holder_.cancelBlock = loader_( progress_callback_
-                                    , cancel_callback_
-                                    , done_callback_ );
+      holder_.cancelBlock = loader_( progress_callback_, cancel_callback_, done_callback_ );
 
       return ^( BOOL canceled_ )
       {
-         hoolHolder_ = nil;
+         finishHookHolder_ = nil;
          holder_.onceCancelBlock( canceled_ );
       };
    };
@@ -552,15 +550,13 @@ JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
             , JFFCancelAsyncOperationHandler cancel_callback_
             , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      progress_callback_ = [ progress_callback_ copy ];
-      cancel_callback_   = [ cancel_callback_   copy ];
-      done_callback_     = [ done_callback_     copy ];
+      __block JFFAsyncOperationProgressHandler  progressHolder_ = [ progress_callback_ copy ];
+      __block JFFCancelAsyncOperationHandler    cancelHolder_   = [ cancel_callback_   copy ];
+      __block JFFDidFinishAsyncOperationHandler doneHolder_     = [ done_callback_     copy ];
 
       JFFCancelAyncOperationBlockHolder* lc_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
 
       __block JFFScheduler* scheduler_ = [ JFFScheduler new ];
-
-      __block BOOL unsubscribed_ = NO;
 
       JFFCancelScheduledBlock sch_cancel_ = [ scheduler_ addBlock: ^( JFFCancelScheduledBlock sch_cancel_ )
       {
@@ -570,9 +566,7 @@ JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
          #pragma GCC diagnostic pop
          sch_cancel_();
 
-         lc_holder_.cancelBlock = unsubscribed_
-            ? loader_( nil, nil, nil )
-            : loader_( progress_callback_, cancel_callback_, done_callback_ );
+         lc_holder_.cancelBlock = loader_( progressHolder_, cancelHolder_, doneHolder_ );
       } duration: delay_ ];
 
       lc_holder_.cancelBlock = ^( BOOL canceled_ )
@@ -584,7 +578,9 @@ JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
          }
          else
          {
-            unsubscribed_ = YES;
+             progressHolder_ = nil;
+             cancelHolder_   = nil;
+             doneHolder_     = nil;
          }
          if ( cancel_callback_ )
             cancel_callback_( canceled_ );

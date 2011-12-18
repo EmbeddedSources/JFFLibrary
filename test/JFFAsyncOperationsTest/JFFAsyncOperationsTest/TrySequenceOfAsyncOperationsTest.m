@@ -1,7 +1,6 @@
 #import "JFFAsyncOperationManager.h"
 
 #import <JFFAsyncOperations/Helpers/JFFCancelAyncOperationBlockHolder.h>
-#import <JFFAsyncOperations/Helpers/JFFAsyncOperationProgressBlockHolder.h>
 #import <JFFAsyncOperations/Helpers/JFFDidFinishAsyncOperationBlockHolder.h>
 
 @interface TrySequenceOfAsyncOperationsTest : GHTestCase
