@@ -23,8 +23,7 @@ JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
 //calls finish callback when all loaders finished
 //result of group is undefined for success result
-JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation first_loader_
-                                         , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation first_loader_, ... );
 
 JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* loaders_ );
 
@@ -32,8 +31,7 @@ JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* loaders_ );
 
 //calls finish callback when all loaders success finished or when any of them is failed
 //result of group is undefined for success result
-JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation first_loader_
-                                                         , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation first_loader_, ... );
 
 JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* loaders_ );
 
