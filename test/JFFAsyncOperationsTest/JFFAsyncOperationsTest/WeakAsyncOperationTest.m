@@ -156,6 +156,8 @@
 // When unsubscribe from autoCancelAsyncOperation -> native should not be canceled
 -(void)testUnsubscribeFromAutoCancel
 {
+   __block BOOL deallocated_ = NO;
+
    @autoreleasepool
    {
       NSObject* operation_owner_ = [ NSObject new ];
@@ -177,50 +179,53 @@
 
       JFFAsyncOperation auto_cancel_operation_ = [ operation_owner_ autoCancelOnDeallocAsyncOperation: operation_ ];
 
-      __block BOOL deallocated_ = NO;
-
-      NSObject* owned_by_callbacks_ = [ NSObject new ];
-      [ owned_by_callbacks_ addOnDeallocBlock: ^void( void )
-      {
-         deallocated_ = YES;
-      } ];
-
-      JFFAsyncOperationProgressHandler progress_callback_ = ^void( id progress_info_ )
-      {
-         //simulate using object in callback block
-         [ owned_by_callbacks_ class ];
-      };
       __block BOOL cancel_callback_called_ = NO;
-      JFFCancelAsyncOperationHandler cancel_callback_ = ^void( BOOL canceled_ )
+
+      @autoreleasepool
       {
-         cancel_callback_called_ = !canceled_;
-         //simulate using object in callback block
-         [ owned_by_callbacks_ class ];
-      };
-      JFFDidFinishAsyncOperationHandler done_callback_ = ^void( id result_, NSError* error_ )
-      {
-         //simulate using object in callback block
-         [ owned_by_callbacks_ class ];
-      };
+         NSObject* owned_by_callbacks_ = [ NSObject new ];
+         [ owned_by_callbacks_ addOnDeallocBlock: ^void( void )
+         {
+            deallocated_ = YES;
+         } ];
 
-      JFFCancelAsyncOperation cancel_ = auto_cancel_operation_( progress_callback_
-                                                               , cancel_callback_
-                                                               , done_callback_ );
+         JFFAsyncOperationProgressHandler progress_callback_ = ^void( id progress_info_ )
+         {
+            //simulate using object in callback block
+            [ owned_by_callbacks_ class ];
+         };
+         JFFCancelAsyncOperationHandler cancel_callback_ = ^void( BOOL canceled_ )
+         {
+            cancel_callback_called_ = !canceled_;
+            //simulate using object in callback block
+            [ owned_by_callbacks_ class ];
+         };
+         JFFDidFinishAsyncOperationHandler done_callback_ = ^void( id result_, NSError* error_ )
+         {
+            //simulate using object in callback block
+            [ owned_by_callbacks_ class ];
+         };
 
-      [ owned_by_callbacks_ release ];
+         JFFCancelAsyncOperation cancel_ = auto_cancel_operation_( progress_callback_
+                                                                  , cancel_callback_
+                                                                  , done_callback_ );
 
-      GHAssertFalse( deallocated_, @"owned_by_callbacks_ object should not be deallocated" );
+         [ owned_by_callbacks_ release ];
 
-      cancel_( NO );
+         GHAssertFalse( deallocated_, @"owned_by_callbacks_ object should not be deallocated" );
+
+         cancel_( NO );
+      }
 
       GHAssertTrue( native_cancel_block_called_, @"Native cancel block should not be called" );
+      //???
       GHAssertTrue( deallocated_, @"owned_by_callbacks_ objet should be deallocated" );
       GHAssertTrue( cancel_callback_called_, @"cancel callback should ba called" );
 
       [ operation_owner_ release ];
    }
 
-   GHAssertTrue( 0 == [ JFFSimpleBlockHolder                  instancesCount ], @"All object of this class should be deallocated" );
+   GHAssertTrue( 0 == [ JFFSimpleBlockHolder                  instancesCount ], @"OK" );
    GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"All object of this class should be deallocated" );
    GHAssertTrue( 0 == [ JFFAsyncOperationProgressBlockHolder  instancesCount ], @"All object of this class should be deallocated" );
    GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"All object of this class should be deallocated" );
@@ -267,10 +272,10 @@
          {
             unsibscribe_cancel_block_called_ = !canceled_;
          };
-         [ weak_delegate_ autoUnsubsribeOnDeallocAsyncOperation: auto_cancel_operation_ ]( nil
-                                                                                          , unsubscribe_callback_
-                                                                                          , ^void( id result_
-                                                                                                  , NSError* error_ )
+         [ weak_delegate_ weakAsyncOperation: auto_cancel_operation_ ]( nil
+                                                                       , unsubscribe_callback_
+                                                                       , ^void( id result_
+                                                                               , NSError* error_ )
          {
             NSLog( @"notify delegate: %@, with owner: %@", weak_delegate_, operation_owner_ );
          } );

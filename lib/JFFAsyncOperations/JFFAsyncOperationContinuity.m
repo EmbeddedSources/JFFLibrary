@@ -176,66 +176,62 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
       __block BOOL loaded_ = NO;
-      JFFResultContext* error_holder_ = [ [ JFFResultContext new ] autorelease ];
+      __block NSError* error_holder_;
 
-      done_callback_ = [ [ done_callback_ copy ] autorelease ];
+      done_callback_ = [ done_callback_ copy ];
       JFFDidFinishAsyncOperationHandler result_block_ = ^void( id result_, NSError* error_ )
       {
          if ( loaded_ )
          {
-            error_ = error_ ? error_ : error_holder_.error;
+            error_ = error_ ? error_ : error_holder_;
             if ( done_callback_ )
                done_callback_( error_ ? nil : [ NSNull null ], error_ );
             return;
          }
          loaded_ = YES;
-         error_holder_.error = error_;
+         error_holder_ = error_;
       };
 
       __block BOOL block_canceled_ = NO;
 
+      cancel_callback_ = [ cancel_callback_ copy ];
+      JFFCancelAsyncOperationHandler (^makeCancelHandler_)( JFFCancelAyncOperationBlockHolder* ) =
+         ^JFFCancelAsyncOperationHandler( JFFCancelAyncOperationBlockHolder* cancel_holder_ )
+      {
+         return [ [ ^void( BOOL canceled_ )
+         {
+            if ( !block_canceled_ )
+            {
+               block_canceled_ = YES;
+               cancel_holder_.onceCancelBlock( canceled_ );
+               if ( cancel_callback_ )
+                  cancel_callback_( canceled_ );
+            }
+         } copy ] autorelease ];
+      };
+
+      result_block_ = [ result_block_ copy ];
+
+      JFFDidFinishAsyncOperationHandler (^makeFinishHandler_)( JFFCancelAyncOperationBlockHolder* ) =
+         ^JFFDidFinishAsyncOperationHandler( JFFCancelAyncOperationBlockHolder* cancel_holder_ )
+      {
+         return [ [ ^void( id result_, NSError* error_ )
+         {
+            cancel_holder_.cancelBlock = nil;
+            result_block_( result_, error_ );
+         } copy ] autorelease ];
+      };
+
       JFFCancelAyncOperationBlockHolder* cancel_holder1_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
       JFFCancelAyncOperationBlockHolder* cancel_holder2_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
 
-      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
-      JFFCancelAsyncOperationHandler cancel_callback1_ = ^void( BOOL canceled_ )
-      {
-         if ( !block_canceled_ )
-         {
-            block_canceled_ = YES;
-            cancel_holder2_.onceCancelBlock( canceled_ );
-            if ( cancel_callback_ )
-               cancel_callback_( canceled_ );
-         }
-      };
+      cancel_holder1_.cancelBlock = first_loader_( progress_callback_
+                                                  , makeCancelHandler_( cancel_holder2_ )
+                                                  , makeFinishHandler_( cancel_holder1_ ) );
+      cancel_holder2_.cancelBlock = second_loader_( progress_callback_
+                                                   , makeCancelHandler_( cancel_holder1_ )
+                                                   , makeFinishHandler_( cancel_holder2_ ) );
 
-      JFFCancelAsyncOperationHandler cancel_callback2_ = ^void( BOOL canceled_ )
-      {
-         if ( !block_canceled_ )
-         {
-            block_canceled_ = YES;
-            cancel_holder1_.onceCancelBlock( canceled_ );
-            if ( cancel_callback_ )
-               cancel_callback_( canceled_ );
-         }
-      };
-
-      result_block_ = [ [ result_block_ copy ] autorelease ];
-
-      JFFDidFinishAsyncOperationHandler done_callback1_ = ^void( id result_, NSError* error_ )
-      {
-         cancel_holder1_.cancelBlock = nil;
-         result_block_( result_, error_ );
-      };
-      JFFDidFinishAsyncOperationHandler done_callback2_ = ^void( id result_, NSError* error_ )
-      {
-         cancel_holder2_.cancelBlock = nil;
-         result_block_( result_, error_ );
-      };
-
-      cancel_holder1_.cancelBlock = first_loader_( progress_callback_, cancel_callback1_, done_callback1_ );
-      cancel_holder2_.cancelBlock = second_loader_( progress_callback_, cancel_callback2_, done_callback2_ );
-       
       return [ [ ^void( BOOL cancel_ )
       {
          if ( !block_canceled_ )
@@ -329,30 +325,23 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
       __block BOOL block_canceled_ = NO;
 
       cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
-      JFFCancelAsyncOperationHandler cancel_callback1_ = [ [ ^void( BOOL canceled_ )
+      JFFCancelAsyncOperationHandler (^makeCancelCallback_)( JFFCancelAyncOperationBlockHolder* ) =
+      ^JFFCancelAsyncOperationHandler( JFFCancelAyncOperationBlockHolder* cancel_holder_ )
       {
-         if ( !block_canceled_ )
+         return [ [ ^void( BOOL canceled_ )
          {
-            block_canceled_ = YES;
-            cancel_holder2_.onceCancelBlock( canceled_ );
-            if ( cancel_callback_ )
-               cancel_callback_( canceled_ );
-         }
-      } copy ] autorelease ];
-
-      JFFCancelAsyncOperationHandler cancel_callback2_ = [ [ ^void( BOOL canceled_ )
-      {
-         if ( !block_canceled_ )
-         {
-            block_canceled_ = YES;
-            cancel_holder1_.onceCancelBlock( canceled_ );
-            if ( cancel_callback_ )
-               cancel_callback_( canceled_ );
-         }
-      } copy ] autorelease ];
+            if ( !block_canceled_ )
+            {
+               block_canceled_ = YES;
+               cancel_holder_.onceCancelBlock( canceled_ );
+               if ( cancel_callback_ )
+                  cancel_callback_( canceled_ );
+            }
+         } copy ] autorelease ];
+      };
 
       JFFCancelAsyncOperation cancel1_ = first_loader_( progress_callback_
-                                                       , cancel_callback1_
+                                                       , makeCancelCallback_( cancel_holder2_ )
                                                        , cancelSafeResultBlock( result_block_, cancel_holder1_ ) );
 
       cancel_holder1_.cancelBlock = done_ ? JFFEmptyCancelAsyncOperationBlock : cancel1_;
@@ -360,7 +349,7 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
       JFFCancelAsyncOperation cancel2_ = done_
          ? JFFEmptyCancelAsyncOperationBlock
          : second_loader_( progress_callback_
-                          , cancel_callback2_
+                          , makeCancelCallback_( cancel_holder1_ )
                           , cancelSafeResultBlock( result_block_, cancel_holder2_ ) );
 
       cancel_holder2_.cancelBlock = done_ ? JFFEmptyCancelAsyncOperationBlock : cancel2_;

@@ -196,7 +196,8 @@ static const NSUInteger RIPagingDisabled         = 0;
    NSDebugLog( @"index_path_[%d] : %@ .. %@", [ index_paths_ count ], [ index_paths_ objectAtIndex: 0 ], [ index_paths_ lastObject ] );
    NSDebugLog( @"page size : %d", [ self pageSize ] );
    
-   [ table_view_holder_.tableView withinUpdates: ^{
+   [ table_view_holder_.tableView withinUpdates: ^void( void )
+   {
        NSDebugLog( @"beginUpdates" );      
        NSArray* load_more_path_array_ = [ NSArray arrayWithObject: self.loadMoreIndexPath ];
        
