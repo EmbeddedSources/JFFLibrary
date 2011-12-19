@@ -589,6 +589,7 @@ JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
       {
          if ( canceled_ )
          {
+            [ scheduler_ release ];
             scheduler_ = nil;
             sch_cancel_();
          }

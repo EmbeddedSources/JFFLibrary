@@ -24,7 +24,9 @@
       JFFAsyncOperationManager* first_loader_ = [ JFFAsyncOperationManager new ];
       JFFAsyncOperationManager* second_loader_ = [ JFFAsyncOperationManager new ];
 
-      JFFAsyncOperation loader_ = groupOfAsyncOperations( first_loader_.loader, second_loader_.loader, nil );
+      JFFAsyncOperation loader_ = groupOfAsyncOperations( first_loader_.loader
+                                                         , second_loader_.loader
+                                                         , nil );
 
       __block BOOL group_loader_finished_ = NO;
       loader_( nil, nil, ^( id result_, NSError* error_ )

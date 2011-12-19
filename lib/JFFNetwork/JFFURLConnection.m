@@ -293,7 +293,7 @@ static void readStreamCallback( CFReadStreamRef stream_, CFStreamEventType event
       if ( self.didReceiveResponseBlock )
       {
          CFIndex error_code_ = CFHTTPMessageGetResponseStatusCode( response_ );
-                 
+
          JFFURLResponse* url_response_ = [ JFFURLResponse new ];
          url_response_.statusCode = error_code_;
 
