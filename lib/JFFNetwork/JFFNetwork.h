@@ -25,4 +25,3 @@
 #import <JFFNetwork/JNConstants.h>
 
 #import <JFFNetwork/Extensions/NSURL+Cookies.h>
-
