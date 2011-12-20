@@ -153,8 +153,8 @@
       UIView* view_ = [ viewByIndex objectForKey: index_ ];
       view_.frame = [ self elementFrameForIndex: [ index_ integerValue ] ];
    }
-   [ self updateScrollViewContentSize ];
 
+   [ self updateScrollViewContentSize ];
    CGPoint offset_ = [ self offsetForIndex: activeIndex ];
    [ scrollView setContentOffset: offset_ animated: NO ];
 }

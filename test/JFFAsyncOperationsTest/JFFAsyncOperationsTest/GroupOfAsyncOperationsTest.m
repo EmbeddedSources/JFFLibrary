@@ -316,4 +316,75 @@
    GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"All object of this class should be deallocated" );
 }
 
+typedef JFFAsyncOperation (*MergeLoadersPtr)( JFFAsyncOperation, ... );
+
+-(void)testResultOfGroupLoadersWithFunc:( MergeLoadersPtr )func_
+{
+   @autoreleasepool
+   {
+      for ( int i = 0; i < 3; ++i )
+      {
+         for ( int j = 0; j < 2; ++j )
+         {
+            JFFAsyncOperationManager* first_loader_  = [ [ JFFAsyncOperationManager new ] autorelease ];
+            JFFAsyncOperationManager* second_loader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
+            JFFAsyncOperationManager* third_loader_  = [ [ JFFAsyncOperationManager new ] autorelease ];
+
+            JFFAsyncOperation loader_ = func_( first_loader_  .loader
+                                              , second_loader_.loader
+                                              , third_loader_ .loader
+                                              , nil );
+
+            JFFResultContext* resultContext_ = [ [ JFFResultContext new ] autorelease ];
+            JFFDidFinishAsyncOperationHandler done_callback_ = ^void( id result_, NSError* error_ )
+            {
+               resultContext_.result = result_;
+            };
+            loader_( nil, nil, done_callback_ );
+
+            NSArray* results_ = [ NSArray arrayWithObjects: @"0", @"1", @"2", nil ];
+            NSArray* loadersResults_ = [ NSArray arrayWithObjects:
+                                        first_loader_   .loaderFinishBlock.didFinishBlock
+                                        , second_loader_.loaderFinishBlock.didFinishBlock
+                                        , third_loader_ .loaderFinishBlock.didFinishBlock
+                                        , nil ];
+
+            NSMutableArray* indexes_ = [ NSMutableArray arrayWithArray: results_ ];
+
+            NSUInteger firstIndex_ = [ [ indexes_ objectAtIndex: i ] integerValue ];
+            [ indexes_ removeObject: [ indexes_ objectAtIndex: i ] ];
+
+            NSUInteger secondIndex_ = [ [ indexes_ objectAtIndex: j ] integerValue ];
+            [ indexes_ removeObject: [ indexes_ objectAtIndex: j ] ];
+
+            NSUInteger thirdIndex_ = [ [ indexes_ objectAtIndex: 0 ] integerValue ];
+
+            JFFDidFinishAsyncOperationHandler loader1_ = [ loadersResults_ objectAtIndex: firstIndex_  ];
+            JFFDidFinishAsyncOperationHandler loader2_ = [ loadersResults_ objectAtIndex: secondIndex_ ];
+            JFFDidFinishAsyncOperationHandler loader3_ = [ loadersResults_ objectAtIndex: thirdIndex_  ];
+
+            loader1_( [ results_ objectAtIndex: firstIndex_  ], nil );
+            loader2_( [ results_ objectAtIndex: secondIndex_ ], nil );
+            loader3_( [ results_ objectAtIndex: thirdIndex_  ], nil );
+
+            GHAssertTrue( [ resultContext_.result isEqual: results_ ], @"OK" );
+         }
+      }
+   }
+
+   GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"OK" );
+   GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"OK" );
+   GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"OK" );
+}
+
+-(void)testResultOfGroupLoaders
+{
+   [ self testResultOfGroupLoadersWithFunc: &groupOfAsyncOperations ];
+}
+
+-(void)testResultOfFailOnFirstErrorGroupLoaders
+{
+   [ self testResultOfGroupLoadersWithFunc: &failOnFirstErrorGroupOfAsyncOperations ];
+}
+
 @end
