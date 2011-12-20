@@ -85,7 +85,8 @@ static char did_close_action_key_;
 
 @implementation ESPresentViewControllerHooks
 
--(void)presentModalViewControllerPrototype:( UIViewController* )modal_view_controller_ animated:( BOOL )animated_
+-(void)presentModalViewControllerPrototype:( UIViewController* )modal_view_controller_
+                                  animated:( BOOL )animated_
 {
    __unsafe_unretained UIViewController* controller_to_close_ = modal_view_controller_;
    controller_to_close_.closeAction = ^void( BOOL animated_ )
@@ -93,7 +94,10 @@ static char did_close_action_key_;
       [ controller_to_close_ dismissModalViewControllerAnimated: animated_ ];
    };
 
-   objc_msgSend( self, @selector( presentModalViewControllerHook:animated: ), modal_view_controller_, animated_ );
+   objc_msgSend( self
+                , @selector( presentModalViewControllerHook:animated: )
+                , modal_view_controller_
+                , animated_ );
 }
 
 -(void)pushViewControllerPrototype:( UIViewController* )view_controller_ animated:( BOOL )animated_
