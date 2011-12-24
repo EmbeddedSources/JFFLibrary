@@ -69,7 +69,8 @@ static void clearDataForPropertyExtractor( JFFPropertyExtractor* property_extrac
    [ property_extractor_ clearData ];
 }
 
-static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_, JFFCallbacksBlocksHolder* callbacks_ )
+static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_
+                                           , JFFCallbacksBlocksHolder* callbacks_ )
 {
    return [ [ ^void( BOOL cancel_operation_ )
    {
@@ -81,8 +82,8 @@ static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extra
 
       if ( cancel_operation_ )
       {
-         clearDataForPropertyExtractor( property_extractor_ );
          cancel_( YES );
+         clearDataForPropertyExtractor( property_extractor_ );
       }
       else
       {
@@ -158,14 +159,14 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
 
    JFFDidFinishAsyncOperationHandler done_callback_ = doneCallbackBlock( property_extractor_ );
 
-   JFFCancelAsyncOperationHandler cancel_callback_ = callbacks_.onCancelBlock;
-   cancel_callback_ = [ [ ^void( BOOL canceled_ )
+   JFFCancelAsyncOperationHandler cancel_callback_ = ^void( BOOL canceled_ )
    {
+      JFFCancelAsyncOperationHandler cancel_callback_ = callbacks_.onCancelBlock;
       clearDataForPropertyExtractor( property_extractor_ );
 
       if ( cancel_callback_ )
-         cancel_callback_( canceled_ );
-   } copy ] autorelease ];
+          cancel_callback_( canceled_ );
+   };
 
    property_extractor_.cancelBlock = property_extractor_.asyncLoader( progress_callback_
                                                                      , cancel_callback_
@@ -203,8 +204,6 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      [ NSThread assertMainThread ];
-
       JFFPropertyExtractor* property_extractor_ = factory_();
       property_extractor_.object = self_;
       property_extractor_.propertyPath = property_path_;
