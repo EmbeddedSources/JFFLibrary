@@ -48,9 +48,9 @@
       id first_item_ = [ my_copy_ objectAtIndex: 0 ];
 
       search_predicate_ = ^( id item_object_ )
-                          {
-                             return predicate_( first_item_, item_object_ );
-                          };
+      {
+         return predicate_( first_item_, item_object_ );
+      };
       filtered_ = [ my_copy_ select: search_predicate_ ];
 
       [ result_ addObject: first_item_ ];
