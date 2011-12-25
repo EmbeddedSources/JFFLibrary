@@ -51,42 +51,48 @@
 {
     @autoreleasepool
     {
-        JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
+        JFFAsyncOperationManager* nativeLoader_ = [ JFFAsyncOperationManager new ];
 
-        JFFPropertyPath* propertyPath_ = [ JFFPropertyPath propertyPathWithName: @"dict"
-                                                                            key: @"1" ];
+        JFFPropertyPath* propertyPath_ = [ [ [ JFFPropertyPath alloc ] initWithName: @"dict"
+                                                                                key: @"1" ] autorelease ];
 
         JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
         {
             return [ [ JFFPropertyExtractor new ] autorelease ];
         };
 
-        TestClassWithProperties* dataOwner_ = [ [ TestClassWithProperties new ] autorelease ];
+        TestClassWithProperties* dataOwner_ = [ TestClassWithProperties new ];
 
-        JFFAsyncOperation cachedLoader_ = [ dataOwner_ asyncOperationForPropertyWithPath: propertyPath_
-                                                           propertyExtractorFactoryBlock: factory_
-                                                                          asyncOperation: nativeLoader_.loader
-                                                                  didFinishLoadDataBlock: nil ];
-
-        __block BOOL cancelFlag_ = NO;
-        JFFCancelAsyncOperationHandler cancel_callback_ = ^( BOOL canceled_ )
+        @autoreleasepool
         {
-            cancelFlag_ = canceled_;
-        };
+            JFFAsyncOperation cachedLoader_ = [ dataOwner_ asyncOperationForPropertyWithPath: propertyPath_
+                                                               propertyExtractorFactoryBlock: factory_
+                                                                              asyncOperation: nativeLoader_.loader
+                                                                      didFinishLoadDataBlock: nil ];
 
-        JFFCancelAsyncOperation cancel_ = cachedLoader_( nil, cancel_callback_, nil );
+            __block BOOL cancelFlag_ = NO;
+            JFFCancelAsyncOperationHandler cancel_callback_ = ^( BOOL canceled_ )
+            {
+                cancelFlag_ = canceled_;
+            };
 
-        GHAssertFalse( nativeLoader_.finished  , @"OK" );
-        GHAssertFalse( nativeLoader_.canceled  , @"OK" );
-        GHAssertFalse( nativeLoader_.cancelFlag, @"OK" );
+            JFFCancelAsyncOperation cancel_ = cachedLoader_( nil, cancel_callback_, nil );
 
-        cancel_( YES );
+            GHAssertFalse( nativeLoader_.finished  , @"OK" );
+            GHAssertFalse( nativeLoader_.canceled  , @"OK" );
+            GHAssertFalse( nativeLoader_.cancelFlag, @"OK" );
 
-        GHAssertFalse( nativeLoader_.finished  , @"OK" );
-        GHAssertTrue ( nativeLoader_.canceled  , @"OK" );
-        GHAssertTrue ( nativeLoader_.cancelFlag, @"OK" );
+            cancel_( YES );
 
-        GHAssertTrue( cancelFlag_, @"OK" );
+            GHAssertFalse( nativeLoader_.finished  , @"OK" );
+            GHAssertTrue ( nativeLoader_.canceled  , @"OK" );
+            GHAssertTrue ( nativeLoader_.cancelFlag, @"OK" );
+
+            GHAssertTrue( cancelFlag_, @"OK" );
+        }
+
+        [ dataOwner_ release ];
+        [ nativeLoader_ release ];
     }
 
     GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"OK" );
@@ -100,8 +106,8 @@
     {
         JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
 
-        JFFPropertyPath* propertyPath_ = [ JFFPropertyPath propertyPathWithName: @"dict"
-                                                                            key: @"1" ];
+       JFFPropertyPath* propertyPath_ = [ [ JFFPropertyPath alloc ] initWithName: @"dict"
+                                                                             key: @"1" ];
 
         JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
         {
@@ -152,8 +158,8 @@
    {
       JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
 
-      JFFPropertyPath* propertyPath_ = [ JFFPropertyPath propertyPathWithName: @"dict"
-                                                                          key: @"1" ];
+      JFFPropertyPath* propertyPath_ = [ [ [ JFFPropertyPath alloc ] initWithName: @"dict"
+                                                                              key: @"1" ] autorelease ];
 
       JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
       {
@@ -204,8 +210,8 @@
    {
       JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
 
-      JFFPropertyPath* propertyPath_ = [ JFFPropertyPath propertyPathWithName: @"dict"
-                                                                          key: @"1" ];
+      JFFPropertyPath* propertyPath_ = [ [ [ JFFPropertyPath alloc ] initWithName: @"dict"
+                                                                              key: @"1" ] autorelease ];
 
       JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
       {
@@ -256,8 +262,8 @@
    {
       JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
 
-      JFFPropertyPath* propertyPath_ = [ JFFPropertyPath propertyPathWithName: @"dict"
-                                                                          key: @"1" ];
+      JFFPropertyPath* propertyPath_ = [ [ [ JFFPropertyPath alloc ] initWithName: @"dict"
+                                                                              key: @"1" ] autorelease ];
 
       JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
       {
@@ -314,6 +320,60 @@
       GHAssertTrue( [ dataOwner_.dict objectForKey: @"1" ] == result_, @"OK" );
    }
 
+   GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"OK" );
+   GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"OK" );
+   GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"OK" );
+}
+
+//Scenario:
+//1. Create property loader
+//2. Wrap it by unsubscribe on dealloc
+//3. Release owner
+//4. Finish loader -> crash
+//Result - should not crach
+-(void)testUnsubscribeBug
+{
+   @autoreleasepool
+   {
+      JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
+
+      JFFPropertyPath* propertyPath_ = [ [ [ JFFPropertyPath alloc ] initWithName: @"dict"
+                                                                              key: @"1" ] autorelease ];
+
+      JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
+      {
+         return [ [ JFFPropertyExtractor new ] autorelease ];
+      };
+
+      __block BOOL deallocated_ = NO;
+      @autoreleasepool
+      {
+         @autoreleasepool
+         {
+            TestClassWithProperties* dataOwner_ = [ TestClassWithProperties new ];
+
+            JFFAsyncOperation cachedLoader_ = [ dataOwner_ asyncOperationForPropertyWithPath: propertyPath_
+                                                               propertyExtractorFactoryBlock: factory_
+                                                                              asyncOperation: nativeLoader_.loader
+                                                                      didFinishLoadDataBlock: nil ];
+
+            JFFAsyncOperation  unsubscribeLoader_ = [ dataOwner_ autoUnsubsribeOnDeallocAsyncOperation: cachedLoader_ ];
+
+            [ dataOwner_ addOnDeallocBlock: ^()
+            {
+               deallocated_ = YES;
+            }];
+
+            [ dataOwner_ release ];
+
+            unsubscribeLoader_( nil, nil, nil );
+         }
+
+         nativeLoader_.loaderFinishBlock.didFinishBlock( [ NSNull null ], nil );
+      }
+      GHAssertTrue( deallocated_, @"OK" );
+   }
+   
    GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"OK" );
    GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"OK" );
    GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"OK" );
