@@ -5,12 +5,6 @@
 @class JFFContextLoaders;
 
 @interface JFFAsyncOperationLoadBalancerContexts : NSObject
-{
-@private
-   NSString* _current_context_name;
-   NSString* _active_context_name;
-   NSMutableDictionary* _context_loaders_by_name;
-}
 
 @property ( nonatomic, retain ) NSString* currentContextName;
 @property ( nonatomic, retain ) NSString* activeContextName;

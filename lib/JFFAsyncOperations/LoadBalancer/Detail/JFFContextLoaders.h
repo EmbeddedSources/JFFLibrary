@@ -3,12 +3,6 @@
 #import <Foundation/Foundation.h>
 
 @interface JFFContextLoaders : NSObject
-{
-@private
-   NSMutableArray* _pending_loaders_data;
-   NSMutableArray* _active_loaders_data;
-   NSString* _name;
-}
 
 @property ( nonatomic, retain ) NSString* name;
 
