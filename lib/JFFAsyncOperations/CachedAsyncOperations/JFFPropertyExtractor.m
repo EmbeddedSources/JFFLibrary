@@ -5,9 +5,11 @@
 
 #import "NSObject+PropertyExtractor.h"
 
+#import <objc/message.h>
+
 @interface JFFPropertyExtractor ()
 
-@property ( nonatomic, retain ) JFFObjectRelatedPropertyData* objectPropertyData;
+@property ( nonatomic, strong ) JFFObjectRelatedPropertyData* objectPropertyData;
 
 @property ( nonatomic, assign, readonly ) SEL propertyGetSelector;
 @property ( nonatomic, assign, readonly ) SEL propertySetSelector;
@@ -16,31 +18,20 @@
 
 @implementation JFFPropertyExtractor
 
+@synthesize propertyGetSelector = _property_get_selector;
+@synthesize propertySetSelector = _property_set_selector;
 @synthesize propertyPath = _property_path;
 @synthesize object = _object;
 
--(void)dealloc
+-(id)clearData
 {
-   [ _property_path release ];
-   [ _object release ];
+    self.objectPropertyData = nil;
 
-   [ super dealloc ];
-}
-
--(void)clearData
-{
-   self.objectPropertyData = nil;
-
-   //JTODO cover by test
-   //Scenario:
-   //1. Create property loader
-   //2. Wrap it by unsubscribe on dealloc
-   //3. Release owner
-   //4. Finish loader -> crash
-   [ [ self.object retain ] autorelease ];
-
-   self.object = nil;//release but not dont remove write now
-   //self.propertyPath = nil;
+    //JTODO - fix via ARC method, autorelease object - "self.object"
+    id result_ = self.object;
+    self.object = nil;
+    //self.propertyPath = nil;
+    return result_;
 }
 
 -(SEL)propertyGetSelector
@@ -63,7 +54,7 @@
 
 -(id)property
 {
-   id result_ = [ self.object performSelector: self.propertyGetSelector ];
+   id result_ = objc_msgSend( self.object, self.propertyGetSelector );
    return self.propertyPath.key ? [ result_ objectForKey: self.propertyPath.key ] : result_;
 }
 
@@ -71,16 +62,16 @@
 {
    if ( !self.propertyPath.key )
    {
-      [ self.object performSelector: self.propertySetSelector withObject: property_ ];
+      objc_msgSend( self.object, self.propertySetSelector, property_ );
       return;
    }
 
-   NSMutableDictionary* dict_ = [ self.object performSelector: self.propertyGetSelector ];
+   NSMutableDictionary* dict_ = objc_msgSend( self.object, self.propertyGetSelector );
 
    if ( !dict_ )
    {
       dict_ = [ NSMutableDictionary dictionary ];
-      [ self.object performSelector: self.propertySetSelector withObject: dict_ ];
+      objc_msgSend( self.object, self.propertySetSelector, dict_ );
    }
 
    if ( property_ )
@@ -99,7 +90,7 @@
    JFFObjectRelatedPropertyData* data_ = [ self.object propertyDataForPropertPath: self.propertyPath ];
    if ( !data_ )
    {
-      data_ = [ [ JFFObjectRelatedPropertyData new ] autorelease ];
+      data_ = [ JFFObjectRelatedPropertyData new ];
       [ self.object setPropertyData: data_ forPropertPath: self.propertyPath ];
    }
    return data_;

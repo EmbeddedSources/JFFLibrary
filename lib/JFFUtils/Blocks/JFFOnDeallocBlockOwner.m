@@ -6,21 +6,21 @@
 
 -(id)initWithBlock:( JFFSimpleBlock )block_
 {
-   self = [ super init ];
+    self = [ super init ];
 
-   NSAssert( block_, @"should not be nil" );
-   _block = block_;
+    NSAssert( block_, @"should not be nil" );
+    _block = block_;
 
-   return self;
+    return self;
 }
 
 -(void)dealloc
 {
-   if ( self.block )
-   {
-      self.block();
-      self.block = nil;//JTODO may be bug
-   }
+    if ( _block )
+    {
+        _block();
+        _block = nil;//JTODO may be bug
+    }
 }
 
 @end

@@ -41,7 +41,7 @@
    if ( self )
    {
       loaderFinishBlock = [ JFFDidFinishAsyncOperationBlockHolder new ];
-      loaderCancelBlock = [ JFFCancelAyncOperationBlockHolder new ];
+      loaderCancelBlock = [ JFFCancelAyncOperationBlockHolder     new ];
    }
 
    return self;

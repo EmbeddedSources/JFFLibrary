@@ -12,22 +12,22 @@
 
 -(void)deallocRemoveAssociatedObjectsHook
 {
-   [ self doesNotRecognizeSelector: _cmd ];
+    [ self doesNotRecognizeSelector: _cmd ];
 }
 
 -(void)deallocRemoveAssociatedObjectsPrototype
 {
-   objc_removeAssociatedObjects( self );
+    objc_removeAssociatedObjects( self );
 
-   [ self deallocRemoveAssociatedObjectsHook ];
+    [ self deallocRemoveAssociatedObjectsHook ];
 }
 
 +(void)load
 {
-   [ self hookInstanceMethodForClass: [ NSObject class ]
-                        withSelector: @selector( dealloc )
-             prototypeMethodSelector: @selector( deallocRemoveAssociatedObjectsPrototype )
-                  hookMethodSelector: @selector( deallocRemoveAssociatedObjectsHook ) ];
+    [ self hookInstanceMethodForClass: [ NSObject class ]
+                         withSelector: @selector( dealloc )
+              prototypeMethodSelector: @selector( deallocRemoveAssociatedObjectsPrototype )
+                   hookMethodSelector: @selector( deallocRemoveAssociatedObjectsHook ) ];
 }
 
 @end

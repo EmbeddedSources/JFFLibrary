@@ -13,16 +13,6 @@
 		1B0857DC1451717C001DDE0A /* JFFDidFinishAsyncOperationBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0857D91451717C001DDE0A /* JFFDidFinishAsyncOperationBlockHolder.h */; };
 		1B9026C1143F35F800D3B0A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9026C0143F35F800D3B0A0 /* Foundation.framework */; };
 		1B9026DA143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026D9143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch */; };
-		1B90270D143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026DD143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.h */; };
-		1B90270E143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026DE143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.m */; };
-		1B90270F143F36B700D3B0A0 /* NSObject+PropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026DF143F36B700D3B0A0 /* NSObject+PropertyExtractor.h */; };
-		1B902710143F36B700D3B0A0 /* NSObject+PropertyExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026E0143F36B700D3B0A0 /* NSObject+PropertyExtractor.m */; };
-		1B902711143F36B700D3B0A0 /* JFFPropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026E1143F36B700D3B0A0 /* JFFPropertyExtractor.h */; };
-		1B902712143F36B700D3B0A0 /* JFFPropertyExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026E2143F36B700D3B0A0 /* JFFPropertyExtractor.m */; };
-		1B902713143F36B700D3B0A0 /* JFFPropertyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026E3143F36B700D3B0A0 /* JFFPropertyPath.h */; };
-		1B902714143F36B700D3B0A0 /* JFFPropertyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026E4143F36B700D3B0A0 /* JFFPropertyPath.m */; };
-		1B902715143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026E5143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.h */; };
-		1B902716143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026E6143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.m */; };
 		1B902723143F36B700D3B0A0 /* JFFAsyncOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F5143F36B700D3B0A0 /* JFFAsyncOperations.h */; };
 		1B902724143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F6143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h */; };
 		1B902725143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F7143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h */; };
@@ -53,16 +43,6 @@
 		1B9026BD143F35F800D3B0A0 /* libJFFAsyncOpNoARC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFFAsyncOpNoARC.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9026C0143F35F800D3B0A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B9026D9143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations_Prefix.pch; sourceTree = SOURCE_ROOT; };
-		1B9026DD143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFObjectRelatedPropertyData.h; sourceTree = "<group>"; };
-		1B9026DE143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFObjectRelatedPropertyData.m; sourceTree = "<group>"; };
-		1B9026DF143F36B700D3B0A0 /* NSObject+PropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyExtractor.h"; sourceTree = "<group>"; };
-		1B9026E0143F36B700D3B0A0 /* NSObject+PropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyExtractor.m"; sourceTree = "<group>"; };
-		1B9026E1143F36B700D3B0A0 /* JFFPropertyExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyExtractor.h; sourceTree = "<group>"; };
-		1B9026E2143F36B700D3B0A0 /* JFFPropertyExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPropertyExtractor.m; sourceTree = "<group>"; };
-		1B9026E3143F36B700D3B0A0 /* JFFPropertyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFPropertyPath.h; sourceTree = "<group>"; };
-		1B9026E4143F36B700D3B0A0 /* JFFPropertyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFPropertyPath.m; sourceTree = "<group>"; };
-		1B9026E5143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AsyncPropertyReader.h"; sourceTree = "<group>"; };
-		1B9026E6143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AsyncPropertyReader.m"; sourceTree = "<group>"; };
 		1B9026F5143F36B700D3B0A0 /* JFFAsyncOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations.h; sourceTree = SOURCE_ROOT; };
 		1B9026F6143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsBlockDefinitions.h; sourceTree = SOURCE_ROOT; };
 		1B9026F7143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsPredefinedBlocks.h; sourceTree = SOURCE_ROOT; };
@@ -130,7 +110,6 @@
 				1B0857D91451717C001DDE0A /* JFFDidFinishAsyncOperationBlockHolder.h */,
 				1B0857D51451711D001DDE0A /* JFFCallbacksBlocksHolder.h */,
 				1B9026FF143F36B700D3B0A0 /* LoadBalancer */,
-				1B9026DB143F36B700D3B0A0 /* CachedAsyncOperations */,
 				1B9026F5143F36B700D3B0A0 /* JFFAsyncOperations.h */,
 				1B9026F6143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h */,
 				1B9026F7143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h */,
@@ -152,31 +131,6 @@
 				1B9026D9143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1B9026DB143F36B700D3B0A0 /* CachedAsyncOperations */ = {
-			isa = PBXGroup;
-			children = (
-				1B9026DC143F36B700D3B0A0 /* Detail */,
-				1B9026E1143F36B700D3B0A0 /* JFFPropertyExtractor.h */,
-				1B9026E2143F36B700D3B0A0 /* JFFPropertyExtractor.m */,
-				1B9026E3143F36B700D3B0A0 /* JFFPropertyPath.h */,
-				1B9026E4143F36B700D3B0A0 /* JFFPropertyPath.m */,
-				1B9026E5143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.h */,
-				1B9026E6143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.m */,
-			);
-			path = CachedAsyncOperations;
-			sourceTree = SOURCE_ROOT;
-		};
-		1B9026DC143F36B700D3B0A0 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				1B9026DD143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.h */,
-				1B9026DE143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.m */,
-				1B9026DF143F36B700D3B0A0 /* NSObject+PropertyExtractor.h */,
-				1B9026E0143F36B700D3B0A0 /* NSObject+PropertyExtractor.m */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		1B9026FF143F36B700D3B0A0 /* LoadBalancer */ = {
@@ -212,11 +166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B9026DA143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch in Headers */,
-				1B90270D143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.h in Headers */,
-				1B90270F143F36B700D3B0A0 /* NSObject+PropertyExtractor.h in Headers */,
-				1B902711143F36B700D3B0A0 /* JFFPropertyExtractor.h in Headers */,
-				1B902713143F36B700D3B0A0 /* JFFPropertyPath.h in Headers */,
-				1B902715143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.h in Headers */,
 				1B902723143F36B700D3B0A0 /* JFFAsyncOperations.h in Headers */,
 				1B902724143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h in Headers */,
 				1B902725143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */,
@@ -285,11 +234,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B90270E143F36B700D3B0A0 /* JFFObjectRelatedPropertyData.m in Sources */,
-				1B902710143F36B700D3B0A0 /* NSObject+PropertyExtractor.m in Sources */,
-				1B902712143F36B700D3B0A0 /* JFFPropertyExtractor.m in Sources */,
-				1B902714143F36B700D3B0A0 /* JFFPropertyPath.m in Sources */,
-				1B902716143F36B700D3B0A0 /* NSObject+AsyncPropertyReader.m in Sources */,
 				1B902726143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.m in Sources */,
 				1B902728143F36B700D3B0A0 /* JFFAsyncOperationUtils.m in Sources */,
 				1B90272A143F36B700D3B0A0 /* JFFBlockOperation.m in Sources */,

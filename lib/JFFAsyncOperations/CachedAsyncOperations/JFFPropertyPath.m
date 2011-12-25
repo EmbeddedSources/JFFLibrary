@@ -1,24 +1,9 @@
 #import "JFFPropertyPath.h"
 
-@interface JFFPropertyPath ()
-
-@property ( nonatomic, retain ) NSString* name;
-@property ( nonatomic, retain ) id< NSCopying, NSObject > key;
-
-@end
-
 @implementation JFFPropertyPath
 
 @synthesize name = _name;
-@synthesize key = _key;
-
--(void)dealloc
-{
-   [ _name release ];
-   [ _key release ];
-
-   [ super dealloc ];
-}
+@synthesize key  = _key;
 
 -(id)initWithName:( NSString* )name_
               key:( id< NSCopying, NSObject > )key_
@@ -27,17 +12,11 @@
 
    if ( self )
    {
-      self.name = name_;
-      self.key = key_;
+      _name = name_;
+      _key  = key_;
    }
 
    return self;
-}
-
-+(id)propertyPathWithName:( NSString* )name_
-                      key:( id< NSCopying, NSObject > )key_
-{
-   return [ [ [ self alloc ] initWithName: name_ key: key_ ] autorelease ];
 }
 
 -(NSString*)description
