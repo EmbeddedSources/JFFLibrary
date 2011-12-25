@@ -105,8 +105,6 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
 {
    return [ [ ^void( id result_, NSError* error_ )
    {
-      [ NSThread assertMainThread ];
-
       if ( !result_ && !error_ )
       {
          NSLog( @"Assert propertyPath object: %@ propertyPath: %@", property_extractor_.object, property_extractor_.propertyPath );

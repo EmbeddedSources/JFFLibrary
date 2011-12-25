@@ -239,12 +239,81 @@
 
       GHAssertFalse( cancelFlag_, @"OK" );
       cancelFlag_ = YES;
-      
+
       cancel_( NO );
-      
+
       GHAssertTrue( cancelFlag_, @"OK" );
    }
-   
+
+   GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"OK" );
+   GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"OK" );
+   GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"OK" );
+}
+
+-(void)testCachedAsyncOperationsOnceLoading
+{
+   @autoreleasepool
+   {
+      JFFAsyncOperationManager* nativeLoader_ = [ [ JFFAsyncOperationManager new ] autorelease ];
+
+      JFFPropertyPath* propertyPath_ = [ JFFPropertyPath propertyPathWithName: @"dict"
+                                                                          key: @"1" ];
+
+      JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
+      {
+         return [ [ JFFPropertyExtractor new ] autorelease ];
+      };
+
+      TestClassWithProperties* dataOwner_ = [ [ TestClassWithProperties new ] autorelease ];
+
+      JFFAsyncOperation cachedLoader_ = [ dataOwner_ asyncOperationForPropertyWithPath: propertyPath_
+                                                         propertyExtractorFactoryBlock: factory_
+                                                                        asyncOperation: nativeLoader_.loader
+                                                                didFinishLoadDataBlock: nil ];
+
+      GHAssertTrue( nativeLoader_.loadingCount == 0, @"OK" );
+
+      __block BOOL finished1_ = NO;
+      cachedLoader_( nil, nil, ^( id result_, NSError* error_ )
+      {
+         finished1_ = result_ != nil;
+      } );
+
+      __block BOOL finished2_ = NO;
+      cachedLoader_( nil, nil, ^( id result_, NSError* error_ )
+      {
+         finished2_ = result_ != nil;
+      } );
+
+      JFFAsyncOperation cachedLoader2_ = [ dataOwner_ asyncOperationForPropertyWithPath: propertyPath_
+                                                          propertyExtractorFactoryBlock: factory_
+                                                                         asyncOperation: nativeLoader_.loader
+                                                                 didFinishLoadDataBlock: nil ];
+      __block BOOL finished3_ = NO;
+      cachedLoader2_( nil, nil, ^( id result_, NSError* error_ )
+      {
+         finished3_ = result_ != nil;
+      } );
+
+      GHAssertFalse( nativeLoader_.finished, @"OK" );
+      GHAssertTrue( nativeLoader_.loadingCount == 1, @"OK" );
+      GHAssertFalse( finished1_, @"OK" );
+      GHAssertFalse( finished2_, @"OK" );
+      GHAssertFalse( finished3_, @"OK" );
+
+      GHAssertTrue( [ dataOwner_.dict objectForKey: @"1" ] == nil, @"OK" );
+
+      id result_ = [ NSNull null ];
+      nativeLoader_.loaderFinishBlock.didFinishBlock( result_, nil );
+
+      GHAssertTrue( nativeLoader_.finished, @"OK" );
+      GHAssertTrue( finished1_, @"OK" );
+      GHAssertTrue( finished2_, @"OK" );
+      GHAssertTrue( finished3_, @"OK" );
+
+      GHAssertTrue( [ dataOwner_.dict objectForKey: @"1" ] == result_, @"OK" );
+   }
+
    GHAssertTrue( 0 == [ JFFCancelAyncOperationBlockHolder     instancesCount ], @"OK" );
    GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"OK" );
    GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"OK" );
