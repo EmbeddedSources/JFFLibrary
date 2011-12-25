@@ -12,36 +12,32 @@
 
 -(void)dealloc
 {
-   [ _queue release ];
+    [ _queue release ];
 
-   [ super dealloc ];
+    [ super dealloc ];
 }
 
 -(NSOperationQueue*)queue
 {
-   if ( !_queue )
-   {
-      _queue = [ NSOperationQueue new ];
-   }
+    if ( !_queue )
+    {
+        _queue = [ NSOperationQueue new ];
+    }
 
-   return _queue;
+    return _queue;
 }
 
 +(id)sharedQueue
 {
-   static id instance_ = nil;
-
-   if ( !instance_ )
-   {
-      instance_ = [ self new ];
-   }
-
-   return instance_;
+    static dispatch_once_t once_;
+    static id instance_;
+    dispatch_once( &once_, ^{ instance_ = [ [ self class ] new ]; } );
+    return instance_;
 }
 
 -(void)addOperation:( NSOperation* )operation_
 {
-   [ self.queue addOperation: operation_ ];
+    [ self.queue addOperation: operation_ ];
 }
 
 @end

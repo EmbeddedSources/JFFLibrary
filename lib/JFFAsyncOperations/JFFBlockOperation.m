@@ -29,8 +29,8 @@
 
    if ( self )
    {
-      self.loadDataBlock      = load_data_block_;
-      self.didLoadDataBlock   = did_load_data_block_;
+      self.loadDataBlock    = load_data_block_;
+      self.didLoadDataBlock = did_load_data_block_;
    }
 
    return self;

@@ -280,7 +280,8 @@ JFFAsyncOperation balancedAsyncOperation( JFFAsyncOperation native_loader_ )
    {
       if ( canPeformAsyncOperationForContext( context_loaders_ ) )
       {
-         JFFAsyncOperation context_loader_ = wrappedAsyncOperationWithContext( native_loader_, context_loaders_ );
+         JFFAsyncOperation context_loader_ = wrappedAsyncOperationWithContext( native_loader_
+                                                                              , context_loaders_ );
          return context_loader_( progress_callback_, cancel_callback_, done_callback_ );
       }
 
