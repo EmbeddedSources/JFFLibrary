@@ -34,6 +34,7 @@
 		6572C43A14A75CDC008CFCFD /* JFFPropertyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9827F813F2B9D5009DD73B /* JFFPropertyPath.m */; };
 		6572C43B14A75CE1008CFCFD /* JFFObjectRelatedPropertyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D61CD2B13F2BC8A0003AC4A /* JFFObjectRelatedPropertyData.m */; };
 		6572C43C14A75CE3008CFCFD /* NSObject+PropertyExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D61CD3013F2BCE40003AC4A /* NSObject+PropertyExtractor.m */; };
+		65BA0A4E14A7821200EB2AAB /* JFFAsyncOperationsPredefinedBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B835B32142CBA2200FC004C /* JFFAsyncOperationsPredefinedBlocks.m */; };
 		8D1B3D2B13B87A4900410ECB /* JFFPedingLoaderData.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B3D2913B87A4900410ECB /* JFFPedingLoaderData.h */; };
 		8D1B3D6F13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1B3D6D13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.h */; };
 		8D61CD2C13F2BC8A0003AC4A /* JFFObjectRelatedPropertyData.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D61CD2A13F2BC8A0003AC4A /* JFFObjectRelatedPropertyData.h */; };
@@ -387,6 +388,7 @@
 				6572C43A14A75CDC008CFCFD /* JFFPropertyPath.m in Sources */,
 				6572C43B14A75CE1008CFCFD /* JFFObjectRelatedPropertyData.m in Sources */,
 				6572C43C14A75CE3008CFCFD /* NSObject+PropertyExtractor.m in Sources */,
+				65BA0A4E14A7821200EB2AAB /* JFFAsyncOperationsPredefinedBlocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

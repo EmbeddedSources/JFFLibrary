@@ -15,8 +15,6 @@
 		1B9026DA143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026D9143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch */; };
 		1B902723143F36B700D3B0A0 /* JFFAsyncOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F5143F36B700D3B0A0 /* JFFAsyncOperations.h */; };
 		1B902724143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F6143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h */; };
-		1B902725143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F7143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h */; };
-		1B902726143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026F8143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.m */; };
 		1B902727143F36B700D3B0A0 /* JFFAsyncOperationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026F9143F36B700D3B0A0 /* JFFAsyncOperationUtils.h */; };
 		1B902728143F36B700D3B0A0 /* JFFAsyncOperationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9026FA143F36B700D3B0A0 /* JFFAsyncOperationUtils.m */; };
 		1B902729143F36B700D3B0A0 /* JFFBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9026FB143F36B700D3B0A0 /* JFFBlockOperation.h */; };
@@ -45,8 +43,6 @@
 		1B9026D9143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		1B9026F5143F36B700D3B0A0 /* JFFAsyncOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperations.h; sourceTree = SOURCE_ROOT; };
 		1B9026F6143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsBlockDefinitions.h; sourceTree = SOURCE_ROOT; };
-		1B9026F7143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationsPredefinedBlocks.h; sourceTree = SOURCE_ROOT; };
-		1B9026F8143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationsPredefinedBlocks.m; sourceTree = SOURCE_ROOT; };
 		1B9026F9143F36B700D3B0A0 /* JFFAsyncOperationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFAsyncOperationUtils.h; sourceTree = SOURCE_ROOT; };
 		1B9026FA143F36B700D3B0A0 /* JFFAsyncOperationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFAsyncOperationUtils.m; sourceTree = SOURCE_ROOT; };
 		1B9026FB143F36B700D3B0A0 /* JFFBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFBlockOperation.h; sourceTree = SOURCE_ROOT; };
@@ -112,8 +108,6 @@
 				1B9026FF143F36B700D3B0A0 /* LoadBalancer */,
 				1B9026F5143F36B700D3B0A0 /* JFFAsyncOperations.h */,
 				1B9026F6143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h */,
-				1B9026F7143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h */,
-				1B9026F8143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.m */,
 				1B9026F9143F36B700D3B0A0 /* JFFAsyncOperationUtils.h */,
 				1B9026FA143F36B700D3B0A0 /* JFFAsyncOperationUtils.m */,
 				1B9026FB143F36B700D3B0A0 /* JFFBlockOperation.h */,
@@ -168,7 +162,6 @@
 				1B9026DA143F36A100D3B0A0 /* JFFAsyncOperations_Prefix.pch in Headers */,
 				1B902723143F36B700D3B0A0 /* JFFAsyncOperations.h in Headers */,
 				1B902724143F36B700D3B0A0 /* JFFAsyncOperationsBlockDefinitions.h in Headers */,
-				1B902725143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */,
 				1B902727143F36B700D3B0A0 /* JFFAsyncOperationUtils.h in Headers */,
 				1B902729143F36B700D3B0A0 /* JFFBlockOperation.h in Headers */,
 				1B90272B143F36B700D3B0A0 /* JFFOperationQueue.h in Headers */,
@@ -234,7 +227,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B902726143F36B700D3B0A0 /* JFFAsyncOperationsPredefinedBlocks.m in Sources */,
 				1B902728143F36B700D3B0A0 /* JFFAsyncOperationUtils.m in Sources */,
 				1B90272A143F36B700D3B0A0 /* JFFBlockOperation.m in Sources */,
 				1B90272C143F36B700D3B0A0 /* JFFOperationQueue.m in Sources */,
