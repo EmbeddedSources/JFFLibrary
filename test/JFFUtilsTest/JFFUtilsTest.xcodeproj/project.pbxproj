@@ -20,6 +20,8 @@
 		534CDFD814A8C8280068F4DF /* ObjCppCastingTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 534CDFD714A8C8280068F4DF /* ObjCppCastingTest.mm */; };
 		534CDFDA14A8CA290068F4DF /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CDFD914A8CA290068F4DF /* libstdc++.dylib */; };
 		534CDFDE14A8CAAC0068F4DF /* JMStringHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CDFDD14A8CAAC0068F4DF /* JMStringHolder.m */; };
+		534CE02B14A8CE7B0068F4DF /* JMParent.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CE02A14A8CE7B0068F4DF /* JMParent.m */; };
+		534CE02E14A8CE8C0068F4DF /* JMChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CE02D14A8CE8C0068F4DF /* JMChild.m */; };
 		53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */; };
 		B69483EC1429C88400B8247E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EB1429C88400B8247E /* UIKit.framework */; };
 		B69483EE1429C88400B8247E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483ED1429C88400B8247E /* Foundation.framework */; };
@@ -76,6 +78,10 @@
 		534CDFD914A8CA290068F4DF /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		534CDFDC14A8CAAC0068F4DF /* JMStringHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStringHolder.h; sourceTree = "<group>"; };
 		534CDFDD14A8CAAC0068F4DF /* JMStringHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStringHolder.m; sourceTree = "<group>"; };
+		534CE02914A8CE7B0068F4DF /* JMParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMParent.h; sourceTree = "<group>"; };
+		534CE02A14A8CE7B0068F4DF /* JMParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMParent.m; sourceTree = "<group>"; };
+		534CE02C14A8CE8C0068F4DF /* JMChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMChild.h; sourceTree = "<group>"; };
+		534CE02D14A8CE8C0068F4DF /* JMChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMChild.m; sourceTree = "<group>"; };
 		53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayAdditionsTest.m; sourceTree = "<group>"; };
 		B69483E71429C88400B8247E /* JFFUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69483EB1429C88400B8247E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -111,6 +117,10 @@
 			children = (
 				534CDFDC14A8CAAC0068F4DF /* JMStringHolder.h */,
 				534CDFDD14A8CAAC0068F4DF /* JMStringHolder.m */,
+				534CE02914A8CE7B0068F4DF /* JMParent.h */,
+				534CE02A14A8CE7B0068F4DF /* JMParent.m */,
+				534CE02C14A8CE8C0068F4DF /* JMChild.h */,
+				534CE02D14A8CE8C0068F4DF /* JMChild.m */,
 			);
 			path = mock;
 			sourceTree = "<group>";
@@ -319,6 +329,8 @@
 				1BD182411467E28B0033BEFF /* JFFMutableAssignDictionaryTest.m in Sources */,
 				534CDFD814A8C8280068F4DF /* ObjCppCastingTest.mm in Sources */,
 				534CDFDE14A8CAAC0068F4DF /* JMStringHolder.m in Sources */,
+				534CE02B14A8CE7B0068F4DF /* JMParent.m in Sources */,
+				534CE02E14A8CE8C0068F4DF /* JMChild.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

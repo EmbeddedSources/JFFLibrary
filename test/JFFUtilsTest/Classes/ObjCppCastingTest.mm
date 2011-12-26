@@ -1,4 +1,8 @@
 #import "JMStringHolder.h"
+
+#import "JMParent.h"
+#import "JMChild.h"
+
 #import <JFFUtils/JFFCastFunctions.h>
 
 @interface ObjCppCastingTest : GHTestCase
@@ -57,6 +61,20 @@
       GHAssertNotNil( result_, @"unexpected nil object" );
       GHAssertTrue( [ christmas_cheer_.content isEqualToString: result_.content ], @"A cast has changed an object" );      
    }
+}
+
+
+-(void)testDynamicCastReturnsNilForNil
+{
+   JMParent* parent_ = nil;
+   JMChild* result_ = nil;
+   
+   {
+      result_ = objc_dynamic_cast<JMChild>( parent_ );
+      GHAssertNil( result_, @"nil expected" );
+   }
+   
+   GHFail( @"dodikk - complete me tomorrow" );
 }
 
 @end
