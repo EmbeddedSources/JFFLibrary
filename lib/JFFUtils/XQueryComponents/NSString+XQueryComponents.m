@@ -9,7 +9,7 @@
 
 -(NSString*)stringByEncodingURLFormat
 {
-   NSString* unsafe_ = @" <>#%'\";?:@&=+$/,{}|\\^~[]`-_*!()";
+   static NSString* unsafe_ = @" <>#%'\";?:@&=+$/,{}|\\^~[]`-_*!()";
    return (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault
                                                                                , (__bridge CFStringRef)self
                                                                                , NULL

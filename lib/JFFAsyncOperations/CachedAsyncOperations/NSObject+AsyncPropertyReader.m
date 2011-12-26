@@ -108,16 +108,19 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
 
       if ( !result_ && !error_ )
       {
-         NSLog( @"Assert propertyPath object: %@ propertyPath: %@", property_extractor_.object, property_extractor_.propertyPath );
+         NSLog( @"Assert propertyPath object: %@ propertyPath: %@"
+               , property_extractor_.object
+               , property_extractor_.propertyPath );
          assert( 0 );//@"should be result or error"
       }
 
       NSArray* copy_delegates_ = [ property_extractor_.delegates map: ^id( id obj_ )
       {
          JFFCallbacksBlocksHolder* callback_ = obj_;
-         return [ [ [ JFFCallbacksBlocksHolder new ] initWithOnProgressBlock: callback_.onProgressBlock
-                                                               onCancelBlock: callback_.onCancelBlock
-                                                            didLoadDataBlock: callback_.didLoadDataBlock ] autorelease ];
+         id result_ = [ [ JFFCallbacksBlocksHolder new ] initWithOnProgressBlock: callback_.onProgressBlock
+                                                                   onCancelBlock: callback_.onCancelBlock
+                                                                didLoadDataBlock: callback_.didLoadDataBlock ];
+         return [ result_ autorelease ];
       } ];
 
       JFFDidFinishAsyncOperationHandler finish_block_ = [ [ property_extractor_.didFinishBlock copy ] autorelease ];

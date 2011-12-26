@@ -2,6 +2,8 @@
 
 @interface JFFMutableAssignDictionary : NSObject
 
+//JTODO remove
+//should return native object, not assign wrapper
 @property ( nonatomic, copy, readonly ) NSDictionary* dictionary;
 
 -(NSUInteger)count;
