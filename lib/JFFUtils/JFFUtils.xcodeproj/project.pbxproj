@@ -45,6 +45,9 @@
 		1BD1820E1467D71B0033BEFF /* JFFMutableAssignDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */; };
 		1BE75CFF1434B3450076E068 /* NSObject+Const0.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE75CFD1434B3450076E068 /* NSObject+Const0.h */; };
 		1BE75D001434B3450076E068 /* NSObject+Const0.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE75CFE1434B3450076E068 /* NSObject+Const0.m */; };
+		534CDFC214A8C2930068F4DF /* JFFCastFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 534CDFC014A8C2930068F4DF /* JFFCastFunctions.h */; };
+		534CDFC314A8C2930068F4DF /* JFFCastFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 534CDFC014A8C2930068F4DF /* JFFCastFunctions.h */; };
+		534CDFC414A8C2930068F4DF /* JFFCastFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 534CDFC014A8C2930068F4DF /* JFFCastFunctions.h */; };
 		539103F414A88C04007315A3 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		539103F514A88C04007315A3 /* JFFUtilsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */; };
 		539103F614A88C04007315A3 /* JFFSimpleBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */; };
@@ -230,7 +233,8 @@
 		1BD1820C1467D71B0033BEFF /* JFFMutableAssignDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignDictionary.m; sourceTree = "<group>"; };
 		1BE75CFD1434B3450076E068 /* NSObject+Const0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Const0.h"; sourceTree = "<group>"; };
 		1BE75CFE1434B3450076E068 /* NSObject+Const0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Const0.m"; sourceTree = "<group>"; };
-		5391044314A88C04007315A3 /* libJFFUtils copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libJFFUtils copy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		534CDFC014A8C2930068F4DF /* JFFCastFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFCastFunctions.h; sourceTree = "<group>"; };
+		5391044314A88C04007315A3 /* libJFFUtils copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libJFFUtils copy.a"; path = "libJFFUtils-clang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RemoveDuplicates.h"; sourceTree = "<group>"; };
 		53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RemoveDuplicates.m"; sourceTree = "<group>"; };
 		53BCF8E214323A4800E896B3 /* JUArrayHelperBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUArrayHelperBlocks.h; sourceTree = "<group>"; };
@@ -458,6 +462,7 @@
 				1B104D911483C85A0025FDDA /* JSignedRange.h */,
 				1B104D8D1483C8410025FDDA /* JSignedRange.m */,
 				651BE27B1391BD7800DD6890 /* JFFUtils.h */,
+				534CDFC014A8C2930068F4DF /* JFFCastFunctions.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				5391041714A88C04007315A3 /* NSString+UUIDCreation.h in Headers */,
 				5391041814A88C04007315A3 /* JSignedRange.h in Headers */,
 				5391041914A88C04007315A3 /* NSObject+ExpandArray.h in Headers */,
+				534CDFC414A8C2930068F4DF /* JFFCastFunctions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65802A6B148BF2B10040A93A /* JFFUtils.h in Headers */,
+				534CDFC314A8C2930068F4DF /* JFFCastFunctions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +610,7 @@
 				1B16830F146AD4C800832839 /* NSString+UUIDCreation.h in Headers */,
 				1B104D921483C85A0025FDDA /* JSignedRange.h in Headers */,
 				1B3EE0361487D03A00BA6680 /* NSObject+ExpandArray.h in Headers */,
+				534CDFC214A8C2930068F4DF /* JFFCastFunctions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
