@@ -3,7 +3,7 @@
 #import "JMParent.h"
 #import "JMChild.h"
 
-#import <JFFUtils/JFFCastFunctions.h>
+#import <JFFUtils/JFFCastFunctions.hpp>
 
 @interface ObjCppCastingTest : GHTestCase
 @end

@@ -16,6 +16,7 @@
 		1B902643143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */; };
 		1B90269F143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */; };
 		1BD182411467E28B0033BEFF /* JFFMutableAssignDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD182401467E28B0033BEFF /* JFFMutableAssignDictionaryTest.m */; };
+		5349A6CC14A9D01C008ECCA6 /* ClassHierarchyCheckerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5349A6CB14A9D01C008ECCA6 /* ClassHierarchyCheckerTest.mm */; };
 		534C727B1431D9DE0085B41E /* JUMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */; };
 		534CDFD814A8C8280068F4DF /* ObjCppCastingTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 534CDFD714A8C8280068F4DF /* ObjCppCastingTest.mm */; };
 		534CDFDA14A8CA290068F4DF /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CDFD914A8CA290068F4DF /* libstdc++.dylib */; };
@@ -73,6 +74,7 @@
 		1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignArrayTest.m; sourceTree = "<group>"; };
 		1B90269E143F1C3600D3B0A0 /* JFFMulticastDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMulticastDelegateTest.m; sourceTree = "<group>"; };
 		1BD182401467E28B0033BEFF /* JFFMutableAssignDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFMutableAssignDictionaryTest.m; sourceTree = "<group>"; };
+		5349A6CB14A9D01C008ECCA6 /* ClassHierarchyCheckerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClassHierarchyCheckerTest.mm; sourceTree = "<group>"; };
 		534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUMutableArrayTest.m; sourceTree = "<group>"; };
 		534CDFD714A8C8280068F4DF /* ObjCppCastingTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCppCastingTest.mm; sourceTree = "<group>"; };
 		534CDFD914A8CA290068F4DF /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -191,6 +193,7 @@
 				1B902642143EF92A00D3B0A0 /* JFFMutableAssignArrayTest.m */,
 				1BD182401467E28B0033BEFF /* JFFMutableAssignDictionaryTest.m */,
 				534CDFD714A8C8280068F4DF /* ObjCppCastingTest.mm */,
+				5349A6CB14A9D01C008ECCA6 /* ClassHierarchyCheckerTest.mm */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -331,6 +334,7 @@
 				534CDFDE14A8CAAC0068F4DF /* JMStringHolder.m in Sources */,
 				534CE02B14A8CE7B0068F4DF /* JMParent.m in Sources */,
 				534CE02E14A8CE8C0068F4DF /* JMChild.m in Sources */,
+				5349A6CC14A9D01C008ECCA6 /* ClassHierarchyCheckerTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
