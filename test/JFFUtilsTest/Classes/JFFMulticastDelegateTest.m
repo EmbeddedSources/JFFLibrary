@@ -31,29 +31,33 @@
 
 -(void)testMutableAssignArrayAssignIssue
 {
-   TestClassForMulticast* delegate_ = [ TestClassForMulticast new ];
-   NSUInteger init_state_ = rand();
-   delegate_.initialState = init_state_;
+    __block BOOL delegate_deallocated_ = NO;
 
-   __block BOOL delegate_deallocated_ = NO;
-   [ delegate_ addOnDeallocBlock: ^void( void )
-   {
-      delegate_deallocated_ = YES;
-   } ];
+    JFFMulticastDelegate< TestMulticastDelegateInterface >* multicast_ =
+        (JFFMulticastDelegate< TestMulticastDelegateInterface >*)[ JFFMulticastDelegate new ];
 
-   JFFMulticastDelegate< TestMulticastDelegateInterface >* multicast_ =
-      (JFFMulticastDelegate< TestMulticastDelegateInterface >*)[ JFFMulticastDelegate new ];
+    @autoreleasepool
+    {
+        TestClassForMulticast* delegate_ = [ TestClassForMulticast new ];
+        NSUInteger init_state_ = rand();
+        delegate_.initialState = init_state_;
 
-   [ multicast_ addDelegate: delegate_ ];
+        [ delegate_ addOnDeallocBlock: ^void( void )
+        {
+            delegate_deallocated_ = YES;
+        } ];
 
-   GHAssertTrue( init_state_ == [ multicast_ justReturnFiveNumber ], @"Contains 1 object" );
+        [ multicast_ addDelegate: delegate_ ];
 
-   [ delegate_ release ];
+        GHAssertTrue( init_state_ == [ multicast_ justReturnFiveNumber ], @"Contains 1 object" );
 
-   GHAssertTrue( delegate_deallocated_, @"Target should be dealloced" );
-   GHAssertTrue( 0 == [ multicast_ justReturnFiveNumber ], @"Empty array" );
+        [ delegate_ release ];
+    }
 
-   [ multicast_ release ];
+    GHAssertTrue( delegate_deallocated_, @"Target should be dealloced" );
+    GHAssertTrue( 0 == [ multicast_ justReturnFiveNumber ], @"Empty array" );
+
+    [ multicast_ release ];
 }
 
 -(void)testMulticastDelegateFirstRelease
