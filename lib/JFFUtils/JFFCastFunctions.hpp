@@ -36,24 +36,13 @@ DESTINATION* objc_member_of_cast( id nsObject )
 #pragma mark -
 #pragma mark dynamic cast
 extern BOOL class_srcIsSuperclassOfDest( Class src, Class dest );
+extern BOOL class_isClassesInSameHierarchy( Class src, Class dest );
 
 template < class DESTINATION >
 DESTINATION* objc_dynamic_cast( id nsObject )
 {
-   BOOL is_same_hierarchy_ = 
-      class_srcIsSuperclassOfDest( [ nsObject class ], [ DESTINATION class ] ) ||
-      class_srcIsSuperclassOfDest( [ DESTINATION class ], [ nsObject class ] ) ;
-   
-   if ( !is_same_hierarchy_ )
-   {
-      NSLog( @"[!!!ERROR!!!] objc_dynamic_cast class mismatch. Expected : %@. Received : %@", [ DESTINATION class ], [ nsObject class ]  );
-      return nil;
-   }
-   
-   return (DESTINATION*)nsObject;
+   return objc_kind_of_cast<DESTINATION>( nsObject );
 }
-
-// A tiny code duplication is by design
 
 
 #endif //__JFF_CAST_FUNCTIONS_H__

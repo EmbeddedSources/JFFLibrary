@@ -63,18 +63,17 @@
    }
 }
 
-
--(void)testDynamicCastReturnsNilForNil
+-(void)testKindOfCastToSuperTypeReturnsSameObject
 {
-   JMParent* parent_ = nil;
-   JMChild* result_ = nil;
+   JMStringHolder* christmas_cheer_ = [ [ JMStringHolder new ] autorelease ];
+   christmas_cheer_.content = @"Merry Christmas";
    
+   id result_ = nil;
+
    {
-      result_ = objc_dynamic_cast<JMChild>( parent_ );
-      GHAssertNil( result_, @"nil expected" );
-   }
-   
-   GHFail( @"dodikk - complete me tomorrow" );
+      result_ = objc_kind_of_cast<NSObject>( christmas_cheer_ );
+      GHAssertTrue( christmas_cheer_ == result_, @"same object expected" );
+   }   
 }
 
 @end

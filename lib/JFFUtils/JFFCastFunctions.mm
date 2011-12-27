@@ -17,3 +17,12 @@ BOOL class_srcIsSuperclassOfDest( Class src, Class dest )
    
    return class_srcIsSuperclassOfDest( src, super_dest_ );
 }
+
+BOOL class_isClassesInSameHierarchy( Class src, Class dest )
+{
+   BOOL result = 
+      class_srcIsSuperclassOfDest( [ src  class ], [ dest class ] ) ||
+      class_srcIsSuperclassOfDest( [ dest class ], [ src  class ] ) ;
+
+   return result;
+}
