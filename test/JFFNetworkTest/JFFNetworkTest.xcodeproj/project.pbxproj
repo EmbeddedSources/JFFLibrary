@@ -24,6 +24,7 @@
 		532284361445CDE000F0E723 /* JFFConectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 532284351445CDE000F0E723 /* JFFConectionTest.m */; };
 		53435961141F585600BE9563 /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5343595F141F585600BE9563 /* 1.txt */; };
 		53435962141F585600BE9563 /* 1.zip in Resources */ = {isa = PBXBuildFile; fileRef = 53435960141F585600BE9563 /* 1.zip */; };
+		5357CDF814A9F5050046EA34 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5357CDF714A9F5050046EA34 /* libstdc++.dylib */; };
 		539A55A61445BC3800FC2770 /* ConnectionsFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 539A55A51445BC3800FC2770 /* ConnectionsFactoryTest.m */; };
 		53A33F23141F600300469DAA /* JNTestBundleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A33F22141F600300469DAA /* JNTestBundleManager.m */; };
 		53A33F29141F64CC00469DAA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A33F28141F64CC00469DAA /* libz.dylib */; };
@@ -101,6 +102,55 @@
 			remoteGlobalIDString = 5310BB45141F574300A3E2B1;
 			remoteInfo = JFFNetworkTestData;
 		};
+		5357CDE214A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA84141F51AD00A3E2B1 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391037B14A88BB5007315A3;
+			remoteInfo = "JFFAsyncOperations-clang";
+		};
+		5357CDE614A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA87141F51AD00A3E2B1 /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802B22148BFC230040A93A;
+			remoteInfo = JFFNetworkMacOS;
+		};
+		5357CDE814A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA87141F51AD00A3E2B1 /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539103B714A88BCA007315A3;
+			remoteInfo = "JFFNetwork-clang";
+		};
+		5357CDEC14A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA8A141F51AD00A3E2B1 /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802B07148BFB850040A93A;
+			remoteInfo = JFFSchedulerMacOS;
+		};
+		5357CDEE14A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA8A141F51AD00A3E2B1 /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539103C614A88BD6007315A3;
+			remoteInfo = "JFFScheduler-clang";
+		};
+		5357CDF214A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA8D141F51AD00A3E2B1 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802A5B148BF2930040A93A;
+			remoteInfo = JFFUtilsMacOS;
+		};
+		5357CDF414A9F4F80046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5310BA8D141F51AD00A3E2B1 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391044314A88C04007315A3;
+			remoteInfo = "JFFUtils-clang";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +174,7 @@
 		532284351445CDE000F0E723 /* JFFConectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFConectionTest.m; sourceTree = "<group>"; };
 		5343595F141F585600BE9563 /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
 		53435960141F585600BE9563 /* 1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 1.zip; sourceTree = "<group>"; };
+		5357CDF714A9F5050046EA34 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		539A55A51445BC3800FC2770 /* ConnectionsFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsFactoryTest.m; sourceTree = "<group>"; };
 		53A33F21141F600300469DAA /* JNTestBundleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNTestBundleManager.h; sourceTree = "<group>"; };
 		53A33F22141F600300469DAA /* JNTestBundleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNTestBundleManager.m; sourceTree = "<group>"; };
@@ -144,16 +195,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53A33F2B141F65F700469DAA /* CFNetwork.framework in Frameworks */,
-				53A33F29141F64CC00469DAA /* libz.dylib in Frameworks */,
 				5310BAF0141F51E000A3E2B1 /* libJFFScheduler.a in Frameworks */,
 				5310BAF1141F51F100A3E2B1 /* libJFFAsyncOperations.a in Frameworks */,
 				5310BAF2141F51F100A3E2B1 /* libJFFNetwork.a in Frameworks */,
 				5310BAEF141F51D300A3E2B1 /* libJFFUtils.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				53A33F2B141F65F700469DAA /* CFNetwork.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				5310BA45141F4D7800A3E2B1 /* GHUnitIOS.framework in Frameworks */,
+				5357CDF814A9F5050046EA34 /* libstdc++.dylib in Frameworks */,
+				53A33F29141F64CC00469DAA /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +250,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5357CDF714A9F5050046EA34 /* libstdc++.dylib */,
 				5310BA84141F51AD00A3E2B1 /* JFFAsyncOperations.xcodeproj */,
 				5310BA87141F51AD00A3E2B1 /* JFFNetwork.xcodeproj */,
 				5310BA8A141F51AD00A3E2B1 /* JFFScheduler.xcodeproj */,
@@ -247,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				5310BA92141F51AD00A3E2B1 /* libJFFAsyncOperations.a */,
+				5357CDE314A9F4F80046EA34 /* libJFFAsyncOperations copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				5310BA95141F51AD00A3E2B1 /* libJFFNetwork.a */,
+				5357CDE714A9F4F80046EA34 /* libJFFNetworkMacOS.a */,
+				5357CDE914A9F4F80046EA34 /* libJFFNetwork copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				5310BA98141F51AD00A3E2B1 /* libJFFScheduler.a */,
+				5357CDED14A9F4F80046EA34 /* libJFFSchedulerMacOS.a */,
+				5357CDEF14A9F4F80046EA34 /* libJFFScheduler copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,6 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				5310BA9B141F51AD00A3E2B1 /* libJFFUtils.a */,
+				5357CDF314A9F4F80046EA34 /* libJFFUtilsMacOS.a */,
+				5357CDF514A9F4F80046EA34 /* libJFFUtils copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,6 +463,59 @@
 			fileType = archive.ar;
 			path = libJFFUtils.a;
 			remoteRef = 5310BA9A141F51AD00A3E2B1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDE314A9F4F80046EA34 /* libJFFAsyncOperations copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFAsyncOperations copy.a";
+			path = "libJFFAsyncOperations-clang.a";
+			remoteRef = 5357CDE214A9F4F80046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDE714A9F4F80046EA34 /* libJFFNetworkMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFNetworkMacOS.a;
+			remoteRef = 5357CDE614A9F4F80046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDE914A9F4F80046EA34 /* libJFFNetwork copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFNetwork copy.a";
+			path = "libJFFNetwork-clang.a";
+			remoteRef = 5357CDE814A9F4F80046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDED14A9F4F80046EA34 /* libJFFSchedulerMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFSchedulerMacOS.a;
+			remoteRef = 5357CDEC14A9F4F80046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDEF14A9F4F80046EA34 /* libJFFScheduler copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFScheduler copy.a";
+			path = "libJFFScheduler-clang.a";
+			remoteRef = 5357CDEE14A9F4F80046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDF314A9F4F80046EA34 /* libJFFUtilsMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFUtilsMacOS.a;
+			remoteRef = 5357CDF214A9F4F80046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CDF514A9F4F80046EA34 /* libJFFUtils copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFUtils copy.a";
+			path = "libJFFUtils-clang.a";
+			remoteRef = 5357CDF414A9F4F80046EA34 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
