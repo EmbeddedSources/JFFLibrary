@@ -44,6 +44,11 @@ DESTINATION* objc_dynamic_cast( id nsObject )
    return objc_kind_of_cast<DESTINATION>( nsObject );
 }
 
+template < class DESTINATION >
+DESTINATION* objc_reinterpret_cast( id nsObject )
+{
+   return (DESTINATION*)nsObject;
+}
 
 #endif //__JFF_CAST_FUNCTIONS_H__
 
