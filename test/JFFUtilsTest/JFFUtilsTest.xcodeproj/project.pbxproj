@@ -24,6 +24,7 @@
 		534CDFDE14A8CAAC0068F4DF /* JMStringHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CDFDD14A8CAAC0068F4DF /* JMStringHolder.m */; };
 		534CE02B14A8CE7B0068F4DF /* JMParent.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CE02A14A8CE7B0068F4DF /* JMParent.m */; };
 		534CE02E14A8CE8C0068F4DF /* JMChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CE02D14A8CE8C0068F4DF /* JMChild.m */; };
+		53A0938614ADB79A0011F01B /* libprofile_rt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A0938514ADB79A0011F01B /* libprofile_rt.a */; };
 		53BCF8E614323E7D00E896B3 /* JUArrayAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */; };
 		B69483EC1429C88400B8247E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483EB1429C88400B8247E /* UIKit.framework */; };
 		B69483EE1429C88400B8247E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69483ED1429C88400B8247E /* Foundation.framework */; };
@@ -86,6 +87,7 @@
 		534CE02A14A8CE7B0068F4DF /* JMParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMParent.m; sourceTree = "<group>"; };
 		534CE02C14A8CE8C0068F4DF /* JMChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMChild.h; sourceTree = "<group>"; };
 		534CE02D14A8CE8C0068F4DF /* JMChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMChild.m; sourceTree = "<group>"; };
+		53A0938514ADB79A0011F01B /* libprofile_rt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprofile_rt.a; path = usr/lib/libprofile_rt.a; sourceTree = DEVELOPER_DIR; };
 		53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayAdditionsTest.m; sourceTree = "<group>"; };
 		B69483E71429C88400B8247E /* JFFUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69483EB1429C88400B8247E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -109,6 +111,7 @@
 				B69483EE1429C88400B8247E /* Foundation.framework in Frameworks */,
 				B69483F01429C88400B8247E /* CoreGraphics.framework in Frameworks */,
 				B69484031429D3D300B8247E /* GHUnitIOS.framework in Frameworks */,
+				53A0938614ADB79A0011F01B /* libprofile_rt.a in Frameworks */,
 				534CDFDA14A8CA290068F4DF /* libstdc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +135,7 @@
 		B69483DC1429C88400B8247E = {
 			isa = PBXGroup;
 			children = (
+				53A0938514ADB79A0011F01B /* libprofile_rt.a */,
 				534CDFD914A8CA290068F4DF /* libstdc++.dylib */,
 				B694845D1429E24B00B8247E /* JFFUtils.xcodeproj */,
 				B69483F11429C88400B8247E /* JFFUtilsTest */,
@@ -376,6 +380,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -405,6 +410,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -428,10 +434,15 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../frameworks\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFUtilsTest/JFFUtilsTest-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JFFUtilsTest/JFFUtilsTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -445,10 +456,15 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../frameworks\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFFUtilsTest/JFFUtilsTest-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "JFFUtilsTest/JFFUtilsTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
