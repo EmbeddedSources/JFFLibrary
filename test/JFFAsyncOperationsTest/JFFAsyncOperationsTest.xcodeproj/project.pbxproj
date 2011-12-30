@@ -260,6 +260,7 @@
 				8D29EF8413BE066900041B6A /* Sources */,
 				8D29EF8513BE066900041B6A /* Frameworks */,
 				8D29EF8613BE066900041B6A /* Resources */,
+				53A0922E14ADAE470011F01B /* Dump xCode variables */,
 			);
 			buildRules = (
 			);
@@ -384,6 +385,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53A0922E14ADAE470011F01B /* Dump xCode variables */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Dump xCode variables";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n#/bin/bash\n#\n## Dump XCode variables\n\n\nXCODE_DUMP_DIR=/tmp/${PRODUCT_NAME}Build\nmkdir -p \"$XCODE_DUMP_DIR\"\nCI_TEST_PRODUCT_DIR_FILE=$XCODE_DUMP_DIR/PRODUCT_DIR.txt\n\ncd \"$BUILT_PRODUCTS_DIR\"\ncd ..\necho $PWD > \"$CI_TEST_PRODUCT_DIR_FILE\"\n\nexit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D29EF8413BE066900041B6A /* Sources */ = {
