@@ -19,6 +19,7 @@
 		6572C44114A765CE008CFCFD /* TrySequenceOfAsyncOperationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA27738144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m */; };
 		6572C44214A765CE008CFCFD /* GroupOfAsyncOperationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BED04FF144EBF2800B8DC2A /* GroupOfAsyncOperationsTest.m */; };
 		6572C44314A765CE008CFCFD /* FailOnFirstErrorGroupOfAsyncOperationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0857D014516076001DDE0A /* FailOnFirstErrorGroupOfAsyncOperationsTest.m */; };
+		5357CDFA14A9F5130046EA34 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5357CDF914A9F5130046EA34 /* libstdc++.dylib */; };
 		8D29EF8D13BE066900041B6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8C13BE066900041B6A /* UIKit.framework */; };
 		8D29EF8F13BE066900041B6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF8E13BE066900041B6A /* Foundation.framework */; };
 		8D29EF9113BE066900041B6A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29EF9013BE066900041B6A /* CoreGraphics.framework */; };
@@ -70,6 +71,27 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = JFFScheduler;
 		};
+		5357CDFC14A9F5130046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835A18142C8BB300FC004C /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391037B14A88BB5007315A3;
+			remoteInfo = "JFFAsyncOperations-clang";
+		};
+		5357CE0014A9F5130046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835B52142CD17300FC004C /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539103C614A88BD6007315A3;
+			remoteInfo = "JFFScheduler-clang";
+		};
+		5357CE0414A9F5130046EA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B835A0E142C8BAB00FC004C /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391044314A88C04007315A3;
+			remoteInfo = "JFFUtils-clang";
+		};
 		65D8B6C2148C025900C02FA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B835B52142CD17300FC004C /* JFFScheduler.xcodeproj */;
@@ -100,6 +122,7 @@
 		1BA27738144D9B1B00774C8E /* TrySequenceOfAsyncOperationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrySequenceOfAsyncOperationsTest.m; sourceTree = "<group>"; };
 		1BED04FF144EBF2800B8DC2A /* GroupOfAsyncOperationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupOfAsyncOperationsTest.m; sourceTree = "<group>"; };
 		65977F8014A6731000AB83AE /* CachedAsyncOperationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedAsyncOperationsTest.m; sourceTree = "<group>"; };
+		5357CDF914A9F5130046EA34 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		8D29EF8813BE066900041B6A /* JFFAsyncOperationsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFFAsyncOperationsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D29EF8C13BE066900041B6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8D29EF8E13BE066900041B6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +147,7 @@
 				8D29EF8F13BE066900041B6A /* Foundation.framework in Frameworks */,
 				8D29EF9113BE066900041B6A /* CoreGraphics.framework in Frameworks */,
 				8D29EFB313BE070F00041B6A /* GHUnitIOS.framework in Frameworks */,
+				5357CDFA14A9F5130046EA34 /* libstdc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +169,7 @@
 			children = (
 				1B835A16142C8BAB00FC004C /* libJFFUtils.a */,
 				65D8B6C6148C025900C02FA4 /* libJFFUtilsMacOS.a */,
+				5357CE0514A9F5130046EA34 /* libJFFUtils copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				1B835A20142C8BB300FC004C /* libJFFAsyncOperations.a */,
+				5357CDFD14A9F5130046EA34 /* libJFFAsyncOperations copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +188,7 @@
 			children = (
 				1B835B5A142CD17300FC004C /* libJFFScheduler.a */,
 				65D8B6C3148C025900C02FA4 /* libJFFSchedulerMacOS.a */,
+				5357CE0114A9F5130046EA34 /* libJFFScheduler copy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,6 +196,7 @@
 		8D29EF7D13BE066900041B6A = {
 			isa = PBXGroup;
 			children = (
+				5357CDF914A9F5130046EA34 /* libstdc++.dylib */,
 				8D29EF9213BE066900041B6A /* JFFAsyncOperationsTest */,
 				1B793B35142C887700B43DC8 /* Dependecies */,
 				8D29EF8B13BE066900041B6A /* Frameworks */,
@@ -235,6 +263,7 @@
 				8D29EF8413BE066900041B6A /* Sources */,
 				8D29EF8513BE066900041B6A /* Frameworks */,
 				8D29EF8613BE066900041B6A /* Resources */,
+				53A0922E14ADAE470011F01B /* Dump xCode variables */,
 			);
 			buildRules = (
 			);
@@ -309,6 +338,30 @@
 			remoteRef = 1B835B59142CD17300FC004C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5357CDFD14A9F5130046EA34 /* libJFFAsyncOperations copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFAsyncOperations copy.a";
+			path = "libJFFAsyncOperations-clang.a";
+			remoteRef = 5357CDFC14A9F5130046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CE0114A9F5130046EA34 /* libJFFScheduler copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFScheduler copy.a";
+			path = "libJFFScheduler-clang.a";
+			remoteRef = 5357CE0014A9F5130046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5357CE0514A9F5130046EA34 /* libJFFUtils copy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libJFFUtils copy.a";
+			path = "libJFFUtils-clang.a";
+			remoteRef = 5357CE0414A9F5130046EA34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		65D8B6C3148C025900C02FA4 /* libJFFSchedulerMacOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -335,6 +388,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53A0922E14ADAE470011F01B /* Dump xCode variables */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Dump xCode variables";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n#/bin/bash\n#\n## Dump XCode variables\n\n\nXCODE_DUMP_DIR=/tmp/${PRODUCT_NAME}Build\nmkdir -p \"$XCODE_DUMP_DIR\"\nCI_TEST_PRODUCT_DIR_FILE=$XCODE_DUMP_DIR/PRODUCT_DIR.txt\n\ncd \"$BUILT_PRODUCTS_DIR\"\ncd ..\necho $PWD > \"$CI_TEST_PRODUCT_DIR_FILE\"\n\nexit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D29EF8413BE066900041B6A /* Sources */ = {
@@ -396,6 +467,8 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -427,6 +500,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

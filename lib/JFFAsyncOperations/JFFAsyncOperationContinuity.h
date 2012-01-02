@@ -39,11 +39,11 @@ JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* loaders_
 
 //finish_callback_block_ called before loader_'s JFFDidFinishAsyncOperationHandler
 JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loader_
-                                                        , JFFDidFinishAsyncOperationHandler finish_callback_block_ );
+                                                        , JFFDidFinishAsyncOperationHandler finishCallbackBlock_ );
 
 //finish_callback_hook_ called instead loader_'s JFFDidFinishAsyncOperationHandler
 JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
-                                                    , JFFDidFinishAsyncOperationHook finish_callback_hook_ );
+                                                    , JFFDidFinishAsyncOperationHook finishCallbackHook_ );
 
 //done_callback_hook_ called an cancel or finish loader_'s callbacks
 JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_

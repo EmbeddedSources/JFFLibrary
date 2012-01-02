@@ -305,13 +305,23 @@
    }
 }
 
--(void)scrollViewDidEndDecelerating:( UIScrollView* )scrollView_
+-(void)syncContentOffsetWithActiveElement
 {
    self.activeIndex = floor( scrollView.contentOffset.x / scrollView.bounds.size.width ) + firstIndex;
+
+   [ self updateScrollViewContentSize ];
+   CGPoint offset_ = [ self offsetForIndex: activeIndex ];
+   [ scrollView setContentOffset: offset_ animated: NO ];
+}
+
+-(void)scrollViewDidEndDecelerating:( UIScrollView* )scrollView_
+{
+   [ self syncContentOffsetWithActiveElement ];
 }
 
 -(void)scrollViewDidEndScrollingAnimation:( UIScrollView* )scrollView_
 {
+   [ self syncContentOffsetWithActiveElement ];
 }
 
 @end
