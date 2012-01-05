@@ -120,9 +120,17 @@
 
 -(NSDictionary*)dictionary
 {
-   return mutableDictionary
-      ? [ [ NSDictionary alloc ] initWithDictionary: mutableDictionary ]
-      : nil;
+    if ( mutableDictionary )
+    {
+        NSMutableDictionary* result_ = [ [ NSMutableDictionary alloc ] initWithCapacity: [ mutableDictionary count ] ];
+        for ( id key_ in mutableDictionary )
+        {
+            JFFAutoRemoveFromDictAssignProxy* proxy_ = [ mutableDictionary objectForKey: key_ ];
+            [ result_ setObject: proxy_.target forKey: key_ ];
+        }
+        return result_;
+    }
+    return nil;
 }
 
 @end

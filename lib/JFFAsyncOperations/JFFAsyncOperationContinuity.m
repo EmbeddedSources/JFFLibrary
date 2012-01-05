@@ -307,6 +307,7 @@ static JFFAsyncOperation MergeGroupLoaders( MergeTwoLoadersPtr merger_, NSArray*
          continue;
 
       wrapped_first_block_ = merger_( wrapped_first_block_, second_block_ );
+        //JTODO remove unwrapFirstElementOfArrayForLoader, unwrapFirstElement when notify result
       wrapped_first_block_ = unwrapFirstElementOfArrayForLoader( wrapped_first_block_ );
    }
 
