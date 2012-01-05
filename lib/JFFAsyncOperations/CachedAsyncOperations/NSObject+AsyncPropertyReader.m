@@ -11,6 +11,22 @@
 #include <objc/runtime.h>
 #include <assert.h>
 
+@interface JFFCachePropertyExtractor : JFFPropertyExtractor
+@end
+
+@implementation JFFCachePropertyExtractor
+
+-(id)property
+{
+    return nil;
+}
+
+-(void)setProperty:( id )property_path_
+{
+}
+
+@end
+
 @interface NSObject (PrivateAsyncPropertyReader)
 
 -(BOOL)hasAsyncPropertyDelegates;
@@ -69,7 +85,8 @@ static void clearDataForPropertyExtractor( JFFPropertyExtractor* property_extrac
    [ property_extractor_ clearData ];
 }
 
-static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_, JFFCallbacksBlocksHolder* callbacks_ )
+static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_
+                                           , JFFCallbacksBlocksHolder* callbacks_ )
 {
    return [ [ ^void( BOOL cancel_operation_ )
    {
@@ -316,6 +333,22 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
    return [ self privateAsyncOperationForPropertyWithPath: property_path_
                                            asyncOperation: async_operation_
                                    didFinishLoadDataBlock: did_finish_operation_ ];
+}
+
+-(JFFAsyncOperation)asyncOperationMergeLoaders:( JFFAsyncOperation )asyncOperation_
+                                  withArgument:( id< NSCopying, NSObject > )argument_
+{
+    JFFPropertyPath* property_path_ = [ JFFPropertyPath propertyPathWithName: @".__JFF_MERGE_LOADERS_BY_ARGUMENTS__."
+                                                                         key: argument_ ];
+    JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
+    {
+        return [ [ JFFCachePropertyExtractor new ] autorelease ];
+    };
+
+    return [ self asyncOperationForPropertyWithPath: property_path_
+                      propertyExtractorFactoryBlock: factory_
+                                     asyncOperation: asyncOperation_
+                             didFinishLoadDataBlock: nil ];
 }
 
 @end
