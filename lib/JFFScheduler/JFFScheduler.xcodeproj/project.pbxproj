@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		539103C614A88BD6007315A3 /* libJFFScheduler copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libJFFScheduler copy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		539103C614A88BD6007315A3 /* libJFFScheduler copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libJFFScheduler copy.a"; path = "libJFFScheduler-clang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		651BE1031390559900DD6890 /* JFFScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFScheduler.h; sourceTree = "<group>"; };
 		651BE1041390559900DD6890 /* JFFScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFScheduler.m; sourceTree = "<group>"; };
 		651BE196139195E500DD6890 /* NSObject+Scheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Scheduler.h"; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFScheduler" */;
 			compatibilityVersion = "Xcode 3.2";

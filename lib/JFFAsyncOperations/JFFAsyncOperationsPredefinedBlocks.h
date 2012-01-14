@@ -4,3 +4,5 @@
 
 extern JFFCancelAsyncOperation JFFEmptyCancelAsyncOperationBlock;
 extern JFFAsyncOperation JFFAsyncOperationBlockWithSuccessResult;
+
+JFFAsyncOperation asyncOperationBlockWithSuccessResultAfterDelay( NSTimeInterval delay_ );

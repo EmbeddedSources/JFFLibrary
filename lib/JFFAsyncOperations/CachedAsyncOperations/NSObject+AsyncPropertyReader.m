@@ -131,8 +131,8 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
       {
          JFFCallbacksBlocksHolder* callback_ = obj_;
          return [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: callback_.onProgressBlock
-                                                             onCancelBlock: callback_.onCancelBlock
-                                                          didLoadDataBlock: callback_.didLoadDataBlock ];
+                                                               onCancelBlock: callback_.onCancelBlock
+                                                            didLoadDataBlock: callback_.didLoadDataBlock ];
       } ];
 
       JFFDidFinishAsyncOperationHandler finish_block_ = [ property_extractor_.didFinishBlock copy ];
@@ -331,11 +331,11 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
 -(JFFAsyncOperation)asyncOperationMergeLoaders:( JFFAsyncOperation )asyncOperation_
                                   withArgument:( id< NSCopying, NSObject > )argument_
 {
-    JFFPropertyPath* property_path_ = [ JFFPropertyPath propertyPathWithName: @".__JFF_MERGE_LOADERS_BY_ARGUMENTS__."
-                                                                         key: argument_ ];
+    JFFPropertyPath* property_path_ = [ [ JFFPropertyPath alloc ]initWithName: @".__JFF_MERGE_LOADERS_BY_ARGUMENTS__."
+                                                                          key: argument_ ];
     JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
     {
-        return [ [ JFFCachePropertyExtractor new ] autorelease ];
+        return [ JFFCachePropertyExtractor new ];
     };
 
     return [ self asyncOperationForPropertyWithPath: property_path_

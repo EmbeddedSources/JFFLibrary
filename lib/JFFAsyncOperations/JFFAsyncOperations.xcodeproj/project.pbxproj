@@ -39,7 +39,6 @@
 		5391036A14A88BB5007315A3 /* JFFPropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9827FF13F2BA10009DD73B /* JFFPropertyExtractor.h */; };
 		5391036B14A88BB5007315A3 /* JFFObjectRelatedPropertyData.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D61CD2A13F2BC8A0003AC4A /* JFFObjectRelatedPropertyData.h */; };
 		5391036C14A88BB5007315A3 /* NSObject+PropertyExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D61CD2F13F2BCE40003AC4A /* NSObject+PropertyExtractor.h */; };
-		5391036D14A88BB5007315A3 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B835B31142CBA2200FC004C /* JFFAsyncOperationsPredefinedBlocks.h */; };
 		5391036F14A88BB5007315A3 /* NSObject+AutoCancelAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 655ADDDF13B68E45005A6D3F /* NSObject+AutoCancelAsyncOperation.m */; };
 		5391037014A88BB5007315A3 /* JFFDidFinishAsyncOperationBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1B3D6E13B88A2700410ECB /* JFFDidFinishAsyncOperationBlockHolder.m */; };
 		5391037114A88BB5007315A3 /* JFFCancelAyncOperationBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 65347F6C13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.m */; };
@@ -50,6 +49,7 @@
 		5391037714A88BB5007315A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		651BE1621391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1611391913300DD6890 /* JFFAsyncOperationsBlockDefinitions.h */; };
 		651BE1671391928400DD6890 /* JFFAsyncOperationContinuity.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE1651391928400DD6890 /* JFFAsyncOperationContinuity.h */; };
+		6532667C14C1EB27004E90B0 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B835B31142CBA2200FC004C /* JFFAsyncOperationsPredefinedBlocks.h */; };
 		65347F6D13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347F6B13B7EEE50002CF73 /* JFFCancelAyncOperationBlockHolder.h */; };
 		65347F9613B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347F9413B7F0BD0002CF73 /* JFFAsyncOperationLoadBalancer.h */; };
 		65347FEF13B8142A0002CF73 /* JFFContextLoaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 65347FED13B8142A0002CF73 /* JFFContextLoaders.h */; };
@@ -366,7 +366,7 @@
 				5391036A14A88BB5007315A3 /* JFFPropertyExtractor.h in Headers */,
 				5391036B14A88BB5007315A3 /* JFFObjectRelatedPropertyData.h in Headers */,
 				5391036C14A88BB5007315A3 /* NSObject+PropertyExtractor.h in Headers */,
-				5391036D14A88BB5007315A3 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */,
+				6532667C14C1EB27004E90B0 /* JFFAsyncOperationsPredefinedBlocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +446,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "JFFAsyncOperations" */;
 			compatibilityVersion = "Xcode 3.2";
