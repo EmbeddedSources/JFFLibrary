@@ -13,8 +13,4 @@
 -(id)initWithName:( NSString* )name_
               key:( id< NSCopying, NSObject > )key_;
 
-//JTODO deprecated
-+(id)propertyPathWithName:( NSString* )name_
-                      key:( id< NSCopying, NSObject > )key_;
-
 @end

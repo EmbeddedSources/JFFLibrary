@@ -8,6 +8,7 @@
 @property ( nonatomic, retain ) JFFDidFinishAsyncOperationBlockHolder* loaderFinishBlock;
 @property ( nonatomic, retain ) JFFCancelAyncOperationBlockHolder* loaderCancelBlock;
 
+@property ( nonatomic, assign ) NSUInteger loadingCount;
 @property ( nonatomic, assign ) BOOL finished;
 @property ( nonatomic, assign ) BOOL canceled;
 @property ( nonatomic, assign ) BOOL cancelFlag;
@@ -23,6 +24,7 @@
 @synthesize cancelFlag;
 @synthesize finishAtLoading;
 @synthesize failAtLoading;
+@synthesize loadingCount;
 
 -(void)dealloc
 {
@@ -58,6 +60,8 @@
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
+      self.loadingCount += 1;
+
       done_callback_ = [ done_callback_ copy ];
 
       __block JFFAsyncOperationManager* self_ = self;

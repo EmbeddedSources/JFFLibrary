@@ -73,7 +73,10 @@
 
 -(NSArray*)array
 {
-   return _mutable_array ? [ NSArray arrayWithArray: _mutable_array ] : nil;
+   return [ _mutable_array map: ^id( JFFAutoRemoveAssignProxy* proxy_ )
+   {
+      return proxy_.target;
+   } ];
 }
 
 -(void)addObject:( id )object_

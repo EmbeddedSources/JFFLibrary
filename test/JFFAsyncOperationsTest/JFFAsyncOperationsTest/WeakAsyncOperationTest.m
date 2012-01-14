@@ -40,7 +40,7 @@
             } copy ] autorelease ];
          };
 
-         operation_ = [ obj_ weakAsyncOperation: operation_ ];
+         operation_ = [ obj_ autoUnsubsribeOnDeallocAsyncOperation: operation_ ];
 
          cancel_ = operation_( nil, ^( BOOL canceled_ )
          {
@@ -91,7 +91,7 @@
             } copy ] autorelease ];
          };
 
-         operation_ = [ obj_ weakAsyncOperation: operation_ ];
+         operation_ = [ obj_ autoUnsubsribeOnDeallocAsyncOperation: operation_ ];
 
          operation_( nil, nil, nil );
 
@@ -130,7 +130,7 @@
          } copy ] autorelease ];
       };
 
-      operation_ = [ obj_ weakAsyncOperation: operation_ ];
+      operation_ = [ obj_ autoUnsubsribeOnDeallocAsyncOperation: operation_ ];
 
       __block BOOL cancel_callback_called_ = NO;
 
@@ -272,7 +272,7 @@
          {
             unsibscribe_cancel_block_called_ = !canceled_;
          };
-         [ weak_delegate_ weakAsyncOperation: auto_cancel_operation_ ]( nil
+         [ weak_delegate_ autoUnsubsribeOnDeallocAsyncOperation: auto_cancel_operation_ ]( nil
                                                                        , unsubscribe_callback_
                                                                        , ^void( id result_
                                                                                , NSError* error_ )

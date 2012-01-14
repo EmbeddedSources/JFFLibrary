@@ -14,13 +14,14 @@ typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOper
 
 static JFFAsyncOperation createEmptyLoaderBlock()
 {
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
-   {
-      done_callback_( [ NSNull null ], nil );
-      return JFFEmptyCancelAsyncOperationBlock;
-   } copy ] autorelease ];
+    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progressCallback_
+                                        , JFFCancelAsyncOperationHandler cancelCallback_
+                                        , JFFDidFinishAsyncOperationHandler doneCallback_ )
+    {
+        if ( doneCallback_ )
+            doneCallback_( [ NSNull null ], nil );
+        return JFFEmptyCancelAsyncOperationBlock;
+    } copy ] autorelease ];
 }
 
 static JFFAsyncOperation MergeLoaders( MergeTwoLoadersPtr merger_, NSArray* blocks_ )
@@ -308,6 +309,7 @@ static JFFAsyncOperation MergeGroupLoaders( MergeTwoLoadersPtr merger_, NSArray*
          continue;
 
       wrapped_first_block_ = merger_( wrapped_first_block_, second_block_ );
+        //JTODO remove unwrapFirstElementOfArrayForLoader, unwrapFirstElement when notify result
       wrapped_first_block_ = unwrapFirstElementOfArrayForLoader( wrapped_first_block_ );
    }
 
@@ -548,11 +550,23 @@ JFFAsyncOperation asyncOperationWithResult( id result_ )
 {
    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                        , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
+                                       , JFFDidFinishAsyncOperationHandler doneCallback_ )
    {
-      if ( done_callback_ )
-         done_callback_( result_, nil );
+      if ( doneCallback_ )
+         doneCallback_( result_, nil );
       return JFFEmptyCancelAsyncOperationBlock;
+   } copy ] autorelease ];
+}
+
+JFFAsyncOperation asyncOperationWithError( id error_ )
+{
+   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                       , JFFCancelAsyncOperationHandler cancel_callback_
+                                       , JFFDidFinishAsyncOperationHandler doneCallback_ )
+    {
+        if ( doneCallback_ )
+            doneCallback_( nil, error_ );
+        return JFFEmptyCancelAsyncOperationBlock;
    } copy ] autorelease ];
 }
 

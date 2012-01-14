@@ -9,28 +9,31 @@ typedef JFFPropertyExtractor* (^JFFPropertyExtractorFactoryBlock)( void );
 
 @interface NSObject (AsyncPropertyReader)
 
--(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )property_name_
-                                       asyncOperation:( JFFAsyncOperation )async_operation_;
+-(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )propertyName_
+                                       asyncOperation:( JFFAsyncOperation )asyncOperation_;
 
--(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )property_name_
-                                       asyncOperation:( JFFAsyncOperation )async_operation_
-                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
+-(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )propertyName_
+                                       asyncOperation:( JFFAsyncOperation )asyncOperation_
+                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didFinishOperation_;
 
--(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
-                                       asyncOperation:( JFFAsyncOperation )async_operation_;
+-(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )propertyPath_
+                                       asyncOperation:( JFFAsyncOperation )asyncOperation_;
 
--(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
-                                       asyncOperation:( JFFAsyncOperation )async_operation_
-                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
+-(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )propertyPath_
+                                       asyncOperation:( JFFAsyncOperation )asyncOperation_
+                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didFinishOperation_;
 
--(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
+-(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )propertyPath_
                         propertyExtractorFactoryBlock:( JFFPropertyExtractorFactoryBlock )factory_
-                                       asyncOperation:( JFFAsyncOperation )async_operation_;
+                                       asyncOperation:( JFFAsyncOperation )asyncOperation_;
 
--(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
+-(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )propertyPath_
                         propertyExtractorFactoryBlock:( JFFPropertyExtractorFactoryBlock )factory_
-                                       asyncOperation:( JFFAsyncOperation )async_operation_
-                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_;
+                                       asyncOperation:( JFFAsyncOperation )asyncOperation_
+                               didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didFinishOperation_;
+
+-(JFFAsyncOperation)asyncOperationMergeLoaders:( JFFAsyncOperation )asyncOperation_
+                                  withArgument:( id< NSCopying, NSObject > )argument_;
 
 -(BOOL)isLoadingPropertyForPropertyName:( NSString* )name_;
 

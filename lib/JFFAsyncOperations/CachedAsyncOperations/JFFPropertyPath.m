@@ -34,12 +34,6 @@
    return self;
 }
 
-+(id)propertyPathWithName:( NSString* )name_
-                      key:( id< NSCopying, NSObject > )key_
-{
-   return [ [ [ self alloc ] initWithName: name_ key: key_ ] autorelease ];
-}
-
 -(NSString*)description
 {
    return [ NSString stringWithFormat: @"<JFFPropertyPath name: %@ key: %@>", self.name, self.key ];

@@ -11,6 +11,22 @@
 #include <objc/runtime.h>
 #include <assert.h>
 
+@interface JFFCachePropertyExtractor : JFFPropertyExtractor
+@end
+
+@implementation JFFCachePropertyExtractor
+
+-(id)property
+{
+    return nil;
+}
+
+-(void)setProperty:( id )property_path_
+{
+}
+
+@end
+
 @interface NSObject (PrivateAsyncPropertyReader)
 
 -(BOOL)hasAsyncPropertyDelegates;
@@ -69,7 +85,8 @@ static void clearDataForPropertyExtractor( JFFPropertyExtractor* property_extrac
    [ property_extractor_ clearData ];
 }
 
-static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_, JFFCallbacksBlocksHolder* callbacks_ )
+static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extractor_
+                                           , JFFCallbacksBlocksHolder* callbacks_ )
 {
    return [ [ ^void( BOOL cancel_operation_ )
    {
@@ -81,8 +98,8 @@ static JFFCancelAsyncOperation cancelBlock( JFFPropertyExtractor* property_extra
 
       if ( cancel_operation_ )
       {
-         clearDataForPropertyExtractor( property_extractor_ );
          cancel_( YES );
+         clearDataForPropertyExtractor( property_extractor_ );
       }
       else
       {
@@ -104,18 +121,18 @@ static JFFDidFinishAsyncOperationHandler doneCallbackBlock( JFFPropertyExtractor
 {
    return [ [ ^void( id result_, NSError* error_ )
    {
-      [ NSThread assertMainThread ];
-
       if ( !result_ && !error_ )
       {
-         NSLog( @"Assert propertyPath object: %@ propertyPath: %@", property_extractor_.object, property_extractor_.propertyPath );
+         NSLog( @"Assert propertyPath object: %@ propertyPath: %@"
+               , property_extractor_.object
+               , property_extractor_.propertyPath );
          assert( 0 );//@"should be result or error"
       }
 
       NSArray* copy_delegates_ = [ property_extractor_.delegates map: ^id( id obj_ )
       {
          JFFCallbacksBlocksHolder* callback_ = obj_;
-         return [ [ [ JFFCallbacksBlocksHolder new ] initWithOnProgressBlock: callback_.onProgressBlock
+         return [ [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: callback_.onProgressBlock
                                                                onCancelBlock: callback_.onCancelBlock
                                                             didLoadDataBlock: callback_.didLoadDataBlock ] autorelease ];
       } ];
@@ -203,8 +220,6 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                        , JFFCancelAsyncOperationHandler cancel_callback_
                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
    {
-      [ NSThread assertMainThread ];
-
       JFFPropertyExtractor* property_extractor_ = factory_();
       property_extractor_.object = self_;
       property_extractor_.propertyPath = property_path_;
@@ -290,7 +305,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
    NSAssert( property_name_, @"propertyName argument should not be nil" );
-   JFFPropertyPath* property_path_ = [ JFFPropertyPath propertyPathWithName: property_name_ key: nil ];
+   JFFPropertyPath* property_path_ = [ [ [ JFFPropertyPath alloc ] initWithName: property_name_ key: nil ] autorelease ];
 
    return [ self privateAsyncOperationForPropertyWithPath: property_path_
                                            asyncOperation: async_operation_
@@ -313,6 +328,23 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
    return [ self privateAsyncOperationForPropertyWithPath: property_path_
                                            asyncOperation: async_operation_
                                    didFinishLoadDataBlock: did_finish_operation_ ];
+}
+
+-(JFFAsyncOperation)asyncOperationMergeLoaders:( JFFAsyncOperation )asyncOperation_
+                                  withArgument:( id< NSCopying, NSObject > )argument_
+{
+    static NSString* const name_ = @".__JFF_MERGE_LOADERS_BY_ARGUMENTS__.";
+    JFFPropertyPath* property_path_ = [ [ [ JFFPropertyPath alloc ] initWithName: name_
+                                                                             key: argument_ ] autorelease ];
+    JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
+    {
+        return [ [ JFFCachePropertyExtractor new ] autorelease ];
+    };
+
+    return [ self asyncOperationForPropertyWithPath: property_path_
+                      propertyExtractorFactoryBlock: factory_
+                                     asyncOperation: asyncOperation_
+                             didFinishLoadDataBlock: nil ];
 }
 
 @end

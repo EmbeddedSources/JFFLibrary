@@ -2,8 +2,6 @@
 
 @interface JFFMutableAssignArray : NSObject
 
-//JTODO remove
-//should return native object, not assign wrapper
 @property ( nonatomic, copy, readonly ) NSArray* array;
 
 //compare elements by pointers only

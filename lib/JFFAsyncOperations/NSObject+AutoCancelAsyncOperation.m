@@ -78,7 +78,7 @@
    } copy ] autorelease ];
 }
 
--(JFFAsyncOperation)weakAsyncOperation:( JFFAsyncOperation )native_async_op_
+-(JFFAsyncOperation)autoUnsubsribeOnDeallocAsyncOperation:( JFFAsyncOperation )native_async_op_
 {
    return [ self autoUnsibscribeOrCancelAsyncOperation: native_async_op_
                                                 cancel: NO ];

@@ -6,16 +6,16 @@
 ///////////////////////////////////// SEQUENCE /////////////////////////////////////
 
 //calls loaders while success
-JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_
-                                            , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
+                                            , JFFAsyncOperation secondLoader_, ... );
 
 JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
 /////////////////////////////////// TRY SEQUENCE ///////////////////////////////////
 
 //calls loaders untill success
-JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation first_loader_
-                                               , JFFAsyncOperation second_loader_, ... );
+JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
+                                               , JFFAsyncOperation secondLoader_, ... );
 
 JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
@@ -23,7 +23,7 @@ JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
 //calls finish callback when all loaders finished
 //result of group is undefined for success result
-JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation first_loader_, ... );
+JFFAsyncOperation groupOfAsyncOperations( JFFAsyncOperation firstLoader_, ... );
 
 JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* loaders_ );
 
@@ -31,7 +31,7 @@ JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* loaders_ );
 
 //calls finish callback when all loaders success finished or when any of them is failed
 //result of group is undefined for success result
-JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation first_loader_, ... );
+JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperations( JFFAsyncOperation firstLoader_, ... );
 
 JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* loaders_ );
 
@@ -39,17 +39,18 @@ JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsArray( NSArray* loaders_
 
 //finish_callback_block_ called before loader_'s JFFDidFinishAsyncOperationHandler
 JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loader_
-                                                        , JFFDidFinishAsyncOperationHandler finish_callback_block_ );
+                                                        , JFFDidFinishAsyncOperationHandler finishCallbackBlock_ );
 
 //finish_callback_hook_ called instead loader_'s JFFDidFinishAsyncOperationHandler
 JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
-                                                    , JFFDidFinishAsyncOperationHook finish_callback_hook_ );
+                                                    , JFFDidFinishAsyncOperationHook finishCallbackHook_ );
 
 //done_callback_hook_ called an cancel or finish loader_'s callbacks
 JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
-                                              , JFFSimpleBlock done_callback_hook_ );
+                                              , JFFSimpleBlock doneCallbackHook_ );
 
 JFFAsyncOperation asyncOperationWithResult( id result_ );
+JFFAsyncOperation asyncOperationWithError( id result_ );
 
 ///////////////////////// AUTO REPEAT CIRCLE ////////////////////////
 

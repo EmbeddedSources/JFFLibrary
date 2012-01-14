@@ -140,7 +140,9 @@
    {
       NSString* class_name_ = NSStringFromClass( class_ );
       NSNumber* number_ = [ self.instancesNumberByClassName objectForKey: class_name_ ];
+#ifdef DEBUG
       NSAssert( number_, @"instances counting not enabled for this class" );
+#endif
       return [ number_ unsignedIntValue ];
    }
 }
@@ -151,7 +153,10 @@
 
 +(void)enableInstancesCounting
 {
+//JTODO fix for release mode also
+#ifdef DEBUG
    [ [ JFFNSObjectInstancesCounter sharedObjectInstancesCounter ] enableInstancesCountingForClass: [ self class ] ];
+#endif
 }
 
 +(NSUInteger)instancesCount

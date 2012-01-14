@@ -2,6 +2,7 @@
 
 #import "JFFAssignProxy.h"
 #import "NSObject+OnDeallocBlock.h"
+#import "NSArray+BlocksAdditions.h"
 
 #include "JFFUtilsBlockDefinitions.h"
 
@@ -121,14 +122,25 @@
 
 -(NSArray*)allValues
 {
-   return [ _mutableDictionary allValues ];
+   return [ [ _mutableDictionary allValues ] map: ^id( JFFAutoRemoveFromDictAssignProxy* proxy_ )
+   { 
+      return proxy_.target;
+   } ];
 }
 
 -(NSDictionary*)dictionary
 {
-   return _mutableDictionary
-      ? [ NSDictionary dictionaryWithDictionary: _mutableDictionary ]
-      : nil;
+    if ( _mutableDictionary )
+    {
+        NSMutableDictionary* result_ = [ NSMutableDictionary dictionaryWithCapacity: [ _mutableDictionary count ] ];
+        for ( id key_ in _mutableDictionary )
+        {
+            JFFAutoRemoveFromDictAssignProxy* proxy_ = [ _mutableDictionary objectForKey: key_ ];
+            [ result_ setObject: proxy_.target forKey: key_ ];
+        }
+        return result_;
+    }
+    return nil;
 }
 
 @end
