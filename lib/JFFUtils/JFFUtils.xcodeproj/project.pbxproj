@@ -51,6 +51,12 @@
 		534CDFC214A8C2930068F4DF /* JFFCastFunctions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 534CDFC014A8C2930068F4DF /* JFFCastFunctions.hpp */; };
 		534CDFC314A8C2930068F4DF /* JFFCastFunctions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 534CDFC014A8C2930068F4DF /* JFFCastFunctions.hpp */; };
 		534CDFC414A8C2930068F4DF /* JFFCastFunctions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 534CDFC014A8C2930068F4DF /* JFFCastFunctions.hpp */; };
+		538E1CAC14B32201006BD40A /* NSDecimalNumber+Increment.h in Headers */ = {isa = PBXBuildFile; fileRef = 538E1CAA14B32201006BD40A /* NSDecimalNumber+Increment.h */; };
+		538E1CAD14B32201006BD40A /* NSDecimalNumber+Increment.h in Headers */ = {isa = PBXBuildFile; fileRef = 538E1CAA14B32201006BD40A /* NSDecimalNumber+Increment.h */; };
+		538E1CAE14B32201006BD40A /* NSDecimalNumber+Increment.h in Headers */ = {isa = PBXBuildFile; fileRef = 538E1CAA14B32201006BD40A /* NSDecimalNumber+Increment.h */; };
+		538E1CAF14B32201006BD40A /* NSDecimalNumber+Increment.m in Sources */ = {isa = PBXBuildFile; fileRef = 538E1CAB14B32201006BD40A /* NSDecimalNumber+Increment.m */; };
+		538E1CB014B32201006BD40A /* NSDecimalNumber+Increment.m in Sources */ = {isa = PBXBuildFile; fileRef = 538E1CAB14B32201006BD40A /* NSDecimalNumber+Increment.m */; };
+		538E1CB114B32201006BD40A /* NSDecimalNumber+Increment.m in Sources */ = {isa = PBXBuildFile; fileRef = 538E1CAB14B32201006BD40A /* NSDecimalNumber+Increment.m */; };
 		539103F414A88C04007315A3 /* JFFUtils_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* JFFUtils_Prefix.pch */; };
 		539103F514A88C04007315A3 /* JFFUtilsBlockDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A51390496200DD6890 /* JFFUtilsBlockDefinitions.h */; };
 		539103F614A88C04007315A3 /* JFFSimpleBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 651BE0A81390496200DD6890 /* JFFSimpleBlockHolder.h */; };
@@ -238,6 +244,8 @@
 		1BE75CFE1434B3450076E068 /* NSObject+Const0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Const0.m"; sourceTree = "<group>"; };
 		5349A6C514A9CEA7008ECCA6 /* JFFCastFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JFFCastFunctions.mm; sourceTree = "<group>"; };
 		534CDFC014A8C2930068F4DF /* JFFCastFunctions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JFFCastFunctions.hpp; sourceTree = "<group>"; };
+		538E1CAA14B32201006BD40A /* NSDecimalNumber+Increment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+Increment.h"; sourceTree = "<group>"; };
+		538E1CAB14B32201006BD40A /* NSDecimalNumber+Increment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+Increment.m"; sourceTree = "<group>"; };
 		5391044314A88C04007315A3 /* libJFFUtils copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libJFFUtils copy.a"; path = "libJFFUtils-clang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BCF8DE143239D100E896B3 /* NSArray+RemoveDuplicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RemoveDuplicates.h"; sourceTree = "<group>"; };
 		53BCF8DF143239D100E896B3 /* NSArray+RemoveDuplicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RemoveDuplicates.m"; sourceTree = "<group>"; };
@@ -364,6 +372,8 @@
 				1BA676BA144C3FE900B14D49 /* UIWebView+UserAgent.m */,
 				1BA676BD144C409E00B14D49 /* NSThread+AssertMainThread.h */,
 				1BA676BE144C409F00B14D49 /* NSThread+AssertMainThread.m */,
+				538E1CAA14B32201006BD40A /* NSDecimalNumber+Increment.h */,
+				538E1CAB14B32201006BD40A /* NSDecimalNumber+Increment.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,6 +571,7 @@
 				5391041814A88C04007315A3 /* JSignedRange.h in Headers */,
 				5391041914A88C04007315A3 /* NSObject+ExpandArray.h in Headers */,
 				534CDFC414A8C2930068F4DF /* JFFCastFunctions.hpp in Headers */,
+				538E1CAE14B32201006BD40A /* NSDecimalNumber+Increment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +581,7 @@
 			files = (
 				65802A6B148BF2B10040A93A /* JFFUtils.h in Headers */,
 				534CDFC314A8C2930068F4DF /* JFFCastFunctions.hpp in Headers */,
+				538E1CAD14B32201006BD40A /* NSDecimalNumber+Increment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +628,7 @@
 				1B104D921483C85A0025FDDA /* JSignedRange.h in Headers */,
 				1B3EE0361487D03A00BA6680 /* NSObject+ExpandArray.h in Headers */,
 				534CDFC214A8C2930068F4DF /* JFFCastFunctions.hpp in Headers */,
+				538E1CAC14B32201006BD40A /* NSDecimalNumber+Increment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +757,7 @@
 				5391043C14A88C04007315A3 /* JSignedRange.m in Sources */,
 				5391043D14A88C04007315A3 /* NSObject+ExpandArray.m in Sources */,
 				5349A6C814A9CEA7008ECCA6 /* JFFCastFunctions.mm in Sources */,
+				538E1CB114B32201006BD40A /* NSDecimalNumber+Increment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +798,7 @@
 				65802AAB148BF4B20040A93A /* NSObject+Const0.m in Sources */,
 				65802AAC148BF4B50040A93A /* NSObject+InstancesCount.m in Sources */,
 				5349A6C714A9CEA7008ECCA6 /* JFFCastFunctions.mm in Sources */,
+				538E1CB014B32201006BD40A /* NSDecimalNumber+Increment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,6 +842,7 @@
 				1B104D8F1483C8410025FDDA /* JSignedRange.m in Sources */,
 				1B3EE0371487D03A00BA6680 /* NSObject+ExpandArray.m in Sources */,
 				5349A6C614A9CEA7008ECCA6 /* JFFCastFunctions.mm in Sources */,
+				538E1CAF14B32201006BD40A /* NSDecimalNumber+Increment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

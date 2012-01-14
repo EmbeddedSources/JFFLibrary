@@ -28,6 +28,7 @@
 
 #import <JFFUtils/Extensions/NSThread+AssertMainThread.h>
 #import <JFFUtils/Extensions/UIWebView+UserAgent.h>
+#import <JFFUtils/Extensions/NSDecimalNumber+Increment.h>
 
 #import <JFFUtils/JGCDAdditions.h>
 #import <JFFUtils/JFFMutableAssignDictionary.h>
