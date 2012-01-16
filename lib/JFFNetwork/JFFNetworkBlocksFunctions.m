@@ -12,57 +12,57 @@ JFFAsyncOperation genericChunkedURLResponseLoader(
    , BOOL use_live_connection_
    , ShouldAcceptCertificateForHost certificate_callback_ )
 {
-   return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                       , JFFCancelAsyncOperationHandler cancel_callback_
-                                       , JFFDidFinishAsyncOperationHandler done_callback_ )
-   {
-      JNConnectionsFactory* factory_ = [ [ JNConnectionsFactory alloc ] initWithUrl: url_
-                                                                           postData: post_data_
-                                                                            headers: headers_ ];
-      [ factory_ autorelease ];
+    return [ [ ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                        , JFFCancelAsyncOperationHandler cancel_callback_
+                                        , JFFDidFinishAsyncOperationHandler done_callback_ )
+    {
+        JNConnectionsFactory* factory_ = [ [ JNConnectionsFactory alloc ] initWithUrl: url_
+                                                                             postData: post_data_
+                                                                              headers: headers_ ];
+        [ factory_ autorelease ];
 
-      id< JNUrlConnection > connection_ = use_live_connection_ 
-                                             ? [ factory_ createFastConnection     ]
-                                             : [ factory_ createStandardConnection ];
+        id< JNUrlConnection > connection_ = use_live_connection_ 
+                                                ? [ factory_ createFastConnection     ]
+                                                : [ factory_ createStandardConnection ];
 
-      connection_.shouldAcceptCertificateBlock = certificate_callback_;
+        connection_.shouldAcceptCertificateBlock = certificate_callback_;
 
-      progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
-      connection_.didReceiveDataBlock = ^( NSData* data_ )
-      {
-         if ( progress_callback_ )
-            progress_callback_( data_ );
-      };
+        progress_callback_ = [ [ progress_callback_ copy ] autorelease ];
+        connection_.didReceiveDataBlock = ^( NSData* data_ )
+        {
+            if ( progress_callback_ )
+                progress_callback_( data_ );
+        };
 
-      __block id result_context_ = nil;
+        __block id result_context_ = nil;
 
-      done_callback_ = [ [ done_callback_ copy ] autorelease ];
-      connection_.didFinishLoadingBlock = ^( NSError* error_ )
-      {
-         if ( done_callback_ )
-            done_callback_( error_ ? nil : result_context_, error_ );
-      };
+        done_callback_ = [ [ done_callback_ copy ] autorelease ];
+        connection_.didFinishLoadingBlock = ^( NSError* error_ )
+        {
+            if ( done_callback_ )
+                done_callback_( error_ ? nil : result_context_, error_ );
+        };
 
-      connection_.didReceiveResponseBlock = ^( id/*< JNUrlResponse >*/ response_ )
-      {
-         result_context_ = response_;
-      };
+        connection_.didReceiveResponseBlock = ^void( id< JNUrlResponse > response_ )
+        {
+            result_context_ = response_;
+        };
 
-      JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
-      cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
-      cancel_callback_block_holder_.cancelBlock = [ [ ^void( BOOL canceled_ )
-      {
-         if ( canceled_ )
-            [ connection_ cancel ];
+        JFFCancelAyncOperationBlockHolder* cancel_callback_block_holder_ = [ [ JFFCancelAyncOperationBlockHolder new ] autorelease ];
+        cancel_callback_ = [ [ cancel_callback_ copy ] autorelease ];
+        cancel_callback_block_holder_.cancelBlock = [ [ ^void( BOOL canceled_ )
+        {
+            if ( canceled_ )
+                [ connection_ cancel ];
 
-         if ( cancel_callback_ )
-            cancel_callback_( canceled_ );
-      } copy ] autorelease ];
+            if ( cancel_callback_ )
+                cancel_callback_( canceled_ );
+        } copy ] autorelease ];
 
-      [ connection_ start ];
+        [ connection_ start ];
 
-      return cancel_callback_block_holder_.onceCancelBlock;
-   } copy ] autorelease ];
+        return cancel_callback_block_holder_.onceCancelBlock;
+    } copy ] autorelease ];
 }
 
 JFFAsyncOperation genericDataURLResponseLoader( 

@@ -28,7 +28,7 @@
     self.objectPropertyData = nil;
 
     //JTODO - fix via ARC method, autorelease object - "self.object"
-    id result_ = self.object;
+    id result_ = [ NSArray arrayWithObject: self.object ];
     self.object = nil;
     //self.propertyPath = nil;
     return result_;

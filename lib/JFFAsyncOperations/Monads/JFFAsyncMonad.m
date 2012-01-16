@@ -7,7 +7,7 @@
 
 @implementation NSObject (JFFAsyncMonad)
 
--(void)checkAsyncMonadClass
+-(void)checkJFFAsyncMonadClass
 {
     NSAssert( [ self isKindOfClass: [ JFFAsyncMonad class ] ], @"Invalid monad class" );
 }
@@ -43,7 +43,7 @@
     return self;
 }
 
-+(id< SCMonad >)construct:( id )value_
++(id< JFFAsyncMonad >)construct:( id )value_
 {
     return [ [ self alloc ] initWithAsyncOp: value_ ];
 }
@@ -72,7 +72,7 @@
     NSAssert( [ monad_ isKindOfClass: [ JFFAsyncMonad class ] ], @"Invalid monad class" );
 }
 
--(id< SCMonad >)bind:( SCNextOp )nextOp_
+-(id< JFFAsyncMonad >)bind:( JFFNextOp )nextOp_
 {
     __block id firstResult_ = nil;
 
@@ -88,7 +88,7 @@
                                                            , JFFDidFinishAsyncOperationHandler doneCallback_ )
     {
         JFFAsyncMonad* nextMonad_ = (JFFAsyncMonad*)nextOp_( firstResult_ );
-        [ nextMonad_ checkAsyncMonadClass ];
+        [ nextMonad_ checkJFFAsyncMonadClass ];
         return nextMonad_.asyncOp( progressCallback_, cancelCallback_, doneCallback_ );
     };
 
