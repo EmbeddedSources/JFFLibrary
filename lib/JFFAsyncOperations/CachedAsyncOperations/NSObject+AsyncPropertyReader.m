@@ -206,51 +206,52 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                               asyncOperation:( JFFAsyncOperation )async_operation_
                                       didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
-   NSAssert( async_operation_, @"async_operation_ should be set" );
+    NSAssert( async_operation_, @"async_operation_ should be set" );
 
-   async_operation_ = [ async_operation_ copy ];
-   did_finish_operation_ = [ did_finish_operation_ copy ];
-   factory_ = [ factory_ copy ];
+    async_operation_ = [ async_operation_ copy ];
+    did_finish_operation_ = [ did_finish_operation_ copy ];
+    factory_ = [ factory_ copy ];
 
-   __block id self_ = self;
+    //JTODO fix leak if this blocks owns self
+    __unsafe_unretained id self_ = self;
 
-   return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
-                                   , JFFCancelAsyncOperationHandler cancel_callback_
-                                   , JFFDidFinishAsyncOperationHandler done_callback_ )
-   {
-      JFFPropertyExtractor* property_extractor_ = factory_();
-      property_extractor_.object = self_;
-      property_extractor_.propertyPath = property_path_;
+    return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
+                                    , JFFCancelAsyncOperationHandler cancel_callback_
+                                    , JFFDidFinishAsyncOperationHandler done_callback_ )
+    {
+        JFFPropertyExtractor* property_extractor_ = factory_();
+        property_extractor_.object = self_;
+        property_extractor_.propertyPath = property_path_;
 
-      id result_ = property_extractor_.property;
-      if ( result_ )
-      {
-         if ( done_callback_ )
-            done_callback_( result_, nil );
-         return JFFEmptyCancelAsyncOperationBlock;
-      }
+        id result_ = property_extractor_.property;
+        if ( result_ )
+        {
+            if ( done_callback_ )
+                done_callback_( result_, nil );
+            return JFFEmptyCancelAsyncOperationBlock;
+        }
 
-      property_extractor_.asyncLoader = async_operation_;
-      property_extractor_.didFinishBlock = did_finish_operation_;
+        property_extractor_.asyncLoader = async_operation_;
+        property_extractor_.didFinishBlock = did_finish_operation_;
 
-      JFFCallbacksBlocksHolder* callbacks_ =
-         [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: progress_callback_
-                                                        onCancelBlock: cancel_callback_
-                                                     didLoadDataBlock: done_callback_ ];
+        JFFCallbacksBlocksHolder* callbacks_ =
+            [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: progress_callback_
+                                                           onCancelBlock: cancel_callback_
+                                                        didLoadDataBlock: done_callback_ ];
 
-      if ( nil == property_extractor_.delegates )
-      {
-         property_extractor_.delegates = [ NSMutableArray arrayWithObject: callbacks_ ];
-      }
+        if ( nil == property_extractor_.delegates )
+        {
+            property_extractor_.delegates = [ NSMutableArray arrayWithObject: callbacks_ ];
+        }
 
-      if ( property_extractor_.cancelBlock != nil )
-      {
-         [ property_extractor_.delegates addObject: callbacks_ ];
-         return cancelBlock( property_extractor_, callbacks_ );
-      }
+        if ( property_extractor_.cancelBlock != nil )
+        {
+            [ property_extractor_.delegates addObject: callbacks_ ];
+            return cancelBlock( property_extractor_, callbacks_ );
+        }
 
-      return performNativeLoader( property_extractor_, callbacks_ );
-   };
+        return performNativeLoader( property_extractor_, callbacks_ );
+    };
 }
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
