@@ -10,5 +10,3 @@
 #import <JFFAsyncOperations/NSObject+AutoCancelAsyncOperation.h>
 #import <JFFAsyncOperations/JFFAsyncOperationContinuity.h>
 #import <JFFAsyncOperations/LoadBalancer/JFFAsyncOperationLoadBalancer.h>
-
-#import <JFFAsyncOperations/Monads/JFFAsyncMonad.h>

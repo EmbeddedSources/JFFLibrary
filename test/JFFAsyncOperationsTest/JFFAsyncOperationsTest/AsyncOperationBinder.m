@@ -27,15 +27,18 @@
 
         __block id monadResult_ = nil;
 
-        JFFAsyncMonad* monad_ = [ [ JFFAsyncMonad monadWithAsyncOp: firstLoader_.loader ] bind: ^id<JFFMonad>( id result_ )
+        JFFAsyncOperationBinder secondLoaderBinder_ = ^JFFAsyncOperation( id firstResult_ )
         {
-            monadResult_ = result_;
-            return [ JFFAsyncMonad monadWithAsyncOp: secondLoaderBlock_ ];
-        } ];
+            monadResult_ = firstResult_;
+            return secondLoaderBlock_;
+        };
+        JFFAsyncOperation asyncOp_ = bindSequenceOfAsyncOperations( firstLoader_.loader
+                                                                   , secondLoaderBinder_
+                                                                   , nil );
 
         __block id finalResult_ = nil;
 
-        monad_.asyncOp( nil, nil, ^( id result_, NSError* error_ )
+        asyncOp_( nil, nil, ^( id result_, NSError* error_ )
         {
             finalResult_ = result_;
         } );
@@ -61,5 +64,7 @@
     GHAssertTrue( 0 == [ JFFDidFinishAsyncOperationBlockHolder instancesCount ], @"OK" );
     GHAssertTrue( 0 == [ JFFAsyncOperationManager              instancesCount ], @"OK" );
 }
+
+///JTODO test when first fails
 
 @end

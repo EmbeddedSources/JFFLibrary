@@ -13,6 +13,14 @@ JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
 
 JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
+/////////////////////////////// SEQUENCE WITH BINDING ///////////////////////////////
+
+//calls loaders while success
+JFFAsyncOperation bindSequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
+                                                , JFFAsyncOperationBinder secondLoaderBinder_, ... );
+
+JFFAsyncOperation bindSequenceOfAsyncOperationsArray( JFFAsyncOperation firstLoader, NSArray* loadersBinders_ );
+
 /////////////////////////////////// TRY SEQUENCE ///////////////////////////////////
 
 //calls loaders untill success

@@ -27,6 +27,8 @@ typedef JFFCancelAsyncOperation (^JFFAsyncOperation)( JFFAsyncOperationProgressH
                                                      , JFFCancelAsyncOperationHandler cancelCallback_
                                                      , JFFDidFinishAsyncOperationHandler doneCallback_ );
 
+typedef JFFAsyncOperation (^JFFAsyncOperationBinder)(id result);
+
 typedef void (^JFFDidFinishAsyncOperationHook)( id result_
                                                , NSError* error_
                                                , JFFDidFinishAsyncOperationHandler doneCallback_ );

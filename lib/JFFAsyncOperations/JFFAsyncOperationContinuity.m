@@ -9,7 +9,9 @@
 
 #include <assert.h>
 
+//JTODO remove
 typedef JFFAsyncOperation (*MergeTwoLoadersPtr)( JFFAsyncOperation, JFFAsyncOperation );
+typedef JFFAsyncOperation (*MergeLoaderWithBinderPtr)( JFFAsyncOperation, JFFAsyncOperationBinder );
 
 static JFFAsyncOperation createEmptyLoaderBlock()
 {
@@ -22,6 +24,7 @@ static JFFAsyncOperation createEmptyLoaderBlock()
    };
 }
 
+//JTODO remove
 static JFFAsyncOperation MergeLoaders( MergeTwoLoadersPtr merger_, NSArray* blocks_ )
 {
    if ( ![ blocks_ lastObject ] )
@@ -40,67 +43,145 @@ static JFFAsyncOperation MergeLoaders( MergeTwoLoadersPtr merger_, NSArray* bloc
    return first_block_;
 }
 
-static JFFAsyncOperation sequenceOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
+static JFFAsyncOperation MergeLoaderWithBinders( MergeLoaderWithBinderPtr merger_, NSArray* blocks_ )
 {
-   if ( first_loader_ == nil )
-      return createEmptyLoaderBlock();
+    if ( ![ blocks_ lastObject ] )
+        return createEmptyLoaderBlock();
 
-   first_loader_ = [ first_loader_ copy ];
-   second_loader_ = [ second_loader_ copy ];
+    JFFAsyncOperation first_block_ = [ blocks_ objectAtIndex: 0 ];
 
-   if ( second_loader_ == nil )
-      return first_loader_;
+    if ( [ blocks_ count ] == 1 )
+        return first_block_;
 
-   return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progressCallback_
-                                   , JFFCancelAsyncOperationHandler cancelCallback_
-                                   , JFFDidFinishAsyncOperationHandler doneCallback_ )
-   {
-      JFFCancelAyncOperationBlockHolder* block_holder_ = [ JFFCancelAyncOperationBlockHolder new ];
+    for ( NSUInteger index_ = 1; index_ < [ blocks_ count ]; ++index_ )
+    {
+        JFFAsyncOperationBinder second_block_ = [ blocks_ objectAtIndex: index_ ];
 
-      doneCallback_ = [ doneCallback_ copy ];
-      JFFCancelAsyncOperation first_cancel_ = first_loader_( progressCallback_
-                                                           , cancelCallback_
-                                                           , ^void( id result_, NSError* error_ )
-      {
-         if ( error_ )
-         {
-            if ( doneCallback_ )
-               doneCallback_( nil, error_ );
-         }
-         else
-         {
-            block_holder_.cancelBlock = second_loader_( progressCallback_
-                                                       , cancelCallback_
-                                                       , doneCallback_ );
-         }
-      } );
-      if ( !block_holder_.cancelBlock )
-         block_holder_.cancelBlock = first_cancel_;
+        first_block_ = merger_( first_block_, second_block_ );
+    }
 
-      return block_holder_.onceCancelBlock;
-   };
+    return first_block_;
+}
+
+static JFFAsyncOperation bindSequenceOfAsyncOperationsPair( JFFAsyncOperation firstLoader_
+                                                           , JFFAsyncOperationBinder secondLoaderBinder_ )
+{
+    if ( firstLoader_ == nil )
+        return createEmptyLoaderBlock();
+
+    firstLoader_        = [ firstLoader_ copy ];
+    secondLoaderBinder_ = [ secondLoaderBinder_ copy ];
+
+    if ( secondLoaderBinder_ == nil )
+        return firstLoader_;
+
+    return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progressCallback_
+                                    , JFFCancelAsyncOperationHandler cancelCallback_
+                                    , JFFDidFinishAsyncOperationHandler doneCallback_ )
+    {
+        JFFCancelAyncOperationBlockHolder* cancelBlockHolder_ = [ JFFCancelAyncOperationBlockHolder new ];
+
+        doneCallback_ = [ doneCallback_ copy ];
+        JFFCancelAsyncOperation firstCancel_ = firstLoader_( progressCallback_
+                                                            , cancelCallback_
+                                                            , ^void( id result_, NSError* error_ )
+        {
+            if ( error_ )
+            {
+                if ( doneCallback_ )
+                    doneCallback_( nil, error_ );
+            }
+            else
+            {
+                JFFAsyncOperation secondLoader_ = secondLoaderBinder_( result_ );
+                assert( secondLoader_ );//result loader should not be nil
+                cancelBlockHolder_.cancelBlock = secondLoader_( progressCallback_
+                                                               , cancelCallback_
+                                                               , doneCallback_ );
+            }
+        } );
+        if ( !cancelBlockHolder_.cancelBlock )
+            cancelBlockHolder_.cancelBlock = firstCancel_;
+
+        return cancelBlockHolder_.onceCancelBlock;
+    };
 }
 
 JFFAsyncOperation sequenceOfAsyncOperations( JFFAsyncOperation first_loader_
                                             , JFFAsyncOperation second_loader_
                                             , ... )
 {
-   JFFAsyncOperation first_block_ = first_loader_;
+    JFFAsyncOperation first_block_ = first_loader_;
 
-   va_list args;
-   va_start( args, second_loader_ );
-   for ( JFFAsyncOperation second_block_ = second_loader_; second_block_ != nil; second_block_ = va_arg( args, JFFAsyncOperation ) )
-   {
-      first_block_ = sequenceOfAsyncOperationsPair( first_block_, second_block_ );
-   }
-   va_end( args );
+    va_list args;
+    va_start( args, second_loader_ );
+    for ( JFFAsyncOperation second_block_ = second_loader_;
+         second_block_ != nil;
+         second_block_ = va_arg( args, JFFAsyncOperation ) )
+    {
+        second_block_ = [ second_block_ copy ];
+        JFFAsyncOperationBinder secondBlockBinder_ = ^JFFAsyncOperation( id result_ )
+        {
+            return second_block_;
+        };
+        first_block_ = bindSequenceOfAsyncOperationsPair( first_block_, secondBlockBinder_ );
+    }
+    va_end( args );
 
-   return first_block_;
+    return first_block_;
 }
 
 JFFAsyncOperation sequenceOfAsyncOperationsArray( NSArray* loaders_ )
 {
-   return MergeLoaders( sequenceOfAsyncOperationsPair, loaders_ );
+    NSArray* loaderWithBinders_ = [ loaders_ count ] > 0
+        ? [ NSArray arrayWithObject: [ [ loaders_ objectAtIndex: 0 ] copy ] ]
+        : nil;
+
+    NSArray* binders_ = [ loaders_ count ] > 1
+        ? [ loaders_ subarrayWithRange: NSMakeRange( 1, [ loaders_ count ] - 1 ) ]
+        : [ NSArray array ];
+    binders_ = [ binders_ map: ^id(id object_)
+    {
+        object_ = [ object_ copy ];
+        return ^JFFAsyncOperation( id result_ )
+        {
+            return object_;
+        };
+    } ];
+
+    loaderWithBinders_ = [ loaderWithBinders_ arrayByAddingObjectsFromArray: binders_ ];
+
+    return MergeLoaderWithBinders( bindSequenceOfAsyncOperationsPair, loaderWithBinders_ );
+}
+
+JFFAsyncOperation bindSequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
+                                                , JFFAsyncOperationBinder secondLoaderBinder_, ... )
+{
+    JFFAsyncOperation firstBlock_ = firstLoader_;
+
+    va_list args;
+    va_start( args, secondLoaderBinder_ );
+    for ( JFFAsyncOperationBinder secondBlockBinder_ = secondLoaderBinder_;
+         secondBlockBinder_ != nil;
+         secondBlockBinder_ = va_arg( args, JFFAsyncOperationBinder ) )
+    {
+        firstBlock_ = bindSequenceOfAsyncOperationsPair( firstBlock_, secondBlockBinder_ );
+    }
+    va_end( args );
+
+    return firstBlock_;
+}
+
+JFFAsyncOperation bindSequenceOfAsyncOperationsArray( JFFAsyncOperation firstLoader_
+                                                     , NSArray* loadersBinders_ )
+{
+    loadersBinders_ = [ loadersBinders_ map: ^id( id object_ )
+    {
+        return [ object_ copy ];
+    } ];
+    NSArray* loaders_ = [ NSArray arrayWithObject: [ firstLoader_ copy ] ];
+    loaders_ = [ loaders_ arrayByAddingObjectsFromArray: loadersBinders_ ];
+    return MergeLoaderWithBinders( bindSequenceOfAsyncOperationsPair, loaders_ );
 }
 
 static JFFAsyncOperation trySequenceOfAsyncOperationsPair( JFFAsyncOperation first_loader_, JFFAsyncOperation second_loader_ )
