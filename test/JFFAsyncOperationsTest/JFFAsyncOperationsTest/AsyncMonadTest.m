@@ -27,7 +27,7 @@
 
         __block id monadResult_ = nil;
 
-        JFFAsyncMonad* monad_ = [ [ JFFAsyncMonad monadWithAsyncOp: firstLoader_.loader ] bind: ^id<SCMonad>( id result_ )
+        JFFAsyncMonad* monad_ = [ [ JFFAsyncMonad monadWithAsyncOp: firstLoader_.loader ] bind: ^id<JFFMonad>( id result_ )
         {
             monadResult_ = result_;
             return [ JFFAsyncMonad monadWithAsyncOp: secondLoaderBlock_ ];
