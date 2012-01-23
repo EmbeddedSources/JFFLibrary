@@ -2,17 +2,17 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol JFFAsyncMonad < NSObject >
+@protocol JFFMonad < NSObject >
 
 @required
-typedef id< JFFAsyncMonad > (^JFFNextOp) (id result);
-- (id<JFFAsyncMonad>)bind:(JFFNextOp)nextOp;
+typedef id< JFFMonad > (^JFFNextOp) (id result);
+- (id<JFFMonad>)bind:(JFFNextOp)nextOp;
 
-+ (id<JFFAsyncMonad>)construct:(id)value;
++ (id<JFFMonad>)construct:(id)value;
 
 @end
 
-@interface JFFAsyncMonad : NSObject <JFFAsyncMonad>
+@interface JFFAsyncMonad : NSObject <JFFMonad>
 
 @property(nonatomic,copy,readonly) JFFAsyncOperation asyncOp;
 

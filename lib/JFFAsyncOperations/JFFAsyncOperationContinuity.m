@@ -544,6 +544,21 @@ JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
    };
 }
 
+JFFAsyncOperation asyncOperationWithChangedResult( JFFAsyncOperation loader_
+                                                  , id newResult_ )
+{
+    if ( !newResult_ )
+        return loader_;
+    JFFDidFinishAsyncOperationHook finishCallbackHook_ = ^( id result_
+                                                           , NSError* error_
+                                                           , JFFDidFinishAsyncOperationHandler doneCallback_ )
+    {
+        if ( doneCallback_ )
+            doneCallback_( newResult_, nil );
+    };
+    return asyncOperationWithFinishHookBlock( loader_, finishCallbackHook_ );
+}
+
 JFFAsyncOperation asyncOperationWithResult( id result_ )
 {
    return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progressCallback_

@@ -43,7 +43,7 @@
     return self;
 }
 
-+(id< JFFAsyncMonad >)construct:( id )value_
++(id< JFFMonad >)construct:( id )value_
 {
     return [ [ self alloc ] initWithAsyncOp: value_ ];
 }
@@ -53,10 +53,11 @@
     return [ self construct: asyncOp_ ];
 }
 
+//JTODO test it
 +(JFFAsyncMonad*)monadWithValue:( id )value_
 {
     NSAssert( value_, @"should not be nil" );
-    JFFAsyncOperation asyncOp_ = asyncOperationWithResult( [ NSNull null ] );
+    JFFAsyncOperation asyncOp_ = asyncOperationWithResult( value_ );
     return [ self monadWithAsyncOp: asyncOp_ ];
 }
 
@@ -72,7 +73,7 @@
     NSAssert( [ monad_ isKindOfClass: [ JFFAsyncMonad class ] ], @"Invalid monad class" );
 }
 
--(id< JFFAsyncMonad >)bind:( JFFNextOp )nextOp_
+-(id< JFFMonad >)bind:( JFFNextOp )nextOp_
 {
     __block id firstResult_ = nil;
 

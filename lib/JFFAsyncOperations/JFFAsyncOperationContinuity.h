@@ -45,6 +45,9 @@ JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loade
 JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
                                                     , JFFDidFinishAsyncOperationHook finishCallbackHook_ );
 
+JFFAsyncOperation asyncOperationWithChangedResult( JFFAsyncOperation loader_
+                                                  , id result_ );
+
 //done_callback_hook_ called an cancel or finish loader_'s callbacks
 JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
                                               , JFFSimpleBlock doneCallbackHook_ );

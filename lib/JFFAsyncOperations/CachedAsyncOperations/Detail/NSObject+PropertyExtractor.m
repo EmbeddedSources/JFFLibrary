@@ -47,7 +47,8 @@ static char property_data_property_key_;
    }
 }
 
--(void)setPropertyData:( JFFObjectRelatedPropertyData* )property_ forPropertPath:( JFFPropertyPath* )property_path_
+-(void)setPropertyData:( JFFObjectRelatedPropertyData* )property_
+        forPropertPath:( JFFPropertyPath* )property_path_
 {
    if ( !property_ )
    {
