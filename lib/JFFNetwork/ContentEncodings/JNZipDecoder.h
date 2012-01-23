@@ -2,5 +2,4 @@
 #import <Foundation/Foundation.h>
 
 @interface JNZipDecoder : NSObject < JNHttpDecoder >
-
 @end

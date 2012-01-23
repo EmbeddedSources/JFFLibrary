@@ -1,6 +1,8 @@
 #import <JFFAsyncOperations/JFFAsyncOperationsBlockDefinitions.h>
 #import <JFFUtils/Blocks/JFFUtilsBlockDefinitions.h>
 
+#include <objc/objc.h>
+
 @class NSArray;
 
 ///////////////////////////////////// SEQUENCE /////////////////////////////////////

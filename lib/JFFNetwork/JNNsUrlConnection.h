@@ -2,7 +2,6 @@
 #import <JFFNetwork/JNAbstractConnection.h>
 #import <Foundation/Foundation.h>
 
-
 @interface JNNsUrlConnection : JNAbstractConnection
 
 //!c TODO : add an opportunity to change the request.
