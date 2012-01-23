@@ -31,6 +31,7 @@
 #import <JFFUtils/Extensions/NSDecimalNumber+Increment.h>
 
 #import <JFFUtils/JGCDAdditions.h>
+#import <JFFUtils/JFFMutableAssignArray.h>
 #import <JFFUtils/JFFMutableAssignDictionary.h>
 #import <JFFUtils/JFFMulticastDelegate.h>
 #import <JFFUtils/JFFResultContext.h>

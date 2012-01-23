@@ -1,6 +1,8 @@
 #ifndef JFFUTILS_JSIGNED_RANGE_H_INCLUDED
 #define JFFUTILS_JSIGNED_RANGE_H_INCLUDED
 
+#include <Foundation/NSObjCRuntime.h>
+
 typedef struct
 {
    NSInteger location;
