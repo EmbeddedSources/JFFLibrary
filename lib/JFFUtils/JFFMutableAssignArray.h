@@ -4,6 +4,8 @@
 
 @property ( nonatomic, copy, readonly ) NSArray* array;
 
++(id)arrayWithObject:( id )anObject_;
+
 //compare elements by pointers only
 -(void)addObject:( id )object_;
 -(BOOL)containsObject:( id )object_;

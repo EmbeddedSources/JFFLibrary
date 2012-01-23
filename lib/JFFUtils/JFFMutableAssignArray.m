@@ -115,4 +115,11 @@
    return [ _mutable_array count ];
 }
 
++(id)arrayWithObject:( id )anObject_
+{
+    JFFMutableAssignArray* result_ = [ self new ];
+    [ result_ addObject: anObject_ ];
+    return result_;
+}
+
 @end
