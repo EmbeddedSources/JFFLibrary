@@ -17,6 +17,6 @@
 
 @property ( nonatomic, strong ) id property;
 
--(id)clearData;
+-(void)clearData;
 
 @end

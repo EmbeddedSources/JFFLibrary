@@ -5,6 +5,8 @@
 
 #import "NSObject+PropertyExtractor.h"
 
+#import <JFFUtils/MemoryManagement/JFFMemoryMgmt.h>
+
 #import <objc/message.h>
 
 @interface JFFPropertyExtractor ()
@@ -23,15 +25,13 @@
 @synthesize propertyPath = _property_path;
 @synthesize object = _object;
 
--(id)clearData
+-(void)clearData
 {
     self.objectPropertyData = nil;
 
-    //JTODO - fix via ARC method, autorelease object - "self.object"
-    id result_ = [ NSArray arrayWithObject: self.object ];
-    self.object = nil;
+    jff_retainAutorelease( _object );
+    _object = nil;
     //self.propertyPath = nil;
-    return result_;
 }
 
 -(SEL)propertyGetSelector
