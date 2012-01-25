@@ -25,6 +25,11 @@
 @synthesize propertyPath = _property_path;
 @synthesize object = _object;
 
+@dynamic delegates
+, asyncLoader
+, didFinishBlock
+, cancelBlock;
+
 -(void)clearData
 {
     self.objectPropertyData = nil;
@@ -98,47 +103,12 @@
 
 -(void)setObjectPropertyData:( JFFObjectRelatedPropertyData* )object_property_data_
 {
-   [ self.object setPropertyData: object_property_data_ forPropertPath: self.propertyPath ];
+    [ self.object setPropertyData: object_property_data_ forPropertPath: self.propertyPath ];
 }
 
--(NSMutableArray*)delegates
+-(id)forwardingTargetForSelector:( SEL )selector_
 {
-   return self.objectPropertyData.delegates;
-}
-
--(void)setDelegates:( NSMutableArray* )delegates_
-{
-   self.objectPropertyData.delegates = delegates_;
-}
-
--(JFFAsyncOperation)asyncLoader
-{
-   return self.objectPropertyData.asyncLoader;
-}
-
--(void)setAsyncLoader:( JFFAsyncOperation )async_loader_
-{
-   self.objectPropertyData.asyncLoader = async_loader_;
-}
-
--(JFFDidFinishAsyncOperationHandler)didFinishBlock
-{
-   return self.objectPropertyData.didFinishBlock;
-}
-
--(void)setDidFinishBlock:( JFFDidFinishAsyncOperationHandler )did_finish_block_
-{
-   self.objectPropertyData.didFinishBlock = did_finish_block_;
-}
-
--(JFFCancelAsyncOperation)cancelBlock
-{
-   return self.objectPropertyData.cancelBlock;
-}
-
--(void)setCancelBlock:( JFFCancelAsyncOperation )cancel_block_
-{
-   self.objectPropertyData.cancelBlock = cancel_block_;
+    return self.objectPropertyData;
 }
 
 @end
