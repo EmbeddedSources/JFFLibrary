@@ -73,10 +73,10 @@
 
 -(NSArray*)array
 {
-   return [ _mutable_array map: ^id( JFFAutoRemoveAssignProxy* proxy_ )
-   {
-      return proxy_.target;
-   } ];
+    return [ _mutable_array map: ^id( id proxy_ )
+    {
+        return [ proxy_ target ];
+    } ];
 }
 
 -(void)addObject:( id )object_

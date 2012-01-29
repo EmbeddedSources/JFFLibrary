@@ -122,9 +122,9 @@
 
 -(NSArray*)allValues
 {
-   return [ [ _mutableDictionary allValues ] map: ^id( JFFAutoRemoveFromDictAssignProxy* proxy_ )
+   return [ [ _mutableDictionary allValues ] map: ^id( id proxy_ )
    { 
-      return proxy_.target;
+      return [ proxy_ target ];
    } ];
 }
 

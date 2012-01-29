@@ -9,12 +9,14 @@
 
 -(NSString*)stringByEncodingURLFormat
 {
-   static NSString* unsafe_ = @" <>#%'\";?:@&=+$/,{}|\\^~[]`-_*!()";
-   return (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault
-                                                                               , (__bridge CFStringRef)self
-                                                                               , NULL
-                                                                               , (__bridge CFStringRef)unsafe_
-                                                                               , kCFStringEncodingUTF8 );
+    static NSString* unsafe_ = @" <>#%'\";?:@&=+$/,{}|\\^~[]`-_*!()";
+    CFStringRef ref_ = CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault
+                                                               , (CFStringRef)self
+                                                               , NULL
+                                                               , (CFStringRef)unsafe_
+                                                               , kCFStringEncodingUTF8 );
+    NSString* result_ = (NSString*)ref_;
+    return [ result_ autorelease ];
 }
 
 -(NSDictionary*)dictionaryFromQueryComponents

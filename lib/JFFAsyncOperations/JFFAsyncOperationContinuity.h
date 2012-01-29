@@ -3,6 +3,10 @@
 
 @class NSArray;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 ///////////////////////////////////// SEQUENCE /////////////////////////////////////
 
 //calls loaders while success
@@ -61,3 +65,7 @@ JFFAsyncOperation repeatAsyncOperation( JFFAsyncOperation loader_
 
 JFFAsyncOperation asyncOperationAfterDelay( NSTimeInterval delay_
                                            , JFFAsyncOperation loader_ );
+
+#ifdef __cplusplus
+}
+#endif
