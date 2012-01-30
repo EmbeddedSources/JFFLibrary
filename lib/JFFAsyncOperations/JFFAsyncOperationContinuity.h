@@ -29,6 +29,14 @@ JFFAsyncOperation trySequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
 
 JFFAsyncOperation trySequenceOfAsyncOperationsArray( NSArray* loaders_ );
 
+/////////////////////////////// TRY SEQUENCE WITH BINDING ///////////////////////////////
+
+//calls loaders while success
+JFFAsyncOperation bindTrySequenceOfAsyncOperations( JFFAsyncOperation firstLoader_
+                                                   , JFFAsyncOperationBinder secondLoaderBinder_, ... );
+
+JFFAsyncOperation bindTrySequenceOfAsyncOperationsArray( JFFAsyncOperation firstLoader, NSArray* loadersBinders_ );
+
 /////////////////////////////////////// GROUP //////////////////////////////////////
 
 //calls finish callback when all loaders finished
