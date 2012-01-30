@@ -272,6 +272,24 @@ JFFAsyncOperation bindTrySequenceOfAsyncOperationsArray( JFFAsyncOperation first
     return MergeLoaderWithBinders( bindTrySequenceOfAsyncOperationsPair, loaders_ );
 }
 
+static void notifyGroupResult( JFFDidFinishAsyncOperationHandler doneCallback_
+                              , NSArray* complexResult_
+                              , NSError* error_ )
+{
+    if ( !doneCallback_ )
+        return;
+
+    NSMutableArray* finalResult_ = nil;
+    if ( !error_ )
+    {
+        NSArray* firstResult_ = [ complexResult_ objectAtIndex: 0 ];
+        finalResult_ = [ [ NSMutableArray alloc ] initWithCapacity: [ firstResult_ count ] + 1 ];
+        [ finalResult_ addObjectsFromArray: firstResult_ ];
+        [ finalResult_ addObject: [ complexResult_ objectAtIndex: 1 ] ];
+    }
+    doneCallback_( finalResult_, error_ );
+}
+
 static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loader_
                                                     , JFFAsyncOperation second_loader_ )
 {
@@ -308,18 +326,7 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
                 if ( loaded_ )
                 {
                     error_ = error_ ? error_ : errorHolder_;
-                    if ( doneCallback_ )
-                    {
-                        NSMutableArray* finalResult_ = nil;
-                        if ( !error_ )
-                        {
-                            NSArray* firstResult_ = [ complexResult_ objectAtIndex: 0 ];
-                            finalResult_ = [ [ NSMutableArray alloc ] initWithCapacity: [ firstResult_ count ] + 1 ];
-                            [ finalResult_ addObjectsFromArray: firstResult_ ];
-                            [ finalResult_ addObject: [ complexResult_ objectAtIndex: 1 ] ];
-                        }
-                        doneCallback_( finalResult_, error_ );
-                    }
+                    notifyGroupResult( doneCallback_, complexResult_, error_ );
                     return;
                 }
                 loaded_ = YES;
@@ -383,15 +390,11 @@ static JFFAsyncOperation groupOfAsyncOperationsPair( JFFAsyncOperation first_loa
 
 static JFFAsyncOperation resultToArrayForLoader( JFFAsyncOperation loader_ )
 {
-    JFFDidFinishAsyncOperationHook finishCallbackHook_ = ^( NSArray* result_
-                                                           , NSError* error_
-                                                           , JFFDidFinishAsyncOperationHandler doneCallback_ )
+    JFFAsyncOperationBinder secondLoaderBinder_ = asyncOperationBinderWithAnalyzer( ^( id result_, NSError** error_ )
     {
-        result_ = result_ ? [ NSArray arrayWithObject: result_ ] : nil;
-        doneCallback_( result_, error_ );
-    };
-    return asyncOperationWithFinishHookBlock( loader_
-                                             , finishCallbackHook_ );
+        return [ NSArray arrayWithObject: result_ ];
+    } );
+    return bindSequenceOfAsyncOperations( loader_, secondLoaderBinder_, nil );
 }
 
 static JFFAsyncOperation MergeGroupLoaders( MergeTwoLoadersPtr merger_, NSArray* blocks_ )
@@ -399,18 +402,18 @@ static JFFAsyncOperation MergeGroupLoaders( MergeTwoLoadersPtr merger_, NSArray*
     if ( ![ blocks_ lastObject ] )
         return createEmptyLoaderBlock();
 
-    JFFAsyncOperation first_block_ = [ blocks_ objectAtIndex: 0 ];
-    JFFAsyncOperation array_first_block_ = resultToArrayForLoader( first_block_ );
+    JFFAsyncOperation firstBlock_ = [ blocks_ objectAtIndex: 0 ];
+    JFFAsyncOperation arrayFirstBlock_ = resultToArrayForLoader( firstBlock_ );
 
     for ( JFFAsyncOperation second_block_ in blocks_ )
     {
-        if ( second_block_ == first_block_ )
+        if ( second_block_ == firstBlock_ )
             continue;
 
-        array_first_block_ = merger_( array_first_block_, second_block_ );
+        arrayFirstBlock_ = merger_( arrayFirstBlock_, second_block_ );
     }
 
-    return array_first_block_;
+    return arrayFirstBlock_;
 }
 
 JFFAsyncOperation groupOfAsyncOperationsArray( NSArray* blocks_ )
@@ -492,19 +495,7 @@ static JFFAsyncOperation failOnFirstErrorGroupOfAsyncOperationsPair( JFFAsyncOpe
                     }
 
                     done_ = YES;
-                    if ( doneCallback_ )
-                    {
-                        NSMutableArray* finalResult_ = nil;
-                        if ( !error_ )
-                        {
-                            //JTODO code duplicate
-                            NSArray* firstResult_ = [ complexResult_ objectAtIndex: 0 ];
-                            finalResult_ = [ [ NSMutableArray alloc ] initWithCapacity: [ firstResult_ count ] + 1 ];
-                            [ finalResult_ addObjectsFromArray: firstResult_ ];
-                            [ finalResult_ addObject: [ complexResult_ objectAtIndex: 1 ] ];
-                        }
-                        doneCallback_( finalResult_, error_ );
-                    }
+                    notifyGroupResult( doneCallback_, complexResult_, error_ );
                     return;
                 }
                 loaded_ = YES;
