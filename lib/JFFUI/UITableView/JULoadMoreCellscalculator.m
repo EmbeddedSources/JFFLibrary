@@ -101,44 +101,44 @@ static const NSUInteger RIPagingDisabled         = 0;
 -(NSUInteger)suggestElementsToAddCountForIndex:( NSUInteger )index_
                                overflowOccured:( BOOL* )out_is_overflow_
 {
-   NSAssert( out_is_overflow_, @"is_overflow_ is not optional" );
-   *out_is_overflow_ = NO;
+    NSParameterAssert( out_is_overflow_ );
+    *out_is_overflow_ = NO;
    
-   // if all loaded
-   if ( self.hasNoElements )
-   {
-      return 0;
-   }
-   else if ( self.allElementsLoaded )
-   {
-      *out_is_overflow_ = YES;
-      return 0;
-   }
-   else if ( [ self noNeedToLoadElementAtIndex: index_ ] )
-   {
-      return 0;
-   }
-   else if ( self.isPagingDisabled )
-   {
-      return self.totalElementsCount - self.currentCount;
-   }
+    // if all loaded
+    if ( self.hasNoElements )
+    {
+        return 0;
+    }
+    else if ( self.allElementsLoaded )
+    {
+        *out_is_overflow_ = YES;
+        return 0;
+    }
+    else if ( [ self noNeedToLoadElementAtIndex: index_ ] )
+    {
+        return 0;
+    }
+    else if ( self.isPagingDisabled )
+    {
+        return self.totalElementsCount - self.currentCount;
+    }
    
-   static const NSUInteger load_more_placeholder_size_ = 1;
-   NSUInteger rest_of_the_items_ = self.totalElementsCount - self.currentCount;
+    static const NSUInteger load_more_placeholder_size_ = 1;
+    NSUInteger rest_of_the_items_ = self.totalElementsCount - self.currentCount;
 
-   float items_count_for_index_path_ = 1 + index_;
-   NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
-   NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
+    float items_count_for_index_path_ = 1 + index_;
+    NSUInteger pages_expected_ = ceil( items_count_for_index_path_ / self.pageSize );
+    NSUInteger elements_expected_ = pages_expected_ * self.pageSize;
    
-   //check if paging disabled
-   BOOL is_overflow_ = ( elements_expected_ >= self.totalElementsCount );
-   if ( is_overflow_ )
-   {
-      *out_is_overflow_ = YES;
-      return rest_of_the_items_ - load_more_placeholder_size_;
-   }
-   
-   return elements_expected_ - self.currentCount;
+    //check if paging disabled
+    BOOL is_overflow_ = ( elements_expected_ >= self.totalElementsCount );
+    if ( is_overflow_ )
+    {
+        *out_is_overflow_ = YES;
+        return rest_of_the_items_ - load_more_placeholder_size_;
+    }
+
+    return elements_expected_ - self.currentCount;
 }
 
 
@@ -190,36 +190,36 @@ static const NSUInteger RIPagingDisabled         = 0;
       NSDebugLog( @"[END] : insertToBottomCells" );
       return;
    }
-
+   
    NSArray* index_paths_ = [ self prepareIndexPathEntriesForBottomCells: cells_count_ ];
-
+   
    NSDebugLog( @"index_path_[%d] : %@ .. %@", [ index_paths_ count ], [ index_paths_ objectAtIndex: 0 ], [ index_paths_ lastObject ] );
    NSDebugLog( @"page size : %d", [ self pageSize ] );
-
+   
    [ table_view_holder_.tableView withinUpdates: ^void( void )
-   {
-      NSDebugLog( @"beginUpdates" );      
-      NSArray* load_more_path_array_ = [ NSArray arrayWithObject: self.loadMoreIndexPath ];
-
+    {
+       NSDebugLog( @"beginUpdates" );      
+       NSArray* load_more_path_array_ = [ NSArray arrayWithObject: self.loadMoreIndexPath ];
+       
       [ [ table_view_holder_ tableView ] reloadRowsAtIndexPaths: load_more_path_array_
-                                               withRowAnimation: UITableViewRowAnimationNone ];
-
-
+                                            withRowAnimation: UITableViewRowAnimationNone ];
+       
+       
       [ [ table_view_holder_ tableView ] insertRowsAtIndexPaths: index_paths_ 
-                                               withRowAnimation: UITableViewRowAnimationNone ];
-
-
-      NSDebugLog( @"Updating currentCount..." );
-      self.currentCount += cells_count_;
-      if ( is_overflow_ && ( self.currentCount < self.totalElementsCount ) )
-      {
-         ++self.currentCount;
-      }
+                                            withRowAnimation: UITableViewRowAnimationNone ];
+       
+       
+       NSDebugLog( @"Updating currentCount..." );
+       self.currentCount += cells_count_;
+       if ( is_overflow_ && ( self.currentCount < self.totalElementsCount ) )
+       {
+          ++self.currentCount;
+       }
       [ table_view_holder_ setCurrentCount: self.currentCount ];
-
-      NSDebugLog( @"currentCount : %d", self.currentCount );
-      NSDebugLog( @"endUpdates" );
-   } ];
+       
+       NSDebugLog( @"currentCount : %d", self.currentCount );
+       NSDebugLog( @"endUpdates" );
+    } ];
 
    NSDebugLog( @"[END] : insertToBottomCells" );
 }

@@ -15,7 +15,7 @@
                repeats:( BOOL )repeats_
              scheduler:( JFFScheduler* )scheduler_
 {
-   NSAssert( scheduler_, @"scheduler should not be nil" );
+   NSParameterAssert( scheduler_ );
 
    NSString* selector_string_ = NSStringFromSelector( selector_ );
    NSUInteger num_of_args_ = [ selector_string_ numberOfCharacterFromString: @":" ];

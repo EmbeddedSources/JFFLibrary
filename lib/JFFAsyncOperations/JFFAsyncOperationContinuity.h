@@ -55,15 +55,22 @@ JFFAsyncOperation asyncOperationWithFinishCallbackBlock( JFFAsyncOperation loade
 JFFAsyncOperation asyncOperationWithFinishHookBlock( JFFAsyncOperation loader_
                                                     , JFFDidFinishAsyncOperationHook finishCallbackHook_ );
 
+typedef NSError* (^JFFChangedResultBuilder)(NSError* error_);
 JFFAsyncOperation asyncOperationWithChangedResult( JFFAsyncOperation loader_
-                                                  , id result_ );
+                                                  , JFFChangedResultBuilder resultBuilder_ );
+
+typedef NSError* (^JFFChangedErrorBuilder)(NSError* error_);
+JFFAsyncOperation asyncOperationWithChangedError( JFFAsyncOperation loader_
+                                                  , JFFChangedErrorBuilder errorBuilder_ );
 
 //done_callback_hook_ called an cancel or finish loader_'s callbacks
 JFFAsyncOperation asyncOperationWithDoneBlock( JFFAsyncOperation loader_
                                               , JFFSimpleBlock doneCallbackHook_ );
 
 JFFAsyncOperation asyncOperationWithResult( id result_ );
-JFFAsyncOperation asyncOperationWithError( id result_ );
+JFFAsyncOperation asyncOperationWithError( NSError* error_ );
+
+JFFAsyncOperationBinder asyncOperationBinderWithAnalyzer( JFFAnalyzer analyzer_ );
 
 ///////////////////////// AUTO REPEAT CIRCLE ////////////////////////
 

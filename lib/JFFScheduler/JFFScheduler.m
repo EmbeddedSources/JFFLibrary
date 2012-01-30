@@ -50,45 +50,45 @@
    return instance_;
 }
 
--(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )action_block_
+-(JFFCancelScheduledBlock)addBlock:( JFFScheduledBlock )actionBlock_
                           duration:( NSTimeInterval )duration_
 {
-   NSAssert( action_block_, @"It has no sense to use nil block for scheduler" );
-   if ( !action_block_ )
-      return [ [ ^(){ /* do nothing */ } copy ] autorelease ];
+    NSParameterAssert( actionBlock_ );
+    if ( !actionBlock_ )
+        return [ [ ^(){ /* do nothing */ } copy ] autorelease ];
 
-   dispatch_source_t timer_ = dispatch_source_create( DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue );
+    dispatch_source_t timer_ = dispatch_source_create( DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue );
 
-   int64_t delta_ = duration_ * NSEC_PER_SEC;
-   dispatch_source_set_timer( timer_
-                             , dispatch_time( DISPATCH_TIME_NOW, delta_ )
-                             , delta_
-                             , 0 );
+    int64_t delta_ = duration_ * NSEC_PER_SEC;
+    dispatch_source_set_timer( timer_
+                              , dispatch_time( DISPATCH_TIME_NOW, delta_ )
+                              , delta_
+                              , 0 );
 
-   __block JFFScheduler* self_ = self;
+    __block JFFScheduler* self_ = self;
 
-   JFFSimpleBlockHolder* cancel_timer_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
-   __block JFFSimpleBlockHolder* weak_cancel_timer_block_holder_ = cancel_timer_block_holder_;
-   cancel_timer_block_holder_.simpleBlock = ^void( void )
-   {
-      dispatch_source_cancel( timer_ );
-      dispatch_release( timer_ );
-      [ self_.cancelBlocks removeObject: weak_cancel_timer_block_holder_.simpleBlock ];
-   };
+    JFFSimpleBlockHolder* cancel_timer_block_holder_ = [ [ JFFSimpleBlockHolder new ] autorelease ];
+    __block JFFSimpleBlockHolder* weak_cancel_timer_block_holder_ = cancel_timer_block_holder_;
+    cancel_timer_block_holder_.simpleBlock = ^void( void )
+    {
+        dispatch_source_cancel( timer_ );
+        dispatch_release( timer_ );
+        [ self_.cancelBlocks removeObject: weak_cancel_timer_block_holder_.simpleBlock ];
+    };
 
-   [ self.cancelBlocks addObject: cancel_timer_block_holder_.simpleBlock ];
+    [ self.cancelBlocks addObject: cancel_timer_block_holder_.simpleBlock ];
 
-   action_block_ = [ [ action_block_ copy ] autorelease ];
-   dispatch_block_t event_handler_block_ = [ [ ^void( void )
-   {
-      action_block_( cancel_timer_block_holder_.onceSimpleBlock );
-   } copy ] autorelease ];
+    actionBlock_ = [ [ actionBlock_ copy ] autorelease ];
+    dispatch_block_t event_handler_block_ = [ [ ^void( void )
+    {
+        actionBlock_( cancel_timer_block_holder_.onceSimpleBlock );
+    } copy ] autorelease ];
 
-   dispatch_source_set_event_handler( timer_, event_handler_block_ );
+    dispatch_source_set_event_handler( timer_, event_handler_block_ );
 
-   dispatch_resume( timer_ );
+    dispatch_resume( timer_ );
 
-   return cancel_timer_block_holder_.onceSimpleBlock;
+    return cancel_timer_block_holder_.onceSimpleBlock;
 }
 
 -(void)cancelAllScheduledOperations

@@ -16,6 +16,7 @@
 #import <JFFUtils/NSString/NSString+PropertyName.h>
 #import <JFFUtils/NSString/NSString+Trimm.h>
 #import <JFFUtils/NSString/NSString+UUIDCreation.h>
+#import <JFFUtils/NSString/NSString+StringWithCutPrefix.h>
 
 #import <JFFUtils/ToURL/NSString+ToURL.h>
 #import <JFFUtils/ToURL/NSURL+ToURL.h>

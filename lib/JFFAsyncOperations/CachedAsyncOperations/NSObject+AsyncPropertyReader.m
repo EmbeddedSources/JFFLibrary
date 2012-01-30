@@ -204,13 +204,13 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
 -(JFFAsyncOperation)privateAsyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                                propertyExtractorFactoryBlock:( JFFPropertyExtractorFactoryBlock )factory_
                                               asyncOperation:( JFFAsyncOperation )asyncOperation_
-                                      didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
+                                      didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didFinishOperation_
 {
-    NSAssert( asyncOperation_, @"async_operation_ should be set" );
+    NSParameterAssert( asyncOperation_ );
 
-    asyncOperation_       = [ asyncOperation_ copy ];
-    did_finish_operation_ = [ did_finish_operation_ copy ];
-    factory_ = [ factory_ copy ];
+    asyncOperation_     = [ asyncOperation_     copy ];
+    didFinishOperation_ = [ didFinishOperation_ copy ];
+    factory_            = [ factory_ copy ];
 
     //JTODO fix leak if this blocks owns self
     __unsafe_unretained id self_ = self;
@@ -220,7 +220,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                     , JFFDidFinishAsyncOperationHandler done_callback_ )
     {
         JFFPropertyExtractor* property_extractor_ = factory_();
-        property_extractor_.object = self_;
+        property_extractor_.object       = self_;
         property_extractor_.propertyPath = property_path_;
 
         id result_ = property_extractor_.property;
@@ -232,7 +232,7 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
         }
 
         property_extractor_.asyncLoader    = asyncOperation_;
-        property_extractor_.didFinishBlock = did_finish_operation_;
+        property_extractor_.didFinishBlock = didFinishOperation_;
 
         JFFCallbacksBlocksHolder* callbacks_ =
             [ [ JFFCallbacksBlocksHolder alloc ] initWithOnProgressBlock: progress_callback_
@@ -259,81 +259,81 @@ static JFFCancelAsyncOperation performNativeLoader( JFFPropertyExtractor* proper
                                        asyncOperation:( JFFAsyncOperation )async_operation_
                                didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
-   NSAssert( property_path_.name && property_path_.key, @"propertyName argument should not be nil" );
-   return [ self privateAsyncOperationForPropertyWithPath: property_path_
-                            propertyExtractorFactoryBlock: factory_
-                                           asyncOperation: async_operation_
-                                   didFinishLoadDataBlock: did_finish_operation_ ];
+    NSAssert( property_path_.name && property_path_.key, @"propertyName argument should not be nil" );
+    return [ self privateAsyncOperationForPropertyWithPath: property_path_
+                             propertyExtractorFactoryBlock: factory_
+                                            asyncOperation: async_operation_
+                                    didFinishLoadDataBlock: did_finish_operation_ ];
 }
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                         propertyExtractorFactoryBlock:( JFFPropertyExtractorFactoryBlock )factory_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
 {
-   return [ self asyncOperationForPropertyWithPath: property_path_
-                     propertyExtractorFactoryBlock: factory_
-                                    asyncOperation: async_operation_
-                            didFinishLoadDataBlock: nil ];
+    return [ self asyncOperationForPropertyWithPath: property_path_
+                      propertyExtractorFactoryBlock: factory_
+                                     asyncOperation: async_operation_
+                             didFinishLoadDataBlock: nil ];
 }
 
 -(JFFAsyncOperation)privateAsyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                                               asyncOperation:( JFFAsyncOperation )async_operation_
                                       didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
-   JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
-   {
-      return [ JFFPropertyExtractor new ];
-   };
+    JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
+    {
+        return [ JFFPropertyExtractor new ];
+    };
 
-   return [ self privateAsyncOperationForPropertyWithPath: property_path_
-                            propertyExtractorFactoryBlock: factory_
-                                           asyncOperation: async_operation_
-                                   didFinishLoadDataBlock: did_finish_operation_ ];
+    return [ self privateAsyncOperationForPropertyWithPath: property_path_
+                             propertyExtractorFactoryBlock: factory_
+                                            asyncOperation: async_operation_
+                                    didFinishLoadDataBlock: did_finish_operation_ ];
 }
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )property_name_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
 {
-   return [ self asyncOperationForPropertyWithName: property_name_
-                                    asyncOperation: async_operation_
-                            didFinishLoadDataBlock: nil ];
+    return [ self asyncOperationForPropertyWithName: property_name_
+                                     asyncOperation: async_operation_
+                             didFinishLoadDataBlock: nil ];
 }
 
--(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )property_name_
+-(JFFAsyncOperation)asyncOperationForPropertyWithName:( NSString* )propertyName_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
                                didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
-   NSAssert( property_name_, @"propertyName argument should not be nil" );
-   JFFPropertyPath* property_path_ = [ [ JFFPropertyPath alloc ] initWithName: property_name_ key: nil ];
+    NSParameterAssert( propertyName_ );
+    JFFPropertyPath* property_path_ = [ [ JFFPropertyPath alloc ] initWithName: propertyName_ key: nil ];
 
-   return [ self privateAsyncOperationForPropertyWithPath: property_path_
-                                           asyncOperation: async_operation_
-                                   didFinishLoadDataBlock: did_finish_operation_ ];
+    return [ self privateAsyncOperationForPropertyWithPath: property_path_
+                                            asyncOperation: async_operation_
+                                    didFinishLoadDataBlock: did_finish_operation_ ];
 }
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
 {
-   return [ self asyncOperationForPropertyWithPath: property_path_
-                                    asyncOperation: async_operation_
-                            didFinishLoadDataBlock: nil ];
+    return [ self asyncOperationForPropertyWithPath: property_path_
+                                     asyncOperation: async_operation_
+                             didFinishLoadDataBlock: nil ];
 }
 
 -(JFFAsyncOperation)asyncOperationForPropertyWithPath:( JFFPropertyPath* )property_path_
                                        asyncOperation:( JFFAsyncOperation )async_operation_
                                didFinishLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_finish_operation_
 {
-   NSAssert( property_path_.name && property_path_.key, @"propertyName argument should not be nil" );
-   return [ self privateAsyncOperationForPropertyWithPath: property_path_
-                                           asyncOperation: async_operation_
-                                   didFinishLoadDataBlock: did_finish_operation_ ];
+    NSAssert( property_path_.name && property_path_.key, @"propertyName argument should not be nil" );
+    return [ self privateAsyncOperationForPropertyWithPath: property_path_
+                                            asyncOperation: async_operation_
+                                    didFinishLoadDataBlock: did_finish_operation_ ];
 }
 
 -(JFFAsyncOperation)asyncOperationMergeLoaders:( JFFAsyncOperation )asyncOperation_
                                   withArgument:( id< NSCopying, NSObject > )argument_
 {
-    JFFPropertyPath* property_path_ = [ [ JFFPropertyPath alloc ]initWithName: @".__JFF_MERGE_LOADERS_BY_ARGUMENTS__."
-                                                                          key: argument_ ];
+    JFFPropertyPath* property_path_ = [ [ JFFPropertyPath alloc ] initWithName: @".__JFF_MERGE_LOADERS_BY_ARGUMENTS__."
+                                                                           key: argument_ ];
     JFFPropertyExtractorFactoryBlock factory_ = ^JFFPropertyExtractor*( void )
     {
         return [ JFFCachePropertyExtractor new ];

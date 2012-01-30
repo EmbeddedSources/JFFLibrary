@@ -8,7 +8,7 @@
 {
     self = [ super init ];
 
-    NSAssert( block_, @"should not be nil" );
+    NSParameterAssert( block_ );
     _block = block_;
 
     return self;

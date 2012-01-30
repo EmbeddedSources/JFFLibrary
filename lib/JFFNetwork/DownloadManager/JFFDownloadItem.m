@@ -271,13 +271,13 @@ long long JFFUnknownFileLength = NSURLResponseUnknownLength;
 -(void)didCancelWithFlag:( BOOL )canceled_
           cancelCallback:( JFFCancelAsyncOperationHandler )cancel_callback_
 {
-   NSAssert( canceled_, @"should not be called with NO" );
-   [ self finalizeLoading ];
+    NSParameterAssert( canceled_ );
+    [ self finalizeLoading ];
 
-   [ self.multicastDelegate didCancelLoadingOfDownloadItem: self ];
+    [ self.multicastDelegate didCancelLoadingOfDownloadItem: self ];
 
-   if ( cancel_callback_ )
-      cancel_callback_( canceled_ );
+    if ( cancel_callback_ )
+        cancel_callback_( canceled_ );
 }
 
 -(void)didReceiveData:( NSData* )data_

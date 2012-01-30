@@ -7,12 +7,12 @@
 
 @implementation NSObject (WeakAsyncOperation)
 
--(JFFAsyncOperation)autoUnsibscribeOrCancelAsyncOperation:( JFFAsyncOperation )native_async_op_
+-(JFFAsyncOperation)autoUnsibscribeOrCancelAsyncOperation:( JFFAsyncOperation )nativeAsyncOp_
                                                    cancel:( BOOL )cancel_native_async_op_
 {
-   NSAssert( native_async_op_, @"native async operation should not be nil" );
+   NSParameterAssert( nativeAsyncOp_ );
 
-   native_async_op_ = [ native_async_op_ copy ];
+   nativeAsyncOp_ = [ nativeAsyncOp_ copy ];
    return ^JFFCancelAsyncOperation( JFFAsyncOperationProgressHandler progress_callback_
                                    , JFFCancelAsyncOperationHandler cancel_callback_
                                    , JFFDidFinishAsyncOperationHandler done_callback_ )
@@ -51,9 +51,9 @@
          done_callback_holder_.onceDidFinishBlock( result_, error_ );
       };
 
-      JFFCancelAsyncOperation cancel_ = native_async_op_( progress_callback_
-                                                         , cancel_callback_wrapper_
-                                                         , done_callback_wrapper_ );
+      JFFCancelAsyncOperation cancel_ = nativeAsyncOp_( progress_callback_
+                                                       , cancel_callback_wrapper_
+                                                       , done_callback_wrapper_ );
 
       if ( finished_ )
       {
