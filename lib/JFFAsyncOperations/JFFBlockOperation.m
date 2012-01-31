@@ -23,8 +23,6 @@
     NSAssert( !_didLoadDataBlock, @"should be nil" );
     NSAssert( !_loadDataBlock, @"should be nil" );
     NSAssert( !_currentQueue, @"should be nil" );
-
-    [ super dealloc ];
 }
 
 -(id)initWithLoadDataBlock:( JFFSyncOperation )loadDataBlock_
@@ -119,9 +117,9 @@
 
     NSAssert( currentQueue_ == queue_, @"Invalid run queue" );
 
-    JFFBlockOperation* result_ = [ [ [ self alloc ] initWithLoadDataBlock: loadDataBlock_
-                                                         didLoadDataBlock: didLoadDataBlock_
-                                                             currentQueue: currentQueue_ ] autorelease ];
+    JFFBlockOperation* result_ = [ [ self alloc ] initWithLoadDataBlock: loadDataBlock_
+                                                       didLoadDataBlock: didLoadDataBlock_
+                                                           currentQueue: currentQueue_ ];
 
     [ result_ performBackgroundOperationInQueue: queue_
                                   loadDataBlock: loadDataBlock_ ];
