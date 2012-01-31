@@ -1,103 +1,132 @@
 #import "JFFBlockOperation.h"
 
-#import "JFFOperationQueue.h"
+#include <dispatch/dispatch.h>
 
 @interface JFFBlockOperation ()
 
-@property ( copy ) JFFSyncOperation loadDataBlock;
+@property ( nonatomic, copy ) JFFSyncOperation loadDataBlock;
 @property ( nonatomic, copy ) JFFDidFinishAsyncOperationHandler didLoadDataBlock;
+@property ( nonatomic, assign ) dispatch_queue_t currentQueue;
+@property ( assign ) BOOL finishedOrCanceled;
 
 @end
 
 @implementation JFFBlockOperation
 
-@synthesize loadDataBlock = _load_data_block;
-@synthesize didLoadDataBlock = _did_load_data_block;
+@synthesize loadDataBlock      = _loadDataBlock;
+@synthesize didLoadDataBlock   = _didLoadDataBlock;
+@synthesize currentQueue       = _currentQueue;
+@synthesize finishedOrCanceled = _finishedOrCanceled;
 
 -(void)dealloc
 {
-   NSAssert( !_did_load_data_block, @"should be nil" );
-   [ _load_data_block release ];
+    NSAssert( !_didLoadDataBlock, @"should be nil" );
+    NSAssert( !_loadDataBlock, @"should be nil" );
+    NSAssert( !_currentQueue, @"should be nil" );
 
-   [ super dealloc ];
+    [ super dealloc ];
 }
 
--(id)initWithLoadDataBlock:( JFFSyncOperation )load_data_block_
-          didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
+-(id)initWithLoadDataBlock:( JFFSyncOperation )loadDataBlock_
+          didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didLoadDataBlock_
+              currentQueue:( dispatch_queue_t )currentQueue_
 {
-   self = [ super init ];
+    self = [ super init ];
 
-   if ( self )
-   {
-      self.loadDataBlock    = load_data_block_;
-      self.didLoadDataBlock = did_load_data_block_;
-   }
+    if ( self )
+    {
+        self.loadDataBlock    = loadDataBlock_;
+        self.didLoadDataBlock = didLoadDataBlock_;
 
-   return self;
+        self.currentQueue = currentQueue_;
+        dispatch_retain( self.currentQueue );
+    }
+
+    return self;
 }
 
-+(id)performOperationWithLoadDataBlock:( JFFSyncOperation )load_data_block_
-                      didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
+-(void)finalizeOperations
 {
-   id operation_ = [ [ self alloc ] initWithLoadDataBlock: load_data_block_
-                                         didLoadDataBlock: did_load_data_block_];
+    dispatch_queue_t currentQueue_ = dispatch_get_current_queue();
+    NSAssert( currentQueue_ == self.currentQueue, @"Invalid current queue queue" );
 
-   [ [ JFFOperationQueue sharedQueue ] addOperation: operation_ ];
+    self.finishedOrCanceled = YES;
 
-   return [ operation_ autorelease ];
+    self.loadDataBlock    = nil;
+    self.didLoadDataBlock = nil;
+    dispatch_release( self.currentQueue );
+    self.currentQueue = NULL;
 }
 
--(void)didFinishOperationWithResultContext:( JFFResultContext* )result_context_
+-(void)didFinishOperationWithResult:( id )result_
+                              error:( NSError* )error_
 {
-   if ( !self.didLoadDataBlock )
-      return;
+    if ( self.finishedOrCanceled )
+        return;
 
-   JFFDidFinishAsyncOperationHandler did_load_data_block_ = [ self.didLoadDataBlock copy ];
-   self.didLoadDataBlock = nil;
-   did_load_data_block_( result_context_.result, result_context_.error );
-   [ did_load_data_block_ release ];
+    self.didLoadDataBlock( result_, error_ );
+
+    [ self finalizeOperations ];
 }
 
 -(void)cancel:( BOOL )cancel_
 {
-   [ NSThread assertMainThread ];
+    if ( self.finishedOrCanceled )
+        return;
 
-   if ( cancel_ )
-      [ super cancel ];
-
-   self.didLoadDataBlock = nil;
+    [ self finalizeOperations ];
 }
 
--(void)main
+-(void)performBackgroundOperationInQueue:( dispatch_queue_t )queue_
+                           loadDataBlock:( JFFSyncOperation )loadDataBlock_
 {
-   @autoreleasepool
-   {
-      JFFResultContext* result_context_ = [ [ JFFResultContext new ] autorelease ];
+    dispatch_async( queue_, ^
+    {
+        if ( self.finishedOrCanceled )
+            return;
 
-      NSError* local_error_ = nil;
-      @try
-      {
-         result_context_.result = self.loadDataBlock( &local_error_ );
-         result_context_.error = local_error_;
-      }
-      @catch ( NSException* ex_ )
-      {
-         NSLog( @"critical error: %@", ex_ );
-         result_context_.result = nil;
-         NSString* description_ = [ NSString stringWithFormat: @"exception: %@, reason: %@"
-                                   , ex_.name
-                                   , ex_.reason ];
-         result_context_.error = [ JFFError errorWithDescription:description_  ];
-      }
-      @finally
-      {
-         local_error_ = nil;
-      }
+        NSError* error_ = nil;
+        id opResult_    = nil;
+        @try
+        {
+            opResult_ = loadDataBlock_( &error_ );
+        }
+        @catch ( NSException* ex_ )
+        {
+            NSLog( @"critical error: %@", ex_ );
+            opResult_ = nil;
+            NSString* description_ = [ NSString stringWithFormat: @"exception: %@, reason: %@"
+                                      , ex_.name
+                                      , ex_.reason ];
+            error_ = [ JFFError errorWithDescription: description_ ];
+        }
 
-      [ self performSelectorOnMainThread: @selector( didFinishOperationWithResultContext: )
-                              withObject: result_context_
-                           waitUntilDone: YES ];
-   };
+        dispatch_async( self.currentQueue, ^
+        {
+            [ self didFinishOperationWithResult: opResult_ error: error_ ];
+        } );
+    } );
+}
+
++(id)performOperationWithLoadDataBlock:( JFFSyncOperation )loadDataBlock_
+                      didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didLoadDataBlock_
+{
+    NSParameterAssert( loadDataBlock_ );
+    NSParameterAssert( didLoadDataBlock_ );
+
+    dispatch_queue_t currentQueue_ = dispatch_get_current_queue();
+    dispatch_queue_t queue_        = dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    NSAssert( currentQueue_ == queue_, @"Invalid run queue" );
+
+    JFFBlockOperation* result_ = [ [ [ self alloc ] initWithLoadDataBlock: loadDataBlock_
+                                                         didLoadDataBlock: didLoadDataBlock_
+                                                             currentQueue: currentQueue_ ] autorelease ];
+
+    [ result_ performBackgroundOperationInQueue: queue_
+                                  loadDataBlock: loadDataBlock_ ];
+
+    return result_;
 }
 
 @end

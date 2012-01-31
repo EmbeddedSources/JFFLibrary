@@ -3,15 +3,10 @@
 #import <Foundation/Foundation.h>
 
 //JTODO remove
-@interface JFFBlockOperation : NSOperation
-{
-@private
-   JFFSyncOperation _load_data_block;
-   JFFDidFinishAsyncOperationHandler _did_load_data_block;
-}
+@interface JFFBlockOperation : NSObject
 
-+(id)performOperationWithLoadDataBlock:( JFFSyncOperation )load_data_block_
-                      didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_;
++(id)performOperationWithLoadDataBlock:( JFFSyncOperation )loadDataBlock_
+                      didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didLoadDataBlock_;
 
 -(void)cancel:( BOOL )cancel_;
 

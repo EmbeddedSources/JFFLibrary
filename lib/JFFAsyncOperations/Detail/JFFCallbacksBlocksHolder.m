@@ -6,20 +6,20 @@
 @synthesize onCancelBlock;
 @synthesize didLoadDataBlock;
 
--(id)initWithOnProgressBlock:( JFFAsyncOperationProgressHandler )on_progress_block_
-               onCancelBlock:( JFFCancelAsyncOperationHandler )on_cancel_block_
-            didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )did_load_data_block_
+-(id)initWithOnProgressBlock:( JFFAsyncOperationProgressHandler )onProgressBlock_
+               onCancelBlock:( JFFCancelAsyncOperationHandler )onCancelBlock_
+            didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didLoadDataBlock_
 {
-   self = [ super init ];
+    self = [ super init ];
 
-   if ( self )
-   {
-      self.onProgressBlock = on_progress_block_;
-      self.onCancelBlock = on_cancel_block_;
-      self.didLoadDataBlock = did_load_data_block_;
-   }
+    if ( self )
+    {
+        self.onProgressBlock  = onProgressBlock_;
+        self.onCancelBlock    = onCancelBlock_;
+        self.didLoadDataBlock = didLoadDataBlock_;
+    }
 
-   return self;
+    return self;
 }
 
 @end
