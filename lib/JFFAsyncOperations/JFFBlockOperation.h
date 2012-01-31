@@ -8,6 +8,6 @@
 +(id)performOperationWithLoadDataBlock:( JFFSyncOperation )loadDataBlock_
                       didLoadDataBlock:( JFFDidFinishAsyncOperationHandler )didLoadDataBlock_;
 
--(void)cancel:( BOOL )cancel_;
+-(void)cancel;
 
 @end

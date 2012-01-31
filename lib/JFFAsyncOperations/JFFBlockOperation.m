@@ -67,7 +67,7 @@
     [ self finalizeOperations ];
 }
 
--(void)cancel:( BOOL )cancel_
+-(void)cancel
 {
     if ( self.finishedOrCanceled )
         return;
