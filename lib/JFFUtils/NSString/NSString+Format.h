@@ -3,6 +3,5 @@
 @interface NSString ( Format ) 
 
 +(id)stringWithFormatCheckNill:( NSString* )format_, ... ;
--(BOOL)hasSymbols;
 
 @end

@@ -5,4 +5,6 @@
 -(NSString*)stringByTrimmingWhitespaces;
 -(NSString*)stringByTrimmingPunctuation;
 
+-(NSString*)stringByTrimmingQuotes;
+
 @end

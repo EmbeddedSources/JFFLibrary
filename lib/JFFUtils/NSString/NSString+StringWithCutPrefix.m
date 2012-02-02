@@ -5,7 +5,7 @@
 -(id)stringWithCutPrefix:( NSString* )prefix_
 {
     return [ self hasPrefix: prefix_ ]
-        ? [ self substringFromIndex: [ @"/sitecore/media library" length ] ]
+        ? [ self substringFromIndex: [ prefix_ length ] ]
         : self;
 }
 
