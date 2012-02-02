@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B26EC6F14DABFB800A1A875 /* EmptyStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B26EC6D14DABFB800A1A875 /* EmptyStringTest.m */; };
+		1B26EC7014DABFB800A1A875 /* JFFStringFormatTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B26EC6E14DABFB800A1A875 /* JFFStringFormatTest.m */; };
 		1B29556F143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B29556E143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m */; };
 		1B80C1E01442CE5A007D4309 /* NSObjectRuntimeExtensionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B80C1DF1442CE5A007D4309 /* NSObjectRuntimeExtensionsTest.m */; };
 		1B80C24014430049007D4309 /* NSObjectInstancesCountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B80C23F14430049007D4309 /* NSObjectInstancesCountTest.m */; };
@@ -67,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B26EC6D14DABFB800A1A875 /* EmptyStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStringTest.m; sourceTree = "<group>"; };
+		1B26EC6E14DABFB800A1A875 /* JFFStringFormatTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFStringFormatTest.m; sourceTree = "<group>"; };
 		1B29556E143DCE7F00532BD7 /* JFFSimpleBlockHolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFSimpleBlockHolderTest.m; sourceTree = "<group>"; };
 		1B80C1DF1442CE5A007D4309 /* NSObjectRuntimeExtensionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectRuntimeExtensionsTest.m; sourceTree = "<group>"; };
 		1B80C23F14430049007D4309 /* NSObjectInstancesCountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectInstancesCountTest.m; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 		B69484451429DFAC00B8247E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B26EC6D14DABFB800A1A875 /* EmptyStringTest.m */,
+				1B26EC6E14DABFB800A1A875 /* JFFStringFormatTest.m */,
 				534CDFDB14A8CA910068F4DF /* mock */,
 				534C727A1431D9DE0085B41E /* JUMutableArrayTest.m */,
 				53BCF8E514323E7D00E896B3 /* JUArrayAdditionsTest.m */,
@@ -344,6 +350,8 @@
 				534CE02E14A8CE8C0068F4DF /* JMChild.m in Sources */,
 				5349A6CC14A9D01C008ECCA6 /* ClassHierarchyCheckerTest.mm in Sources */,
 				532E281914A9E9A300111144 /* ObjcDynamicCastTest.mm in Sources */,
+				1B26EC6F14DABFB800A1A875 /* EmptyStringTest.m in Sources */,
+				1B26EC7014DABFB800A1A875 /* JFFStringFormatTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
