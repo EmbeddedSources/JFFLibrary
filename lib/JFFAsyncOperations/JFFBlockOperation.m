@@ -45,9 +45,6 @@
 
 -(void)finalizeOperations
 {
-    dispatch_queue_t currentQueue_ = dispatch_get_current_queue();
-    NSAssert( currentQueue_ == self.currentQueue, @"Invalid current queue queue" );
-
     self.finishedOrCanceled = YES;
 
     self.loadDataBlock    = nil;
@@ -71,6 +68,9 @@
 {
     if ( self.finishedOrCanceled )
         return;
+
+    dispatch_queue_t currentQueue_ = dispatch_get_current_queue();
+    NSAssert( currentQueue_ == self.currentQueue, @"Invalid current queue queue" );
 
     [ self finalizeOperations ];
 }
